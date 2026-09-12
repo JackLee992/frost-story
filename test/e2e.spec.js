@@ -112,6 +112,9 @@ test('左右挖孔边距不会遮住操作控件', async ({ browser }) => {
 });
 
 test('任务架不遮棋盘，玩家通过角色剧情完成新手核心循环', async ({ browser }) => {
+  // 该用例会解码 9 个音效、走完首局并跨重载验证持久化；GitHub 的冷 runner
+  // 明显慢于本机，使用独立预算，避免默认 30 秒在最后一次 reload 前误报。
+  test.setTimeout(60_000);
   const context = await browser.newContext({ viewport: { width: 360, height: 800 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   await page.goto(base);
