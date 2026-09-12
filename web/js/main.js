@@ -48,12 +48,17 @@ const setP=p=>fill.style.width=Math.round(p*100)+'%';
     const scene=new BoardScene(state,document.getElementById('board'));
     await scene.init();
     const ui=new UI(state,scene);
-    ui.renderHUD(); ui.renderOrders(); ui._tutorial();
+    ui.renderHUD(); ui.renderOrders(); ui.renderQuest(); ui._tutorial();
     setP(1);
 
     document.getElementById('ui').classList.remove('hidden');
     setTimeout(()=>document.getElementById('loading').style.cssText='opacity:0;transition:opacity .5s;pointer-events:none',300);
     setTimeout(()=>document.getElementById('loading').remove(),900);
+
+    // 按当前主线章节设置 BGM 与风雪强度（音频在首次手势后才真正出声）
+    const obj=state.currentObjective();
+    if(obj) ui._applyMood(obj.chapter);
+    else AudioMgr.playBgm('bgm_spring');
 
     // 首次手势解锁音频（移动端自动播放限制）
     const unlock=()=>{ AudioMgr.unlock(); window.removeEventListener('pointerdown',unlock); };
@@ -63,7 +68,12 @@ const setP=p=>fill.style.width=Math.round(p*100)+'%';
     window.addEventListener('pagehide',flushSave);
     document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') flushSave(); });
 
-    if(isNew) setTimeout(()=>ui.welcome(),700);
+    if(isNew){
+      setTimeout(()=>ui.welcome(),700);
+    } else {
+      // 老玩家：若有已开放却未看过场的章节，补播章节开场，保持故事连续
+      setTimeout(()=>ui._maybeChapterIntro(),900);
+    }
     window.__game={state,scene,ui,Config};
   }catch(err){
     console.error(err);

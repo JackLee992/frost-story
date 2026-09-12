@@ -9,7 +9,8 @@ export class Config {
       loadJSON('config/items.json'), loadJSON('config/npcs.json'),
       loadJSON('config/balance.json'), loadJSON('config/shop.json'), loadJSON('config/story.json')
     ]);
-    this.items=items; this.npcs=npcs.npcs; this.balance=balance; this.shop=shop; this.story=story.chapters;
+    this.items=items; this.npcs=npcs.npcs; this.balance=balance; this.shop=shop;
+    this.story=story.chapters; this.prologue=story.prologue||[]; this.epilogue=story.epilogue||[];
     step('整理合成链…');
     this.families = items.families;
     this.generators = items.generators;
@@ -20,10 +21,20 @@ export class Config {
     for(const fam of this.famList) tex[`token_${fam}`]=`assets/img/token_${fam}.png`;
     for(const n of this.npcs) tex[`npc_${n.id}`]=`assets/img/${n.img}`;
     tex.board='assets/img/board_bg.png'; tex.title='assets/img/title_keyart.png';
-    this.story.forEach((c,i)=> tex[`story_${c.id}`]=`assets/img/${c.scene}`);
+    this.story.forEach(c=>{ tex[`story_${c.id}`]=`assets/img/${c.scene}`;
+      for(const node of c.nodes) if(node.cg) tex[`cg_${c.id}_${node.id}`]=`assets/img/${node.cg}`; });
     this.textures = tex;
     return this;
   }
+  // 扁平化全部主线节点（保持章节/节点顺序），用于主线目标、爽玩备料与遍历
+  static flatNodes(){ const out=[]; for(const ch of this.story) for(const node of ch.nodes) out.push({chapter:ch,node}); return out; }
+  // 玩家当前主线目标：第一个尚未完成的节点（故事线驱动游戏）
+  static currentObjective(done){ const list=this.flatNodes();
+    return list.find(x=>!(done||[]).includes(x.node.id))||null; }
+  static finaleNode(){ const f=this.flatNodes().filter(x=>x.node.finale); return f[f.length-1]||null; }
+  static chapterProgress(ch,done){ const total=ch.nodes.length, got=ch.nodes.filter(n=>(done||[]).includes(n.id)).length; return {got,total}; }
+  // 可派单 NPC（剧情-only 角色不下委托）
+  static orderNpcs(){ return this.npcs.filter(n=>n.order!==false); }
   // 家族是否已按等级解锁
   static famUnlocked(fam, lv){ const g=this.generators[this.families[fam].generator]; return lv >= g.unlockLv; }
   static unlockedFams(lv){ return this.famList.filter(f=>this.famUnlocked(f,lv)); }

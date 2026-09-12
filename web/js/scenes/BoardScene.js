@@ -103,7 +103,8 @@ export class BoardScene {
       if(this.drag?.uid!==c.uid) this._place(node,idx,force);
     }
     for(const [uid,node] of this.nodes){ if(!live.has(uid)){ this.nodes.delete(uid);
-      this.tween(160,t=>node.alpha=1-t,()=>{this.nodeMeta.delete(node);node.destroy({children:true});}); } }
+      // 节点可能在淡出期间被爽玩清盘/重建销毁，补间需跳过已销毁对象（否则 position/alpha 抛空指针）
+      this.tween(160,t=>{ if(!node.destroyed) node.alpha=1-t; },()=>{ if(node.destroyed) return; this.nodeMeta.delete(node);node.destroy({children:true}); }); } }
   }
   _layoutAll(instant){ for(const node of this.nodes.values()){ const idx=this.nodeMeta.get(node)?.idx; if(idx!=null) this._place(node,idx,instant); } }
   _place(node,idx,instant){ const p=this.center(idx);
@@ -111,7 +112,7 @@ export class BoardScene {
     // `_sx` / `_sy` 是 Pixi Transform 的内部矩阵缓存，不能拿来保存动画起点。
     // 覆盖它们会让新棋子的高度变成 0 或上万像素，表现为贯穿全屏的竖条。
     const fromX=node.x,fromY=node.y;
-    this.tween(170,t=>{node.position.set(fromX+(p.x-fromX)*easeOut(t),fromY+(p.y-fromY)*easeOut(t));});
+    this.tween(170,t=>{ if(node.destroyed) return; node.position.set(fromX+(p.x-fromX)*easeOut(t),fromY+(p.y-fromY)*easeOut(t));});
   }
 
   _makeNode(c){
@@ -358,7 +359,9 @@ export class BoardScene {
 
   // ---------- 动效 ----------
   tween(dur,onUpdate,onDone,instant){ this._tweens.push({t0:performance.now(),dur,onUpdate,onDone}); }
-  _tickTweens(now){ const rest=[]; for(const tw of this._tweens){ let t=(now-tw.t0)/tw.dur; if(t>=1){t=1;tw.onUpdate?.(1);tw.onDone?.();} else {tw.onUpdate?.(t);rest.push(tw);} } this._tweens=rest; }
+  _tickTweens(now){ const rest=[]; for(const tw of this._tweens){ let t=(now-tw.t0)/tw.dur; try{
+    if(t>=1){t=1;tw.onUpdate?.(1);tw.onDone?.();} else {tw.onUpdate?.(t);rest.push(tw);}
+  }catch(e){ /* 过期补间（目标已销毁）直接丢弃，绝不能中断渲染循环 */ console.warn('tween skipped',e?.message); } } this._tweens=rest; }
   fly(pos,text,color){ const t=new PIXI.Text({text,style:{fontFamily:'PingFang SC',fontSize:15,fontWeight:'800',fill:color,stroke:{color:'#0b2138',width:3}}});
     t.anchor.set(.5); t.position.set(pos.x,pos.y-10); this.fxLayer.addChild(t);
     this.tween(800,o=>{t.position.y=pos.y-10-34*o;t.alpha=1-o;},()=>t.destroy()); }

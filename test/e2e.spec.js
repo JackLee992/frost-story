@@ -12,7 +12,21 @@ async function boot(page, query = '?safeTop=32&safeRight=0&safeBottom=24&safeLef
   return errors;
 }
 
-test('全屏安全区、三章入口与固定来源存档', async ({ browser }) => {
+// 序章为多页陪伴对白，逐页点到进入新手引导（或对白结束）
+async function skipWelcome(page){
+  for(let i=0;i<12;i++){
+    const cnt=await page.locator('.dlg-next').count();
+    if(cnt===0) break;
+    const b=page.locator('.dlg-next').last();
+    if(!(await b.isVisible().catch(()=>false))){ await page.waitForTimeout(120); continue; }
+    await b.click({force:true}).catch(()=>{});
+    await page.waitForTimeout(190);
+  }
+  await page.locator('.dlg-next').waitFor({state:'detached',timeout:3000}).catch(()=>{});
+  await page.waitForTimeout(150);
+}
+
+test('全屏安全区、六章入口与固定来源存档', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 360, height: 800 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   await page.goto(base);
@@ -30,8 +44,7 @@ test('全屏安全区、三章入口与固定来源存档', async ({ browser }) 
   expect(geometry.oy).toBeGreaterThanOrEqual(158 + 32);
   expect(geometry.oy + geometry.gh).toBeLessThanOrEqual(geometry.h - 96 - 24);
 
-  const welcome = page.locator('.dlg-next');
-  if (await welcome.isVisible()) await welcome.click();
+  await skipWelcome(page);
   await page.locator('[data-panel="settings"]').click();
   await page.waitForTimeout(350);
   const modal = await page.locator('.modal').boundingBox();
@@ -71,7 +84,7 @@ test('全屏安全区、三章入口与固定来源存档', async ({ browser }) 
   await page.locator('[data-panel="story"]').click();
   await expect(page.locator('[data-build="n11"]')).toBeVisible();
   await page.locator('[data-build="n11"]').click();
-  await expect(page.locator('.dlg-line .say')).toContainText('暴风雪下了整整十年');
+  await expect(page.locator('.dlg-line .say')).toContainText('火星');
   await page.screenshot({ path: 'artifacts/qa/web-safe-area.png', fullPage: true });
 
   expect(errors).toEqual([]);
@@ -99,10 +112,11 @@ test('新手可沿竞品同款核心循环完成六步教学', async ({ browser 
   await page.goto(base);
   await page.evaluate(() => localStorage.clear());
   const errors = await boot(page);
-  await page.locator('.dlg-next').click();
+  await skipWelcome(page);
   await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','produce');
-  await expect(page.locator('#guideLayer .guide-shade')).toHaveCount(4);
-  expect(await page.locator('.guide-focus').evaluate(el => getComputedStyle(el).boxShadow.includes('200vmax'))).toBe(false);
+  await expect(page.locator('#guideLayer .guide-shade')).toHaveCount(0);
+  await expect(page.locator('#companion.teaching')).toBeVisible();
+  expect(await page.locator('.guide-focus').evaluate(el => getComputedStyle(el).boxShadow.includes('9999px'))).toBe(false);
   await page.screenshot({ path: 'artifacts/qa/web-onboarding-step1.png', fullPage: true });
 
   const generator = await page.evaluate(() => {
@@ -135,7 +149,7 @@ test('新手可沿竞品同款核心循环完成六步教学', async ({ browser 
 
   await page.locator('[data-panel="story"]').click();
   expect(await page.locator('.modal-mask').evaluate(el => getComputedStyle(el).backdropFilter)).toBe('none');
-  await expect(page.locator('.story-chap')).toHaveCount(3);
+  await expect(page.locator('.story-chap')).toHaveCount(6);
   expect(await page.evaluate(() => window.__game.state.tutorial.done)).toBe(true);
   await expect(page.locator('#guideLayer')).toBeHidden();
   await page.screenshot({ path: 'artifacts/qa/web-onboarding-clean-grid.png', fullPage: true });
@@ -179,8 +193,7 @@ test('失败交易保留当前弹窗、列表与滚动位置', async ({ browser 
   await page.goto(base);
   await page.evaluate(()=>localStorage.clear());
   const errors=await boot(page);
-  const welcome=page.locator('.dlg-next');
-  if(await welcome.isVisible()) await welcome.click();
+  await skipWelcome(page);
 
   await page.evaluate(()=>{ window.__game.state.coin=0; window.__game.state.gem=0; window.__game.ui.renderHUD(); });
   await page.locator('[data-panel="shop"]').click();

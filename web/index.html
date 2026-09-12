@@ -38,6 +38,9 @@
 
       <div id="orders" class="orders"></div>
 
+      <!-- 常驻主线任务条：故事线始终在场，指引下一步合成/交付目标 -->
+      <div id="quest" class="quest hidden"></div>
+
       <div id="hint" class="hint hidden"></div>
 
       <!-- 首次游玩逐步引导：遮罩不拦截目标操作，规则可随时回看 -->
@@ -45,6 +48,13 @@
 
       <!-- 爽玩模式悬浮控制台入口（开启后出现） -->
       <button id="sbFab" class="sb-fab hidden" type="button" aria-label="爽玩控制台，可拖动并自动吸附屏幕边缘" title="拖动可调整位置">🥽<span>爽玩</span></button>
+
+      <!-- 陪伴角色：霜灵啾可（教学中讲故事式引导，教学后常驻提示主线） -->
+      <div id="companion" class="companion hidden" aria-live="polite">
+        <div class="comp-bubble"><span class="comp-who">霜灵 · 啾可</span><p class="comp-say"></p>
+          <div class="comp-actions"><button class="comp-skip" type="button">跳过引导</button></div></div>
+        <button class="comp-avatar" type="button" aria-label="啾可提示"><img src="assets/img/npc_sprite.png" alt="啾可"><i class="comp-ping"></i></button>
+      </div>
 
       <footer id="dock">
         <button class="dock-btn" data-panel="shop"><span class="d-ic">🛒</span>商店</button>

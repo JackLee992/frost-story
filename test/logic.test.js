@@ -114,19 +114,61 @@ console.log('— 爽玩模式 —');
   s.setSandbox(false); ok(!s.sandbox,'可关闭爽玩模式');
 }
 
-console.log('— 三章完整试玩链 —');
+console.log('— 完整主线试玩链（6 章 24 节点）—');
 {
   const s=new GameState().newGame(); s.setSandbox(true);
   let built=0;
-  while(built<20){
+  while(built<40){
     const prepared=s.sbPrepareNextStory();
     if(prepared.finished) break;
     ok(s.nodeState(prepared.node,prepared.chapter)==='ready',`节点 ${prepared.node.id} 已精确备料`);
     ok(s.buildNode(prepared.chapter,prepared.node),`节点 ${prepared.node.id} 可完成`);
     built++;
   }
-  ok(built===9&&s.storyDone.length===9,'三章九节点全部贯通');
+  const total=Config.flatNodes().length;
+  ok(built===total&&s.storyDone.length===total,`六章 ${total} 节点全部贯通`);
   ok(s.sbPrepareNextStory().finished===true,'通关后正确返回已完成');
+}
+
+console.log('— 剧情体系数据驱动约束 —');
+{
+  const flat=Config.flatNodes();
+  // 唯一终章节点
+  const finales=flat.filter(x=>x.node.finale);
+  ok(finales.length===1 && finales[0].node.id==='n64','唯一数据驱动终章节点 n64');
+  // 序章/结局非空
+  ok(Array.isArray(Config.prologue)&&Config.prologue.length>=3,'序章存在');
+  ok(Array.isArray(Config.epilogue)&&Config.epilogue.length>=6,'结局演出存在');
+  // 每个节点需求合法、对白角色合法、交付前请求存在
+  const npcIds=new Set(Config.npcs.map(n=>n.id)); const fams=new Set(Config.famList);
+  let preOk=true, whoOk=true;
+  for(const {node} of flat){
+    if(!Array.isArray(node.pre)||node.pre.length<1) preOk=false;
+    for(const q of node.need) if(!fams.has(q.fam)||q.tier<1||q.tier>8) whoOk=false;
+    for(const line of [...(node.pre||[]),...(node.dialogue||[])])
+      if(!npcIds.has(line[0])&&line[0]!=='narrator'&&line[0]!=='all') whoOk=false;
+  }
+  ok(preOk,'每个节点都有交付前请求对白（故事驱动游戏）');
+  ok(whoOk,'所有对白角色与需求链合法');
+  // 主线目标按顺序推进
+  const s=new GameState().newGame();
+  ok(s.currentObjective().node.id==='n11','初始主线目标为 n11');
+  // 章节开放门控：第 2 章在第 1 章未完成前不可达
+  ok(s.chapterReachable(Config.story[0])===true && s.chapterReachable(Config.story[1])===false,'章节顺序门控');
+  // 章节过场记录 + 存档往返
+  s.markChapterSeen(1); const again=new GameState().hydrate(JSON.parse(JSON.stringify(s.serialize())));
+  ok(again.chaptersSeen.length===1&&again.chaptersSeen[0]===1,'章节过场记录可持久化');
+  // 非法章节 id 被过滤
+  const dirty=new GameState().hydrate({chaptersSeen:[1,99,'x',3]});
+  ok(JSON.stringify(dirty.chaptersSeen)==='[1,3]','非法章节过场记录被过滤');
+  // 剧情-only NPC（祖父、陪伴向导啾可）不下订单
+  const og=new GameState().newGame(); og.lv=20; let leaked=false;
+  for(let i=0;i<200;i++){ const o=og._genOrder([]); if(o.npcId==='gramps'||o.npcId==='choco') leaked=true; }
+  ok(!leaked,'祖父与陪伴向导啾可均为剧情角色，不进入订单池');
+  // 角色羁绊为纯派生：完成节点后计数增长
+  const bd=new GameState().newGame(); bd.setSandbox(true);
+  const p=bd.sbPrepareNextStory(); bd.buildNode(p.chapter,p.node);
+  ok(Object.keys(bd.bondByNpc()).length>=1,'完成节点后产生角色羁绊');
 }
 
 console.log('— 六步新手核心链 —');

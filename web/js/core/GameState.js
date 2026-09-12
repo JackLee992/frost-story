@@ -20,7 +20,7 @@ export class GameState {
     this.cells=new Array(b.board.cols*b.board.rows).fill(null);
     this.ownedGens=['g_crystal','g_fire'];
     this.boughtGens=[]; this.orders=[]; this.orderSlots=b.order.slots;
-    this.storyDone=[]; this.hb={}; this.stats={merge:0,order:0,produce:0};
+    this.storyDone=[]; this.chaptersSeen=[]; this.hb={}; this.stats={merge:0,order:0,produce:0};
     this.tutorial={step:0,produced:false,merged:false,ordered:false,unlocked:false,
       shopped:false,storyOpened:false,done:false,skipped:false};
     this.settings={bgm:true,sfx:true,fabSide:'right',fabY:.56};
@@ -106,6 +106,9 @@ export class GameState {
       if(!requestedDone.has(node.id)) break outer;
       this.storyDone.push(node.id);
     }
+    const validChapterIds=new Set(Config.story.map(c=>c.id));
+    this.chaptersSeen=Array.isArray(d.chaptersSeen)
+      ?[...new Set(d.chaptersSeen.map(Number).filter(x=>validChapterIds.has(x)))]:[];
     const mapNums=(source,allowed)=>{ const out={}; if(source&&typeof source==='object'&&!Array.isArray(source)){
       for(const key of allowed){ if(hasOwn(source,key)) out[key]=int(source[key],0,0,1_000_000_000); }
     } return out; };
@@ -134,7 +137,7 @@ export class GameState {
     return {v:1,lv:this.lv,xp:this.xp,coin:this.coin,gem:this.gem,warmth:this.warmth,
       energy:this.energy,energyTs:this.energyTs,boardUnlocked:this.boardUnlocked,cells:this.cells,
       ownedGens:this.ownedGens,boughtGens:this.boughtGens,orders:this.orders,orderSlots:this.orderSlots,
-      storyDone:this.storyDone,hb:this.hb,stats:this.stats,tutorial:this.tutorial,settings:this.settings,
+      storyDone:this.storyDone,chaptersSeen:this.chaptersSeen,hb:this.hb,stats:this.stats,tutorial:this.tutorial,settings:this.settings,
       sandbox:!!this.sandbox,
       refreshCost:this.refreshCost};
   }
@@ -292,8 +295,9 @@ export class GameState {
   _genOrder(avoid=[]){
     const o=Config.balance.order, lv=this.lv;
     const fams=Config.unlockedFams(lv);
-    const npcPool=Config.npcs.filter(n=>!avoid.includes(n.id));
-    const npc=RNG.pick(npcPool.length?npcPool:Config.npcs);
+    const pool=Config.orderNpcs();
+    const npcPool=pool.filter(n=>!avoid.includes(n.id));
+    const npc=RNG.pick(npcPool.length?npcPool:pool);
     const cnt=Config.tierAtLevel(o.countByLv,lv);
     const maxT=Config.tierAtLevel(o.maxTierByLv,lv);
     const needs=[];
@@ -426,4 +430,25 @@ export class GameState {
     this.changed('storyBuilt',{chapter,node}); bus.emit('sfx','unlock');
     return true;
   }
+
+  // ---------- 剧情推进（故事线 <-> 游戏 双向驱动） ----------
+  // 当前主线目标（第一个未完成节点）
+  currentObjective(){ return Config.currentObjective(this.storyDone); }
+  // 章节是否已对玩家开放：第 1 章常开；其余需上一章全部完成
+  chapterReachable(ch){
+    if(ch.id<=1) return true;
+    const prev=Config.story[ch.id-2]; return !!prev && prev.nodes.every(n=>this.storyDone.includes(n.id));
+  }
+  markChapterSeen(id){ if(!this.chaptersSeen.includes(id)){ this.chaptersSeen.push(id); this.changed('chapterSeen',{id}); } }
+  // 下一个尚未播放过场、且已开放的章节（用于自动弹出章节开场）
+  nextUnseenChapter(){ return Config.story.find(ch=>!this.chaptersSeen.includes(ch.id)&&this.chapterReachable(ch))||null; }
+  // 角色羁绊：该 NPC 在已完成节点的 pre/dialogue 中登场次数（手账用，纯派生不存档）
+  bondByNpc(){ const m={};
+    const add=(who,n)=>{ if(who==='narrator'||who==='all') return; m[who]=(m[who]||0)+n; };
+    for(const ch of Config.story) for(const node of ch.nodes){ if(!this.storyDone.includes(node.id)) continue;
+      (node.pre||[]).forEach(l=>add(l[0],1)); (node.dialogue||[]).forEach(l=>add(l[0],1)); }
+    return m;
+  }
+  // 某节点是否已完成（手账/回放用）
+  isNodeDone(id){ return this.storyDone.includes(id); }
 }

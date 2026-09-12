@@ -276,3 +276,104 @@ body.sandbox-on #hud{position:relative;}
 .load-bar{height:10px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;}
 .load-fill{height:100%;width:0%;background:linear-gradient(90deg,#8fd6ff,#4aa3e8);transition:width .3s;border-radius:99px;}
 .load-tip{margin-top:12px;font-size:12.5px;color:#9fc6e6;}
+
+/* ============ 主线任务条（故事驱动游戏） ============ */
+.quest{display:flex;align-items:center;gap:9px;margin:2px calc(10px + var(--safe-r)) 6px calc(10px + var(--safe-l));
+  padding:7px 9px 7px 7px;border-radius:15px;background:linear-gradient(120deg,rgba(20,58,92,.92),rgba(31,90,134,.9));
+  box-shadow:var(--shadow);border:1.5px solid rgba(159,212,245,.4);pointer-events:auto;animation:tin .3s;}
+.quest.ready{border-color:#ffe08a;background:linear-gradient(120deg,rgba(40,86,60,.94),rgba(46,140,96,.92));}
+.quest .q-scene{width:46px;height:46px;border-radius:11px;object-fit:cover;flex:0 0 auto;border:1.5px solid rgba(255,255,255,.6);}
+.quest .q-body{flex:1;min-width:0;}
+.q-top{display:flex;align-items:baseline;gap:7px;}
+.q-ch{font-size:10px;font-weight:900;letter-spacing:.5px;color:#9fd4f5;}
+.quest.ready .q-ch{color:#d8ffd2;}
+.q-name{font-size:13.5px;font-weight:900;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.q-needs{display:flex;gap:4px;margin-top:3px;flex-wrap:wrap;}
+.q-needs .need-chip{font-size:10.5px;padding:1px 5px 1px 3px;}
+.q-needs .need-chip img{width:16px;height:16px;}
+.q-go{flex:0 0 auto;border-radius:10px;padding:8px 14px;font-weight:900;font-size:12.5px;color:#173f63;
+  background:linear-gradient(160deg,#dff1ff,#a9d8ff);}
+.quest.ready .q-go{color:#5a3a00;background:linear-gradient(160deg,#ffe9a8,#ffc94d);box-shadow:0 3px 10px rgba(255,201,77,.4);}
+
+/* ============ 山谷面板：页签 / 节点 / 手账 ============ */
+.story-tabs{display:flex;gap:8px;padding:2px 16px 4px;}
+.story-tabs button{flex:1;padding:9px 0;border-radius:11px;font-weight:800;font-size:13px;color:#5a7a94;background:#e6f1fa;}
+.story-tabs button.on{color:#fff;background:linear-gradient(160deg,#5fb6f0,#2f83c8);box-shadow:0 3px 9px rgba(47,131,200,.35);}
+.story-chap.locked .story-node{opacity:.55;}
+.story-scene .sc-tt small{display:block;font-size:10.5px;font-weight:700;opacity:.9;margin-top:1px;}
+.story-scene .sc-prog{position:absolute;right:9px;top:8px;background:rgba(10,30,52,.62);color:#eaf6ff;font-size:11px;
+  font-weight:800;padding:2px 9px;border-radius:99px;}
+.sn-place{font-size:10.5px;color:#93a9bd;margin-top:1px;}
+.coin-need{font-size:11.5px;font-weight:800;color:#c98a3d;}
+.coin-need.lack{color:#c7553f;}
+.story-node.ready{background:linear-gradient(90deg,#f3fff8,#eafaf0);box-shadow:inset 3px 0 0 #36a968;}
+
+/* 手账 */
+.jr-sec{margin-bottom:14px;}
+.jr-h{font-size:13px;font-weight:900;color:#2f6ea3;margin:4px 2px 8px;}
+.jr-card{background:#fff;border-radius:13px;padding:11px 13px;margin-bottom:8px;box-shadow:0 2px 8px rgba(20,60,95,.07);}
+.jr-card b{font-size:13.5px;color:#173f63;display:block;margin-bottom:4px;}
+.jr-card p{font-size:12.5px;line-height:1.65;color:#466b8a;margin:2px 0;}
+.jr-card small{display:block;margin-top:5px;font-size:10.5px;color:#8aa3b8;}
+.jr-card.locked{background:repeating-linear-gradient(45deg,#eef3f8,#eef3f8 8px,#e7eef5 8px,#e7eef5 16px);color:#9db2c4;}
+.jr-lock{font-size:12px;color:#9db2c4!important;text-align:center;padding:4px 0;}
+.jr-bonds{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.jr-npc{background:#fff;border-radius:13px;padding:9px;display:flex;flex-direction:column;gap:1px;box-shadow:0 2px 8px rgba(20,60,95,.07);}
+.jr-npc img{width:42px;height:42px;border-radius:50%;object-fit:cover;margin-bottom:3px;}
+.jr-npc b{font-size:13px;} .jr-npc span{font-size:10.5px;color:#7a93a8;} .jr-npc small{font-size:11px;color:#e08a5a;letter-spacing:1px;}
+.jr-npc.locked{opacity:.6;} .jr-npc.locked img{filter:grayscale(1) brightness(.92);} .jr-npc.locked small{color:#a9bdce;letter-spacing:0;}
+
+/* ============ 章节开场电影 ============ */
+.cine{position:relative;width:100%;max-width:560px;align-self:stretch;margin:auto;min-height:100%;display:flex;flex-direction:column;justify-content:flex-end;}
+.cine-bg{position:absolute;inset:0;background-size:cover;background-position:center;animation:cineZoom 14s ease-out forwards;}
+@keyframes cineZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.cine-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,24,42,.35) 0%,rgba(8,24,42,.15) 40%,rgba(8,24,42,.86) 100%);}
+.cine-body{position:relative;padding:calc(20px + var(--safe-b)) calc(22px + var(--safe-r)) calc(20px + var(--safe-b)) calc(22px + var(--safe-l));color:#eaf6ff;animation:fade .5s;}
+.cine-kicker{font-size:11px;font-weight:900;letter-spacing:3px;color:#9fd4f5;}
+.cine-title{font-size:30px;font-weight:900;margin:6px 0 2px;text-shadow:0 3px 14px rgba(0,0,0,.6);}
+.cine-sub{font-size:13.5px;color:#cfe9fb;margin-bottom:14px;}
+.cine-say{font-size:15px;line-height:1.8;min-height:54px;text-shadow:0 2px 8px rgba(0,0,0,.55);margin-bottom:12px;}
+.cine-dots{display:flex;gap:6px;margin-bottom:14px;}
+.cine-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);} .cine-dots i.on{background:#ffd76a;}
+.cine-next{width:100%;padding:14px;border-radius:13px;background:linear-gradient(160deg,#5fb6f0,#2f83c8);color:#fff;font-weight:900;font-size:15px;box-shadow:0 6px 18px rgba(47,131,200,.45);}
+.modal:has(.cine){background:transparent;border-radius:0;max-height:100%;height:100%;
+  align-self:stretch!important;margin:0!important;max-width:560px;width:100%;overflow:hidden;}
+.modal-mask:has(.cine){background:#08182a;align-items:stretch!important;padding:0;}
+.modal-mask:has(.cine) .cine{min-height:100%;height:100%;}
+
+/* CG / 旁白型对白 */
+.dlg-cg .dlg-scene{height:210px;}
+.dlg-narr{background:rgba(20,46,74,.93);color:#eaf6ff;border-radius:13px;padding:13px 15px;font-size:14px;line-height:1.75;margin-bottom:9px;text-align:center;font-style:italic;}
+
+/* ============ 陪伴角色：霜灵啾可 ============ */
+.companion{position:absolute;left:calc(10px + var(--safe-l));bottom:calc(74px + var(--safe-b));z-index:30;
+  display:flex;align-items:flex-end;gap:9px;pointer-events:none;}
+.companion.hidden,.companion.busy{display:none;}
+.comp-avatar{pointer-events:auto;position:relative;width:54px;height:54px;border-radius:50%;padding:0;flex:0 0 auto;
+  background:radial-gradient(circle at 32% 28%,#eaf7ff,#bfe2fb 60%,#8cc6ef);border:2.5px solid #fff;
+  box-shadow:0 5px 16px rgba(30,90,140,.4);animation:compBob 2.8s ease-in-out infinite;}
+.comp-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+@keyframes compBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.comp-ping{position:absolute;right:-2px;top:-2px;width:14px;height:14px;border-radius:50%;background:#ffd23e;
+  border:2px solid #fff;display:none;animation:pingPop 1s ease-in-out infinite;}
+.companion.ping .comp-ping{display:block;}
+@keyframes pingPop{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,210,62,.6)}50%{transform:scale(1.12);box-shadow:0 0 0 7px rgba(255,210,62,0)}}
+.comp-bubble{pointer-events:auto;position:relative;bottom:6px;max-width:248px;background:rgba(255,255,255,.97);
+  border-radius:16px 16px 16px 5px;padding:10px 13px;box-shadow:0 8px 24px rgba(20,60,95,.22);
+  border:1.5px solid #d7ecfb;display:none;animation:compIn .28s ease-out;}
+@keyframes compIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+.comp-bubble::before{content:'';position:absolute;left:-8px;bottom:14px;width:14px;height:14px;background:#fff;
+  border-left:1.5px solid #d7ecfb;border-bottom:1.5px solid #d7ecfb;transform:rotate(45deg);}
+.comp-who{display:block;font-size:11px;font-weight:900;color:#2f83c8;margin-bottom:2px;}
+.comp-say{font-size:12.5px;line-height:1.6;color:#33556f;margin:0;}
+.comp-actions{display:flex;justify-content:flex-end;margin-top:5px;}
+.comp-skip{font-size:10.5px;color:#8aa3b8;background:none;padding:2px 4px;}
+.companion.teaching .comp-bubble,.companion.speaking .comp-bubble{display:block;}
+.companion.react .comp-bubble{border-color:#ffe1a3;background:#fffaf0;}
+.companion.react .comp-who{color:#e0932f;}
+.companion.idle:not(.speaking) .comp-bubble{display:none;}
+/* 教学柔和目标光圈（仅发光描边，不用巨型 spread 阴影，避免移动 GPU 瓦片接缝） */
+.comp-focus{border:3px solid #ffd76a!important;border-radius:14px;background:transparent!important;
+  box-shadow:0 0 18px 3px rgba(255,215,106,.7)!important;animation:compRing 1.4s ease-in-out infinite;z-index:40;}
+@keyframes compRing{0%,100%{box-shadow:0 0 14px 2px rgba(255,215,106,.55)}
+  50%{box-shadow:0 0 24px 6px rgba(255,215,106,.85)}}
