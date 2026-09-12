@@ -10,11 +10,14 @@ const $=s=>document.querySelector(s);
 const itemImg=(f,t)=>`assets/img/items/${f}_${t}.png`;
 const npcImg=n=>`assets/img/${n.img}`;
 const fmt=s=>{const m=Math.floor(s/60),x=s%60;return `${m}:${String(x).padStart(2,'0')}`;};
+const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+}[ch]));
 
 export class UI {
   constructor(state, scene){ this.s=state; this.scene=scene; this.el={}; this._cacheDom(); this._bind(); this._listen(); }
   _cacheDom(){
-    ['levelBadge','xpBar','energyVal','energyTimer','coinVal','gemVal','warmthVal','orders','hint','guideLayer','modalLayer','toastLayer','itemPop','ipName','ipSub','ipPrice','ipSell','energyPlus','sbFab','quest','companion'].forEach(id=>this.el[id]=$('#'+id));
+    ['levelBadge','xpBar','energyVal','energyTimer','coinVal','gemVal','warmthVal','taskShelf','ordersToggle','questToggle','orders','hint','guideLayer','modalLayer','toastLayer','itemPop','ipName','ipSub','ipPrice','ipSell','energyPlus','sbFab','quest','companion'].forEach(id=>this.el[id]=$('#'+id));
   }
   _bind(){
     document.querySelectorAll('.dock-btn').forEach(b=>b.onclick=()=>{ AudioMgr.play('click'); this.openPanel(b.dataset.panel); });
@@ -31,11 +34,11 @@ export class UI {
   _fabBounds(){
     const f=this.el.sbFab, app=$('#app').getBoundingClientRect();
     const safe=window.__frostSafeInsets||{top:0,right:0,bottom:0,left:0};
-    const orders=this.el.orders.getBoundingClientRect(), dock=$('#dock').getBoundingClientRect();
+    const shelf=this.el.taskShelf.getBoundingClientRect(), dock=$('#dock').getBoundingClientRect();
     const width=f.offsetWidth||50, height=f.offsetHeight||66, edge=4;
     const minX=app.left+safe.left+edge;
     const maxX=Math.max(minX,app.right-safe.right-edge-width);
-    const minY=Math.max(app.top+safe.top+56,orders.bottom+8);
+    const minY=Math.max(app.top+safe.top+56,shelf.bottom+8);
     const maxY=Math.max(minY,dock.top-height-8);
     return {minX,maxX,minY,maxY,width,height};
   }
@@ -93,7 +96,8 @@ export class UI {
     bus.on('changed',p=>{ this.renderHUD(); this.renderOrders(); this.renderQuest(); this._tutorial(); Save.save(this.s);
       if(p?.type==='levelup'){ this._levelUp(p.ups); this.scene.celebrate?.(); Haptics.level(); }
       if(p?.type==='orderSubmit'){ Haptics.reward(); this._coinPulse(); }
-      if(p?.type==='storyBuilt'){ this.scene.celebrate?.(); Haptics.unlock(); this._storyDialog(p.chapter,p.node); }
+      if(p?.type==='storyBuilt'){ this.scene.celebrate?.(); Haptics.unlock();
+        this._storyBeat(p.chapter,p.node,()=>this._storyDialog(p.chapter,p.node)); }
       if(p?.type==='sandbox'){ this._sandboxFab(p.on); if(p.on) this.scene.celebrate?.(); } });
     bus.on('toast',p=>this.toast(p.msg));
     bus.on('sfx',n=>AudioMgr.play(n));
@@ -119,24 +123,84 @@ export class UI {
     const t=this.s.secToNextEnergy(); this.el.energyTimer.textContent=(this.s.energy>=Config.energyMax(this.s.lv))?'满':fmt(t);
   }
   // ---------- 订单 ----------
+  _syncTaskShelf(){
+    const expanded=!this.s.settings.ordersCollapsed||!this.s.settings.questCollapsed;
+    this.el.taskShelf?.classList.toggle('has-expanded',expanded);
+    requestAnimationFrame(()=>this._layoutSandboxFab());
+  }
+  _toggleTask(kind){
+    const key=kind==='orders'?'ordersCollapsed':'questCollapsed';
+    const other=kind==='orders'?'questCollapsed':'ordersCollapsed';
+    const opening=!!this.s.settings[key];
+    this.s.settings[key]=!opening;
+    if(opening) this.s.settings[other]=true;
+    Save.saveNow(this.s); this.renderOrders(); this.renderQuest(); this._tutorial();
+  }
   renderOrders(){
-    const box=this.el.orders; box.innerHTML='';
+    const box=this.el.orders,collapsed=!!this.s.settings.ordersCollapsed;
+    box.classList.toggle('collapsed',collapsed);
+    const pending=this.s.orders.filter(order=>!order.accepted).length;
+    const ready=this.s.orders.filter(order=>this.s.orderReady(order)).length;
+    const active=this.s.orders.length-pending;
+    const badge=pending?`${pending} 个请求`:ready?`${ready} 可交付`:active?`${active} 进行中`:'暂无';
+    this.el.ordersToggle.innerHTML=`<span><i>✉️</i><b>村民请求</b></span><em>${badge}</em><i class="task-chevron">⌄</i>`;
+    this.el.ordersToggle.setAttribute('aria-expanded',String(!collapsed));
+    this.el.ordersToggle.onclick=()=>this._toggleTask('orders');
+    box.innerHTML='<div class="order-list"></div>';
+    const list=box.querySelector('.order-list');
     this.s.orders.forEach((o,slot)=>{
       const npc=Config.npcById(o.npcId), have=this.s.orderHave(o), ready=this.s.orderReady(o);
-      const card=document.createElement('div'); card.className='order-card'+(ready?' ready':'');
+      const card=document.createElement('article'); card.className='order-card'+(ready?' ready':'')+(o.accepted?' accepted':' pending');
       card.innerHTML=`<div class="oc-top">
-          <img class="oc-avatar" src="${npcImg(npc)}"/>
-          <div class="oc-who"><b>${npc.name}</b><br><span>${npc.title}的委托</span></div>
+          <img class="oc-avatar" src="${npcImg(npc)}" alt="${esc(npc.name)}"/>
+          <div class="oc-who"><b>${esc(npc.name)}</b><br><span>${o.accepted?'正在等你的消息':esc(npc.title)+'来访'}</span></div>
         </div>
+        ${o.accepted?'':`<p class="oc-teaser">“${esc(npc.request)}”</p>`}
         <div class="oc-need">${o.needs.map((q,i)=>`<div class="need-chip ${have[i]>=q.n?'ok':'lack'}"><img src="${itemImg(q.fam,q.tier)}"><span class="have">${have[i]}/${q.n}</span></div>`).join('')}</div>
-        <button class="oc-submit ${ready?'on':''}">交付 · ${o.coin}金${o.gem?` · ${o.gem}钻`:''}</button>`;
+        ${o.accepted
+          ?`<button class="oc-submit ${ready?'on':''}">${ready?'交给 '+esc(npc.name):'继续准备'} · ${o.coin}金${o.gem?` · ${o.gem}钻`:''}</button>`
+          :`<div class="oc-actions"><button class="oc-request" type="button">听听请求</button><button class="oc-refresh" type="button" aria-label="换一个请求">换一封 · ${this.s.refreshCost}金</button></div>`}`;
       const submit=card.querySelector('.oc-submit');
-      submit.onclick=()=>{ if(!ready){this.toast('材料还没凑齐');return;} runActionOnce(submit,()=>this.s.submitOrder(slot)); };
-      // 刷新
-      const rf=document.createElement('div'); rf.style.cssText='position:absolute;top:5px;right:6px;font-size:10px;color:#7a93a8;';
-      card.style.position='relative';
-      rf.textContent=`↻${this.s.refreshCost}`; rf.onclick=()=>runActionOnce(rf,()=>this.s.refreshOrder(slot)); card.appendChild(rf);
-      box.appendChild(card);
+      if(submit) submit.onclick=()=>{ if(!ready){this.toast(`${npc.name}还在等材料`);return;}
+        runActionOnce(submit,()=>this.s.submitOrder(slot),()=>{
+          this.s.settings.ordersCollapsed=true; Save.saveNow(this.s); this.renderOrders(); this.renderQuest();
+          this._orderThanks(npc);
+        }); };
+      const request=card.querySelector('.oc-request'); if(request) request.onclick=()=>this._orderRequest(slot);
+      const rf=card.querySelector('.oc-refresh'); if(rf) rf.onclick=()=>runActionOnce(rf,()=>this.s.refreshOrder(slot));
+      list.appendChild(card);
+    });
+    this._syncTaskShelf();
+  }
+  _orderRequest(slot){
+    const order=this.s.orders[slot]; if(!order||order.accepted) return;
+    const npc=Config.npcById(order.npcId), have=this.s.orderHave(order);
+    const needs=order.needs.map((q,i)=>`<span class="need-chip ${have[i]>=q.n?'ok':'lack'}"><img src="${itemImg(q.fam,q.tier)}"><b>${Config.itemName(q.fam,q.tier)}</b><span class="have">${have[i]}/${q.n}</span></span>`).join('');
+    const m=this.modal(`<div class="order-request">
+      <div class="order-request-scene" style="background-image:url(assets/img/story_1.png)">
+        <div class="order-request-frost"></div><img src="${npcImg(npc)}" alt="${esc(npc.name)}">
+        <div><small>${esc(npc.title)} · 来到风灯小屋</small><h3>${esc(npc.name)}</h3></div>
+      </div>
+      <div class="order-request-body"><p class="order-arrival">${esc(npc.arrival)}</p>
+        <blockquote>“${esc(npc.request)}”</blockquote>
+        <div class="order-request-needs"><b>他需要</b><div>${needs}</div></div>
+        <div class="cd-btns"><button class="cd-no" data-later type="button">先记在请求箱</button><button class="cd-ok" data-accept-order type="button">我来帮你</button></div>
+      </div></div>`,true);
+    AudioMgr.playVoice(npc.voiceRequest);
+    m.querySelector('[data-later]').onclick=()=>this.closeModal();
+    const accept=m.querySelector('[data-accept-order]');
+    accept.onclick=()=>runActionOnce(accept,()=>this.s.acceptOrder(slot),()=>{
+      this.s.settings.ordersCollapsed=false; this.s.settings.questCollapsed=true; Save.saveNow(this.s);
+      this.closeModal(); this.renderOrders(); this.renderQuest();
+      this._chocoSay(`${npc.name}把这件事托给我们了。先看看棋盘上已经有的材料。`,2300,true);
+      requestAnimationFrame(()=>this._tutorial());
+    });
+  }
+  _orderThanks(npc){
+    this._playDialogue({
+      ch:{title:`${npc.name}的回应`,subtitle:'篝火广场 · 风雪中的回音',scene:'story_1.png',hook:'每一份委托，都是一个人留下来的理由。'},
+      lines:[[npc.id,npc.thanks,{voice:npc.voiceThanks}],['choco','你看，我们交出去的不只是材料。村子里又多了一件会被人记住的事。']],
+      kind:'request',doneLabel:'回到合成盘',onDone:()=>requestAnimationFrame(()=>this._tutorial())
     });
   }
   // ---------- 物品气泡 ----------
@@ -155,7 +219,7 @@ export class UI {
   }
   hidePop(){ this.el.itemPop.classList.add('hidden'); this._selIdx=null; }
 
-  // ---------- 六步新手引导 ----------
+  // ---------- 剧情内新手引导 ----------
   _cellRect(indices){
     const list=(Array.isArray(indices)?indices:[indices]).filter(i=>i>=0);
     if(!list.length) return $('#board').getBoundingClientRect();
@@ -179,19 +243,21 @@ export class UI {
   _hideGuide(){ this.el.guideLayer?.classList.add('hidden'); if(this.el.guideLayer) this.el.guideLayer.innerHTML=''; this.el.hint.classList.add('hidden'); }
   // 陪伴角色的故事化台词（以啾可第一人称，把每个操作讲成重建山谷的一步）
   static COMP_LINES={
-    produce:'别急，我们从一小片冰晶开始～点一下发光的「霜晶矿脉」，取出重建山谷的第一份材料吧。',
-    merge:'看，两片一模一样的小冰晶！按住一个拖到另一个身上，它们就会合成更结实的一块——这可是霜灵师的魔法哦。',
-    order:'冈特爷爷他们正等着材料呢。顶部亮着绿边的委托已经凑齐，点「交付」换到金币，村子才能一点点转起来。',
-    unlock:'棋盘还有一半被冰封着。点带雪花和小锁的那格，花点金币融化它，给重建腾出更多地方。',
-    shop:'点开「商店」认认门：宝箱能变出材料，新生成器能解锁更多合成链。现在不买也没关系，知道它在这儿就好。',
-    story:'最关键的一步来啦！点底部「山谷」，或直接点屏幕上那条金色主线，按故事交付材料，就能一步步重建整座霜语谷。我会一直陪着你～'
+    produce:'风灯在发热……碰一下那道蓝光。',
+    merge:'这两枚冰晶在互相呼应。让它们靠在一起试试？',
+    request:'嘘——有人踩着雪来了。先听听他为什么敲门。',
+    order:'冈特把火哨交给我们了。把做好的冰晶递给他吧。',
+    unlock:'火哨照见了一块松动的冰。碰一碰那枚雪锁。',
+    shop:'蜜儿说集市重新开门了。进去看看有什么在发光。',
+    story:'广场下面传来微弱的火星声。去山谷看看，它在等我们。'
   };
   static COMP_REACT={
-    produce:'拿到啦！这是希望的第一小块 ❄️',
-    merge:'合成成功！两个变一个，还更结实了，真神奇～',
-    order:'委托完成，金币到手，村子又暖了一分！',
-    unlock:'冰化了，地方更大了，我们继续往前走。',
-    shop:'记住这家店，缺材料时它能帮大忙。',
+    produce:'它醒了……祖父的矿脉还认得你。',
+    merge:'听见了吗？冰裂开的声音里，有一点火。',
+    request:'冈特没有走。他一直替空村子守着夜路。',
+    order:'远处的第一盏火哨亮了。',
+    unlock:'冰层下面，是十年前留下的路。',
+    shop:'货架空着，但门铃还会响。这里会重新热闹起来。',
     story:''
   };
   _tutorial(){
@@ -201,17 +267,20 @@ export class UI {
     if(!layer||t.done||t.skipped){ this._hideGuide(); this._companionIdle(); return; }
     let step;
     if(!t.produced){ const idx=this.s.cells.findIndex(c=>c?.k==='g'&&c.gid==='g_crystal');
-      step={id:'produce',n:1,rect:this._cellRect(idx)}; }
+      step={id:'produce',rect:this._cellRect(idx),gesture:'tap'}; }
     else if(!t.merged){ const pair=this._mergePair();
-      step={id:'merge',n:2,rect:this._cellRect(pair)}; }
-    else if(!t.ordered){ const target=document.querySelector('.order-card.ready')||document.querySelector('.order-card');
-      step={id:'order',n:3,rect:target?.getBoundingClientRect()}; }
+      const from=pair.length?this.scene.center(pair[0]):null,to=pair.length?this.scene.center(pair[1]):null;
+      step={id:'merge',rect:this._cellRect(pair),gesture:'drag',from,to}; }
+    else if(!t.orderAccepted){ const target=this.s.settings.ordersCollapsed?this.el.ordersToggle:document.querySelector('.oc-request');
+      step={id:'request',rect:target?.getBoundingClientRect(),gesture:'tap'}; }
+    else if(!t.ordered){ const target=this.s.settings.ordersCollapsed?this.el.ordersToggle:(document.querySelector('.order-card.ready .oc-submit')||document.querySelector('.oc-submit'));
+      step={id:'order',rect:target?.getBoundingClientRect(),gesture:'tap'}; }
     else if(!t.unlocked){ const idx=Math.min(this.s.boardUnlocked,this.s.cells.length-1);
-      step={id:'unlock',n:4,rect:this._cellRect(idx)}; }
+      step={id:'unlock',rect:this._cellRect(idx),gesture:'tap'}; }
     else if(!t.shopped){ const target=document.querySelector('[data-panel="shop"]');
-      step={id:'shop',n:5,rect:target?.getBoundingClientRect()}; }
+      step={id:'shop',rect:target?.getBoundingClientRect(),gesture:'tap'}; }
     else { const target=document.querySelector('[data-panel="story"]');
-      step={id:'story',n:6,rect:target?.getBoundingClientRect()}; }
+      step={id:'story',rect:target?.getBoundingClientRect(),gesture:'tap'}; }
     if(!step?.rect){ this._hideGuide(); this._companionIdle(); return; }
     // 步骤推进时，啾可先夸一句（陪伴感 / 即时反馈）
     if(this._compStep && this._compStep!==step.id && UI.COMP_REACT[this._compStep]){
@@ -221,21 +290,26 @@ export class UI {
     this.el.hint.classList.add('hidden');
     // 柔和目标光圈（不压暗屏、不拦截操作，玩家可随时自由行动）
     layer.classList.remove('hidden'); layer.dataset.step=step.id;
-    layer.innerHTML=`<div class="guide-focus comp-focus"></div>`;
+    layer.innerHTML=`<div class="guide-focus comp-focus"></div><div class="guide-hand ${step.gesture==='drag'?'drag':'tap'}" aria-hidden="true">☝️</div>`;
     const app=$('#app').getBoundingClientRect(),margin=7;
     const rr=step.rect,local={left:rr.left-app.left-margin,top:rr.top-app.top-margin,
       width:(rr.width??rr.right-rr.left)+margin*2,height:(rr.height??rr.bottom-rr.top)+margin*2};
     Object.assign(layer.querySelector('.guide-focus').style,
       {left:local.left+'px',top:local.top+'px',width:local.width+'px',height:local.height+'px'});
-    this._companionActive(UI.COMP_LINES[step.id],step.n);
+    const hand=layer.querySelector('.guide-hand');
+    if(step.gesture==='drag'&&step.from&&step.to){
+      Object.assign(hand.style,{left:(step.from.x-app.left-10)+'px',top:(step.from.y-app.top-4)+'px',
+        '--guide-dx':(step.to.x-step.from.x)+'px','--guide-dy':(step.to.y-step.from.y)+'px'});
+    }else Object.assign(hand.style,{left:(local.left+local.width*.58)+'px',top:(local.top+local.height*.48)+'px'});
+    this._companionActive(UI.COMP_LINES[step.id]);
   }
-  _companionActive(line,n){ const comp=this.el.companion; if(!comp) return;
+  _companionActive(line){ const comp=this.el.companion; if(!comp) return;
     comp.classList.remove('hidden','idle','busy'); comp.classList.add('teaching');
     comp.querySelector('.comp-say').textContent=line;
-    comp.querySelector('.comp-who').textContent=`霜灵 · 啾可 · 新手 ${n}/6`;
+    comp.querySelector('.comp-who').textContent='霜灵 · 啾可';
     const skip=comp.querySelector('.comp-skip'); skip.style.display='';
     skip.onclick=()=>{ this.s.tutorial.skipped=true; this.s.tutorial.done=true; Save.saveNow(this.s);
-      this._hideGuide(); this._companionIdle(); this.toast('随时点左下角啾可，查看当前主线提示'); };
+      this._hideGuide(); this._companionIdle(); this.toast('啾可会留在风灯旁，想找方向时再点它'); };
     comp.querySelector('.comp-avatar').onclick=()=>this._chocoSay(line,2600);
   }
   // 教学后：陪伴角色常驻，点击讲当前主线（故事驱动），主线可交付时冒小光点
@@ -271,7 +345,8 @@ export class UI {
   // ---------- 弹窗框架 ----------
   modal(html, center=false){ this.closeModal();
     const t=html.trimStart();
-    const bare=t.startsWith('<div class="dlg"')||t.startsWith('<div class="cdialog"')||t.startsWith('<div class="cine"');
+    const bare=t.startsWith('<div class="dlg"')||t.startsWith('<div class="cdialog"')||t.startsWith('<div class="cine"')
+      ||t.startsWith('<div class="story-stage"')||t.startsWith('<div class="story-act"');
     const mask=document.createElement('div'); mask.className='modal-mask';
     mask.innerHTML=`<div class="modal ${center?'center':''} ${bare?'bare':''}">${html}</div>`;
     mask.onclick=e=>{ if(e.target===mask) this.closeModal(); };
@@ -279,7 +354,8 @@ export class UI {
     this.el.companion?.classList.add('busy');
     AudioMgr.play('click'); return mask;
   }
-  closeModal(){ this._modal?.remove(); this._modal=null;
+  closeModal(){ clearTimeout(this._dialogTimer); this._dialogTimer=0; AudioMgr.stopVoice();
+    this._modal?.remove(); this._modal=null;
     this.el.companion?.classList.remove('busy'); }
   openPanel(name){
     if(name==='shop') return this._shop();
@@ -363,6 +439,7 @@ export class UI {
       const locked=!reachable;
       const nodes=ch.nodes.map(n=>{
         const st=s.nodeState(n,ch), done=st==='done';
+        const picked=s.storyChoice(n);
         const btn = done?'<button class="sn-go gray">回看 ✓</button>'
           : st==='ready'?'<button class="sn-go" data-build="'+n.id+'">交付重建</button>'
           : st==='lvlock'?`<button class="sn-go gray">Lv.${n.unlockLv||ch.unlockLv}</button>`
@@ -371,12 +448,14 @@ export class UI {
         return `<div class="story-node ${done?'done':''} ${st==='ready'?'ready':''}">
           <div class="sn-ic">${done?'📖':'🏗️'}</div>
           <div class="sn-info"><b>${n.name}</b><div class="sn-place">${n.place||''}</div>
+          ${picked?`<div class="sn-picked">${picked.icon} 你的布置 · ${esc(picked.name)}</div>`:''}
           <div class="needline">${this._needChips(n)}</div></div>${btn}</div>`; }).join('');
       const lockMask=locked?`<div class="sc-lock">🔒 完成上一章后开放</div>`
         :lvLocked?`<div class="sc-lock">Lv.${ch.unlockLv} 开放 · ${prog.got}/${prog.total}</div>`
         :`<div class="sc-prog">${prog.got}/${prog.total}</div>`;
       return `<div class="story-chap ${locked?'locked':''}"><div class="story-scene" style="background-image:url(assets/img/${ch.scene})">
-        <div class="sc-tt">${ch.title}<small>${ch.subtitle||''}</small></div>${lockMask}</div>${nodes}</div>`;
+        <div class="sc-tt">${ch.title}<small>${ch.subtitle||''}</small></div>${lockMask}
+        ${ch.hook?`<div class="sc-hook">❓ ${esc(ch.hook)}</div>`:''}</div>${nodes}</div>`;
     }).join('');
   }
   _bindStoryBuild(scope){
@@ -387,7 +466,12 @@ export class UI {
   // 点剧情节点：已完成→回看；就绪→先播请求(pre)对白再确认交付；否则提示
   _tapStoryNode(ch,node){
     const s=this.s, st=s.nodeState(node,ch);
-    if(st==='done'){ this._storyDialog(ch,node,{replay:true}); return; }
+    if(st==='done'){
+      if(node.interaction?.type==='choice'&&!s.storyChoice(node))
+        this._storyBeat(ch,node,()=>this._storyDialog(ch,node,{replay:true}));
+      else this._storyDialog(ch,node,{replay:true});
+      return;
+    }
     if(st==='locked'){ this.toast('先完成前面的节点，故事才会继续'); return; }
     if(st==='lvlock'){ this.toast(`升到 Lv.${node.unlockLv||ch.unlockLv} 解锁这段剧情`); return; }
     const doBuild=()=>{ this.closeModal();
@@ -397,31 +481,30 @@ export class UI {
   }
   // 交付前：村民的请求（驱动玩家去合成）
   _preDialog(ch,node,onConfirm){
-    const lines=node.pre||[]; let i=0;
-    const show=()=>{ if(i<lines.length){ const [who,say]=lines[i]; const npc=this._npcOf(who);
-      const m=this.modal(`<div class="dlg">
-        <div class="dlg-scene" style="background-image:url(assets/img/${ch.scene})"></div>
-        <div class="dlg-line"><img src="assets/img/${npc.img}"><div><div class="who">${npc.name} · 请求</div><div class="say">${say}</div></div></div>
-        <button class="dlg-next">${i===lines.length-1?'我这就去准备 ▸':'继续 ▸'}</button></div>`,true);
-      m.querySelector('.dlg-next').onclick=()=>{ i++; this.closeModal(); show(); };
-    } else {
+    this._playDialogue({ch,node,lines:node.pre||[],kind:'request',sceneImg:ch.scene,
+      doneLabel:'查看交付清单',onDone:()=>{
       const m=this.modal(`<div class="cdialog"><div class="big-ic">🏗️</div><h3>交付材料 · ${node.name}</h3>
         <p>将消耗以下材料与金币，完成后故事会继续推进。</p>
         <div class="needline" style="justify-content:center;margin-bottom:14px">${this._needChips(node)}</div>
         <div class="cd-btns"><button class="cd-no" data-n>再准备一下</button><button class="cd-ok" data-y>确认交付</button></div></div>`,true);
       m.querySelector('[data-n]').onclick=()=>this.closeModal();
       m.querySelector('[data-y]').onclick=()=>onConfirm();
-    } };
-    show();
+    }});
   }
   _npcOf(who){ return Config.npcs.find(n=>n.id===who)||{
     name:who==='all'?'众人':who==='narrator'?'霜语谷手记':who, img:who==='gramps'?'npc_gramps.png':'npc_sprite.png'}; }
 
-  // ---------- 主线任务条（故事线始终在场，驱动游戏目标） ----------
+  // ---------- 任务架中的主线（默认收起，玩家需要时展开） ----------
   renderQuest(){ const box=this.el.quest; if(!box) return; const s=this.s, obj=s.currentObjective();
-    if(!obj){ box.classList.add('hidden'); return; }
+    if(!obj){ box.classList.add('hidden','collapsed'); this.el.questToggle.classList.add('hidden'); this._syncTaskShelf(); return; }
     const {chapter:ch,node}=obj, st=s.nodeState(node,ch);
-    box.classList.remove('hidden'); box.classList.toggle('ready',st==='ready');
+    const collapsed=!!s.settings.questCollapsed;
+    box.classList.remove('hidden'); box.classList.toggle('collapsed',collapsed); box.classList.toggle('ready',st==='ready');
+    this.el.questToggle.classList.remove('hidden');
+    this.el.questToggle.innerHTML=`<span><i>${st==='ready'?'🔥':'📜'}</i><b>重建主线</b></span><em>${esc(node.name)}</em><i class="task-chevron">⌄</i>`;
+    this.el.questToggle.classList.toggle('ready',st==='ready');
+    this.el.questToggle.setAttribute('aria-expanded',String(!collapsed));
+    this.el.questToggle.onclick=()=>this._toggleTask('quest');
     box.innerHTML=`<img class="q-scene" src="assets/img/${ch.scene}">
       <div class="q-body"><div class="q-top"><span class="q-ch">${ch.title.replace(/^第.章 · /,'')}</span>
         <span class="q-name">${node.name}</span></div>
@@ -429,25 +512,26 @@ export class UI {
           return `<span class="need-chip ${have>=q.n?'ok':'lack'}"><img src="${itemImg(q.fam,q.tier)}">${have}/${q.n}</span>`;}).join('')}
           <span class="need-chip ${s.canPayCoin(node.coin)?'ok':'lack'}">🪙${node.coin}</span></div></div>
       <button class="q-go">${st==='ready'?'交付':'前往'}</button>`;
-    box.querySelector('.q-go').onclick=()=>this._story();
+    box.querySelector('.q-go').onclick=()=>{ s.settings.questCollapsed=true; Save.saveNow(s); this.renderQuest(); this._story(); };
     // 同步陪伴角色的"可交付"提示光点
     const comp=this.el.companion;
     if(comp&&comp.classList.contains('idle')) comp.classList.toggle('ping',st==='ready');
+    this._syncTaskShelf();
   }
 
   _settings(){
     const s=this.s;
     const row=(k,label)=>`<div class="set-row"><span>${label}</span><div class="switch ${s.settings[k]?'on':''}" data-sw="${k}"><i></i></div></div>`;
     const m=this.modal(`<div class="m-head"><div class="m-title">设置</div><button class="m-close">✕</button></div>
-      <div class="m-body">${row('bgm','背景音乐')}${row('sfx','游戏音效')}
+      <div class="m-body">${row('bgm','背景音乐')}${row('sfx','游戏音效')}${row('voice','剧情语音')}
         <div class="set-row sandbox-row"><span>🥽 爽玩模式（内测）<small style="display:block;color:#8a9bb0">无限金币 / 钻石 / 体力，自由体验全部内容</small></span><div class="switch ${s.sandbox?'on':''}" data-sandbox><i></i></div></div>
         <button class="set-help" data-rules>📘 玩法规则与新手说明</button>
         <button class="set-danger">重置存档（重新开始）</button>
-        <div class="set-about">冰霜物语 Frost Story v0.1<br>WebGL 核心 · 独立内核壳 · 原创美术与音乐由 AI 生成</div>
+        <div class="set-about">冰霜物语 Frost Story v0.2<br>WebGL 核心 · 独立内核壳 · 原创美术与音乐由 AI 生成</div>
       </div>`);
     m.querySelector('.m-close').onclick=()=>this.closeModal();
     m.querySelectorAll('[data-sw]').forEach(sw=>sw.onclick=()=>{ const k=sw.dataset.sw; s.settings[k]=!s.settings[k];
-      AudioMgr.setBgm(s.settings.bgm); AudioMgr.setSfx(s.settings.sfx); Haptics.setEnabled(s.settings.sfx); sw.classList.toggle('on',s.settings[k]); Save.saveNow(s); });
+      AudioMgr.setBgm(s.settings.bgm); AudioMgr.setSfx(s.settings.sfx); AudioMgr.setVoice(s.settings.voice); Haptics.setEnabled(s.settings.sfx); sw.classList.toggle('on',s.settings[k]); Save.saveNow(s); });
     const sbSw=m.querySelector('[data-sandbox]');
     sbSw.onclick=()=>{ s.setSandbox(!s.sandbox); sbSw.classList.toggle('on',s.sandbox); this.toast(s.sandbox?'爽玩模式已开启：资源无限':'已关闭爽玩模式'); Save.saveNow(s); };
     m.querySelector('[data-rules]').onclick=()=>this._rules();
@@ -491,7 +575,7 @@ export class UI {
       if(a==='fill'){ s.sbFillMaterials(); feedback('材料已铺满，尽情合成 ✨'); }
       if(a==='story'){
         const prepared=s.sbPrepareNextStory();
-        if(prepared.finished) feedback('三章剧情已全部完成 🎉');
+        if(prepared.finished) feedback('六章剧情已全部完成 🎉');
         else feedback(`已备齐「${prepared.node.name}」材料 📜`);
       }
       if(a==='chest'){ s.sbOpenChests(); feedback('所有宝箱已就绪 🎁'); }
@@ -537,6 +621,147 @@ export class UI {
     this._modal.querySelector('[data-n]').onclick=()=>this.closeModal();
   }
 
+  // ---------- 剧情演出导演：同一舞台连续换镜，避免逐句销毁/重建弹窗 ----------
+  _lineOf(line){
+    if(Array.isArray(line)) return {who:line[0],say:line[1],...(line[2]&&typeof line[2]==='object'?line[2]:{})};
+    if(line&&typeof line==='object') return line;
+    return {who:'narrator',say:String(line||'')};
+  }
+  _storyText(text,node){
+    const picked=node?this.s.storyChoice(node):null;
+    return String(text||'').replaceAll('{{choice}}',picked?.name||'选好的主灯');
+  }
+  _playDialogue({ch=null,node=null,lines=[],kind='story',sceneImg=null,doneLabel='继续',onDone=null}){
+    const cards=(lines||[]).map(line=>this._lineOf(line));
+    if(!cards.length){ onDone?.(); return; }
+    const title=node?.name||ch?.title||'序章 · 风灯归乡';
+    const place=node?.place||ch?.subtitle||'霜语谷 · 长雪归途';
+    const bg=sceneImg||node?.cg||ch?.scene||'story_1.png';
+    const hasCg=String(bg).startsWith('cg_');
+    const kindLabel=kind==='request'?'村民请求':kind==='welcome'?'序章':'主线剧情';
+    const transcript=cards.map(line=>{ const npc=this._npcOf(line.who);
+      return `<div class="story-log-line"><b>${esc(npc.name)}</b><p>${esc(this._storyText(line.say,node))}</p></div>`; }).join('');
+    const m=this.modal(`<div class="story-stage ${hasCg?'has-cg':''}" data-kind="${esc(kind)}" data-line="0">
+      <div class="story-stage-bg" style="background-image:url(assets/img/${esc(bg)})"></div>
+      <div class="story-stage-atmo"></div>
+      ${hasCg?`<div class="story-stage-cg"><img src="assets/img/${esc(bg)}" alt="${esc(title)} CG"></div>`:''}
+      <div class="story-stage-toolbar">
+        <span>${esc(kindLabel)} · ${esc(title)}</span>
+        <div><button class="story-log" type="button" aria-expanded="false">回顾</button><button class="story-skip" type="button">跳过</button></div>
+      </div>
+      <div class="story-stage-caption"><b>${esc(place)}</b><span>${esc(ch?.hook||'')}</span></div>
+      <div class="story-portrait" aria-hidden="true"><div class="story-portrait-glow"></div><img alt=""></div>
+      <div class="story-copy dlg-line">
+        <div class="who story-speaker"></div><p class="say story-say" aria-live="polite"></p>
+        <div class="story-copy-foot"><span class="story-line-count"></span><button class="dlg-next" type="button"></button></div>
+      </div>
+      <div class="story-transcript hidden"><div class="story-log-head"><b>本段回顾</b><button type="button">返回画面</button></div>${transcript}</div>
+    </div>`,true);
+    const stage=m.querySelector('.story-stage'), portrait=m.querySelector('.story-portrait'), portraitImg=portrait.querySelector('img');
+    const speaker=m.querySelector('.story-speaker'), say=m.querySelector('.story-say'), counter=m.querySelector('.story-line-count');
+    const next=m.querySelector('.dlg-next'), log=m.querySelector('.story-log'), skip=m.querySelector('.story-skip');
+    const transcriptPanel=m.querySelector('.story-transcript'); let index=0,typed=true,finished=false;
+    const finishTyping=(text)=>{ clearTimeout(this._dialogTimer); this._dialogTimer=0; say.textContent=text; typed=true;
+      next.dataset.typing='false'; next.textContent=index===cards.length-1?`${doneLabel} ▸`:'继续 ▸'; };
+    const render=()=>{
+      const line=cards[index],npc=this._npcOf(line.who),isNarrator=line.who==='narrator'||line.who==='all';
+      const text=this._storyText(line.say,node); const side=line.side==='left'||line.side==='right'?line.side:(index%2?'left':'right');
+      stage.dataset.line=String(index); stage.dataset.side=side; stage.classList.toggle('narrating',isNarrator);
+      stage.querySelector('.story-stage-bg').style.backgroundPosition=`${42+(index%3)*8}% center`;
+      portrait.classList.toggle('hidden',isNarrator); portraitImg.src=`assets/img/${npc.img}`; portraitImg.alt=npc.name;
+      speaker.textContent=isNarrator?(line.who==='all'?'众人':'霜语谷手记'):`${npc.name}${kind==='request'?' · 请求':''}`;
+      counter.textContent=`${index+1} / ${cards.length}`; say.textContent=''; typed=false;
+      next.dataset.typing='true'; next.textContent='点击显示全文';
+      AudioMgr.play(line.sfx||'page'); AudioMgr.playVoice(line.voice);
+      const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||navigator.webdriver;
+      if(reduced){ finishTyping(text); return; }
+      const chars=Array.from(text); let at=0;
+      const tick=()=>{ if(typed||finished) return; at=Math.min(chars.length,at+1); say.textContent=chars.slice(0,at).join('');
+        if(at>=chars.length) finishTyping(text); else this._dialogTimer=setTimeout(tick,line.speed||24); };
+      tick();
+    };
+    const complete=()=>{ if(finished) return; finished=true; clearTimeout(this._dialogTimer); this.closeModal(); onDone?.(); };
+    next.onclick=()=>{ const text=this._storyText(cards[index].say,node); if(!typed){ finishTyping(text); return; }
+      if(index<cards.length-1){ index++; render(); } else complete(); };
+    skip.onclick=complete;
+    const toggleLog=show=>{ transcriptPanel.classList.toggle('hidden',!show); stage.classList.toggle('log-open',show);
+      log.setAttribute('aria-expanded',String(show)); };
+    log.onclick=()=>toggleLog(transcriptPanel.classList.contains('hidden'));
+    transcriptPanel.querySelector('button').onclick=()=>toggleLog(false);
+    render();
+  }
+
+  // 交付之后不只“看结果”：关键节点需要玩家亲手点亮，或留下装修选择。
+  _storyBeat(ch,node,after){
+    const act=node.interaction;
+    if(!act){ after?.(); return; }
+    if(act.type==='choice'){ this._storyChoiceBeat(ch,node,act,after); return; }
+    if(act.type!=='tap-sequence'||!Array.isArray(act.steps)||!act.steps.length){ after?.(); return; }
+    const clamp=n=>Math.max(8,Math.min(92,Number(n)||50));
+    const bg=node.cg||ch.scene;
+    const targets=act.steps.map((step,index)=>`<button class="story-act-target ${index===0?'next':''}" type="button"
+      data-step="${esc(step.id)}" style="--x:${clamp(step.x)}%;--y:${clamp(step.y)}%" aria-label="第 ${index+1} 步：${esc(step.label)}">
+      <i>${esc(step.icon||'✨')}</i><span>${esc(step.label)}</span></button>`).join('');
+    const m=this.modal(`<div class="story-act act-tap ${node.cg?'has-cg':''}" data-node="${esc(node.id)}">
+      <div class="story-act-bg" style="background-image:url(assets/img/${esc(bg)})"></div><div class="story-act-frost"></div>
+      ${node.cg?`<div class="story-act-cg"><img src="assets/img/${esc(bg)}" alt="${esc(node.name)} CG"></div>`:''}
+      <div class="story-act-head"><span>亲手复苏 · ${esc(ch.title)}</span><button class="story-act-skip" type="button">跳过动作</button></div>
+      <div class="story-act-title"><small>${esc(node.place||'')}</small><h2>${esc(act.title)}</h2><p>${esc(act.prompt||'')}</p></div>
+      <div class="story-act-field">${targets}</div>
+      <div class="story-act-bottom"><div class="story-act-result" aria-live="polite">完成 0 / ${act.steps.length}</div>
+        <div class="story-act-meter"><i></i></div><button class="story-act-continue hidden" type="button">继续故事 ▸</button></div>
+    </div>`,true);
+    const stage=m.querySelector('.story-act'),buttons=[...m.querySelectorAll('.story-act-target')];
+    const result=m.querySelector('.story-act-result'),meter=m.querySelector('.story-act-meter i'),continueBtn=m.querySelector('.story-act-continue');
+    let current=0,finished=false;
+    const done=()=>{ if(finished) return; finished=true; this.closeModal(); after?.(); };
+    buttons.forEach((button,index)=>button.onclick=()=>{
+      if(index!==current||finished) return;
+      const step=act.steps[index]; button.classList.remove('next'); button.classList.add('done');
+      AudioMgr.play(step.sfx||'tap'); Haptics.tap(); current++;
+      const spark=document.createElement('i'); spark.className='story-act-spark'; spark.textContent='✦';
+      spark.style.left=`${clamp(step.x)}%`; spark.style.top=`${clamp(step.y)}%`; stage.appendChild(spark); setTimeout(()=>spark.remove(),800);
+      result.textContent=current===act.steps.length?act.complete:`完成 ${current} / ${act.steps.length}`;
+      meter.style.width=`${current/act.steps.length*100}%`;
+      if(current<act.steps.length) buttons[current].classList.add('next');
+      else { stage.classList.add('complete'); continueBtn.classList.remove('hidden'); AudioMgr.play('reward'); Haptics.unlock(); }
+    });
+    continueBtn.onclick=done; m.querySelector('.story-act-skip').onclick=done;
+  }
+  _storyChoiceBeat(ch,node,act,after){
+    const options=Array.isArray(act.options)?act.options:[];
+    if(!options.length){ after?.(); return; }
+    const bg=node.cg||ch.scene;
+    const saved=this.s.storyChoice(node); let selected=saved?.id||'';
+    const optionHTML=options.map(option=>{ const accent=/^#[0-9a-f]{6}$/i.test(option.accent||'')?option.accent:'#f5a33c';
+      return `<button class="story-choice-card ${selected===option.id?'selected':''}" type="button" role="radio"
+        aria-checked="${selected===option.id}" data-choice="${esc(option.id)}" style="--accent:${accent}">
+        <i>${esc(option.icon||'✨')}</i><b>${esc(option.name)}</b><span>${esc(option.desc||'')}</span></button>`; }).join('');
+    const m=this.modal(`<div class="story-act act-choice" data-node="${esc(node.id)}">
+      <div class="story-act-bg" style="background-image:url(assets/img/${esc(bg)})"></div><div class="story-act-frost"></div>
+      <div class="story-act-head"><span>我的山谷 · ${esc(ch.title)}</span><button class="story-act-skip" type="button">暂不选择</button></div>
+      <div class="story-act-title"><small>${esc(node.place||'')}</small><h2>${esc(act.title)}</h2><p>${esc(act.prompt||'')}</p></div>
+      <div class="story-choice-grid" role="radiogroup" aria-label="${esc(act.title)}">${optionHTML}</div>
+      <div class="story-act-bottom"><div class="story-act-result" aria-live="polite">${saved?`已布置 · ${esc(saved.name)}`:'选择一种布置预览效果'}</div>
+        <button class="story-choice-confirm" type="button" ${selected?'':'disabled'}>采用这个方案 ▸</button></div>
+    </div>`,true);
+    const stage=m.querySelector('.story-act'),cards=[...m.querySelectorAll('.story-choice-card')],confirm=m.querySelector('.story-choice-confirm');
+    const result=m.querySelector('.story-act-result'); let finished=false;
+    const done=()=>{ if(finished) return; finished=true; this.closeModal(); after?.(); };
+    const select=id=>{ selected=id; const picked=options.find(option=>option.id===id);
+      cards.forEach(card=>{ const on=card.dataset.choice===id; card.classList.toggle('selected',on); card.setAttribute('aria-checked',String(on)); });
+      confirm.disabled=false; result.textContent=`预览 · ${picked.name}：${picked.desc||''}`;
+      const accent=/^#[0-9a-f]{6}$/i.test(picked.accent||'')?picked.accent:'#f5a33c'; stage.style.setProperty('--choice-accent',accent);
+      AudioMgr.play('tap'); Haptics.tap(); };
+    cards.forEach(card=>card.onclick=()=>select(card.dataset.choice));
+    if(selected) select(selected);
+    confirm.onclick=()=>{ const savedResult=this.s.setStoryChoice(node.id,selected); if(!savedResult?.ok) return;
+      const picked=this.s.storyChoice(node); stage.classList.add('complete'); result.textContent=act.complete||`已采用 ${picked.name}`;
+      confirm.disabled=true; confirm.textContent='已保存 ✓'; AudioMgr.play('chime'); Haptics.unlock();
+      setTimeout(done,420); };
+    m.querySelector('.story-act-skip').onclick=done;
+  }
+
   // ---------- 章节开场过场（电影感） ----------
   _moodWind(mood){ return {cold:.9,bustling:.4,holy:.35,hopeful:.3,tender:.25,finale:.05}[mood]??.7; }
   _applyMood(ch){ AudioMgr.playBgm(ch.bgm||'bgm'); AudioMgr.setWind(this._moodWind(ch.mood)); }
@@ -549,6 +774,7 @@ export class UI {
         <div class="cine-body">
           <div class="cine-kicker">FROST STORY · CHAPTER ${ch.id}</div>
           <h2 class="cine-title">${ch.title}</h2><div class="cine-sub">${ch.subtitle||''}</div>
+          ${ch.hook?`<div class="cine-hook">本章悬念 · ${esc(ch.hook)}</div>`:''}
           <p class="cine-say">${lines[i]||''}</p>
           <div class="cine-dots">${lines.map((_,k)=>`<i class="${k===i?'on':''}"></i>`).join('')}</div>
           <button class="cine-next">${i>=lines.length-1?'进入本章 ▸':'继续 ▸'}</button>
@@ -564,18 +790,8 @@ export class UI {
   // ---------- 剧情回报对白（交付后 / 回看） ----------
   _storyDialog(ch,node,opts={}){
     const replay=!!opts.replay;
-    const lines=node.dialogue||[]; let i=0;
-    const sceneImg=node.cg||ch.scene;
-    const show=()=>{
-      if(i<lines.length){ const [who,say]=lines[i]; const npc=this._npcOf(who);
-        const isNar=who==='narrator'||who==='all';
-        const m=this.modal(`<div class="dlg ${node.cg?'dlg-cg':''}">
-          <div class="dlg-scene" style="background-image:url(assets/img/${sceneImg})"></div>
-          ${isNar?`<div class="dlg-narr">${say}</div>`
-            :`<div class="dlg-line"><img src="assets/img/${npc.img}"><div><div class="who">${npc.name}</div><div class="say">${say}</div></div></div>`}
-          <button class="dlg-next">${i===lines.length-1?(replay?'合上回忆':(node.finale?'迎来结局':'查看收获')):'继续 ▸'}</button></div>`,true);
-        m.querySelector('.dlg-next').onclick=()=>{ i++; this.closeModal(); show(); };
-      } else {
+    this._playDialogue({ch,node,lines:node.dialogue||[],kind:'story',sceneImg:node.cg||ch.scene,
+      doneLabel:replay?'合上回忆':(node.finale?'迎来结局':'查看收获'),onDone:()=>{
         const rw=node.reward||{}, finale=!!node.finale;
         if(replay){ this.closeModal(); return; }
         const m=this.modal(`<div class="cdialog"><div class="big-ic">${finale?'🔥':'🏘️'}</div>
@@ -586,23 +802,13 @@ export class UI {
         if(finale) AudioMgr.play('flame');
         m.querySelector('.cd-ok').onclick=()=>{ this.closeModal();
           if(finale){ this._ending(); } else { this._maybeChapterIntro(); } };
-      }
-    };
-    show();
+      }});
   }
   // ---------- 结局演出（数据驱动，替代旧 n33 硬编码） ----------
   _ending(){
-    const lines=Config.epilogue||[]; let i=0; AudioMgr.playBgm('bgm_spring'); AudioMgr.setWind(0);
-    const show=()=>{ if(i<lines.length){ const [who,say]=lines[i]; const npc=this._npcOf(who);
-        const isNar=who==='narrator'||who==='all';
-        const m=this.modal(`<div class="dlg dlg-cg">
-          <div class="dlg-scene" style="background-image:url(assets/img/cg_spring.png)"></div>
-          ${isNar?`<div class="dlg-narr">${say}</div>`
-            :`<div class="dlg-line"><img src="assets/img/${npc.img}"><div><div class="who">${npc.name}</div><div class="say">${say}</div></div></div>`}
-          <button class="dlg-next">${i===lines.length-1?'制作名单 ▸':'继续 ▸'}</button></div>`,true);
-        m.querySelector('.dlg-next').onclick=()=>{ i++; this.closeModal(); show(); };
-      } else this._credits(); };
-    show();
+    AudioMgr.playBgm('bgm_spring'); AudioMgr.setWind(0);
+    this._playDialogue({lines:Config.epilogue||[],kind:'story',sceneImg:'cg_spring.png',
+      doneLabel:'制作名单',onDone:()=>this._credits()});
   }
   _credits(){
     const m=this.modal(`<div class="cdialog"><h3>冰霜物语 · 温暖长明</h3>
@@ -628,8 +834,9 @@ export class UI {
       html+=`<div class="jr-sec"><div class="jr-h">${ch.title}</div>`;
       for(const w of (ch.worldLore||[])) html+=`<div class="jr-card ${started?'':'locked'}">${started?`<b>${w.title}</b><p>${w.text}</p>`:'<p class="jr-lock">章节开启后解锁</p>'}</div>`;
       for(const n of ch.nodes){ const isDone=done(n.id);
+        const picked=s.storyChoice(n);
         html+=`<div class="jr-card mem ${isDone?'':'locked'}">${isDone
-          ?`<b>${n.name}</b><p>${n.lore?n.lore.text:''}</p><small>${(n.dialogue||[]).filter(l=>l[0]!=='narrator'&&l[0]!=='all').map(l=>this._npcOf(l[0]).name).join(' · ')}</small>`
+          ?`<b>${n.name}</b><p>${n.lore?n.lore.text:''}</p>${picked?`<div class="jr-choice">${picked.icon} 你的布置 · ${esc(picked.name)}</div>`:''}<small>${(n.dialogue||[]).filter(l=>l[0]!=='narrator'&&l[0]!=='all').map(l=>this._npcOf(l[0]).name).join(' · ')}</small>`
           :`<p class="jr-lock">🔒 尚未经历：${n.name}</p>`}</div>`; }
       html+=`</div>`; }
     return html;
@@ -645,9 +852,9 @@ export class UI {
         <div class="rules-list">
           <p><b>合并：</b>两个同族、同等级物品拖到一起，升级为下一阶；不同物品拖拽可换位。</p>
           <p><b>生成：</b>点生成器消耗体力；连续使用后会短暂充能，体力离线也会恢复。</p>
-          <p><b>订单：</b>顶部卡片列出所需材料，凑齐后点交付，获得金币、经验与暖意。</p>
+          <p><b>村民请求：</b>先打开任务架听村民说明来意；只有回应“我来帮你”后，请求才进入进行中。凑齐材料交付，会听到角色后续。</p>
           <p><b>棋盘：</b>点带锁雪花可花金币融化；霜泡可直接点破，宝箱到时后点开。</p>
-          <p><b>目标：</b>跟着屏幕上的「主线任务条」，在「山谷」交付指定材料，依次推进 6 章共 24 个剧情节点，唤醒霜心、迎回春天。手账会记录世界观与每个人的故事。</p>
+          <p><b>目标：</b>从任务架打开「重建主线」，或进入「山谷」交付指定材料，依次推进 6 章共 24 个剧情节点，唤醒霜心、迎回春天。手账会记录世界观与每个人的故事。</p>
         </div>
         <button class="set-help" data-ok>知道了，开始合并</button>
       </div>`);
@@ -656,18 +863,18 @@ export class UI {
   }
   welcome(){
     const lines=Config.prologue.length?Config.prologue:[['choco','十年暴风雪冰封了霜语谷，跟着我把温暖一点点拼回来吧。']];
-    let i=0;
-    const show=()=>{ const [who,say]=lines[i]; const npc=this._npcOf(who); const last=i===lines.length-1;
-      const m=this.modal(`<div class="dlg">
-        <div class="dlg-scene" style="background-image:url(assets/img/story_1.png)"></div>
-        <div class="dlg-line"><img src="assets/img/${npc.img}"><div><div class="who">${npc.name}</div><div class="say">${say}</div></div></div>
-        ${last?'<button class="dlg-next">开始新手引导 ▸</button><button class="welcome-rules">先看完整玩法规则</button>'
-               :'<button class="dlg-next">继续 ▸</button>'}</div>`,true);
-      m.querySelector('.dlg-next').onclick=()=>{ i++; this.closeModal();
-        if(i<lines.length) show(); else { this.s.markChapterSeen(1); const ch=Config.story[0]; if(ch) this._applyMood(ch); requestAnimationFrame(()=>this._tutorial()); } };
-      const rules=m.querySelector('.welcome-rules'); if(rules) rules.onclick=()=>this._rules();
+    const gate=this.modal(`<div class="welcome-gate"><img src="assets/img/title_keyart.png" alt="风雪中的霜语谷">
+      <div class="welcome-gate-veil"></div><div class="welcome-gate-copy"><small>序章 · 风灯归乡</small>
+      <h2>雪里，有人在等这盏灯</h2><p>戴上耳机，点亮祖父留下的风灯。</p>
+      <button class="welcome-start" type="button">🏮 点亮风灯</button></div></div>`,true);
+    gate.querySelector('.welcome-start').onclick=()=>{
+      // 剧情转场不能等待 GeckoView 的 AudioContext/解码链路；首句 HTMLAudio
+      // 会在这次点击手势内直接起播，WebAudio/SFX 则继续异步解锁和预热。
+      void AudioMgr.unlock(); this.closeModal();
+      this._playDialogue({lines,kind:'welcome',sceneImg:'title_keyart.png',doneLabel:'跟啾可进谷',onDone:()=>{
+        this.s.markChapterSeen(1); const ch=Config.story[0]; if(ch) this._applyMood(ch); requestAnimationFrame(()=>this._tutorial());
+      }});
     };
-    show();
   }
 
   // ---------- toast ----------

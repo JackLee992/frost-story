@@ -14,6 +14,11 @@ async function boot(page, query = '?safeTop=32&safeRight=0&safeBottom=24&safeLef
 
 // 序章为多页陪伴对白，逐页点到进入新手引导（或对白结束）
 async function skipWelcome(page){
+  const start=page.locator('.welcome-start');
+  if(await start.isVisible().catch(()=>false)){
+    await start.click({force:true});
+    await page.waitForTimeout(180);
+  }
   for(let i=0;i<12;i++){
     const cnt=await page.locator('.dlg-next').count();
     if(cnt===0) break;
@@ -106,17 +111,38 @@ test('左右挖孔边距不会遮住操作控件', async ({ browser }) => {
   await context.close();
 });
 
-test('新手可沿竞品同款核心循环完成六步教学', async ({ browser }) => {
+test('任务架不遮棋盘，玩家通过角色剧情完成新手核心循环', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 360, height: 800 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   await page.goto(base);
   await page.evaluate(() => localStorage.clear());
   const errors = await boot(page);
+  await expect(page.locator('.welcome-start')).toBeVisible();
+  // 模拟 GeckoView 音频上下文初始化偏慢：剧情语音必须仍在用户点击手势内起播，
+  // 不能等 WebAudio/SFX 解码链路完成后再调用 HTMLAudio.play()。
+  await page.evaluate(() => {
+    const audio=window.__game.AudioMgr, unlock=audio._unlock.bind(audio);
+    audio._unlock=async()=>{ await new Promise(resolve=>setTimeout(resolve,900)); return unlock(); };
+  });
+  await page.locator('.welcome-start').click();
+  await expect(page.locator('.story-stage')).toBeVisible();
+  await page.waitForFunction(()=>window.__game.AudioMgr.voiceEl?.currentTime>.05,null,{timeout:700});
+  expect(await page.evaluate(()=>window.__game.AudioMgr.ready)).toBe(false);
+  await page.waitForFunction(()=>window.__game.AudioMgr.ready&&window.__game.AudioMgr.voiceEl?.src.includes('prologue_01.ogg'));
+  await page.waitForFunction(()=>Object.keys(window.__game.AudioMgr.bufs).length===9);
+  expect(await page.evaluate(()=>({sfx:Object.keys(window.__game.AudioMgr.bufs).length,voicePaused:window.__game.AudioMgr.voiceEl.paused}))).toEqual({sfx:9,voicePaused:false});
   await skipWelcome(page);
   await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','produce');
   await expect(page.locator('#guideLayer .guide-shade')).toHaveCount(0);
   await expect(page.locator('#companion.teaching')).toBeVisible();
+  await expect(page.locator('.comp-who')).not.toContainText('/');
   expect(await page.locator('.guide-focus').evaluate(el => getComputedStyle(el).boxShadow.includes('9999px'))).toBe(false);
+  await expect(page.locator('#orders')).toHaveClass(/collapsed/);
+  await expect(page.locator('#quest')).toHaveClass(/collapsed/);
+  const shelf=await page.locator('#taskShelf').boundingBox();
+  const boardTop=await page.evaluate(()=>window.__game.scene.oy);
+  expect(shelf.height).toBeLessThanOrEqual(48);
+  expect(shelf.y+shelf.height).toBeLessThanOrEqual(boardTop);
   await page.screenshot({ path: 'artifacts/qa/web-onboarding-step1.png', fullPage: true });
 
   const generator = await page.evaluate(() => {
@@ -129,12 +155,26 @@ test('新手可沿竞品同款核心循环完成六步教学', async ({ browser 
   const pair = await page.evaluate(() => [13,14].map(i=>window.__game.scene.center(i)));
   await page.mouse.move(pair[0].x,pair[0].y); await page.mouse.down();
   await page.mouse.move(pair[1].x,pair[1].y,{steps:8}); await page.mouse.up();
-  await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','order');
+  await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','request');
   await page.waitForTimeout(220);
   expect(await page.evaluate(() => window.__game.scene.itemLayer.children.length)).toBe(
     await page.evaluate(() => window.__game.scene.nodes.size)
   );
+  await page.locator('.orders-summary').click();
+  await expect(page.locator('#orders')).not.toHaveClass(/collapsed/);
+  await expect(page.locator('#quest')).toHaveClass(/collapsed/);
+  await page.screenshot({path:'artifacts/qa/web-task-shelf-expanded.png',fullPage:true});
+  await page.locator('.order-card').first().locator('.oc-request').click();
+  await expect(page.locator('.order-request')).toContainText('冈特');
+  await expect(page.locator('.order-request')).toContainText('火哨');
+  await expect(page.locator('.order-request')).toContainText('我来帮你');
+  await page.waitForTimeout(320);
+  await page.screenshot({path:'artifacts/qa/web-order-request-story.png',fullPage:true});
+  await page.locator('[data-accept-order]').click();
+  await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','order');
   await page.locator('.order-card').first().locator('.oc-submit').click();
+  await expect(page.locator('.story-stage')).toContainText('火哨亮了');
+  await page.locator('.story-skip').click();
   await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','unlock');
 
   const locked = await page.evaluate(() => window.__game.scene.center(window.__game.state.boardUnlocked));
@@ -180,6 +220,17 @@ test('新手可沿竞品同款核心循环完成六步教学', async ({ browser 
     return meta.veil.children.length;
   })).toBe(1);
   await page.screenshot({ path: 'artifacts/qa/web-clean-board.png', fullPage: true });
+
+  await page.locator('.quest-summary').click();
+  await expect(page.locator('#quest')).not.toHaveClass(/collapsed/);
+  await expect(page.locator('#orders')).toHaveClass(/collapsed/);
+  await page.reload({waitUntil:'networkidle'});
+  await page.waitForFunction(()=>Boolean(window.__game));
+  await expect(page.locator('#quest')).not.toHaveClass(/collapsed/);
+  await page.locator('.quest-summary').click();
+  await expect(page.locator('#quest')).toHaveClass(/collapsed/);
+  expect((await page.locator('#taskShelf').boundingBox()).height).toBeLessThanOrEqual(48);
+
   await page.locator('[data-panel="settings"]').click();
   await page.locator('[data-rules]').click();
   await expect(page.locator('.m-title')).toContainText('玩法规则');
@@ -246,6 +297,74 @@ test('失败交易保留当前弹窗、列表与滚动位置', async ({ browser 
   await expect(page.locator('[data-y]')).toBeVisible();
   expect(await page.evaluate(()=>window.__game.state.boardUnlocked)).toBe(unlocked);
 
+  expect(errors).toEqual([]);
+  await context.close();
+});
+
+test('关键剧情包含连续电影对白、亲手复苏与可持久化装修选择', async ({ browser }) => {
+  const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+  const page=await context.newPage();
+  await page.goto(base);
+  await page.evaluate(()=>localStorage.clear());
+  const errors=await boot(page);
+  await skipWelcome(page);
+
+  await page.evaluate(()=>{
+    const {state}=window.__game;
+    state.setSandbox(true);
+    const prepared=state.sbPrepareNextStory();
+    state.buildNode(prepared.chapter,prepared.node);
+  });
+  const act=page.locator('.story-act[data-node="n11"]');
+  await expect(act).toBeVisible();
+  await expect(act.locator('.story-act-target')).toHaveCount(3);
+  await expect(act.locator('.story-act-bg')).toHaveAttribute('style',/cg_first_flame\.png/);
+  await page.waitForTimeout(260);
+  const actSkip=await act.locator('.story-act-skip').boundingBox();
+  expect(actSkip.y).toBeGreaterThanOrEqual(32);
+  await page.screenshot({path:'artifacts/qa/web-story-interaction.png',fullPage:true});
+
+  for(let i=0;i<3;i++) await act.locator('.story-act-target').nth(i).click();
+  await expect(act).toHaveClass(/complete/);
+  await expect(act.locator('.story-act-result')).toContainText('第一堆火没有熄灭');
+  await page.screenshot({path:'artifacts/qa/web-story-interaction-complete.png',fullPage:true});
+  await act.locator('.story-act-continue').click();
+
+  const stage=page.locator('.story-stage');
+  await expect(stage).toBeVisible();
+  await expect(stage.locator('.story-stage-bg')).toHaveAttribute('style',/cg_first_flame\.png/);
+  await stage.evaluate(el=>{el.closest('.modal').dataset.instance='cinema-stable';});
+  await stage.locator('.dlg-next').click();
+  await expect(page.locator('.modal')).toHaveAttribute('data-instance','cinema-stable');
+  await stage.locator('.story-log').click();
+  await expect(stage.locator('.story-transcript')).toBeVisible();
+  await expect(stage.locator('.story-transcript')).toContainText('最后一个没走的老猎人');
+  await stage.locator('.story-log-head button').click();
+  await stage.locator('.story-skip').click();
+  await expect(page.locator('.cdialog')).toContainText('重燃篝火广场');
+  await page.locator('.cd-ok').click();
+
+  await page.evaluate(()=>{
+    const ch=window.__game.state.currentObjective().chapter;
+    const node=ch.nodes.find(item=>item.id==='n14');
+    window.__choiceBeatDone=false;
+    window.__game.ui._storyChoiceBeat(ch,node,node.interaction,()=>{window.__choiceBeatDone=true;});
+  });
+  await page.locator('[data-choice="crystal"]').click();
+  await expect(page.locator('[data-choice="crystal"]')).toHaveAttribute('aria-checked','true');
+  await page.screenshot({path:'artifacts/qa/web-story-choice.png',fullPage:true});
+  await page.locator('.story-choice-confirm').click();
+  await page.waitForFunction(()=>window.__choiceBeatDone===true);
+  expect(await page.evaluate(()=>window.__game.state.storyChoice('n14')?.id)).toBe('crystal');
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('froststory.save.v1')).storyChoices.n14)).toBe('crystal');
+
+  await page.evaluate(()=>{
+    const ch=window.__game.state.currentObjective().chapter;
+    const node=ch.nodes.find(item=>item.id==='n14');
+    window.__game.ui._storyDialog(ch,node,{replay:true});
+  });
+  await expect(page.locator('.story-say')).toContainText('霜晶星灯');
+  await page.locator('.story-skip').click();
   expect(errors).toEqual([]);
   await context.close();
 });

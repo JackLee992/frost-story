@@ -43,7 +43,7 @@ const setP=p=>fill.style.width=Math.round(p*100)+'%';
     const state=new GameState();
     let isNew=false;
     if(saved){ state.hydrate(saved); } else { state.newGame(); isNew=true; }
-    AudioMgr.setBgm(state.settings.bgm); AudioMgr.setSfx(state.settings.sfx); Haptics.setEnabled(state.settings.sfx);
+    AudioMgr.setBgm(state.settings.bgm); AudioMgr.setSfx(state.settings.sfx); AudioMgr.setVoice(state.settings.voice); Haptics.setEnabled(state.settings.sfx);
 
     const scene=new BoardScene(state,document.getElementById('board'));
     await scene.init();
@@ -74,7 +74,8 @@ const setP=p=>fill.style.width=Math.round(p*100)+'%';
       // 老玩家：若有已开放却未看过场的章节，补播章节开场，保持故事连续
       setTimeout(()=>ui._maybeChapterIntro(),900);
     }
-    window.__game={state,scene,ui,Config};
+    // 测试/真机诊断入口：只暴露运行态对象，不包含任何凭据或外部接口。
+    window.__game={state,scene,ui,Config,AudioMgr};
   }catch(err){
     console.error(err);
     tip.textContent='加载失败：'+err.message;

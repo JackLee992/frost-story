@@ -18,7 +18,11 @@ ok(s.cells.length===48,'棋盘 48 格');
 ok(s.boardUnlocked===24,'初始解锁 24 格');
 ok(s.orders.length===3,'3 个订单槽');
 ok(s.emptyCells().length>15,'有足够空格');
-ok(s.orders[0].npcId==='choco'&&s.orders[0].needs[0].fam==='crystal'&&s.orders[0].needs[0].tier===2,'首单与第一次合并形成确定闭环');
+ok(s.orders[0].npcId==='gunnar'&&s.orders[0].needs[0].fam==='crystal'&&s.orders[0].needs[0].tier===2,'冈特带剧情登场，首个请求与第一次合并形成确定闭环');
+ok(s.orders.every(order=>order.accepted===false),'新委托默认等待玩家回应，不会自动接取');
+ok(new Set(s.orders.map(order=>order.npcId)).size===s.orders.length,'同一批请求不会让同一村民重复登场');
+ok(s.settings.ordersCollapsed===true&&s.settings.questCollapsed===true,'委托与主线默认收进任务架');
+ok(s.settings.voice===true,'剧情语音默认开启');
 
 console.log('— 生成器产出 —');
 const before=s.emptyCells().length; s.energy=50;
@@ -46,11 +50,17 @@ console.log('— 订单 —');
 s=new GameState().newGame(); s.cells.fill(null); s.boardUnlocked=48;
 const o=s.orders[0];
 o.needs.forEach(q=>{ for(let k=0;k<q.n;k++){ const i=s.emptyCells()[0]; s._put(i,{k:'i',fam:q.fam,tier:q.tier}); }});
-ok(s.orderReady(o),'材料齐后订单就绪');
+ok(!s.orderReady(o),'材料齐但未接受时不能直接交付');
+const accept=s.acceptOrder(0);
+ok(accept?.ok===true&&o.accepted&&s.tutorial.orderAccepted,'玩家回应后委托才进入进行中');
+const acceptedSnapshot=JSON.stringify(o);
+ok(s.acceptOrder(0)?.code==='order_already_accepted'&&JSON.stringify(o)===acceptedSnapshot,'重复接受不会改写委托');
+ok(s.orderReady(o),'接受后且材料齐，委托才就绪');
 const coin0=s.coin,xp0=s.xp,lv0=s.lv;
 s.submitOrder(0);
 ok(s.coin>=coin0+o.coin,'获得金币（升级可能额外奖励）');
 ok(s.lv>lv0||s.xp===xp0+o.xp,'经验入账或已转化为升级');
+ok(s.orders[0].accepted===false,'交付后出现的新请求仍需玩家自行接受');
 
 console.log('— 升级 —');
 s.lv=1;s.xp=0; const need=Config.xpNeed(1); s.addXp(need);
@@ -90,6 +100,11 @@ console.log('— 损坏存档迁移 —');
   ok(repaired.cells.length===48&&!repaired.cells.some(c=>c?.fam==='__proto__'),'非法棋子被丢弃且棋盘完整');
   ok(repaired.orders.length===Config.balance.order.slots&&repaired.storyDone.length===0,'非法订单与跳章记录被安全修复');
   ok(repaired.cells.filter(c=>c?.k==='g').length>=2,'关键初始生成器自动恢复');
+
+  const legacy=new GameState().newGame().serialize();
+  delete legacy.orders[0].accepted;
+  const migrated=new GameState().hydrate(legacy);
+  ok(migrated.orders[0].accepted===true,'旧存档中已经显示的委托按已接受迁移，避免进度中断');
 }
 
 console.log('— 爽玩模式 —');
@@ -150,6 +165,16 @@ console.log('— 剧情体系数据驱动约束 —');
   }
   ok(preOk,'每个节点都有交付前请求对白（故事驱动游戏）');
   ok(whoOk,'所有对白角色与需求链合法');
+  const interactive=flat.filter(({node})=>node.interaction);
+  const interactionOk=interactive.every(({node})=>{
+    const act=node.interaction;
+    if(act.type==='tap-sequence') return Array.isArray(act.steps)&&act.steps.length>=3&&act.steps.every(step=>
+      typeof step.id==='string'&&typeof step.label==='string'&&step.x>=0&&step.x<=100&&step.y>=0&&step.y<=100);
+    if(act.type==='choice') return Array.isArray(act.options)&&act.options.length===3&&new Set(act.options.map(option=>option.id)).size===3;
+    return false;
+  });
+  ok(interactive.length>=4&&interactionOk,'前三章关键节点具备合法的亲手复苏/装修选择交互');
+  ok(Config.story.every(ch=>typeof ch.hook==='string'&&ch.hook.length>=10),'每章都有可见的悬念钩子');
   // 主线目标按顺序推进
   const s=new GameState().newGame();
   ok(s.currentObjective().node.id==='n11','初始主线目标为 n11');
@@ -161,22 +186,41 @@ console.log('— 剧情体系数据驱动约束 —');
   // 非法章节 id 被过滤
   const dirty=new GameState().hydrate({chaptersSeen:[1,99,'x',3]});
   ok(JSON.stringify(dirty.chaptersSeen)==='[1,3]','非法章节过场记录被过滤');
+  const choiceNode=flat.find(({node})=>node.interaction?.type==='choice')?.node;
+  const choiceId=choiceNode.interaction.options[1].id;
+  const picked=s.setStoryChoice(choiceNode.id,choiceId);
+  const choiceRoundTrip=new GameState().hydrate(JSON.parse(JSON.stringify(s.serialize())));
+  ok(picked?.ok===true&&choiceRoundTrip.storyChoice(choiceNode)?.id===choiceId,'装修选择写入存档并可安全恢复');
+  const choiceSnapshot=JSON.stringify(choiceRoundTrip.storyChoices);
+  const rejected=choiceRoundTrip.setStoryChoice(choiceNode.id,'__unknown_choice__');
+  ok(rejected?.ok===false&&JSON.stringify(choiceRoundTrip.storyChoices)===choiceSnapshot,'非法装修选择被拒绝且不污染存档');
+  const dirtyChoices=new GameState().hydrate({storyChoices:{[choiceNode.id]:'__bad__',__proto__:'polluted'}});
+  ok(Object.keys(dirtyChoices.storyChoices).length===0,'损坏或未声明的装修选择键被过滤');
   // 剧情-only NPC（祖父、陪伴向导啾可）不下订单
   const og=new GameState().newGame(); og.lv=20; let leaked=false;
   for(let i=0;i<200;i++){ const o=og._genOrder([]); if(o.npcId==='gramps'||o.npcId==='choco') leaked=true; }
   ok(!leaked,'祖父与陪伴向导啾可均为剧情角色，不进入订单池');
+  ok(Config.orderNpcs().every(n=>typeof n.request==='string'&&n.request.length>=24&&typeof n.thanks==='string'&&n.thanks.length>=12),
+    '每位派单村民都有具体请求缘由和完成回应');
+  const first=Config.story[0].nodes[0];
+  const voiced=[...Config.prologue,...first.pre,...first.dialogue].map(line=>line?.[2]?.voice);
+  const gunnar=Config.npcById('gunnar'); voiced.push(gunnar.voiceRequest,gunnar.voiceThanks);
+  ok(voiced.length===12&&voiced.every(path=>typeof path==='string'&&path.endsWith('.ogg')),'序章、首个村民请求与首个 CG 共声明 12 段离线语音');
+  const voiceResponses=await Promise.all(voiced.map(path=>fetch(path)));
+  ok(voiceResponses.every(response=>response.ok&&Number(response.headers.get('content-length')||1)>0),'12 段关键语音资产均可从游戏包读取');
   // 角色羁绊为纯派生：完成节点后计数增长
   const bd=new GameState().newGame(); bd.setSandbox(true);
   const p=bd.sbPrepareNextStory(); bd.buildNode(p.chapter,p.node);
   ok(Object.keys(bd.bondByNpc()).length>=1,'完成节点后产生角色羁绊');
 }
 
-console.log('— 六步新手核心链 —');
+console.log('— 剧情内新手核心链 —');
 {
   const guide=new GameState().newGame();
   const gi=guide.cells.findIndex(c=>c?.k==='g'&&c.gid==='g_crystal');
   guide.tapGenerator(gi); ok(guide.tutorial.produced,'点生成器后推进教学');
-  guide.dropOn(13,14); ok(guide.tutorial.merged&&guide.orderReady(guide.orders[0]),'首次合并后首单可交付');
+  guide.dropOn(13,14); ok(guide.tutorial.merged&&!guide.orderReady(guide.orders[0]),'首次合并后先等待玩家回应村民');
+  guide.acceptOrder(0); ok(guide.tutorial.orderAccepted&&guide.orderReady(guide.orders[0]),'回应冈特后首单可交付');
   guide.submitOrder(0); ok(guide.tutorial.ordered&&guide.coin>=130,'首单交付后有足够金币继续教学');
   guide.unlockNext(); ok(guide.tutorial.unlocked&&guide.boardUnlocked===25,'融化冰封格后推进教学');
 }
@@ -217,8 +261,14 @@ console.log('— 失败交易原子性 —');
   const submit=new GameState().newGame();
   const submitCells=JSON.stringify(submit.cells), submitOrder=submit.orders[0].id, submitCoin=submit.coin;
   const submitResult=submit.submitOrder(0);
-  ok(submitResult?.ok===false&&submitResult.code==='requirements_not_met','材料不足交付返回明确失败');
+  ok(submitResult?.ok===false&&submitResult.code==='order_not_accepted','未接受委托不能绕过剧情直接交付');
   ok(JSON.stringify(submit.cells)===submitCells&&submit.orders[0].id===submitOrder&&submit.coin===submitCoin,'交付失败不扣材料、不替换订单');
+
+  submit.acceptOrder(0);
+  const acceptedOrder=submit.orders[0].id, acceptedCost=submit.refreshCost;
+  const acceptedRefresh=submit.refreshOrder(0);
+  ok(acceptedRefresh?.ok===false&&acceptedRefresh.code==='order_already_accepted'&&submit.orders[0].id===acceptedOrder&&submit.refreshCost===acceptedCost,
+    '进行中的委托不能付费刷新，避免抹掉已发生的角色剧情');
 }
 
 console.log(`\n结果: ${pass} 通过, ${fail} 失败`);

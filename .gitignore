@@ -15,3 +15,4 @@ distribution/*.sha256
 site/.sites-cache/
 artifacts/qa/*
 !artifacts/qa/.gitkeep
+artifacts/content-preflight/

@@ -20,10 +20,10 @@ export class GameState {
     this.cells=new Array(b.board.cols*b.board.rows).fill(null);
     this.ownedGens=['g_crystal','g_fire'];
     this.boughtGens=[]; this.orders=[]; this.orderSlots=b.order.slots;
-    this.storyDone=[]; this.chaptersSeen=[]; this.hb={}; this.stats={merge:0,order:0,produce:0};
-    this.tutorial={step:0,produced:false,merged:false,ordered:false,unlocked:false,
+    this.storyDone=[]; this.chaptersSeen=[]; this.storyChoices={}; this.hb={}; this.stats={merge:0,order:0,produce:0};
+    this.tutorial={step:0,produced:false,merged:false,orderAccepted:false,ordered:false,unlocked:false,
       shopped:false,storyOpened:false,done:false,skipped:false};
-    this.settings={bgm:true,sfx:true,fabSide:'right',fabY:.56};
+    this.settings={bgm:true,sfx:true,voice:true,fabSide:'right',fabY:.56,ordersCollapsed:true,questCollapsed:true};
     this.sandbox=false; // 内测爽玩模式：无限金币/钻石/体力
     this.refreshCost=b.order.refreshCost;
     // 初始布置
@@ -33,10 +33,10 @@ export class GameState {
     this._put(14, {k:'i',fam:'crystal',tier:1});
     this._put(16, {k:'i',fam:'fire',tier:1});
     this._put(17, {k:'i',fam:'fire',tier:1});
-    for(let i=0;i<this.orderSlots;i++) this.orders.push(this._genOrder(this.orders.map(o=>o.npcId)));
     // 固定首单把第一次合并与第一次交付串成可完成闭环，避免随机订单让新手卡住。
-    this.orders[0]={id:nid(),npcId:'choco',needs:[{fam:'crystal',tier:2,n:1}],
-      coin:50,xp:12,gem:0,warmth:2};
+    this.orders.push({id:nid(),npcId:'gunnar',needs:[{fam:'crystal',tier:2,n:1}],
+      coin:50,xp:12,gem:0,warmth:2,accepted:false});
+    for(let i=1;i<this.orderSlots;i++) this.orders.push(this._genOrder(this.orders.map(o=>o.npcId)));
     this._seenAll();
     return this;
   }
@@ -94,7 +94,9 @@ export class GameState {
       if(needs.some(q=>!q)) return null;
       return {id:str(o.id,96)||nid(),npcId:o.npcId,needs,
         coin:int(o.coin,10,0,1_000_000),xp:int(o.xp,10,0,1_000_000),
-        gem:int(o.gem,0,0,10_000),warmth:int(o.warmth,0,0,1_000_000)};
+        gem:int(o.gem,0,0,10_000),warmth:int(o.warmth,0,0,1_000_000),
+        // v0.1/v0.2 旧存档里已经展示的订单视为已接取，避免升级后突然锁住原进度。
+        accepted:hasOwn(o,'accepted')?!!o.accepted:true};
     };
     this.orderSlots=Config.balance.order.slots;
     this.orders=(Array.isArray(d.orders)?d.orders.map(orderOf).filter(Boolean):[]).slice(0,this.orderSlots);
@@ -109,6 +111,16 @@ export class GameState {
     const validChapterIds=new Set(Config.story.map(c=>c.id));
     this.chaptersSeen=Array.isArray(d.chaptersSeen)
       ?[...new Set(d.chaptersSeen.map(Number).filter(x=>validChapterIds.has(x)))]:[];
+    const choiceNodes=new Map(Config.flatNodes()
+      .filter(({node})=>node.interaction?.type==='choice'&&Array.isArray(node.interaction.options))
+      .map(({node})=>[node.id,new Set(node.interaction.options.map(option=>option.id))]));
+    this.storyChoices={};
+    if(d.storyChoices&&typeof d.storyChoices==='object'&&!Array.isArray(d.storyChoices)){
+      for(const [nodeId,options] of choiceNodes){
+        const value=str(d.storyChoices[nodeId],48);
+        if(value&&options.has(value)) this.storyChoices[nodeId]=value;
+      }
+    }
     const mapNums=(source,allowed)=>{ const out={}; if(source&&typeof source==='object'&&!Array.isArray(source)){
       for(const key of allowed){ if(hasOwn(source,key)) out[key]=int(source[key],0,0,1_000_000_000); }
     } return out; };
@@ -116,17 +128,20 @@ export class GameState {
     this.hb=mapNums(d.hb,hbKeys);
     this.stats={...this.stats,...mapNums(d.stats,['merge','order','produce'])};
     if(d.tutorial&&typeof d.tutorial==='object'&&!Array.isArray(d.tutorial)){
-      for(const key of ['produced','merged','ordered','unlocked','shopped','storyOpened','done','skipped'])
+      for(const key of ['produced','merged','orderAccepted','ordered','unlocked','shopped','storyOpened','done','skipped'])
         this.tutorial[key]=!!d.tutorial[key];
       this.tutorial.step=int(d.tutorial.step,0,0,20);
+      if(!hasOwn(d.tutorial,'orderAccepted')) this.tutorial.orderAccepted=this.orders.some(order=>order.accepted);
       if(!hasOwn(d.tutorial,'unlocked')) this.tutorial.unlocked=this.boardUnlocked>Config.balance.board.initialUnlocked;
       if(!hasOwn(d.tutorial,'storyOpened')) this.tutorial.storyOpened=this.storyDone.length>0;
     }
     if(d.settings&&typeof d.settings==='object'&&!Array.isArray(d.settings)){
-      this.settings.bgm=d.settings.bgm!==false; this.settings.sfx=d.settings.sfx!==false;
+      this.settings.bgm=d.settings.bgm!==false; this.settings.sfx=d.settings.sfx!==false; this.settings.voice=d.settings.voice!==false;
       this.settings.fabSide=d.settings.fabSide==='left'?'left':'right';
       const fabY=Number(d.settings.fabY);
       this.settings.fabY=Number.isFinite(fabY)?Math.min(1,Math.max(0,fabY)):.56;
+      this.settings.ordersCollapsed=d.settings.ordersCollapsed!==false;
+      this.settings.questCollapsed=d.settings.questCollapsed!==false;
     }
     this.sandbox=!!d.sandbox;
     if(this.sandbox) this.energy=Config.energyMax(this.lv);
@@ -137,7 +152,7 @@ export class GameState {
     return {v:1,lv:this.lv,xp:this.xp,coin:this.coin,gem:this.gem,warmth:this.warmth,
       energy:this.energy,energyTs:this.energyTs,boardUnlocked:this.boardUnlocked,cells:this.cells,
       ownedGens:this.ownedGens,boughtGens:this.boughtGens,orders:this.orders,orderSlots:this.orderSlots,
-      storyDone:this.storyDone,chaptersSeen:this.chaptersSeen,hb:this.hb,stats:this.stats,tutorial:this.tutorial,settings:this.settings,
+      storyDone:this.storyDone,chaptersSeen:this.chaptersSeen,storyChoices:this.storyChoices,hb:this.hb,stats:this.stats,tutorial:this.tutorial,settings:this.settings,
       sandbox:!!this.sandbox,
       refreshCost:this.refreshCost};
   }
@@ -175,7 +190,7 @@ export class GameState {
     for(const fam of fams){ for(let t=1;t<=3;t++){ const to=this.nearestEmpty(Math.floor(this.cells.length/2));
         if(to<0) break; this._put(to,{k:'i',fam,tier:t}); this._seen(fam,t); n++; } }
     this.changed('sbFill',{n}); bus.emit('sfx','reward'); return n; }
-  // 为尚未完成的下一处剧情建筑精确备料，便于验收三章九个完整节点。
+  // 为尚未完成的下一处剧情建筑精确备料，便于验收六章 24 个完整节点。
   sbPrepareNextStory(){
     const next=Config.story.flatMap(ch=>ch.nodes.map(node=>({chapter:ch,node})))
       .find(x=>!this.storyDone.includes(x.node.id));
@@ -312,13 +327,22 @@ export class GameState {
     for(const q of needs){ coin+=Config.sellPrice(q.tier)*q.n; warmth+=q.tier*q.n; xp+=q.tier*q.n*o.xpPerTier; }
     coin=Math.round(coin*o.coinMul);
     const gem=(RNG.chance(o.gemChance)&&maxT>=3)?RNG.int(1,2):0;
-    return {id:nid(),npcId:npc.id,needs,coin,xp,gem,warmth};
+    return {id:nid(),npcId:npc.id,needs,coin,xp,gem,warmth,accepted:false};
   }
   orderHave(ord){ return ord.needs.map(q=>Math.min(q.n,this.countItem(q.fam,q.tier))); }
-  orderReady(ord){ return ord.needs.every((q,i)=>this.orderHave(ord)[i]>=q.n); }
+  orderReady(ord){ return !!ord?.accepted&&ord.needs.every((q,i)=>this.orderHave(ord)[i]>=q.n); }
+  acceptOrder(slot){
+    const ord=this.orders[slot];
+    if(!ord) return actionFail('invalid_order');
+    if(ord.accepted) return actionFail('order_already_accepted');
+    ord.accepted=true; this.tutorial.orderAccepted=true;
+    this.changed('orderAccepted',{slot,npcId:ord.npcId}); bus.emit('sfx','chime');
+    return actionOk({slot,npcId:ord.npcId});
+  }
   submitOrder(slot){
     const ord=this.orders[slot];
     if(!ord) return actionFail('invalid_order');
+    if(!ord.accepted) return actionFail('order_not_accepted');
     if(!this.orderReady(ord)){ bus.emit('toast',{msg:'材料还没凑齐'}); return actionFail('requirements_not_met'); }
     // 扣材料
     for(const q of ord.needs){ let left=q.n;
@@ -336,6 +360,7 @@ export class GameState {
   }
   refreshOrder(slot){
     if(!this.orders[slot]) return actionFail('invalid_order');
+    if(this.orders[slot].accepted) return actionFail('order_already_accepted');
     const cost=this.refreshCost;
     if(!this.canPayCoin(cost)){ bus.emit('toast',{msg:'金币不足'}); return actionFail('insufficient_coin'); }
     this.payCoin(cost);
@@ -440,6 +465,23 @@ export class GameState {
     const prev=Config.story[ch.id-2]; return !!prev && prev.nodes.every(n=>this.storyDone.includes(n.id));
   }
   markChapterSeen(id){ if(!this.chaptersSeen.includes(id)){ this.chaptersSeen.push(id); this.changed('chapterSeen',{id}); } }
+  // 装修选择只接受配置表中声明过的节点/选项；动态内容更新不能向存档注入任意键。
+  setStoryChoice(nodeId,choiceId){
+    const entry=Config.flatNodes().find(({node})=>node.id===nodeId);
+    if(!entry||entry.node.interaction?.type!=='choice') return actionFail('invalid_choice_node');
+    const option=(entry.node.interaction.options||[]).find(item=>item.id===choiceId);
+    if(!option) return actionFail('invalid_choice');
+    this.storyChoices[nodeId]=choiceId;
+    this.changed('storyChoice',{nodeId,choiceId});
+    return actionOk({nodeId,choiceId});
+  }
+  storyChoice(nodeOrId){
+    const node=typeof nodeOrId==='string'
+      ?Config.flatNodes().find(entry=>entry.node.id===nodeOrId)?.node:nodeOrId;
+    if(!node||node.interaction?.type!=='choice') return null;
+    const id=this.storyChoices[node.id];
+    return (node.interaction.options||[]).find(option=>option.id===id)||null;
+  }
   // 下一个尚未播放过场、且已开放的章节（用于自动弹出章节开场）
   nextUnseenChapter(){ return Config.story.find(ch=>!this.chaptersSeen.includes(ch.id)&&this.chapterReachable(ch))||null; }
   // 角色羁绊：该 NPC 在已完成节点的 pre/dialogue 中登场次数（手账用，纯派生不存档）

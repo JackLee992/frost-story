@@ -6,11 +6,13 @@
 
 产品是原创竖屏 Merge-2 剧情游戏《冰霜物语》，Android 优先，Web 游戏逻辑由 PixiJS 承载，Android 使用 GeckoView 独立内核。
 
-当前已经交付：
+当前代码已经交付：
 
-- 三章九个剧情重建节点（`n11`–`n33`）完整贯通。
-- 6×8 棋盘、六条八级合成链、生成器、体力、订单、商店、宝箱、霜泡、图鉴、等级与自动存档。
-- 六步新手引导和设置内永久玩法规则。
+- 六章 24 个剧情重建节点（`n11`–`n64`）、序章/结局、章节过场、山谷手记和角色羁绊完整贯通。
+- 连续电影对白、完整画幅 CG、前三章关键点击互动，以及会写入存档/对白/手记的三选一村厅灯。
+- 6×8 棋盘、六条八级合成链、生成器、体力、剧情化村民请求、商店、宝箱、霜泡、图鉴、等级与自动存档。
+- 默认收起且互斥展开的任务架；不显示步骤编号的剧情内引导；设置内永久玩法规则。
+- 6 段 BGM、风雪环境声、9 个音效，以及序章/冈特首次请求/首个 CG 的 12 段离线中文语音。
 - Android 沉浸式全屏及四方向挖孔/手势安全区。
 - 可拖动、左右吸边、重启后保持位置的“爽玩”按钮。
 - GitHub Release APK、内容热更新流水线以及公开下载站。
@@ -21,14 +23,14 @@
 | 项目 | 地址 / 基线 |
 |---|---|
 | 游戏仓库 | https://github.com/JackLee992/frost-story |
-| 游戏功能基线 | `b97a962`（本文件的提交会位于其后） |
-| Android 正式版 | https://github.com/JackLee992/frost-story/releases/tag/v0.1.0 |
+| 游戏功能基线 | `main` 当前 HEAD；任何精确 SHA 均以 `git rev-parse HEAD` 现查为准 |
+| Android 正式版 | https://github.com/JackLee992/frost-story/releases/tag/v0.2.0 |
 | 下载站 | https://frost-story-download.s419505080.chatgpt.site |
 | 核心引擎仓库 | https://github.com/JackLee992/frost-merge-core |
 | 核心引擎版本 | `v0.1.0` / `8827f3ec7221c300b2d50e335fe9eb10ffb8c576` |
-| 内容包 | `content-v0.1.0`，清单见 `distribution/content-manifest.json` |
+| 内容包 | 当前已发布版本必须现查 `distribution/content-manifest.json`；本文对应的六章源码版本为 `0.2.0` |
 
-发布 tag `v0.1.0` 指向 `9c29fc5`；`main` 随后增加了干净 checkout 的 Android assets 同步修复和官方 Maven 源优先修复。不要移动旧 tag。下一次 APK 发版应从最新 `main` 创建新版本并递增 `versionCode`。
+旧 tag `v0.1.0` 指向 `9c29fc5`，不得移动；当前 Android 发行线为 `v0.2.0`。下一次 APK 发版应从最新 `main` 创建新版本并同时递增 `versionCode`、`versionName` 和 `BUNDLED_CONTENT_VERSION`。
 
 不要把“完成 v0.1”理解成已经完成商业化全量产品。仓库扩容、云存档、账号、广告/IAP、活动系统、Battle Pass、服务端运营与 iOS 壳仍不在当前实现内。
 
@@ -120,8 +122,8 @@
 | `web/js/core/Config.js` | 加载并索引五份 JSON 配置 |
 | `web/js/core/Save.js` | `froststory.save.v1` 的防抖持久化 |
 | `web/js/scenes/BoardScene.js` | Pixi 节点、拖拽、动画、bounds 与渲染同步 |
-| `web/js/ui/UI.js` | 商店、订单、新手教学、规则页、弹窗与爽玩 FAB |
-| `web/config/*.json` | 物品、平衡、商店、NPC、前三章剧情 |
+| `web/js/ui/UI.js` | 商店、订单、教学、规则页、连续剧情舞台、节点互动、弹窗与爽玩 FAB |
+| `web/config/*.json` | 物品、平衡、商店、NPC、六章 24 节点剧情与关键互动 |
 | `web/js/engine/src/*` | 独立核心 submodule 的运行时模块 |
 | `android/.../MainActivity.kt` | GeckoView、沉浸式全屏、安全区、生命周期 |
 | `android/.../LocalAssetServer.kt` | 有界 GET/HEAD 回环静态服务器与 CSP |
@@ -135,7 +137,7 @@
 
 必须保留品类核心循环：
 
-`点生成器 → 产出 → 两两合并 → 交付订单 → 获得资源 → 扩棋盘/升级 → 剧情重建`
+`点生成器 → 产出 → 两两合并 → 听村民来意并接受请求 → 交付 → 角色回应/获得资源 → 扩棋盘/升级 → 剧情重建`
 
 只对齐通用玩法和可观察工程机制。不得复制竞品角色、美术、对白、关卡数据、音频或专有代码。对齐依据及明确未实现项见 `docs/01` 和 `docs/03`。
 
@@ -163,7 +165,7 @@
 
 ### 5.4 全屏安全区
 
-- 背景允许铺到物理屏幕边缘，但 HUD、订单、棋盘、弹窗、教学卡片和底部导航必须位于 `--safe-*` 矩形内。
+- 背景允许铺到物理屏幕边缘，但 HUD、任务架、棋盘、弹窗、剧情内引导和底部导航必须位于 `--safe-*` 矩形内。
 - Android 安全区来自 `DisplayCutout` 与 mandatory gesture insets，经查询参数传给 Web。
 - Web 入口把参数限制到 0–120 CSS px，再与浏览器 `env(safe-area-inset-*)` 取最大值。
 - 新增悬浮控件必须考虑四边安全区、底部 dock 和横竖尺寸变化。
@@ -230,27 +232,24 @@ Android 权限只有：
 
 ## 8. 当前验证基线
 
-以下是功能基线 `b97a962` 的已通过证据；任何代码、依赖、配置、素材或 submodule 指针变化后，都要按影响范围重跑，不能直接复述这些数字。
+以下数字是 v0.2 剧情互动修改后在本机重跑的基线；任何代码、依赖、配置、素材或 submodule 指针变化后，都要按影响范围再次重跑，不能直接复述这些数字。Android 构建/真机行中若标注历史基线，仍需以本轮实测覆盖后才能对新内容下结论。
 
 | 层 | 已有覆盖 | 当前结果 | 是否由主仓库 CI 强制 |
 |---|---|---|---|
 | 核心引擎 | `frost-merge-core/test/core.test.js` | 4 项通过 | 独立核心 CI |
-| 游戏逻辑 | `test/logic.test.js` | 72 项通过 | 是 |
+| 游戏逻辑 | `test/logic.test.js` | 132 项通过 | 是 |
 | Android assets 同步 | `test/sync-android.test.js` | 5 项通过 | 是 |
-| Android 仓库顺序 | `test/android-build-config.test.js` | 6 项通过 | 是 |
-| 游戏浏览器 | `test/e2e.spec.js` | 4 条通过 | 是 |
+| Android 构建配置 | `test/android-build-config.test.js` | 10 项通过（官方源顺序 + v0.2 版本一致性） | 是 |
+| 游戏浏览器 | `test/e2e.spec.js` | 5 条通过 | 是 |
 | 下载站 | `test/site.spec.js` | 移动/桌面 2 条通过 | 否，当前需手动 |
 | Android 路径策略 | `ContentPathPolicyTest.kt` | 2 项通过 | 是 |
 | Android 构建 | unit + lint + debug assemble | 通过 | 是 |
 | Release 构建/签名 | release assemble + apksigner | 通过 | 否，需签名环境 |
 | 依赖审计 | `npm audit --audit-level=high` | 0 个已知项 | 否 |
-| 真机 | Samsung SM-G9910 / Android 15 | 安装、冷启、教学、商店失败路径、FAB 拖动持久化通过 | 否 |
-| 模拟器 | ARM64 `emulator-5554` | 安装与冷启动通过 | 否 |
+| 真机（v0.2 本轮） | Samsung SM-G9910 / Android 15 / 1080×2400 @ 480 dpi | 签名包覆盖安装后清数据冷启；序章 48 kHz 语音、生成/合并、请求来历、主动接受、交付回应、融冰、商店成功购买和主线入口通过；未发现 FATAL/ANR/JS 异常 | 否 |
+| 模拟器（v0.2 本轮） | ARM64 `emulator-5554` | 签名包安装、清数据冷启动、点灯进入序章通过；未发现 FATAL/ANR/JS 异常 | 否 |
 
-主仓库绿色 CI：
-
-- https://github.com/JackLee992/frost-story/actions/runs/34669939501
-- Web 与 Android job 均成功。
+主仓库 CI：每次交接都从 https://github.com/JackLee992/frost-story/actions 现查当前 HEAD 的 Web 与 Android job，不能用历史绿色 run 替代。
 
 核心绿色 CI：
 
@@ -259,7 +258,7 @@ Android 权限只有：
 正式 APK：
 
 - 文件名必须保持 `FrostStory-arm64.apk`，下载站按此名称寻找资产。
-- SHA-256：`fb4001168464f7582d7ab888f941ac9ddd8b7e2f247cb8c56ee54bcdb5cef4c6`
+- `v0.2.0` 大小：`241001702` bytes；SHA-256：`adbc8c16d2d6faa264c3133a557dc87c3f20f6432849a51d13251543539b1b15`
 - v2 signer certificate SHA-256：`eb7b976f28116ca36bd2f414dd0f61670cc4c2073437aef825ab4e7bfdc6cffb`
 
 本机 `artifacts/qa/` 有完整截图过程，但目录默认被 Git 忽略，新的 clone 只有 `.gitkeep`。可长期引用的代表图是已提交到 `site/dist/assets/gameplay-safe-area.png` 的副本。
@@ -280,11 +279,12 @@ Gradle 的 `preBuild` 会从根目录 `web/` 同步内容。需要单独检查�
 1. `adb devices -l` 确认目标设备状态为 `device`，不是只看到模拟器。
 2. 安装本次实际准备交付的 APK，不能拿旧包代替。
 3. 强停后冷启动，检查目标进程存活和 AndroidRuntime/Gecko 崩溃日志。
-4. 从欢迎页完成生成、合并、订单、融冰、商店和剧情引导。
+4. 从“点亮风灯”开始，确认序章语音/音效，完成生成、合并、听冈特来意、主动接受、交付、融冰、商店和剧情引导。
 5. 商店先成功购买，再在余额不足时重复点击；列表不得关闭或跳回顶部。
 6. 开启爽玩，拖到另一侧和底部边缘，强停重启后位置必须保持。
 7. 检查顶部挖孔、左右边缘、底部手势区没有遮住核心内容。
 8. 棋盘不得出现贯穿屏幕的竖条、残影或错误阶级纹理。
+9. 委托与主线默认收起且不遮盘；展开时只开一栏。关闭/切句后不得残留或叠播语音。
 
 模拟器、浏览器 E2E 和历史截图都不能代替这一轮真机结果。设备断开时必须明确写“真机未验证”，不能推断为通过。
 
@@ -356,8 +356,8 @@ Gradle 的 `preBuild` 会从根目录 `web/` 同步内容。需要单独检查�
 
 这些不是已经修复的问题，不得在交付说明里隐藏：
 
-- 物理设备矩阵目前只有一台 Samsung Android 15；尚未覆盖真实 Android 8/API 26、国产低端机、平板和折叠屏。
-- APK 只发布 `arm64-v8a`，约 218 MB；没有 32 位或 x86 正式包。
+- v0.2 物理设备矩阵目前只有一台 Samsung SM-G9910 / Android 15；尚未覆盖真实 Android 8/API 26、国产低端机、低内存机、平板和折叠屏。
+- APK 只发布 `arm64-v8a`，约 230 MiB；没有 32 位或 x86 正式包。
 - 内容包有 HTTPS、大小和 SHA-256 完整性，但 manifest 没有独立非对称签名。GitHub 仓库权限被攻破时，攻击者可同时替换包和哈希。优先考虑在 APK 内固定内容签名公钥。
 - 内容更新尚缺“线上 manifest → 下载 → 次启动激活 → 损坏包回退”的全链路自动化/真机测试。
 - 固定回环端口被占用时会随机回退，导致不同 origin 下读取不到旧 localStorage。
@@ -378,7 +378,7 @@ Gradle 的 `preBuild` 会从根目录 `web/` 同步内容。需要单独检查�
 
 ### P1：继续内容与体验
 
-1. 按数据驱动方式扩展第 4 章以后剧情，避免把剧情条件硬编码到 UI。
+1. 为第 4–6 章各补一种不同手势的数据驱动互动，避免所有节点都变成三次点击。
 2. 做长时棋盘 soak、低帧率拖拽和内存/节点数监控。
 3. 优化 GeckoView/素材体积，评估 App Bundle 或按 ABI 分发。
 4. 增加存档版本升级测试，为后续云存档预留明确 schema。
@@ -409,6 +409,7 @@ Gradle 的 `preBuild` 会从根目录 `web/` 同步内容。需要单独检查�
 - `docs/03-竞品玩法对齐验收.md`：已对齐和明确未实现系统。
 - `docs/04-故障复盘与回归清单.md`：FS-001 起的根因与防再发门禁。
 - `docs/05-核心游戏引擎接入指南.md`：submodule、npm Git tag 和 vendor 接入。
+- `docs/06-竞品CG与叙事交互升级.md`：五个公开竞品的 CG/交互方法、当前差距、本轮实现和后续优先级。
 - `android/README.md`：Android Studio、GeckoView 和打包说明。
 - `distribution/README.md`：动态内容发布约定。
 - `SECURITY.md`：安全边界和私下报告渠道。

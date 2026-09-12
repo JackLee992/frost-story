@@ -17,7 +17,7 @@ async function loadRelease() {
     const asset = Array.isArray(release.assets)
       ? release.assets.find(item => item.name === 'FrostStory-arm64.apk')
       : null;
-    const version = typeof release.tag_name === 'string' ? release.tag_name : 'v0.1.0';
+    const version = typeof release.tag_name === 'string' ? release.tag_name : 'v0.2.0';
     $('releaseVersion').textContent = version;
     $('releaseState').textContent = `${version} 已可下载`;
     if (release.published_at) {
@@ -29,8 +29,8 @@ async function loadRelease() {
     $('downloadMeta').textContent = [version, 'ARM64', formatBytes(asset?.size)].filter(Boolean).join(' · ');
   } catch {
     $('downloadLink').href = fallbackDownload;
-    $('downloadMeta').textContent = '最新正式版 · ARM64';
-    $('releaseState').textContent = 'Android 初版已可玩';
+    $('downloadMeta').textContent = 'v0.2.0 · ARM64';
+    $('releaseState').textContent = 'Android v0.2.0 已可玩';
   }
 }
 
@@ -41,9 +41,11 @@ async function loadContentVersion() {
     const manifest = await response.json();
     if (!/^[0-9A-Za-z][0-9A-Za-z._-]{0,63}$/.test(manifest.version)) throw new Error('invalid version');
     $('contentVersion').textContent = `v${manifest.version}`;
-    $('contentState').textContent = '应用会校验完整性，并在下次启动安全切换';
+    $('contentState').textContent = manifest.version === '0.1.0'
+      ? '已内置前三章；应用启动时会检查六章更新'
+      : '六章 24 节点 · 完整性校验后于下次启动安全切换';
   } catch {
-    $('contentState').textContent = '已内置前三章；联网后自动检查新内容';
+    $('contentState').textContent = '暂时无法读取版本；已安装内容仍可离线游玩';
   }
 }
 

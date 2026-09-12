@@ -36,14 +36,19 @@
         </div>
       </header>
 
-      <div id="orders" class="orders"></div>
-
-      <!-- 常驻主线任务条：故事线始终在场，指引下一步合成/交付目标 -->
-      <div id="quest" class="quest hidden"></div>
+      <!-- 紧凑任务架：委托与主线默认收起，玩家主动查看时只展开一栏。 -->
+      <div id="taskShelf" class="task-shelf">
+        <div class="task-tabs">
+          <button id="ordersToggle" class="task-summary orders-summary" type="button" aria-controls="orders" aria-expanded="false"></button>
+          <button id="questToggle" class="task-summary quest-summary" type="button" aria-controls="quest" aria-expanded="false"></button>
+        </div>
+        <section id="orders" class="orders task-panel collapsed" aria-label="村民请求"></section>
+        <section id="quest" class="quest task-panel collapsed hidden" aria-label="重建主线"></section>
+      </div>
 
       <div id="hint" class="hint hidden"></div>
 
-      <!-- 首次游玩逐步引导：遮罩不拦截目标操作，规则可随时回看 -->
+      <!-- 首次游玩剧情内引导：角色短台词 + 光圈 + 手势，不显示机械步骤清单。 -->
       <div id="guideLayer" class="guide-layer hidden" aria-live="polite"></div>
 
       <!-- 爽玩模式悬浮控制台入口（开启后出现） -->

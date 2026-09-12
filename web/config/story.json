@@ -1,16 +1,17 @@
 {
-  "version": 2,
+  "version": 3,
   "prologue": [
-    ["narrator", "北方有一座被雪埋住的山谷，名叫霜语谷。"],
-    ["narrator", "十年前，谷心的「永暖圣火」骤然熄灭，从此暴风雪再没有停过。"],
-    ["choco", "我是啾可，住在你祖父风灯里的最后一只霜灵。"],
-    ["choco", "他说过——雪，总得有人先扫。现在，换你提着这盏灯回家了。"]
+    ["narrator", "北方有一座被雪埋住的山谷，名叫霜语谷。", { "voice": "assets/audio/voice/prologue_01.ogg" }],
+    ["narrator", "十年前，谷心的「永暖圣火」骤然熄灭，从此暴风雪再没有停过。", { "voice": "assets/audio/voice/prologue_02.ogg" }],
+    ["choco", "我是啾可，住在你祖父风灯里的最后一只霜灵。", { "voice": "assets/audio/voice/prologue_03.ogg" }],
+    ["choco", "他说过——雪，总得有人先扫。现在，换你提着这盏灯回家了。", { "voice": "assets/audio/voice/prologue_04.ogg" }]
   ],
   "chapters": [
     {
       "id": 1,
       "title": "第一章 · 苏醒之村",
       "subtitle": "第一堆火，第一缕烟",
+      "hook": "祖父为什么把最后一盏风灯留给我？",
       "scene": "story_1.png",
       "bgm": "bgm",
       "mood": "cold",
@@ -24,18 +25,29 @@
         { "id": "w_frostcrafter", "title": "霜灵师", "text": "霜语谷的人把风、火、水、木凝在掌心，两两相合，化出更暖、更结实的东西——这门手艺叫霜灵术。人们说，最好的霜灵师能把春天也一点点合出来。" }
       ],
       "nodes": [
-        { "id": "n11", "name": "重燃篝火广场", "place": "村落中央 · 冻住的喷泉广场", "coin": 50,
+        { "id": "n11", "name": "重燃篝火广场", "place": "村落中央 · 冻住的喷泉广场", "coin": 50, "cg": "cg_first_flame.png",
           "need": [{ "fam": "fire", "tier": 5, "n": 1 }],
           "pre": [
-            ["choco", "广场的火堆底下，好像还压着一点没冻死的火星！"],
-            ["gunnar", "孩子，把一堆足够旺的「篝火堆」合出来，再添些金币引火——这村子，就从这儿醒。"]
+            ["choco", "广场的火堆底下，好像还压着一点没冻死的火星！", { "voice": "assets/audio/voice/n11_pre_choco.ogg" }],
+            ["gunnar", "孩子，把一堆足够旺的「篝火堆」合出来，再添些金币引火——这村子，就从这儿醒。", { "voice": "assets/audio/voice/n11_pre_gunnar.ogg" }]
           ],
           "dialogue": [
-            ["choco", "还有一点火星！篝火旺起来了，光落在雪上，是暖的颜色。"],
-            ["gunnar", "十年了……手指头总算又有了知觉。我叫冈特，是这村里最后一个没走的老猎人。"],
-            ["gunnar", "你提的这盏风灯，是埃文的吧。他是你祖父，也是谷里最好的霜灵师。"],
-            ["choco", "火一起来，就有了第一块能落脚的暖地。我们慢慢来，把整个山谷都焐热。"]
+            ["choco", "还有一点火星！别让它被风抢走——再靠近一点。", { "voice": "assets/audio/voice/n11_dialogue_01.ogg" }],
+            ["gunnar", "十年了……手指头总算又有了知觉。我叫冈特，是这村里最后一个没走的老猎人。", { "voice": "assets/audio/voice/n11_dialogue_02.ogg" }],
+            ["gunnar", "你提的这盏风灯，是埃文的吧。他是你祖父，也是谷里最好的霜灵师。", { "voice": "assets/audio/voice/n11_dialogue_03.ogg" }],
+            ["choco", "你听，屋里有人推开窗了。第一堆火不是景色——是他们终于敢相信，我们回来了。", { "voice": "assets/audio/voice/n11_dialogue_04.ogg" }]
           ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "亲手守住第一点火",
+            "prompt": "按顺序完成三步，让这簇火真正活下来。",
+            "complete": "第一堆火没有熄灭。黑了十年的窗，一扇接一扇亮了起来。",
+            "steps": [
+              { "id": "kindling", "label": "添上霜木", "icon": "🪵", "x": 48, "y": 72, "sfx": "tap" },
+              { "id": "lantern", "label": "引入灯火", "icon": "🏮", "x": 34, "y": 57, "sfx": "flame" },
+              { "id": "shelter", "label": "护住火种", "icon": "🔥", "x": 61, "y": 55, "sfx": "chime" }
+            ]
+          },
           "lore": { "title": "第一堆火", "text": "十年里，广场的火堆第一次没有在天亮前熄灭。冈特说，人只要还肯围着火坐下，村子就不算死。" },
           "reward": { "coin": 40, "gem": 2 } },
 
@@ -76,12 +88,23 @@
             ["choco", "那我们就织几副手套、煮几壶热茶，把这一夜过得暖暖和和的，让大家敢留下来。"]
           ],
           "dialogue": [
-            ["narrator", "炉火噼啪，热茶冒着白汽，手套分到每一双冻红的手上。村厅里，第一次有了说笑声。"],
+            ["narrator", "你把「{{choice}}」挂上房梁。炉火噼啪，热茶冒着白汽，村厅里第一次有了说笑声。"],
             ["gunnar", "埃文临走那晚，也是这样一炉火。他说圣火不是被风吹灭的，是被人一点点遗忘、没人再添柴，才冷下去的。"],
             ["gunnar", "他上山前把这盏风灯交给我，说『等下一个肯扫雪的人回来，就替我还给它』。"],
             ["choco", "原来我被留下来，是为了等你呀。"],
             ["choco", "村子醒了，可光有我们还不够——木桥那头，还有整条沉在雪里的街。"]
           ],
+          "interaction": {
+            "type": "choice",
+            "title": "给村厅留一盏你的灯",
+            "prompt": "村民会记住你的选择，回忆手账也会保留它。",
+            "complete": "灯被挂上房梁。它不改变结局，却让这间屋子真正有了你的痕迹。",
+            "options": [
+              { "id": "amber", "name": "松脂暖灯", "icon": "🏮", "desc": "像旧家壁炉一样温暖", "accent": "#f5a33c" },
+              { "id": "crystal", "name": "霜晶星灯", "icon": "✨", "desc": "把雪光折成一片星空", "accent": "#6fc8ef" },
+              { "id": "hearth", "name": "猎人壁灯", "icon": "🔥", "desc": "结实、明亮，风吹不灭", "accent": "#e56d46" }
+            ]
+          },
           "lore": { "title": "风灯之约", "text": "老霜灵师埃文上山前留下一盏风灯，托冈特转交给「下一个肯扫雪的人」。灯里的霜灵啾可，就这样等了整整十年。" },
           "reward": { "coin": 140, "gem": 5 } }
       ]
@@ -90,6 +113,7 @@
       "id": 2,
       "title": "第二章 · 糖霜工坊街",
       "subtitle": "炉火点进每一间铺子",
+      "hook": "一封迟到十年的回信，写着谁的名字？",
       "scene": "story_2.png",
       "bgm": "bgm_street",
       "mood": "bustling",
@@ -161,6 +185,17 @@
             ["choco", "可山谷最高处的圣殿还是黑的。那里，是十年前最后熄灭的地方。"],
             ["gunnar", "是时候了。我们上山，去会会那团十年没敢碰的火。"]
           ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "点亮整条工坊街",
+            "prompt": "沿着街檐逐盏点灯，让远方的人看见回家的方向。",
+            "complete": "最后一盏灯亮起时，山那边忽然也亮了一点——像有人在远方回应。",
+            "steps": [
+              { "id": "bakery", "label": "烘焙坊", "icon": "🥧", "x": 25, "y": 48, "sfx": "chime" },
+              { "id": "tailor", "label": "裁缝铺", "icon": "🧣", "x": 53, "y": 39, "sfx": "chime" },
+              { "id": "harbor", "label": "码头灯", "icon": "🏮", "x": 77, "y": 51, "sfx": "flame" }
+            ]
+          },
           "lore": { "title": "等灯的人", "text": "灯宴那晚，波波把回信读了一遍又一遍。南迁的人在信末写：『只要山谷还亮着灯，我们就总有一天会回去。』" },
           "reward": { "coin": 300, "gem": 10 } }
       ]
@@ -169,6 +204,7 @@
       "id": 3,
       "title": "第三章 · 永暖圣殿",
       "subtitle": "十年前最后熄灭的地方",
+      "hook": "圣火若不是终点，真正冻住山谷的是什么？",
       "scene": "story_3.png",
       "bgm": "bgm_temple",
       "mood": "holy",
@@ -225,6 +261,17 @@
             ["bar", "果然……圣火只是钥匙。真正冻住山谷的东西，在那上面。"],
             ["choco", "那是……霜心。它还活着，只是快要忘了，该怎么跳动。"]
           ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "完成守焰人的仪式",
+            "prompt": "三件供物必须依次回应，圣火才会承认新的守焰人。",
+            "complete": "圣火冲上穹顶，却照出了一个更大的秘密。",
+            "steps": [
+              { "id": "wood", "label": "放下霜木", "icon": "🪵", "x": 36, "y": 70, "sfx": "tap" },
+              { "id": "drink", "label": "献上暖饮", "icon": "☕", "x": 65, "y": 70, "sfx": "chime" },
+              { "id": "flame", "label": "送回圣火", "icon": "🔥", "x": 50, "y": 49, "sfx": "flame" }
+            ]
+          },
           "lore": { "title": "圣火只是钥匙", "text": "谁都以为点燃圣火便是结局。可火光映出山巅风暴之眼里的「霜心」——长雪的源头。圣火不是终点，它是通往真相的第一把钥匙。" },
           "reward": { "coin": 800, "gem": 50 } },
 
@@ -249,6 +296,7 @@
       "id": 4,
       "title": "第四章 · 归雁港",
       "subtitle": "第二种温度 · 比邻之系",
+      "hook": "第一艘归乡船上，会不会有蜜儿等了十年的人？",
       "scene": "story_4.png",
       "bgm": "bgm_harbor",
       "mood": "hopeful",
@@ -325,6 +373,7 @@
       "id": 5,
       "title": "第五章 · 霜林深处",
       "subtitle": "第三种温度 · 释怀之勇",
+      "hook": "祖父的最后一页手账，究竟把谁留在了灯里？",
       "scene": "story_5.png",
       "bgm": "bgm_memory",
       "mood": "tender",
@@ -404,6 +453,7 @@
       "id": 6,
       "title": "第六章 · 霜心山巅",
       "subtitle": "第四种温度 · 传灯之愿",
+      "hook": "要让春天回来，提灯的人必须留下什么？",
       "scene": "story_6.png",
       "bgm": "bgm_spring",
       "mood": "finale",

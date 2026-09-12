@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 
 const repoRoot = new URL('../', import.meta.url);
 const settings = readFileSync(new URL('android/settings.gradle.kts', repoRoot), 'utf8');
+const appBuild = readFileSync(new URL('android/app/build.gradle.kts', repoRoot), 'utf8');
+const packageJson = JSON.parse(readFileSync(new URL('package.json', repoRoot), 'utf8'));
 const [pluginRepositories, dependencyRepositories] = settings.split('dependencyResolutionManagement');
 
 function assertOfficialBeforeMirror(block, label) {
@@ -14,4 +16,8 @@ function assertOfficialBeforeMirror(block, label) {
 
 assertOfficialBeforeMirror(pluginRepositories, 'plugin repositories');
 assertOfficialBeforeMirror(dependencyRepositories, 'dependency repositories');
-console.log('Android repository order regression: 6 passed, 0 failed');
+assert.match(appBuild, /versionCode = 2\b/, 'Android versionCode follows the v0.2 source');
+assert.match(appBuild, /versionName = "0\.2\.0"/, 'Android versionName follows the v0.2 source');
+assert.match(appBuild, /BUNDLED_CONTENT_VERSION", "\\"0\.2\.0\\""/, 'bundled content version matches the Web source');
+assert.equal(packageJson.version, '0.2.0', 'root package version matches the Android source');
+console.log('Android build config regression: 10 passed, 0 failed');
