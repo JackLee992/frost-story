@@ -3,7 +3,8 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SRC="$ROOT/web"
-DST="$ROOT/android/app/src/main/assets/web"
+DST="${FROST_ANDROID_ASSET_DST:-$ROOT/android/app/src/main/assets/web}"
+mkdir -p "$(dirname "$DST")"
 rm -rf "$DST"
 cp -R "$SRC" "$DST"
 # 运行时不需要的切图源图，减小包体
