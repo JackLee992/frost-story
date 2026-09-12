@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "version": "0.1.0",
-  "archiveUrl": "https://github.com/JackLee992/frost-story/releases/download/content-v0.1.0/FrostStory-content-0.1.0.zip",
-  "sha256": "eacc9f2b2d2e0b4f7dd56447412fc7ee82f02d530e4ebe4be699905464925046",
-  "size": 30195852,
+  "version": "0.2.0",
+  "archiveUrl": "https://github.com/JackLee992/frost-story/releases/download/content-v0.2.0/FrostStory-content-0.2.0.zip",
+  "sha256": "13dfd81ece88e9cb8e2f7ad5c85c1981a8496512752c35e02c38e83eaa62e0ce",
+  "size": 42716034,
   "minAppVersionCode": 1
 }
