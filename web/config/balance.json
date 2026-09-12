@@ -1,0 +1,28 @@
+{
+  "board": { "cols": 6, "rows": 8, "initialUnlocked": 24, "unlockBaseCost": 40, "unlockCostGrowth": 1.16, "unlockLevelStep": 4, "fullWarnAt": 2 },
+  "energy": { "start": 50, "baseMax": 50, "perLevels": 5, "maxCap": 100, "regenSec": 90 },
+  "xp": { "base": 24, "pow": 1.35 },
+  "order": {
+    "slots": 3,
+    "coinMul": 1.8,
+    "xpPerTier": 6,
+    "xpBase": 20,
+    "gemChance": 0.2,
+    "refreshCost": 10,
+    "refreshGrowth": 1.5,
+    "maxTierByLv": [[1, 2], [3, 3], [5, 4], [8, 5]],
+    "countByLv": [[1, 1], [2, 2], [4, 3]]
+  },
+  "bubble": { "autoPopSec": 15 },
+  "levelRewards": { "coinBase": 60, "gemEvery": 3, "gemAmount": 5 },
+  "unlocks": [
+    { "lv": 1, "text": "开放冰晶链、火种链与青铜宝箱" },
+    { "lv": 2, "text": "热饮链解锁，商店上架旧铜壶" },
+    { "lv": 3, "text": "木料链解锁，更多冰封格可融化" },
+    { "lv": 4, "text": "冬衣链解锁，商店上架毛线篮" },
+    { "lv": 5, "text": "体力上限提升，白银宝箱上架" },
+    { "lv": 6, "text": "烘焙链解锁，第二章剧情开放" },
+    { "lv": 8, "text": "黄金宝箱上架，第三章剧情开放" },
+    { "lv": 10, "text": "棋盘全部区域可融化，高阶订单出现" }
+  ]
+}

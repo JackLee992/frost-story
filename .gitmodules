@@ -1,0 +1,3 @@
+[submodule "web/js/engine"]
+	path = web/js/engine
+	url = https://github.com/JackLee992/frost-merge-core.git

@@ -1,0 +1,15 @@
+{
+  "name": "frost-story",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:logic": "node test/logic.test.js",
+    "test:e2e": "playwright test test/e2e.spec.js --workers=1",
+    "test": "npm run test:logic && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "pixi.js": "^8.20.1"
+  }
+}

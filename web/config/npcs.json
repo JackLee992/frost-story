@@ -1,0 +1,10 @@
+{
+  "npcs": [
+    { "id": "gunnar", "name": "冈特", "title": "老猎人", "img": "npc_gunnar.png" },
+    { "id": "mier", "name": "蜜儿", "title": "面包师", "img": "npc_mier.png" },
+    { "id": "bobo", "name": "波波", "title": "企鹅邮差", "img": "npc_bobo.png" },
+    { "id": "elsa", "name": "艾莎奶奶", "title": "裁缝", "img": "npc_elsa.png" },
+    { "id": "bar", "name": "巴尔", "title": "铁匠", "img": "npc_bar.png" },
+    { "id": "choco", "name": "啾可", "title": "霜灵向导", "img": "npc_sprite.png" }
+  ]
+}

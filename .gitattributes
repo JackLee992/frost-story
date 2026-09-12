@@ -1,0 +1,2 @@
+# Keep vendored upstream bundles byte-for-byte; ignore their embedded shader whitespace.
+web/vendor/*.js whitespace=-trailing-space

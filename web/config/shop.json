@@ -1,0 +1,14 @@
+{
+  "chests": [
+    { "id": "chest_bronze", "name": "青铜宝箱", "unlockLv": 1, "price": 60, "openSec": 30, "skipGem": 2, "drop": { "count": 3, "tierMin": 1, "tierMax": 3, "coin": [20, 60] }, "color": "#cd7f4a" },
+    { "id": "chest_silver", "name": "白银宝箱", "unlockLv": 5, "price": 150, "openSec": 60, "skipGem": 4, "drop": { "count": 4, "tierMin": 2, "tierMax": 4, "coin": [60, 140], "guaranteed": 1 }, "color": "#b9c6d6" },
+    { "id": "chest_gold", "name": "黄金宝箱", "unlockLv": 8, "price": 320, "openSec": 120, "skipGem": 8, "drop": { "count": 5, "tierMin": 3, "tierMax": 5, "coin": [140, 300], "guaranteed": 1 }, "color": "#f2c14e" }
+  ],
+  "generators": [
+    { "id": "g_drink", "unlockLv": 2, "price": 120 },
+    { "id": "g_wood", "unlockLv": 3, "price": 200 },
+    { "id": "g_cloth", "unlockLv": 4, "price": 320 },
+    { "id": "g_food", "unlockLv": 6, "price": 480 }
+  ],
+  "energyPotion": { "gem": 20, "fillToMax": true, "iapPlaceholder": "¥6 体力礼包（预留）" }
+}

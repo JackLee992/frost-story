@@ -1,0 +1,58 @@
+{
+  "chapters": [
+    {
+      "id": 1,
+      "title": "第一章 · 苏醒之村",
+      "scene": "story_1.png",
+      "unlockLv": 1,
+      "intro": ["暴风雪下了整整十年，霜语谷的篝火一盏接一盏熄灭。", "我提着祖父留下的风灯回到村子，雪，总得有人先扫。"],
+      "nodes": [
+        { "id": "n11", "name": "重燃篝火广场", "coin": 50, "need": [{ "fam": "fire", "tier": 5, "n": 1 }],
+          "dialogue": [["choco", "还有一点火星！把篝火堆搬过来，广场就能暖起来了。"], ["gunnar", "火一起来，手指头总算有知觉了。孩子，谢谢你。"]],
+          "reward": { "coin": 40, "gem": 2 } },
+        { "id": "n12", "name": "修补猎人小屋", "coin": 120, "need": [{ "fam": "wood", "tier": 3, "n": 2 }], "unlockLv": 3,
+          "dialogue": [["gunnar", "屋顶漏雪漏了三年，两块木板就能补上——真是难为我这把老骨头。"], ["choco", "冈特爷爷，以后有我在呢。"]],
+          "reward": { "coin": 80, "gem": 3 } },
+        { "id": "n13", "name": "架起村门木桥", "coin": 200, "need": [{ "fam": "wood", "tier": 4, "n": 2 }, { "fam": "fire", "tier": 3, "n": 1 }],
+          "dialogue": [["bobo", "信、信件能送进村了！外面的世界还没忘记我们。"], ["choco", "桥通了，街坊们也该一个个回来了。"]],
+          "reward": { "coin": 120, "gem": 15, "generator": "g_drink" } }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "第二章 · 糖霜工坊街",
+      "scene": "story_2.png",
+      "unlockLv": 6,
+      "intro": ["木桥那头，面包坊、裁缝铺和旧码头都还沉在雪里。", "把炉火点进每一间铺子，街道就会重新冒出热气。"],
+      "nodes": [
+        { "id": "n21", "name": "重开霜糖烘焙坊", "coin": 300, "need": [{ "fam": "food", "tier": 5, "n": 1 }, { "fam": "drink", "tier": 4, "n": 1 }],
+          "dialogue": [["mier", "烤箱一热，浆果派的香味能飘到山脚！第一个派一定给你。"], ["choco", "这就是山谷醒来的味道呀。"]],
+          "reward": { "coin": 180, "gem": 5 } },
+        { "id": "n22", "name": "重开暖阳裁缝铺", "coin": 400, "need": [{ "fam": "cloth", "tier": 5, "n": 1 }, { "fam": "cloth", "tier": 2, "n": 2 }],
+          "dialogue": [["elsa", "毛衣要织得松松软软，围巾一人一条，谁都不许再冻着。"], ["choco", "艾莎奶奶的针线，比炉火还暖呢。"]],
+          "reward": { "coin": 220, "gem": 8 } },
+        { "id": "n23", "name": "疏通破冰码头", "coin": 520, "need": [{ "fam": "wood", "tier": 5, "n": 2 }, { "fam": "drink", "tier": 3, "n": 2 }],
+          "dialogue": [["bobo", "码头修好啦，渔船可以出湖，热茶给船工们备好！"], ["gunnar", "这条街，又活过来喽。"]],
+          "reward": { "coin": 280, "gem": 17, "generator": "g_cloth" } }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "第三章 · 永暖圣殿",
+      "scene": "story_3.png",
+      "unlockLv": 8,
+      "intro": ["山谷最高处的永暖圣殿，是十年前最后熄灭的地方。", "传说只要圣火重燃，暴风雪就再也无法吞没这片土地。"],
+      "nodes": [
+        { "id": "n31", "name": "修缮壁炉大厅", "coin": 700, "need": [{ "fam": "fire", "tier": 7, "n": 1 }, { "fam": "wood", "tier": 6, "n": 1 }],
+          "dialogue": [["bar", "石壁我加固过了，就差一炉好火。这壁炉，能烧上一百年。"], ["choco", "大厅暖了，大家就有地方围坐在一起了。"]],
+          "reward": { "coin": 360, "gem": 10 } },
+        { "id": "n32", "name": "托起圣殿穹顶", "coin": 900, "need": [{ "fam": "crystal", "tier": 7, "n": 1 }, { "fam": "cloth", "tier": 7, "n": 1 }],
+          "dialogue": [["elsa", "霜晶嵌进穹顶，会把光撒得像星星一样。"], ["mier", "再挂上织云暖袍，风就灌不进来啦。"]],
+          "reward": { "coin": 420, "gem": 12 } },
+        { "id": "n33", "name": "点燃永暖圣火", "coin": 1200, "need": [{ "fam": "fire", "tier": 8, "n": 1 }, { "fam": "drink", "tier": 8, "n": 1 }, { "fam": "wood", "tier": 8, "n": 1 }],
+          "dialogue": [["choco", "永暖圣火……请你，再也不要熄灭。"], ["gunnar", "看呐，雪停了。霜语谷的春天，被这孩子一点一点合并回来了。"], ["all", "—— 霜语谷，重获新生 ——"]],
+          "reward": { "coin": 800, "gem": 50 } }
+      ]
+    }
+  ]
+}

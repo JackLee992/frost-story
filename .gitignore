@@ -1,0 +1,17 @@
+.DS_Store
+.venv/
+node_modules/
+test-results/
+playwright-report/
+
+android/.gradle/
+android/local.properties
+android/**/build/
+android/app/src/main/assets/web/
+
+distribution/*.apk
+distribution/*.zip
+distribution/*.sha256
+site/.sites-cache/
+artifacts/qa/*
+!artifacts/qa/.gitkeep
