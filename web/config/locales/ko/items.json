@@ -1,0 +1,248 @@
+{
+  "sellBase": 4,
+  "sellGrowth": 2,
+  "families": {
+    "crystal": {
+      "name": "얼음 결정",
+      "color": "#6fc8ff",
+      "generator": "g_crystal",
+      "tiers": [
+        "부서진 얼음 결정",
+        "얼음 결정 조각",
+        "육각 얼음 결정",
+        "푸른 수정 무리",
+        "얼음 파편 기둥",
+        "얼음 결정 왕관",
+        "서리 결정 보석",
+        "영구 동결 다이아몬드"
+      ]
+    },
+    "fire": {
+      "name": "불씨",
+      "color": "#ff9d4d",
+      "generator": "g_fire",
+      "tiers": [
+        "불티",
+        "작은 불꽃",
+        "횃불",
+        "작은 화로",
+        "모닥불",
+        "따뜻한 화로",
+        "벽난로",
+        "영원의 온기 성화"
+      ]
+    },
+    "drink": {
+      "name": "따뜻한 음료",
+      "color": "#e8b86d",
+      "generator": "g_drink",
+      "tiers": [
+        "눈 녹은 물",
+        "미온수",
+        "따뜻한 차",
+        "따뜻한 코코아",
+        "카라멜 라떼",
+        "꿀 따뜻한 음료",
+        "스파이시 핫 와인",
+        "선샤인 스페셜"
+      ]
+    },
+    "cloth": {
+      "name": "겨울 옷",
+      "color": "#8fd3c9",
+      "generator": "g_cloth",
+      "tiers": [
+        "털실 뭉치",
+        "목도리",
+        "장갑",
+        "털모자",
+        "스웨터",
+        "솜 망토",
+        "다운 코트",
+        "구름결 따뜻한 로브"
+      ]
+    },
+    "wood": {
+      "name": "목재",
+      "color": "#c98e5a",
+      "generator": "g_wood",
+      "tiers": [
+        "소나무 가지",
+        "나무 토막",
+        "나무 판자",
+        "나무 들보",
+        "문과 창틀",
+        "가구 세트",
+        "통나무집 부품",
+        "서리나무 전당"
+      ]
+    },
+    "food": {
+      "name": "빵과 과자",
+      "color": "#f2a6c0",
+      "generator": "g_food",
+      "tiers": [
+        "얼어붙은 베리",
+        "밀가루",
+        "반죽",
+        "구운 밀빵",
+        "베리 파이",
+        "서리설탕 케이크",
+        "진저브레드 하우스",
+        "연회용 케이크"
+      ]
+    }
+  },
+  "generators": {
+    "g_crystal": {
+      "family": "crystal",
+      "name": "서리 결정 광맥",
+      "img": "token_crystal.png",
+      "energy": 1,
+      "tapsBeforeCd": 8,
+      "cdSec": 18,
+      "unlockLv": 1,
+      "price": 0,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 70
+        },
+        {
+          "tier": 2,
+          "w": 26
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_fire": {
+      "family": "fire",
+      "name": "부싯돌 불씨",
+      "img": "token_fire.png",
+      "energy": 1,
+      "tapsBeforeCd": 8,
+      "cdSec": 18,
+      "unlockLv": 1,
+      "price": 0,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 70
+        },
+        {
+          "tier": 2,
+          "w": 26
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_drink": {
+      "family": "drink",
+      "name": "오래된 구리 주전자",
+      "img": "token_drink.png",
+      "energy": 1,
+      "tapsBeforeCd": 9,
+      "cdSec": 20,
+      "unlockLv": 2,
+      "price": 120,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 68
+        },
+        {
+          "tier": 2,
+          "w": 28
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_wood": {
+      "family": "wood",
+      "name": "삼나무 더미",
+      "img": "token_wood.png",
+      "energy": 1,
+      "tapsBeforeCd": 9,
+      "cdSec": 22,
+      "unlockLv": 3,
+      "price": 200,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 68
+        },
+        {
+          "tier": 2,
+          "w": 28
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_cloth": {
+      "family": "cloth",
+      "name": "털실 바구니",
+      "img": "token_cloth.png",
+      "energy": 2,
+      "tapsBeforeCd": 10,
+      "cdSec": 24,
+      "unlockLv": 4,
+      "price": 320,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 66
+        },
+        {
+          "tier": 2,
+          "w": 30
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_food": {
+      "family": "food",
+      "name": "낡은 오븐",
+      "img": "token_food.png",
+      "energy": 2,
+      "tapsBeforeCd": 10,
+      "cdSec": 26,
+      "unlockLv": 6,
+      "price": 480,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 66
+        },
+        {
+          "tier": 2,
+          "w": 30
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    }
+  }
+}

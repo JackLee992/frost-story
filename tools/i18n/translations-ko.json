@@ -1,0 +1,3857 @@
+{
+  "story.json:/profile/prompt/0/1": {
+    "source": "等等……风灯认得你的手，可我还不知道该怎么称呼你。",
+    "context": "speaker=choco",
+    "text": "잠깐만요... 바람등은 당신의 손을 알아봤지만, 저는 아직 뭐라고 불러야 할지 모르겠어요."
+  },
+  "story.json:/profile/prompt/1/1": {
+    "source": "告诉我吧。等谷里的灯都亮起来，我要把这个名字告诉每一个回家的人。",
+    "context": "speaker=choco",
+    "text": "말해줘요. 마을의 모든 등불이 켜지면, 집으로 돌아오는 모든 사람에게 그 이름을 알려줄게요."
+  },
+  "story.json:/profile/confirm/0/1": {
+    "source": "{{playerName}}……好，我记住了。走吧，我们一起把春天找回来。",
+    "context": "speaker=choco",
+    "text": "{{playerName}}... 좋아요, 기억할게요. 자, 우리 함께 봄을 찾아내러 가요."
+  },
+  "story.json:/profile/confirm/0/2/spoken": {
+    "source": "你……好，我记住了。走吧，我们一起把春天找回来。",
+    "context": "speaker=choco; prerecorded spoken variant",
+    "text": "당신... 좋아요, 기억할게요. 자, 우리 함께 봄을 찾아내러 가요."
+  },
+  "story.json:/companion/tutorial/produce/text": {
+    "source": "风灯在发热……碰一下那道蓝光。",
+    "context": "speaker=choco",
+    "text": "바람등이 뜨거워지고 있어요... 저 푸른 빛에 손을 대보세요."
+  },
+  "story.json:/companion/tutorial/merge/text": {
+    "source": "这两枚冰晶在互相呼应。让它们靠在一起试试？",
+    "context": "speaker=choco",
+    "text": "두 얼음 결정이 서로 반응하고 있네요. 둘을 붙여볼까요?"
+  },
+  "story.json:/companion/tutorial/request/text": {
+    "source": "嘘——有人踩着雪来了。先听听他为什么敲门。",
+    "context": "speaker=choco",
+    "text": "쉿—누군가 눈 위를 밟으며 오고 있어요. 왜 문을 두드리는지 먼저 들어봐요."
+  },
+  "story.json:/companion/tutorial/order/text": {
+    "source": "冈特把火哨交给我们了。把做好的冰晶递给他吧。",
+    "context": "speaker=choco",
+    "text": "군나르가 불피리를 맡겼어요. 완성된 얼음 결정을 그에게 건네주세요."
+  },
+  "story.json:/companion/tutorial/unlock/text": {
+    "source": "火哨照见了一块松动的冰。碰一碰那枚雪锁。",
+    "context": "speaker=choco",
+    "text": "불피리가 느슨해진 얼음을 비추고 있어요. 저 눈 자물쇠를 건드려 보세요."
+  },
+  "story.json:/companion/tutorial/shop/text": {
+    "source": "蜜儿说集市重新开门了。进去看看有什么在发光。",
+    "context": "speaker=choco",
+    "text": "미엘이 시장이 다시 열렸다고 해요. 들어가서 무엇이 빛나고 있는지 확인해 봐요."
+  },
+  "story.json:/companion/tutorial/story/text": {
+    "source": "广场下面传来微弱的火星声。去山谷看看，它在等我们。",
+    "context": "speaker=choco",
+    "text": "광장 아래에서 희미한 불꽃 소리가 들려와요. 계곡으로 가봐요, 그게 우리를 기다리고 있어요."
+  },
+  "story.json:/companion/reactions/produce/text": {
+    "source": "它醒了……祖父的矿脉还认得你。",
+    "context": "speaker=choco",
+    "text": "깨어났어요... 할아버지의 광맥이 아직 당신을 알아보고 있네요."
+  },
+  "story.json:/companion/reactions/merge/text": {
+    "source": "听见了吗？冰裂开的声音里，有一点火。",
+    "context": "speaker=choco",
+    "text": "들리시나요? 얼음이 갈라지는 소리 속에 작은 불꽃이 섞여 있어요."
+  },
+  "story.json:/companion/reactions/request/text": {
+    "source": "冈特没有走。他一直替空村子守着夜路。",
+    "context": "speaker=choco",
+    "text": "군나르는 떠나지 않았어요. 그는 계속해서 빈 마을의 밤길을 지켜왔죠."
+  },
+  "story.json:/companion/reactions/order/text": {
+    "source": "远处的第一盏火哨亮了。",
+    "context": "speaker=choco",
+    "text": "멀리 첫 번째 불피리가 켜졌어요."
+  },
+  "story.json:/companion/reactions/unlock/text": {
+    "source": "冰层下面，是十年前留下的路。",
+    "context": "speaker=choco",
+    "text": "얼음층 아래에는 10년 전 남겨진 길이 있어요."
+  },
+  "story.json:/companion/reactions/shop/text": {
+    "source": "货架空着，但门铃还会响。这里会重新热闹起来。",
+    "context": "speaker=choco",
+    "text": "선반은 비어 있지만 문종은 울려요. 이곳도 다시 활기차질 거예요."
+  },
+  "story.json:/companion/orders/accepted/text": {
+    "source": "{{npcName}}把这件事托给我们了。先看看棋盘上已经有的材料。",
+    "context": "speaker=choco",
+    "text": "{{npcName}}가 이 일을 맡겼어요. 먼저 체스판 위에 있는 재료들을 확인해 봐요."
+  },
+  "story.json:/companion/orders/accepted/spoken": {
+    "source": "这件事托给我们了。先看看棋盘上已经有的材料。",
+    "context": "speaker=choco",
+    "text": "이 일이 우리에게 맡겨졌어요. 먼저 체스판에 있는 재료들을 확인해 봐요."
+  },
+  "story.json:/companion/orders/followup/text": {
+    "source": "你看，我们交出去的不只是材料。村子里又多了一件会被人记住的事。",
+    "context": "speaker=choco",
+    "text": "보세요, 우리가 넘긴 건 단순한 재료가 아니에요. 마을에 사람들이 기억할 만한 이야기가 하나 더 생겼죠."
+  },
+  "story.json:/companion/idle/complete/text": {
+    "source": "山谷已经四季如春啦，不过我们还能继续合并、收集，把日子过得更暖。",
+    "context": "speaker=choco",
+    "text": "계곡은 이제 사계절 내내 봄이에요. 하지만 우리는 계속해서 합치고 모으며 더 따뜻하게 지낼 수 있어요."
+  },
+  "story.json:/companion/idle/ready/text": {
+    "source": "「{{nodeName}}」的材料都齐啦！快打开山谷交付，故事就要往下走了。",
+    "context": "speaker=choco",
+    "text": "「{{nodeName}}」의 재료가 모두 모였어요! 어서 계곡을 제출하고 다음 이야기를 이어가요."
+  },
+  "story.json:/companion/idle/ready/spoken": {
+    "source": "材料都齐啦！快打开山谷交付，故事就要往下走了。",
+    "context": "speaker=choco",
+    "text": "재료가 다 모였어요! 어서 계곡을 제출하고 다음 이야기를 이어가요."
+  },
+  "story.json:/companion/idle/lack/text": {
+    "source": "「{{nodeName}}」还差{{itemName}}。点任务里的红色材料，我会带你找到{{generatorName}}和完整合成路线。",
+    "context": "speaker=choco",
+    "text": "「{{nodeName}}」에 {{itemName}}이 부족해요. 임무의 빨간 재료를 누르면, 제가 {{generatorName}}과 전체 합성 경로를 찾아드릴게요."
+  },
+  "story.json:/companion/idle/lack/spoken": {
+    "source": "还差一种材料。点任务里的红色材料，我会带你找到材料台和完整合成路线。",
+    "context": "speaker=choco",
+    "text": "재료가 하나 더 필요해요. 임무의 빨간 재료를 누르면, 제가 재료대와 전체 합성 경로를 찾아드릴게요."
+  },
+  "story.json:/companion/idle/lvlock/text": {
+    "source": "这段故事要等我们升到 Lv.{{level}}，多交付些委托就好。",
+    "context": "speaker=choco",
+    "text": "이 이야기는 우리가 Lv.{{level}}까지 올라가고 의뢰를 더 많이 완료해야 볼 수 있어요."
+  },
+  "story.json:/companion/idle/lvlock/spoken": {
+    "source": "这段故事还要再升几级，多交付些委托就好。",
+    "context": "speaker=choco",
+    "text": "이 이야기를 보려면 몇 레벨을 더 올리고 의뢰를 더 많이 완료해야 해요."
+  },
+  "story.json:/companion/idle/next/text": {
+    "source": "跟着主线走就好，下一站：「{{nodeName}}」。",
+    "context": "speaker=choco",
+    "text": "메인 스토리를 따라가면 돼요. 다음 목적지는 「{{nodeName}}」이에요."
+  },
+  "story.json:/companion/idle/next/spoken": {
+    "source": "跟着主线走就好，下一站就在前面。",
+    "context": "speaker=choco",
+    "text": "메인 스토리를 따라가면 돼요. 다음 목적지가 바로 앞에 있어요."
+  },
+  "story.json:/companion/source/generator/text": {
+    "source": "{{generatorName}}就在这里。点它会产出{{baseItem}}，把相同材料两两合并，就会沿着路线升阶。",
+    "context": "speaker=choco",
+    "text": "{{generatorName}}이 여기 있어요. 클릭하면 {{baseItem}}이 생성되고, 같은 재료를 두 개씩 합치면 경로를 따라 단계가 올라가요."
+  },
+  "story.json:/companion/source/generator/spoken": {
+    "source": "材料台就在这里。点它取得基础材料，再把相同材料两两合并，就会沿着路线升阶。",
+    "context": "speaker=choco",
+    "text": "재료대가 여기 있어요. 클릭해서 기본 재료를 얻고, 같은 재료를 두 개씩 합치면 경로를 따라 단계가 올라가요."
+  },
+  "story.json:/companion/source/merge/text": {
+    "source": "先把这两个{{currentItem}}拖到一起。每合一次都会更接近{{targetItem}}；需要时再点红色材料，我就照亮下一对。",
+    "context": "speaker=choco",
+    "text": "먼저 이 {{currentItem}} 두 개를 같이 끌어다 놓으세요. 합칠 때마다 {{targetItem}}에 가까워질 거예요. 필요할 때 빨간 재료를 누르면 다음 쌍을 비춰줄게요."
+  },
+  "story.json:/companion/source/merge/spoken": {
+    "source": "先把照亮的两个材料拖到一起。每合一次都会更接近目标；需要时再点红色材料，我就照亮下一对。",
+    "context": "speaker=choco",
+    "text": "먼저 밝혀진 두 재료를 하나로 합쳐요. 합칠 때마다 목표에 가까워질 거예요. 필요할 때 빨간색 재료를 누르면 다음 쌍을 밝힐게요."
+  },
+  "story.json:/prologue/0/1": {
+    "source": "北方有一座被雪埋住的山谷，名叫霜语谷。",
+    "context": "speaker=narrator",
+    "text": "북쪽에는 눈에 파묻힌 골짜기가 있어요. 이름은 서리말 골짜기예요."
+  },
+  "story.json:/prologue/1/1": {
+    "source": "十年前，谷心的「永暖圣火」骤然熄灭，从此暴风雪再没有停过。",
+    "context": "speaker=narrator",
+    "text": "10년 전, 골짜기 중심의 '영원의 온기 성화'가 갑자기 꺼졌고, 그 뒤로 폭설이 멈추지 않았어요."
+  },
+  "story.json:/prologue/2/1": {
+    "source": "我是啾可，住在你祖父风灯里的最后一只霜灵。",
+    "context": "speaker=choco",
+    "text": "나는 초코야. 네 할아버지가 가진 바람등 속에 사는 마지막 서리 정령이야."
+  },
+  "story.json:/prologue/3/1": {
+    "source": "他说过——雪，总得有人先扫。现在，换你提着这盏灯回家了。",
+    "context": "speaker=choco",
+    "text": "할아버지가 말씀하셨어. 눈은 누군가 먼저 치워줘야 한다고. 이제는 네가 이 등불을 들고 집으로 돌아갈 차례야."
+  },
+  "story.json:/chapters/0/title": {
+    "source": "第一章 · 苏醒之村",
+    "context": "",
+    "text": "제1장 · 깨어나는 마을"
+  },
+  "story.json:/chapters/0/subtitle": {
+    "source": "第一堆火，第一缕烟",
+    "context": "",
+    "text": "첫 번째 모닥불, 첫 줄기 연기"
+  },
+  "story.json:/chapters/0/hook": {
+    "source": "祖父为什么把最后一盏风灯留给我？",
+    "context": "",
+    "text": "할아버지는 왜 마지막 바람등을 나에게 남겨주셨을까?"
+  },
+  "story.json:/chapters/0/intro/0/1": {
+    "source": "暴风雪下了整整十年，霜语谷的篝火一盏接一盏熄灭。",
+    "context": "speaker=narrator",
+    "text": "폭설이 10년 동안 내리는 동안, 서리말 골짜기의 모닥불은 하나씩 꺼져갔어요."
+  },
+  "story.json:/chapters/0/intro/1/1": {
+    "source": "我提着祖父留下的风灯回到村子。雪很深，可只要肯弯腰，总能扫出第一条路。",
+    "context": "speaker=narrator",
+    "text": "나는 할아버지가 남겨주신 바람등을 들고 마을로 돌아왔어. 눈이 깊었지만, 허리를 숙여 치우기만 하면 첫 번째 길을 내어놓을 수 있었지."
+  },
+  "story.json:/chapters/0/worldLore/0/title": {
+    "source": "长雪十年",
+    "context": "",
+    "text": "열 년의 긴 겨울"
+  },
+  "story.json:/chapters/0/worldLore/0/text": {
+    "source": "永暖圣火熄灭那年冬天开始，雪一场接一场，再也没有化过。谷里人一批批南迁，留下的人守着越来越小的火堆，像守着快要睡着的心跳。",
+    "context": "",
+    "text": "영원의 온기 성화가 꺼진 그해 겨울부터 눈은 계속해서 쌓였고, 결코 녹지 않았어요. 마을 사람들은 하나둘씩 남쪽으로 떠났고, 남겨진 이들은 점점 작아지는 모닥불을 지키며 마치 꺼져가는 심장 소리를 지키듯 버텼죠."
+  },
+  "story.json:/chapters/0/worldLore/1/title": {
+    "source": "霜灵师",
+    "context": "",
+    "text": "서리술사"
+  },
+  "story.json:/chapters/0/worldLore/1/text": {
+    "source": "霜语谷的人把风、火、水、木凝在掌心，两两相合，化出更暖、更结实的东西——这门手艺叫霜灵术。人们说，最好的霜灵师能把春天也一点点合出来。",
+    "context": "",
+    "text": "서리말 골짜기 사람들은 바람, 불, 물, 나무를 손바닥에 모아 둘씩 합쳐 더 따뜻하고 단단한 것을 만들어냈어요. 이 기술을 서리술이라 불러요. 사람들은 최고의 서리술사는 봄조차 조금씩 엮어낼 수 있다고 말하곤 했죠."
+  },
+  "story.json:/chapters/0/nodes/0/name": {
+    "source": "重燃篝火广场",
+    "context": "",
+    "text": "모닥불 광장 재점화"
+  },
+  "story.json:/chapters/0/nodes/0/place": {
+    "source": "村落中央 · 冻住的喷泉广场",
+    "context": "",
+    "text": "마을 중앙 · 얼어붙은 분수 광장"
+  },
+  "story.json:/chapters/0/nodes/0/pre/0/1": {
+    "source": "广场的火堆底下，好像还压着一点没冻死的火星！",
+    "context": "speaker=choco",
+    "text": "광장의 모닥불 아래에 아직 꺼지지 않은 불씨가 조금 남아있는 것 같아!"
+  },
+  "story.json:/chapters/0/nodes/0/pre/1/1": {
+    "source": "孩子，把一堆足够旺的「篝火堆」合出来，再添些金币引火——这村子，就从这儿醒。",
+    "context": "speaker=gunnar",
+    "text": "얘야, 충분히 활활 타오르는 '모닥불'을 만들고 금화로 불을 지펴라. 그러면 이 마을이 다시 깨어날 게다."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/0/1": {
+    "source": "还有一点火星！别让它被风抢走——再靠近一点。",
+    "context": "speaker=choco",
+    "text": "아직 불씨가 있어! 바람에 날려가지 않게—조금 더 가까이."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/1/1": {
+    "source": "十年了……手指头总算又有了知觉。我叫冈特，是这村里最后一个没走的老猎人。",
+    "context": "speaker=gunnar",
+    "text": "벌써 10년이라니... 손끝에 다시 감각이 돌아오는구나. 내 이름은 군나르, 이 마을에 남은 마지막 노인 사냥꾼이다."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/2/1": {
+    "source": "{{playerName}}，你提的这盏风灯，是埃文的吧。他是你祖父，也是谷里最好的霜灵师。",
+    "context": "speaker=gunnar",
+    "text": "{{playerName}}, 네가 들고 있는 이 바람등은 에번의 것이구나. 그는 네 할아버지이자, 골짜기에서 가장 뛰어난 서리술사였지."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/2/2/spoken": {
+    "source": "你提的这盏风灯，是埃文的吧。他是你祖父，也是谷里最好的霜灵师。",
+    "context": "speaker=gunnar; prerecorded spoken variant",
+    "text": "네가 들고 있는 이 바람등은 에번의 것이구나. 그는 네 할아버지이자, 골짜기에서 가장 뛰어난 서리술사였지."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/3/1": {
+    "source": "你听，屋里有人推开窗了。第一堆火不是景色——是他们终于敢相信，我们回来了。",
+    "context": "speaker=choco",
+    "text": "들어봐, 집 안에서 누군가 창문을 여는 소리가 들려. 첫 번째 모닥불은 단순한 풍경이 아니야—우리가 돌아왔다는 걸 그들이 마침내 믿기 시작했다는 뜻이야."
+  },
+  "story.json:/chapters/0/nodes/0/interaction/title": {
+    "source": "亲手守住第一点火",
+    "context": "",
+    "text": "첫 불씨를 직접 지키기"
+  },
+  "story.json:/chapters/0/nodes/0/interaction/prompt": {
+    "source": "按顺序完成三步，让这簇火真正活下来。",
+    "context": "",
+    "text": "세 단계를 순서대로 완료해 이 불꽃을 진정으로 살려내세요."
+  },
+  "story.json:/chapters/0/nodes/0/interaction/complete": {
+    "source": "第一堆火没有熄灭。黑了十年的窗，一扇接一扇亮了起来。",
+    "context": "",
+    "text": "첫 번째 모닥불이 꺼지지 않았어. 10년 동안 어두웠던 창문들이 하나둘씩 밝아졌어."
+  },
+  "story.json:/chapters/0/nodes/0/interaction/steps/0/label": {
+    "source": "添上霜木",
+    "context": "",
+    "text": "서리나무 추가"
+  },
+  "story.json:/chapters/0/nodes/0/interaction/steps/1/label": {
+    "source": "引入灯火",
+    "context": "",
+    "text": "등불 끌어오기"
+  },
+  "story.json:/chapters/0/nodes/0/interaction/steps/2/label": {
+    "source": "护住火种",
+    "context": "",
+    "text": "불씨 보호하기"
+  },
+  "story.json:/chapters/0/nodes/0/lore/title": {
+    "source": "第一堆火",
+    "context": "",
+    "text": "첫 번째 모닥불"
+  },
+  "story.json:/chapters/0/nodes/0/lore/text": {
+    "source": "十年里，广场的火堆第一次没有在天亮前熄灭。冈特说，人只要还肯围着火坐下，村子就不算死。",
+    "context": "",
+    "text": "10년 만에 광장의 모닥불이 동트기 전에 꺼지지 않았어. 군나르 아저씨는 사람들이 다시 불 주위에 둘러앉기만 한다면 마을은 죽지 않은 거라고 말했어."
+  },
+  "story.json:/chapters/0/nodes/1/name": {
+    "source": "修补猎人小屋",
+    "context": "",
+    "text": "사냥꾼 오두막 수리"
+  },
+  "story.json:/chapters/0/nodes/1/place": {
+    "source": "村东 · 冈特漏雪的木屋",
+    "context": "",
+    "text": "마을 동쪽 · 군나르의 눈 덮인 목조 주택"
+  },
+  "story.json:/chapters/0/nodes/1/pre/0/1": {
+    "source": "我这屋顶漏雪漏了三年，夜里雪落在被上，早上得从雪堆里把自己刨出来。",
+    "context": "speaker=gunnar",
+    "text": "이 집 지붕은 3년 동안이나 눈이 새었단다. 밤이면 이불 위로 눈이 쌓이고, 아침이면 눈더미 속에서 내 몸을 파내야 했지."
+  },
+  "story.json:/chapters/0/nodes/1/pre/1/1": {
+    "source": "合两块结实的木板，再凑点工钱，让我这把老骨头，也睡个不漏雪的觉吧。",
+    "context": "speaker=gunnar",
+    "text": "튼튼한 판자 두 개를 합치고 보수를 좀 하면, 이 늙은 몸도 눈 안 새는 곳에서 잠시나마 편히 잘 수 있을 것 같구나."
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/0/1": {
+    "source": "木板一钉，风雪被挡在门外，屋里静得能听见炭火爆开的声音。",
+    "context": "speaker=gunnar",
+    "text": "판자를 박으니 바람과 눈이 문밖으로 막히고, 방 안은 탄불이 타닥이는 소리만 들릴 정도로 고요해졌어."
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/1/1": {
+    "source": "冈特爷爷，你刚才说我祖父……他十年前到底去了哪里？",
+    "context": "speaker=choco",
+    "text": "군나르 할아버지, 방금 우리 할아버님에 대해 말씀하셨는데... 그분은 10년 전에 어디로 가신 거예요?"
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/2/1": {
+    "source": "埃文他……最后去了山巅。等你把这村子焐得再暖些，我慢慢讲给你听。",
+    "context": "speaker=gunnar",
+    "text": "에번은 말이다... 마지막으로 산 정상으로 갔지. 네가 이 마을을 좀 더 따뜻하게 데워놓으면 천천히 들려주마."
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/3/1": {
+    "source": "好。那我就先让每一间屋子，都不再漏雪。",
+    "context": "speaker=choco",
+    "text": "네. 그럼 우선 모든 집이 더 이상 눈이 새지 않도록 할게요."
+  },
+  "story.json:/chapters/0/nodes/1/lore/title": {
+    "source": "猎人的旧伤",
+    "context": "",
+    "text": "사냥꾼의 옛 상처"
+  },
+  "story.json:/chapters/0/nodes/1/lore/text": {
+    "source": "冈特的左腿在十年前那场守夜里冻伤，从此再没能走进深山。他从不抱怨，只把擦得发亮的旧猎弓挂在门后。",
+    "context": "",
+    "text": "군나르의 왼쪽 다리는 10년 전 밤샘 감시 중에 동상에 걸려, 그 뒤로 깊은 산속을 걸을 수 없게 되었어. 그는 불평 한마디 없이 반짝이는 낡은 활만 문 뒤에 걸어두었지."
+  },
+  "story.json:/chapters/0/nodes/2/name": {
+    "source": "架起村门木桥",
+    "context": "",
+    "text": "마을 입구 목교 설치"
+  },
+  "story.json:/chapters/0/nodes/2/place": {
+    "source": "村西 · 断裂的入村桥",
+    "context": "",
+    "text": "마을 서쪽 · 끊어진 마을 진입교"
+  },
+  "story.json:/chapters/0/nodes/2/pre/0/1": {
+    "source": "请、请问——桥那头还有人吗？我是邮差波波，驮着一袋子十年没送出去的信！",
+    "context": "speaker=bobo",
+    "text": "저기, 실례합니다—다리 건너편에 사람이 있나요? 저는 보보라는 배달부예요. 10년 동안 배달하지 못한 편지 꾸러미를 메고 왔어요!"
+  },
+  "story.json:/chapters/0/nodes/2/pre/1/1": {
+    "source": "可桥断了，我又不敢踩冰。能架上木梁、点支火把照路吗？大家都等着外面的消息呢。",
+    "context": "speaker=bobo",
+    "text": "그런데 다리가 끊어져서 얼음 위를 밟을 수가 없네요. 목재를 올리고 횃불을 켜서 길을 밝혀주실 수 있나요? 모두가 밖의 소식을 기다리고 있어요."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/0/1": {
+    "source": "信、信件能送进村了！你看这封——是从山那边寄来的，收信人写着「还留在霜语谷的人」。",
+    "context": "speaker=bobo",
+    "text": "편, 편지를 마을 안으로 보낼 수 있게 됐어요! 이 편지 좀 보세요. 산 너머에서 온 건데, 받는 사람이 '서리말 골짜기에 남아있는 사람들'이라고 적혀 있네요."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/1/1": {
+    "source": "外面的世界，还没忘记我们啊。",
+    "context": "speaker=gunnar",
+    "text": "바깥 세상도 우리를 잊지 않았구먼."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/2/1": {
+    "source": "桥通了，街坊们也该一个一个回来了。艾莎奶奶托我送来毛线篮，先给赶路的人织一双暖手套。",
+    "context": "speaker=choco",
+    "text": "다리가 연결됐으니 이웃들도 하나둘 돌아올 거야. 엘사 할머니가 부탁하신 털실 바구니를 가져왔어. 먼 길을 오는 사람들에게 따뜻한 장갑을 짜줄 수 있게 말이야."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/3/1": {
+    "source": "太好啦！我这就去把信，送到山谷每一个角落！",
+    "context": "speaker=bobo",
+    "text": "정말 잘됐어요! 지금 바로 이 편지들을 골짜기 구석구석까지 배달하러 갈게요!"
+  },
+  "story.json:/chapters/0/nodes/2/lore/title": {
+    "source": "一袋子旧信",
+    "context": "",
+    "text": "오래된 편지 꾸러미"
+  },
+  "story.json:/chapters/0/nodes/2/lore/text": {
+    "source": "波波的邮袋里装着南迁村民留下的信，收信人多是「爸爸」「奶奶」「没走的邻居」。它说，信只要还在，人和人就没真正断了联系。",
+    "context": "",
+    "text": "보보의 가방 안에는 남쪽으로 떠난 주민들이 남긴 편지들이 들어있어. 받는 사람은 주로 '아빠', '할머니', '떠나지 않은 이웃'이었지. 보보는 말했어, 편지가 남아있는 한 사람과 사람 사이의 연결은 끊어지지 않는다고."
+  },
+  "story.json:/chapters/0/nodes/3/name": {
+    "source": "围炉夜话",
+    "context": "",
+    "text": "모닥가 밤 이야기"
+  },
+  "story.json:/chapters/0/nodes/3/place": {
+    "source": "广场 · 重新点亮的村厅",
+    "context": "",
+    "text": "광장 · 다시 불이 밝혀진 마을 회관"
+  },
+  "story.json:/chapters/0/nodes/3/pre/0/1": {
+    "source": "今晚把大家都叫到村厅来吧。十年了，没人敢在夜里聚一聚——都怕聚完，人又少几个。",
+    "context": "speaker=gunnar",
+    "text": "오늘 밤은 모두를 마을 회관으로 불러 모으게나. 10년 동안 아무도 밤에 모이는 걸 두려워했지. 모였다가 사람이 더 줄어들까 봐 말이야."
+  },
+  "story.json:/chapters/0/nodes/3/pre/1/1": {
+    "source": "那我们就织几副手套、煮几壶热茶，把这一夜过得暖暖和和的，让大家敢留下来。",
+    "context": "speaker=choco",
+    "text": "그럼 우리가 장갑을 몇 켤레 짜고 따뜻한 차를 몇 주전자 끓여서, 이 밤을 아주 따스하게 보낼 수 있게 할게요. 사람들이 안심하고 머물 수 있도록요."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/0/1": {
+    "source": "你把「{{choice}}」挂上房梁。炉火噼啪，热茶冒着白汽，村厅里第一次有了说笑声。",
+    "context": "speaker=narrator",
+    "text": "당신은 '{{choice}}'를 들보에 걸어둡니다. 화로에서는 불꽃이 튀고 따뜻한 차에서 김이 모락모락 피어오르며, 마을 회관에는 처음으로 웃음소리가 울려 퍼집니다."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/0/2/spoken": {
+    "source": "你把选好的主灯挂上房梁。炉火噼啪，热茶冒着白汽，村厅里第一次有了说笑声。",
+    "context": "speaker=narrator; prerecorded spoken variant",
+    "text": "당신은 선택한 메인 등불을 들보에 걸어둡니다. 화로에서는 불꽃이 튀고 따뜻한 차에서 김이 모락모락 피어오르며, 마을 회관에는 처음으로 웃음소리가 울려 퍼집니다."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/1/1": {
+    "source": "埃文临走那晚，也是这样一炉火。他说圣火不是被风吹灭的，是被人一点点遗忘、没人再添柴，才冷下去的。",
+    "context": "speaker=gunnar",
+    "text": "에번이 떠나던 날 밤도 이런 불꽃이었지. 그는 성화가 바람에 꺼진 게 아니라, 사람들이 조금씩 잊고 더 이상 장작을 넣지 않아서 식어버린 것이라고 말했단다."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/2/1": {
+    "source": "他上山前把这盏风灯交给我，说『等下一个肯扫雪的人回来，就替我还给它』。",
+    "context": "speaker=gunnar",
+    "text": "그는 산으로 올라가기 전 이 바람등을 내게 맡기며 '다음번에 눈을 치우러 올 사람이 오면 대신 돌려주라'고 했지."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/3/1": {
+    "source": "原来我被留下来，是为了等你呀，{{playerName}}。",
+    "context": "speaker=choco",
+    "text": "결국 내가 남겨진 건 너를 기다리기 위해서였구나, {{playerName}}."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/3/2/spoken": {
+    "source": "原来我被留下来，是为了等你呀。",
+    "context": "speaker=choco; prerecorded spoken variant",
+    "text": "결국 내가 남겨진 건 너를 기다리기 위해서였어."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/4/1": {
+    "source": "村子醒了，可光有我们还不够——木桥那头，还有整条沉在雪里的街。",
+    "context": "speaker=choco",
+    "text": "마을이 깨어났지만 우리만으로는 부족해. 저 목교 너머로 눈 속에 파묻힌 거리 전체가 아직 남아있거든."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/5/1": {
+    "source": "我把面包坊的旧烤箱推来了。下一盏灯亮起时，让香味也跟着过桥吧。",
+    "context": "speaker=mier",
+    "text": "베이커리의 오래된 오븐을 가져왔어요. 다음 등불이 켜질 때, 향긋한 냄새도 함께 다리를 건너게 해줘요."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/title": {
+    "source": "给村厅留一盏你的灯",
+    "context": "",
+    "text": "마을 회관에 당신의 등불 하나를 남겨주세요"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/prompt": {
+    "source": "村民会记住你的选择，回忆手账也会保留它。",
+    "context": "",
+    "text": "마을 사람들은 당신의 선택을 기억할 것이고, 추억 일기장도 그것을 간직할 거예요."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/complete": {
+    "source": "灯被挂上房梁，也被记进回忆手账。从今往后，这间屋子有了你的痕迹。",
+    "context": "",
+    "text": "등이 지붕에 걸리고, 추억 수첩에도 기록됩니다. 이제 이 집에는 당신의 흔적이 남게 됩니다."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/0/name": {
+    "source": "松脂暖灯",
+    "context": "",
+    "text": "송진 온기 등"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/0/desc": {
+    "source": "像旧家壁炉一样温暖",
+    "context": "",
+    "text": "오래된 집의 벽난로처럼 따스한"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/1/name": {
+    "source": "霜晶星灯",
+    "context": "",
+    "text": "서리 결정 별등"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/1/desc": {
+    "source": "把雪光折成一片星空",
+    "context": "",
+    "text": "눈빛을 접어 만든 밤하늘"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/2/name": {
+    "source": "猎人壁灯",
+    "context": "",
+    "text": "사냥꾼의 벽등"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/2/desc": {
+    "source": "结实、明亮，风吹不灭",
+    "context": "",
+    "text": "견고하고 밝으며, 바람에도 꺼지지 않는"
+  },
+  "story.json:/chapters/0/nodes/3/lore/title": {
+    "source": "风灯之约",
+    "context": "",
+    "text": "바람등의 약속"
+  },
+  "story.json:/chapters/0/nodes/3/lore/text": {
+    "source": "老霜灵师埃文上山前留下一盏风灯，托冈特转交给「下一个肯扫雪的人」。灯里的霜灵啾可，就这样等了整整十年。",
+    "context": "",
+    "text": "노련한 서리술사 에번은 산에 오르기 전 바람등 하나를 남겼고, 군나르는 이를 '다음 눈을 치울 사람'에게 전달했습니다. 등 안의 서리 정령 초코는 그렇게 꼬박 10년을 기다렸습니다."
+  },
+  "story.json:/chapters/1/title": {
+    "source": "第二章 · 糖霜工坊街",
+    "context": "",
+    "text": "제2장 · 설탕서리 공방 거리"
+  },
+  "story.json:/chapters/1/subtitle": {
+    "source": "炉火点进每一间铺子",
+    "context": "",
+    "text": "모든 가게에 화롯불을 지피세요."
+  },
+  "story.json:/chapters/1/hook": {
+    "source": "一封迟到十年的回信，写着谁的名字？",
+    "context": "",
+    "text": "10년이나 늦은 답장, 그곳엔 누구의 이름이 적혀 있을까요?"
+  },
+  "story.json:/chapters/1/intro/0/1": {
+    "source": "木桥那头，面包坊、裁缝铺和旧码头都还沉在雪里，招牌被雪压得抬不起头。",
+    "context": "speaker=narrator",
+    "text": "다리 건너편, 빵집과 재봉소, 그리고 옛 부두는 여전히 눈 속에 파묻혀 있고 간판들은 눈 무게에 눌려 고개를 들지 못하고 있어요."
+  },
+  "story.json:/chapters/1/intro/1/1": {
+    "source": "把炉火点进每一间铺子，让这条街重新冒出热气、飘出香味。",
+    "context": "speaker=narrator",
+    "text": "모든 가게에 화롯불을 지펴 이 거리에 다시 온기와 향기가 감돌게 해주세요."
+  },
+  "story.json:/chapters/1/worldLore/0/title": {
+    "source": "糖霜工坊街",
+    "context": "",
+    "text": "설탕서리 공방 거리"
+  },
+  "story.json:/chapters/1/worldLore/0/text": {
+    "source": "灾变前，这条街是整座山谷最热闹的地方：蜜儿的浆果派出炉时，队伍能排到码头；艾莎奶奶的围巾，每个孩子都有一条。",
+    "context": "",
+    "text": "재앙 전, 이 거리는 계곡에서 가장 활기찬 곳이었어요. 미엘의 베리 파이가 나올 때면 줄이 부두까지 이어졌고, 엘사 할머니의 목도리는 아이들마다 하나씩 있었죠."
+  },
+  "story.json:/chapters/1/worldLore/1/title": {
+    "source": "暖意",
+    "context": "",
+    "text": "온기"
+  },
+  "story.json:/chapters/1/worldLore/1/text": {
+    "source": "霜语谷人把「被人惦记」称作暖意——递一杯热饮、织一条围巾、替谁留一盏灯。订单上每完成一件委托，山谷的暖意就多一分。",
+    "context": "",
+    "text": "서리말 골짜기 사람들은 '누군가 나를 생각해 주는 것'을 온기라고 불러요. 따뜻한 음료 한 잔, 목도리 하나, 혹은 누군가를 위해 남겨둔 등불 하나 말이죠. 의뢰를 완료할 때마다 마을의 온기도 한층 더해집니다."
+  },
+  "story.json:/chapters/1/nodes/0/name": {
+    "source": "重开霜糖烘焙坊",
+    "context": "",
+    "text": "설탕서리 베이커리 재개"
+  },
+  "story.json:/chapters/1/nodes/0/place": {
+    "source": "工坊街 · 结满冰花的面包坊",
+    "context": "",
+    "text": "공방 거리 · 얼음꽃이 핀 빵집"
+  },
+  "story.json:/chapters/1/nodes/0/pre/0/1": {
+    "source": "呀，是活人的脚步声！我是蜜儿，面包师。我的烤箱冻得打不开，配方本也冻成了冰砖……",
+    "context": "speaker=mier",
+    "text": "어머, 사람 발소리가 들려요! 저는 제빵사 미엘이에요. 오븐이 얼어서 열리지 않고 레시피 북도 얼음 덩어리가 되어버렸네요..."
+  },
+  "story.json:/chapters/1/nodes/0/pre/1/1": {
+    "source": "帮我烤一张麦饼、沏一杯热茶，让烤箱先暖起来好不好？香味一出来，街坊就知道家还在了。",
+    "context": "speaker=mier",
+    "text": "먼저 오븐을 데우기 위해 빵 한 덩이를 굽고 따뜻한 차를 우려줄 수 있을까요? 향기가 퍼지면 이웃들도 우리가 아직 여기 있다는 걸 알게 될 거예요."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/0/1": {
+    "source": "烤箱一热，麦饼的香味能飘到山脚！你闻——第一炉只是开始，浆果派很快也会回来。",
+    "context": "speaker=mier",
+    "text": "오븐이 달궈지면 빵 향기가 산기슭까지 퍼질 거예요! 맡아보세요. 첫 번째 오븐은 시작일 뿐이고, 베리 파이도 곧 돌아올 거예요."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/1/1": {
+    "source": "这就是山谷醒来的味道呀。蜜儿姐，灾变那年你怎么没走？",
+    "context": "speaker=choco",
+    "text": "이게 바로 마을이 깨어나는 냄새네요. 미엘 언니, 재앙이 일어났을 때 왜 떠나지 않았어요?"
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/2/1": {
+    "source": "我答应过妹妹，要守着店，等她回来吃我烤的第一个派。",
+    "context": "speaker=mier",
+    "text": "동생에게 약속했거든요. 가게를 지키며 동생이 돌아와 내가 구운 첫 파이를 먹을 수 있게 기다려주겠다고요."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/3/1": {
+    "source": "第一个派，一定给你，{{playerName}}。谢谢你，让我又能开始等一个人了。",
+    "context": "speaker=mier",
+    "text": "첫 번째 파이는 꼭 드릴게요, {{playerName}}. 다시 누군가를 기다릴 수 있게 해주셔서 감사해요."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/3/2/spoken": {
+    "source": "第一个派，一定给你。谢谢你，让我又能开始等一个人了。",
+    "context": "speaker=mier; prerecorded spoken variant",
+    "text": "첫 번째 파이는 꼭 드릴게요. 다시 누군가를 기다릴 수 있게 해주셔서 감사해요."
+  },
+  "story.json:/chapters/1/nodes/0/lore/title": {
+    "source": "没送出的浆果派",
+    "context": "",
+    "text": "전하지 못한 베리 파이"
+  },
+  "story.json:/chapters/1/nodes/0/lore/text": {
+    "source": "蜜儿的妹妹南迁那年没赶上最后一班渡轮，姐妹就此失散。蜜儿每天都多烤一个派，摆在靠窗的位置，摆了十年。",
+    "context": "",
+    "text": "미엘의 동생이 남쪽으로 이주하던 해에 마지막 페리를 타지 못해 자매는 헤어졌습니다. 미엘은 매일 하나씩 더 구운 파이를 창가에 두고 10년 동안 기다려왔어요."
+  },
+  "story.json:/chapters/1/nodes/1/name": {
+    "source": "重开暖阳裁缝铺",
+    "context": "",
+    "text": "따스한 햇살 재봉소 재개"
+  },
+  "story.json:/chapters/1/nodes/1/place": {
+    "source": "工坊街 · 毛线缠成冰藤的裁缝铺",
+    "context": "",
+    "text": "공방 거리 · 실이 얼음덩굴처럼 엉킨 재봉소"
+  },
+  "story.json:/chapters/1/nodes/1/pre/0/1": {
+    "source": "哎哟，我的老花镜都冻在桌上喽。来，孩子，帮奶奶赶一顶毛线帽，再备一条围巾。",
+    "context": "speaker=elsa",
+    "text": "어머나, 내 돋보기안경이 책상에 얼어붙었네. 얘야, 할머니를 도와서 털모자 하나랑 목도리 하나만 준비해 주겠니?"
+  },
+  "story.json:/chapters/1/nodes/1/pre/1/1": {
+    "source": "我要织得松松软软，围巾一人一条——这山谷里，再不许有人冻着。",
+    "context": "speaker=elsa",
+    "text": "포근하고 부드럽게 짜야 한단다. 목도리는 하나씩—이 골짜기에 더 이상 추위에 떠는 사람이 없도록 말이야."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/0/1": {
+    "source": "帽子要织得松松软软，围巾一人一条，谁都不许再冻着。",
+    "context": "speaker=elsa",
+    "text": "모자는 포근하게, 목도리는 하나씩요. 아무도 더는 춥지 않게요."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/1/1": {
+    "source": "艾莎奶奶的针线，比炉火还暖呢。",
+    "context": "speaker=choco",
+    "text": "엘사 할머니의 바느질은 화롯불보다 더 따뜻해요."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/2/1": {
+    "source": "老啦，手指不听使唤，可一想到有人正冷着，就还能再织一针。",
+    "context": "speaker=elsa",
+    "text": "나이가 들어 손가락이 말을 안 듣지만, 누군가 추위에 떨고 있다는 생각을 하면 한 코라도 더 뜰 수 있단다."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/3/1": {
+    "source": "你和你祖父一个样，手巧，心也热。",
+    "context": "speaker=elsa",
+    "text": "할아버지랑 꼭 닮았구나. 손재주도 좋고 마음도 따뜻해."
+  },
+  "story.json:/chapters/1/nodes/1/lore/title": {
+    "source": "一人一条围巾",
+    "context": "",
+    "text": "모두를 위한 목도리"
+  },
+  "story.json:/chapters/1/nodes/1/lore/text": {
+    "source": "灾变那年冬天，艾莎把店里所有毛线织成围巾，挂在村口，谁冷了就自己取一条。十年过去，那些围巾还在，只是褪成了雪的颜色。",
+    "context": "",
+    "text": "재앙이 일어난 그해 겨울, 엘사는 가게의 모든 실로 목도리를 짜서 마을 입구에 걸어두었습니다. 추운 사람은 누구나 하나씩 가져갈 수 있게요. 10년이 흐른 지금도 그 목도리들은 그대로지만, 이제는 눈과 같은 색으로 바랬을 뿐이죠."
+  },
+  "story.json:/chapters/1/nodes/2/name": {
+    "source": "疏通破冰码头",
+    "context": "",
+    "text": "얼음 깨기 부두 개통"
+  },
+  "story.json:/chapters/1/nodes/2/place": {
+    "source": "街尾 · 被冰锁住的旧码头",
+    "context": "",
+    "text": "거리 끝 · 얼음에 갇힌 옛 부두"
+  },
+  "story.json:/chapters/1/nodes/2/pre/0/1": {
+    "source": "码头冻住啦，渔船出不去，外面的人也回不来！",
+    "context": "speaker=bobo",
+    "text": "부두가 얼어버려서 어선이 나갈 수 없고, 외부 사람들도 들어올 수 없어요!"
+  },
+  "story.json:/chapters/1/nodes/2/pre/1/1": {
+    "source": "换上结实的门窗框，再给破冰的船工备足热茶。冰一破开，这条路就活了。",
+    "context": "speaker=gunnar",
+    "text": "튼튼한 문틀로 교체하고, 얼음 깨는 선원들에게 따뜻한 차를 충분히 준비해 주게. 얼음이 깨지면 이 길이 다시 살아날 걸세."
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/0/1": {
+    "source": "码头修好啦，渔船可以出湖，热茶给船工们备好！",
+    "context": "speaker=bobo",
+    "text": "부두가 고쳐졌어요! 어선이 호수로 나갈 수 있고, 선원들을 위한 따뜻한 차도 준비됐습니다!"
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/1/1": {
+    "source": "听，是凿冰的声音。这条街，又活过来喽。",
+    "context": "speaker=gunnar",
+    "text": "들리는군, 얼음을 깨는 소리야. 이 거리가 다시 살아나고 있어."
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/2/1": {
+    "source": "船工们把一箱没用完的补给留给你了，风灯里又攒下十次余温。趁热把下一批材料合出来吧。",
+    "context": "speaker=choco",
+    "text": "선원들이 남은 보급품 한 상자를 맡겼어요. 바람등에 따스함이 열 번 더 채워졌네요. 온기가 가시기 전에 다음 재료들을 조합해 보세요."
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/3/1": {
+    "source": "等第一艘船靠岸，我要烤满满一窗台的派！",
+    "context": "speaker=mier",
+    "text": "첫 배가 들어오면 창가를 가득 채운 파이를 구울 거예요!"
+  },
+  "story.json:/chapters/1/nodes/2/lore/title": {
+    "source": "破冰第一锤",
+    "context": "",
+    "text": "얼음 깨기 첫 망치질"
+  },
+  "story.json:/chapters/1/nodes/2/lore/text": {
+    "source": "码头的冰厚得能跑马。船工们轮着锤，锤了整整一天，当第一缕湖水从裂缝里漫上来时，整条街的人都跑到岸边欢呼。",
+    "context": "",
+    "text": "부두의 얼음이 말도 못 달릴 만큼 두꺼웠습니다. 선원들은 교대로 하루 종일 망치질을 했고, 마침내 갈라진 틈으로 호숫물이 흘러나올 때 거리의 모든 사람이 해변으로 달려 나와 환호했습니다."
+  },
+  "story.json:/chapters/1/nodes/3/name": {
+    "source": "长街灯宴",
+    "context": "",
+    "text": "긴 거리의 등불 잔치"
+  },
+  "story.json:/chapters/1/nodes/3/place": {
+    "source": "工坊街 · 张灯的夜晚",
+    "context": "",
+    "text": "공방 거리 · 등불을 밝히는 밤"
+  },
+  "story.json:/chapters/1/nodes/3/pre/0/1": {
+    "source": "码头通了，今晚办一场灯宴吧！让十年没聚过的街坊，痛痛快快热闹一回。",
+    "context": "speaker=mier",
+    "text": "부두가 열렸으니 오늘 밤 등불 잔치를 열어요! 10년 동안 모이지 못했던 이웃들이 신나게 즐길 수 있게 말이에요."
+  },
+  "story.json:/chapters/1/nodes/3/pre/1/1": {
+    "source": "我给每个人缝一顶新帽子。孩子，蛋糕和热饮就拜托你啦。",
+    "context": "speaker=elsa",
+    "text": "모두에게 새 모자를 만들어 줄게요. 얘야, 케이크와 따뜻한 음료는 네가 부탁해 줄래?"
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/0/1": {
+    "source": "一盏盏风灯挂上街檐，浆果派切开，热可可甜得发暖，新帽子在灯下毛茸茸的。",
+    "context": "speaker=narrator",
+    "text": "거리에 하나둘씩 바람등이 걸리고, 베리 파이가 잘려 나가고, 따뜻한 코코아는 달콤하게 퍼지며, 새 모자들이 등불 아래 폭신하게 빛납니다."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/1/1": {
+    "source": "报告大家一个好消息——我收到山那边的回信了！信上说，南迁的人，一直在等山谷重新亮起灯。",
+    "context": "speaker=bobo",
+    "text": "모두에게 좋은 소식을 전해줘요. 산 너머에서 답장을 받았어요! 산 너머 사람들도 골짜기에 다시 불이 켜지길 기다리고 있었다고 하네요."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/2/1": {
+    "source": "灯一亮，他们就认得回家的路了。",
+    "context": "speaker=gunnar",
+    "text": "불이 켜지면 그들은 집으로 돌아오는 길을 알아챌 걸세."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/3/1": {
+    "source": "可山谷最高处的圣殿还是黑的。那里，是十年前最后熄灭的地方。",
+    "context": "speaker=choco",
+    "text": "하지만 골짜기 가장 높은 곳의 성전은 여전히 어둡습니다. 그곳은 10년 전 마지막으로 불이 꺼진 곳이죠."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/4/1": {
+    "source": "是时候了。我们上山，去会会那团十年没敢碰的火。",
+    "context": "speaker=gunnar",
+    "text": "때가 되었네. 산에 올라가 10년 동안 건드리지 못한 저 불꽃을 만나러 가세."
+  },
+  "story.json:/chapters/1/nodes/3/interaction/title": {
+    "source": "点亮整条工坊街",
+    "context": "",
+    "text": "공방 거리 전체 밝히기"
+  },
+  "story.json:/chapters/1/nodes/3/interaction/prompt": {
+    "source": "沿着街檐逐盏点灯，让远方的人看见回家的方向。",
+    "context": "",
+    "text": "거리마다 등불을 하나씩 밝혀 멀리 있는 이들이 집으로 돌아오는 길을 볼 수 있게 하세요."
+  },
+  "story.json:/chapters/1/nodes/3/interaction/complete": {
+    "source": "最后一盏灯亮起时，山那边忽然也亮了一点——像有人在远方回应。",
+    "context": "",
+    "text": "마지막 등불이 켜졌을 때, 산 너머에서도 갑자기 빛이 한 줄기 비쳤습니다. 마치 누군가 먼 곳에서 응답하는 것처럼요."
+  },
+  "story.json:/chapters/1/nodes/3/interaction/steps/0/label": {
+    "source": "烘焙坊",
+    "context": "",
+    "text": "베이커리"
+  },
+  "story.json:/chapters/1/nodes/3/interaction/steps/1/label": {
+    "source": "裁缝铺",
+    "context": "",
+    "text": "재봉소"
+  },
+  "story.json:/chapters/1/nodes/3/interaction/steps/2/label": {
+    "source": "码头灯",
+    "context": "",
+    "text": "부두의 등불"
+  },
+  "story.json:/chapters/1/nodes/3/lore/title": {
+    "source": "等灯的人",
+    "context": "",
+    "text": "등을 기다리는 사람"
+  },
+  "story.json:/chapters/1/nodes/3/lore/text": {
+    "source": "灯宴那晚，波波把回信读了一遍又一遍。南迁的人在信末写：『只要山谷还亮着灯，我们就总有一天会回去。』",
+    "context": "",
+    "text": "등불 축제 날 밤, 보보는 답장을 몇 번이고 다시 읽었습니다. 남천의 사람들이 편지 끝에 이렇게 적어두었거든요. '골짜기에 등불이 켜져 있는 한, 우리는 언젠가 반드시 돌아올 거야.'"
+  },
+  "story.json:/chapters/2/title": {
+    "source": "第三章 · 永暖圣殿",
+    "context": "",
+    "text": "제3장 · 영원의 온기 성전"
+  },
+  "story.json:/chapters/2/subtitle": {
+    "source": "十年前最后熄灭的地方",
+    "context": "",
+    "text": "열 년 전 마지막 불꽃이 꺼진 곳"
+  },
+  "story.json:/chapters/2/hook": {
+    "source": "圣火若不是终点，真正冻住山谷的是什么？",
+    "context": "",
+    "text": "성화가 끝이 아니라면, 정말로 골짜기를 얼어붙게 만든 것은 무엇일까?"
+  },
+  "story.json:/chapters/2/intro/0/1": {
+    "source": "山谷最高处的永暖圣殿，白石被风雪磨成了淡蓝色，大门紧闭了十年。",
+    "context": "speaker=narrator",
+    "text": "골짜기 가장 높은 곳에 위치한 영원의 온기 성전. 하얀 돌들은 눈보라에 깎여 연한 푸른빛을 띠고 있었고, 정문은 10년 동안 굳게 닫혀 있었습니다."
+  },
+  "story.json:/chapters/2/intro/1/1": {
+    "source": "传说只要圣火重燃，暴风雪就再也无法吞没这片土地。可推开那扇门，我们才发现——故事，才刚刚开始。",
+    "context": "speaker=narrator",
+    "text": "전설에 따르면 성화가 다시 타오르면 폭풍과 눈보라도 이 땅을 삼킬 수 없다고 합니다. 하지만 그 문을 열었을 때, 우리는 깨달았습니다. 이야기는 이제 막 시작되었다는 것을요."
+  },
+  "story.json:/chapters/2/worldLore/0/title": {
+    "source": "永暖圣殿",
+    "context": "",
+    "text": "영원의 온기 성전"
+  },
+  "story.json:/chapters/2/worldLore/0/text": {
+    "source": "圣殿建在山谷最高处，永暖圣火在殿心烧了几百年，是整座霜语谷的热源。霜灵师世代守焰，埃文是最后一任守焰人。",
+    "context": "",
+    "text": "성전은 골짜기의 가장 높은 곳에 세워졌으며, 성전의 중심에서 타오르는 영원의 온기 성화는 서리말 골짜기 전체의 열원이었습니다. 서리술사들은 대대로 이 불꽃을 지켜왔고, 에번은 마지막 수호자였습니다."
+  },
+  "story.json:/chapters/2/worldLore/1/title": {
+    "source": "永暖圣火",
+    "context": "",
+    "text": "영원의 온기 성화"
+  },
+  "story.json:/chapters/2/worldLore/1/text": {
+    "source": "传说圣火取自山巅「霜心」，是人间第一捧不肯熄灭的火。它烧的不是柴，是人与人之间彼此惦记的那点温度。",
+    "context": "",
+    "text": "전설에 따르면 성화는 산꼭대기의 '서리심장'에서 가져온 것으로, 세상에서 처음으로 꺼지지 않는 불꽃이라 불립니다. 이 불꽃은 장작이 아니라, 사람들 사이의 서로를 아끼는 마음이라는 온기로 타오릅니다."
+  },
+  "story.json:/chapters/2/nodes/0/name": {
+    "source": "修缮壁炉大厅",
+    "context": "",
+    "text": "벽난로 홀 수리하기"
+  },
+  "story.json:/chapters/2/nodes/0/place": {
+    "source": "圣殿一层 · 积灰的壁炉大厅",
+    "context": "",
+    "text": "성전 1층 · 먼지 쌓인 벽난로 홀"
+  },
+  "story.json:/chapters/2/nodes/0/pre/0/1": {
+    "source": "可算有人上来了。我是铁匠巴尔，十年了，一直是我守着这扇破门。",
+    "context": "speaker=bar",
+    "text": "드디어 누가 올라왔군. 난 대장장이 바르라고 하네. 10년 동안 이 망가진 문을 지키며 기다려 왔지."
+  },
+  "story.json:/chapters/2/nodes/0/pre/1/1": {
+    "source": "石壁我加固过了，就差一座暖炉、几扇结实门窗。先让大厅能待人，真正的壁炉以后慢慢砌。",
+    "context": "speaker=bar",
+    "text": "돌벽은 보강해 뒀으니, 이제 온열기 하나와 튼튼한 문과 창문만 있으면 돼. 일단 홀에서 머물 수 있게 만들고, 진짜 벽난로는 나중에 천천히 쌓아 올리자고."
+  },
+  "story.json:/chapters/2/nodes/0/dialogue/0/1": {
+    "source": "这暖炉一烧起来，连石头都跟着松了口气。等人回来，我们再把它砌成能烧一百年的壁炉。",
+    "context": "speaker=bar",
+    "text": "이 온열기가 켜지면 돌들조차 안도하며 숨을 내쉴 걸세. 사람들이 돌아오면 그때 백 년은 타오를 수 있는 제대로 된 벽난로를 만들게."
+  },
+  "story.json:/chapters/2/nodes/0/dialogue/1/1": {
+    "source": "大厅暖了，大家就有地方围坐在一起了。巴尔叔叔，你一个人守了十年？",
+    "context": "speaker=choco",
+    "text": "홀이 따뜻해지면 다 같이 모여 앉을 곳이 생기겠네요. 바르 아저씨, 혼자서 10년이나 지키신 거예요?"
+  },
+  "story.json:/chapters/2/nodes/0/dialogue/2/1": {
+    "source": "……我答应过一个人，不让这地方塌。先干活，旧事，往后再说。",
+    "context": "speaker=bar",
+    "text": "……한 사람과 약속했거든, 이 장소가 무너지지 않게 하겠다고 말이야. 일단 일부터 하고, 옛이야기는 나중에 하자고."
+  },
+  "story.json:/chapters/2/nodes/0/lore/title": {
+    "source": "守门的铁匠",
+    "context": "",
+    "text": "문지기 대장장이"
+  },
+  "story.json:/chapters/2/nodes/0/lore/text": {
+    "source": "巴尔话少，锤子却没停过。十年里他一个人加固圣殿、清走积雪，殿里每一块没裂开的石头，都有他敲过的痕迹。",
+    "context": "",
+    "text": "바르는 말이 적었지만 망치질은 멈춘 적이 없었습니다. 10년 동안 그는 홀로 성전을 보강하고 눈을 치웠습니다. 금이 가지 않은 성전의 모든 돌에는 그가 두드린 흔적이 남아 있습니다."
+  },
+  "story.json:/chapters/2/nodes/1/name": {
+    "source": "托起圣殿穹顶",
+    "context": "",
+    "text": "성전 돔 지탱하기"
+  },
+  "story.json:/chapters/2/nodes/1/place": {
+    "source": "圣殿二层 · 开裂的星空穹顶",
+    "context": "",
+    "text": "성전 2층 · 갈라진 별빛 돔"
+  },
+  "story.json:/chapters/2/nodes/1/pre/0/1": {
+    "source": "穹顶裂了道大口子，风雪直直往里灌。得嵌一顶冰晶冠把光接住，再挂上毛衣织成的挡风帘。",
+    "context": "speaker=elsa",
+    "text": "돔에 큰 틈이 생겨 눈보라가 그대로 들이닥치고 있어. 얼음 수정관을 끼워 빛을 받아내고, 스웨터로 만든 방풍 커튼을 달아야 해."
+  },
+  "story.json:/chapters/2/nodes/1/pre/1/1": {
+    "source": "让光重新洒满大厅，像把星星搬回了屋顶。",
+    "context": "speaker=choco",
+    "text": "빛이 다시 홀을 가득 채우게 하는 거예요, 마치 별들을 지붕 위로 옮겨 놓은 것처럼요."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/0/1": {
+    "source": "霜晶嵌进穹顶，会把光撒得像星星一样。",
+    "context": "speaker=elsa",
+    "text": "얼음 수정을 돔에 끼우면 빛이 별처럼 흩뿌려질 거야."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/1/1": {
+    "source": "再挂上厚毛衣织成的挡风帘，风就灌不进来啦。",
+    "context": "speaker=mier",
+    "text": "두툼한 스웨터로 만든 방풍 커튼을 달면, 바람이 들어오지 못할 거예요."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/2/1": {
+    "source": "霜晶亮起的一瞬，整座大厅浮起淡蓝色的光尘，像十年前的星空，落回了人间。",
+    "context": "speaker=narrator",
+    "text": "얼음 수정이 빛나는 순간, 홀 전체에 연한 푸른빛 가루가 피어올랐습니다. 마치 10년 전의 밤하늘이 지상으로 내려온 듯한 풍경이었습니다."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/3/1": {
+    "source": "……跟那年一模一样。只差最后一步了。",
+    "context": "speaker=bar",
+    "text": "……그해와 똑같군. 이제 마지막 단계만 남았어."
+  },
+  "story.json:/chapters/2/nodes/1/lore/title": {
+    "source": "会发光的石头",
+    "context": "",
+    "text": "빛나는 돌"
+  },
+  "story.json:/chapters/2/nodes/1/lore/text": {
+    "source": "霜晶是霜语谷独有的冰晶，会记住光。守焰人把最大的霜晶嵌在穹顶，哪怕暴风雪封山，殿里也永远有一片不化的星空。",
+    "context": "",
+    "text": "얼음 수정은 서리말 골짜기만의 특별한 결정체로, 빛을 기억합니다. 수호자가 가장 큰 얼음 수정을 돔에 끼워 넣으면, 폭풍과 눈보라가 산을 가로막아도 성전 안에는 언제나 녹지 않는 별빛이 머뭅니다."
+  },
+  "story.json:/chapters/2/nodes/2/name": {
+    "source": "点燃永暖圣火",
+    "context": "",
+    "text": "영원의 온기 성화 점화하기"
+  },
+  "story.json:/chapters/2/nodes/2/place": {
+    "source": "圣殿殿心 · 熄灭十年的圣火坛",
+    "context": "",
+    "text": "성전 중심 · 10년간 꺼져 있던 성화 제단"
+  },
+  "story.json:/chapters/2/nodes/2/pre/0/1": {
+    "source": "暖炉、蜂蜜暖饮、成套家具……不用等到世上最稀有的供物。{{playerName}}，守焰人的礼节，是把手边的温暖都带来。",
+    "context": "speaker=gunnar",
+    "text": "온열기, 꿀차, 가구 세트…… 세상에서 가장 희귀한 공물을 기다릴 필요는 없네. {{playerName}}, 수호자의 예절은 손에 닿는 온기를 모두 가져오는 것이니까."
+  },
+  "story.json:/chapters/2/nodes/2/pre/0/2/spoken": {
+    "source": "暖炉、蜂蜜暖饮、成套家具……不用等到世上最稀有的供物。守焰人的礼节，是把手边的温暖都带来。",
+    "context": "speaker=gunnar; prerecorded spoken variant",
+    "text": "온열기, 꿀차, 가구 세트…… 세상에서 가장 희귀한 공물을 기다릴 필요는 없네. 수호자의 예절은 손에 닿는 온기를 모두 가져오는 것이니까."
+  },
+  "story.json:/chapters/2/nodes/2/pre/1/1": {
+    "source": "我提着灯站了十年，就等这一刻。来吧，让我们一起，把火送回它该在的地方。",
+    "context": "speaker=choco",
+    "text": "등을 들고 10년을 서서 이 순간만을 기다렸어요. 자, 우리 함께 불꽃을 원래 있어야 할 곳으로 돌려보내요."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/0/1": {
+    "source": "暖炉的火落入坛心，「轰」地腾起金色火柱，霜木家具在火里发出风铃一样的轻响。",
+    "context": "speaker=narrator",
+    "text": "온열기의 불꽃이 제단 중심에 닿자, '콰앙' 소리와 함께 황금빛 기둥이 솟구쳤고 서리나무 가구들이 불꽃 속에서 풍경 소리 같은 은은한 울림을 내었습니다."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/1/1": {
+    "source": "永暖圣火……请你，再也不要熄灭。",
+    "context": "speaker=choco",
+    "text": "영원의 온기 성화…… 제발, 다시는 꺼지지 말아줘."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/2/1": {
+    "source": "看呐——雪，小了！",
+    "context": "speaker=gunnar",
+    "text": "봐, 눈이 줄어들고 있어!"
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/3/1": {
+    "source": "可火光只升到半空，便在穹顶映出一幅流动的画面：山巅风暴的正中心，沉着一颗微弱跳动的、巨大的蓝色心脏。",
+    "context": "speaker=narrator",
+    "text": "하지만 불꽃은 공중에서 멈췄고, 돔에 일렁이는 장면을 비추었습니다. 산꼭대기 폭풍의 중심에 작게 고동치는 거대한 푸른 심장이 있었습니다."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/4/1": {
+    "source": "果然……圣火只是钥匙。真正冻住山谷的东西，在那上面。",
+    "context": "speaker=bar",
+    "text": "역시…… 성화는 열쇠일 뿐이었어. 골짜기를 얼어붙게 만든 진짜 것은 저 위에 있어."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/5/1": {
+    "source": "那是……霜心。它还活着，只是快要忘了，该怎么跳动。",
+    "context": "speaker=choco",
+    "text": "저건…… 서리심장이에요. 아직 살아있지만, 어떻게 뛰어야 하는지 거의 잊어버린 것 같아요."
+  },
+  "story.json:/chapters/2/nodes/2/interaction/title": {
+    "source": "完成守焰人的仪式",
+    "context": "",
+    "text": "수호자의 의식 완료하기"
+  },
+  "story.json:/chapters/2/nodes/2/interaction/prompt": {
+    "source": "三件供物必须依次回应，圣火才会承认新的守焰人。",
+    "context": "",
+    "text": "세 가지 공물이 차례로 반응해야 성화가 새로운 수호자를 인정합니다."
+  },
+  "story.json:/chapters/2/nodes/2/interaction/complete": {
+    "source": "圣火冲上穹顶，却照出了一个更大的秘密。",
+    "context": "",
+    "text": "성화가 돔으로 치솟으며 더 큰 비밀을 비추었습니다."
+  },
+  "story.json:/chapters/2/nodes/2/interaction/steps/0/label": {
+    "source": "放下霜木",
+    "context": "",
+    "text": "서리나무 내려놓기"
+  },
+  "story.json:/chapters/2/nodes/2/interaction/steps/1/label": {
+    "source": "献上暖饮",
+    "context": "",
+    "text": "따뜻한 음료 바치기"
+  },
+  "story.json:/chapters/2/nodes/2/interaction/steps/2/label": {
+    "source": "送回圣火",
+    "context": "",
+    "text": "성화 돌려보내기"
+  },
+  "story.json:/chapters/2/nodes/2/lore/title": {
+    "source": "圣火只是钥匙",
+    "context": "",
+    "text": "성화는 열쇠일 뿐"
+  },
+  "story.json:/chapters/2/nodes/2/lore/text": {
+    "source": "谁都以为点燃圣火便是结局。可火光映出山巅风暴之眼里的「霜心」——长雪的源头。圣火不是终点，它是通往真相的第一把钥匙。",
+    "context": "",
+    "text": "모두가 성화를 밝히는 것이 끝이라고 생각했습니다. 하지만 불꽃은 산꼭대기 폭풍의 눈 속에 있는 '서리심장'을 비추었습니다. 긴 겨울의 근원 말이죠. 성화는 종착지가 아니라 진실로 향하는 첫 번째 열쇠였습니다."
+  },
+  "story.json:/chapters/2/nodes/3/name": {
+    "source": "焰心的预言",
+    "context": "",
+    "text": "불꽃 심장의 예언"
+  },
+  "story.json:/chapters/2/nodes/3/place": {
+    "source": "圣殿偏厅 · 火光映出的壁画",
+    "context": "",
+    "text": "성전 부속실 · 불빛에 비친 벽화"
+  },
+  "story.json:/chapters/2/nodes/3/pre/0/1": {
+    "source": "圣火在墙上投出了古早的壁画，可有些字被霜盖住了。用霜晶接住火光，我们一起读它。",
+    "context": "speaker=choco",
+    "text": "성화가 벽에 오래된 벽화를 투영했지만, 어떤 글자들은 서리에 가려져 있었어요. 얼음 수정을 이용해 불꽃을 받아내고 함께 읽어봐요."
+  },
+  "story.json:/chapters/2/nodes/3/pre/1/1": {
+    "source": "埃文当年，一定也读到了这些。",
+    "context": "speaker=gunnar",
+    "text": "에번도 당시에는 이 내용들을 읽었을 거야."
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/0/1": {
+    "source": "冰棱柱、篝火堆与毛衣就位，壁画上的古霜文一行行亮了起来。",
+    "context": "speaker=narrator",
+    "text": "얼음 기둥과 모닥불, 스웨터가 제자리에 놓이자 벽화 위의 고대 서리 문자들이 한 줄씩 빛나기 시작했습니다."
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/1/1": {
+    "source": "『长雪起于霜心之眠。欲令春归，须以四种人间温度为引——』",
+    "context": "speaker=choco",
+    "text": "『긴 겨울은 서리심장의 잠에서 시작된다. 봄을 불러오려면 세상의 네 가지 온도를 매개로 삼아야 한다—』"
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/2/1": {
+    "source": "『篝火之望，比邻之系，释怀之勇，传灯之愿。四温齐聚，霜心方醒。』",
+    "context": "speaker=choco",
+    "text": "『모닥불의 희망, 이웃과의 연결, 용서의 용기, 등불을 전하는 염원. 네 가지 온기가 모일 때 비로소 서리심장이 깨어난다.』"
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/3/1": {
+    "source": "篝火之望，我们已经有了。剩下三样，在外港、在雪原、也在我们自己心里。",
+    "context": "speaker=bar",
+    "text": "모닥불의 희망은 이미 얻었어. 남은 세 가지는 외항에서, 설원에서, 그리고 우리들 마음속에 있어."
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/4/1": {
+    "source": "先去归雁港吧。木桥、码头都通了，是时候把走散的人，接回家了。",
+    "context": "speaker=gunnar",
+    "text": "먼저 귀안항으로 가자고. 나무다리와 부두가 연결되었으니, 이제 헤어진 사람들을 집으로 데려올 시간이야."
+  },
+  "story.json:/chapters/2/nodes/3/lore/title": {
+    "source": "四种人间温度",
+    "context": "",
+    "text": "네 가지 세상의 온기"
+  },
+  "story.json:/chapters/2/nodes/3/lore/text": {
+    "source": "古壁画写着唤醒霜心的四种温度：篝火之望（希望）、比邻之系（联结）、释怀之勇（原谅）、传灯之愿（传承）。这正是接下来旅途的四张地图。",
+    "context": "",
+    "text": "오래된 벽화에는 서리심장을 깨우는 네 가지 온도가 적혀 있습니다. 모닥불의 희망(희망), 이웃과의 연결(연결), 용서의 용기(용서), 등불을 전하는 염원(전승). 이것이 바로 앞으로 이어질 여정의 네 장의 지도입니다."
+  },
+  "story.json:/chapters/3/title": {
+    "source": "第四章 · 归雁港",
+    "context": "",
+    "text": "제4장 · 귀안항"
+  },
+  "story.json:/chapters/3/subtitle": {
+    "source": "第二种温度 · 比邻之系",
+    "context": "",
+    "text": "두 번째 온기 · 이웃과의 연결"
+  },
+  "story.json:/chapters/3/hook": {
+    "source": "第一艘归乡船上，会不会有蜜儿等了十年的人？",
+    "context": "",
+    "text": "첫 번째 귀향선에는 미엘이 10년 동안 기다려온 사람이 타고 있을까요?"
+  },
+  "story.json:/chapters/3/intro/0/1": {
+    "source": "顺着解冻的河道向外走，是霜语谷曾经的门户——归雁港。",
+    "context": "speaker=narrator",
+    "text": "해동된 강줄기를 따라 나가면 서리말 골짜기의 옛 관문인 귀안항이 나타납니다."
+  },
+  "story.json:/chapters/3/intro/1/1": {
+    "source": "十年封港，灯塔瞎了，渡轮冻在冰里。要让走散的人回家，先得替他们，把回家的路点亮。",
+    "context": "speaker=narrator",
+    "text": "10년 동안 항구가 폐쇄되었고, 등대는 꺼졌으며, 여객선은 얼음 속에 갇혔습니다. 흩어진 이들이 집으로 돌아오게 하려면, 먼저 그들을 위해 집으로 가는 길을 밝혀야 합니다."
+  },
+  "story.json:/chapters/3/worldLore/0/title": {
+    "source": "归雁港",
+    "context": "",
+    "text": "귀안항"
+  },
+  "story.json:/chapters/3/worldLore/0/text": {
+    "source": "归雁港是霜语谷通向外界的唯一港口，每年春天，南迁的人会像归雁一样随渡船回来。长雪之后，最后一班离港的船，再没等来返航。",
+    "context": "",
+    "text": "귀안항은 서리말 골짜기가 외부와 연결되는 유일한 항구입니다. 매년 봄이면 남쪽으로 떠났던 이들이 귀향하는 기러기처럼 배를 타고 돌아오곤 했죠. 긴 눈이 내린 후, 마지막으로 항구를 떠난 배는 다시 돌아오지 못했습니다."
+  },
+  "story.json:/chapters/3/worldLore/1/title": {
+    "source": "比邻之系",
+    "context": "",
+    "text": "이웃의 유대"
+  },
+  "story.json:/chapters/3/worldLore/1/text": {
+    "source": "第二种人间温度叫「比邻之系」：知道自己被远方的人惦记，也愿意为他们留一盏灯、修一条路。",
+    "context": "",
+    "text": "두 번째 세상의 온도는 '이웃의 유대'입니다. 멀리 있는 이들이 자신을 그리워하고 있음을 알고, 그들을 위해 등불 하나를 남기고 길을 고쳐주는 마음이죠."
+  },
+  "story.json:/chapters/3/nodes/0/name": {
+    "source": "点亮归航灯塔",
+    "context": "",
+    "text": "귀항 등대 밝히기"
+  },
+  "story.json:/chapters/3/nodes/0/place": {
+    "source": "归雁港 · 瞎了十年的灯塔",
+    "context": "",
+    "text": "귀안항 · 10년 동안 꺼져 있던 등대"
+  },
+  "story.json:/chapters/3/nodes/0/pre/0/1": {
+    "source": "灯塔的灯十年没亮，归乡的船在海上根本找不到岸！",
+    "context": "speaker=bobo",
+    "text": "등불이 10년이나 꺼져 있어서, 돌아오는 배들이 바다 위에서 육지를 찾을 수가 없었어!"
+  },
+  "story.json:/chapters/3/nodes/0/pre/1/1": {
+    "source": "我们用木屋组件搭起塔身，再供上一座长明暖炉。让光，替山谷先喊一声『欢迎回家』。",
+    "context": "speaker=choco",
+    "text": "우리는 오두막 부품으로 탑을 세우고, 그 위에 꺼지지 않는 난로를 설치했어. 빛이 골짜기를 대신해 '환영해'라고 먼저 외쳐줄 수 있게 말이야."
+  },
+  "story.json:/chapters/3/nodes/0/dialogue/0/1": {
+    "source": "灯塔重新旋亮，光柱扫过灰蒙蒙的海面，像一只缓缓张开的手臂。",
+    "context": "speaker=narrator",
+    "text": "등대가 다시 밝아지며 빛의 기둥이 뿌연 바다 위를 훑었습니다. 마치 천천히 펼쳐지는 팔처럼요."
+  },
+  "story.json:/chapters/3/nodes/0/dialogue/1/1": {
+    "source": "亮了亮了！这束光，几十里外的船都看得见！",
+    "context": "speaker=bobo",
+    "text": "불이 켜졌어! 이 빛은 수십 리 밖의 배에서도 보일 거야!"
+  },
+  "story.json:/chapters/3/nodes/0/dialogue/2/1": {
+    "source": "当年埃文送村里人离港，也是站在这座塔下，说『灯亮着，你们随时能回来』。",
+    "context": "speaker=gunnar",
+    "text": "당시 에번이 마을 사람들을 배웅할 때도 이 탑 아래 서서 말했지. '등불이 켜져 있으니 언제든 돌아올 수 있다'고."
+  },
+  "story.json:/chapters/3/nodes/0/lore/title": {
+    "source": "海上的光",
+    "context": "",
+    "text": "바다 위의 빛"
+  },
+  "story.json:/chapters/3/nodes/0/lore/text": {
+    "source": "灯塔旋亮的那一夜，远方海面上有几点渔火迟疑地朝岸边靠了靠——那是十年里，第一次有船，朝着霜语谷的方向转舵。",
+    "context": "",
+    "text": "등대가 다시 밝아진 그날 밤, 먼 바다 위로 몇 개의 어선 불빛이 망설이며 해안으로 다가왔습니다. 10년 만에 처음으로 배들이 서리말 골짜기 방향으로 키를 돌린 것이죠."
+  },
+  "story.json:/chapters/3/nodes/1/name": {
+    "source": "修好暖流渡轮",
+    "context": "",
+    "text": "온류호 수리하기"
+  },
+  "story.json:/chapters/3/nodes/1/place": {
+    "source": "归雁港 · 冻在冰里的旧渡轮",
+    "context": "",
+    "text": "귀안항 · 얼음 속에 갇힌 낡은 여객선"
+  },
+  "story.json:/chapters/3/nodes/1/pre/0/1": {
+    "source": "船壳冻裂了，锅炉也凉透。没有船，灯再亮，人也过不了这片海。",
+    "context": "speaker=bar",
+    "text": "선체가 얼어 터지고 보일러도 차갑게 식었어. 배가 없으면 등불이 아무리 밝아도 사람들은 이 바다를 건널 수 없어."
+  },
+  "story.json:/chapters/3/nodes/1/pre/1/1": {
+    "source": "船舱里一定要备足蜂蜜暖饮，归乡的路冷，得让每个人下船时，手是暖的。",
+    "context": "speaker=mier",
+    "text": "선실에는 꿀을 넣은 따뜻한 음료를 충분히 준비해야 해요. 돌아오는 길이 추우니까요. 모든 사람이 내릴 때 손만큼은 따뜻하게 느껴지도록요."
+  },
+  "story.json:/chapters/3/nodes/1/dialogue/0/1": {
+    "source": "新船板一块块合上，锅炉重新低吼，渡轮喷出十年来第一口白汽。",
+    "context": "speaker=narrator",
+    "text": "새 선판들이 하나씩 맞춰지고 보일러가 다시 낮은 소리를 내며 가동되자, 여객선에서 10년 만에 처음으로 하얀 김이 뿜어져 나왔습니다."
+  },
+  "story.json:/chapters/3/nodes/1/dialogue/1/1": {
+    "source": "呜——！它响了，暖流号又能开啦！",
+    "context": "speaker=bobo",
+    "text": "우와—! 소리가 나! 온류호가 다시 움직일 수 있게 됐어!"
+  },
+  "story.json:/chapters/3/nodes/1/dialogue/2/1": {
+    "source": "船在，灯在，热饮在。现在，就差一个让人愿意回来的理由了。",
+    "context": "speaker=choco",
+    "text": "배도 있고, 등불도 있고, 따뜻한 음료도 있어. 이제 필요한 건 사람들이 돌아오고 싶어 할 이유 하나뿐이야."
+  },
+  "story.json:/chapters/3/nodes/1/lore/title": {
+    "source": "暖流号",
+    "context": "",
+    "text": "온류호"
+  },
+  "story.json:/chapters/3/nodes/1/lore/text": {
+    "source": "暖流号是归雁港最老的渡轮，灾变前每天往返两岸。老船长把船钥匙交给巴尔时说：『替我看着它，等春天，我还要开它最后一趟。』",
+    "context": "",
+    "text": "온류호는 귀안항에서 가장 오래된 여객선으로, 재앙 전에는 매일 양쪽 해안을 오갔습니다. 늙은 선장은 바르에게 배의 열쇠를 넘기며 말했습니다. '이걸 잘 봐줘. 봄이 되면 내가 마지막으로 한 번 더 운전할 테니까.'"
+  },
+  "story.json:/chapters/3/nodes/2/name": {
+    "source": "搭起归乡集市",
+    "context": "",
+    "text": "귀향 시장 세우기"
+  },
+  "story.json:/chapters/3/nodes/2/place": {
+    "source": "归雁港 · 空无一人的码头集市",
+    "context": "",
+    "text": "귀안항 · 아무도 없는 부두 시장"
+  },
+  "story.json:/chapters/3/nodes/2/pre/0/1": {
+    "source": "人回来总得有个落脚、有口热乎饭、有件干净衣裳。我们把集市先支棱起来！",
+    "context": "speaker=mier",
+    "text": "사람들이 돌아오면 머물 곳과 따뜻한 음식, 깨끗한 옷이 필요하죠. 우리가 먼저 시장을 차려놓는 거예요!"
+  },
+  "story.json:/chapters/3/nodes/2/pre/1/1": {
+    "source": "再挂些霜晶灯，远远看着暖，人才敢相信这不是梦。",
+    "context": "speaker=elsa",
+    "text": "서리정화등도 좀 걸어두고. 멀리서 봐도 따스해 보여야 사람들이 이게 꿈이 아니라고 믿을 수 있을 거예요."
+  },
+  "story.json:/chapters/3/nodes/2/dialogue/0/1": {
+    "source": "姜饼屋的甜香、厚实的羽绒大衣、一盏盏霜晶灯，让空荡荡的码头，有了家的轮廓。",
+    "context": "speaker=narrator",
+    "text": "빵집의 달콤한 향기, 두툼한 다운 재킷, 하나하나 빛나는 서리정화등들이 텅 빈 부두에 집 같은 풍경을 만들어냈습니다."
+  },
+  "story.json:/chapters/3/nodes/2/dialogue/1/1": {
+    "source": "报告！第一艘归乡小船靠岸啦——上面是一家三口，他们说，看见灯塔就哭了。",
+    "context": "speaker=bobo",
+    "text": "보고합니다! 첫 번째 귀향선이 정박했습니다. 세 가족이 타고 있는데, 등대를 보고 울었다고 하네요."
+  },
+  "story.json:/chapters/3/nodes/2/dialogue/2/1": {
+    "source": "快请进快请进，派刚出炉，管够！",
+    "context": "speaker=mier",
+    "text": "어서 들어오세요! 방금 구운 파이가 아주 많답니다!"
+  },
+  "story.json:/chapters/3/nodes/2/lore/title": {
+    "source": "第一位归乡人",
+    "context": "",
+    "text": "첫 번째 귀향인"
+  },
+  "story.json:/chapters/3/nodes/2/lore/text": {
+    "source": "第一个回来的是抱着孩子的女人。她在码头站了很久，说她在南方每年冬天都往北边望，『就怕哪天回头，连灯都没了，那才是真的回不去了』。",
+    "context": "",
+    "text": "가장 먼저 돌아온 사람은 아이를 안은 여성이었습니다. 그녀는 부두에 오래 서서 말했습니다. 남쪽에서 매년 겨울마다 북쪽을 바라보며 '언젠가 돌아봤을 때 등불조차 사라져 있으면 정말로 돌아올 수 없게 될까 봐' 걱정했다고요."
+  },
+  "story.json:/chapters/3/nodes/3/name": {
+    "source": "百家长桌宴",
+    "context": "",
+    "text": "백인 장식 만찬"
+  },
+  "story.json:/chapters/3/nodes/3/place": {
+    "source": "归雁港 · 迎归乡人的长桌",
+    "context": "",
+    "text": "귀안항 · 귀향인을 맞이하는 긴 식탁"
+  },
+  "story.json:/chapters/3/nodes/3/pre/0/1": {
+    "source": "回来的人越来越多，办一场长桌宴吧，走的、留的，都坐下来吃顿饭。",
+    "context": "speaker=gunnar",
+    "text": "돌아오는 사람들이 점점 많아지고 있어. 긴 식탁을 차리자고. 떠났던 이들도, 남았던 이들도 모두 앉아서 밥 한 끼 같이 먹게 말이야."
+  },
+  "story.json:/chapters/3/nodes/3/pre/1/1": {
+    "source": "盛宴蛋糕、香料热酒、暖和斗篷——这一桌，要摆满十年的想念。",
+    "context": "speaker=choco",
+    "text": "축하 케이크와 향신료를 넣은 따뜻한 술, 포근한 망토까지—이 식탁에 10년 동안의 그리움을 가득 채워야 해."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/0/1": {
+    "source": "长长的木桌从码头一直摆到街尾，素不相识的人挨坐着，热菜一道道传下去，像一条流动的暖河。",
+    "context": "speaker=narrator",
+    "text": "긴 나무 탁자가 부두에서 거리 끝까지 이어졌고, 낯선 이들이 나란히 앉아 따뜻한 요리를 나누어 받았습니다. 마치 흐르는 온천수처럼요."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/1/1": {
+    "source": "我妹妹……还没回来。但我现在敢等了，你看，这么多人都回来了。",
+    "context": "speaker=mier",
+    "text": "내 동생은... 아직 돌아오지 않았어요. 하지만 이제는 기다릴 수 있어요. 보세요, 이렇게 많은 사람이 돌아왔잖아요."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/2/1": {
+    "source": "{{playerName}}，第二种温度，你已经替山谷拿到了——人惦记着人，就散不了。",
+    "context": "speaker=gunnar",
+    "text": "{{playerName}}, 두 번째 온도를 당신이 골짜기를 대신해 얻어냈습니다. 서로를 그리워하는 마음은 결코 흩어지지 않으니까요."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/2/2/spoken": {
+    "source": "第二种温度，你已经替山谷拿到了——人惦记着人，就散不了。",
+    "context": "speaker=gunnar; prerecorded spoken variant",
+    "text": "두 번째 온도를 당신이 골짜기 대신 얻어냈습니다. 서로를 그리워하는 마음은 결코 흩어지지 않으니까요."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/3/1": {
+    "source": "可啾可总觉得，山巅那颗霜心的冷，藏着一段没人愿意提起的往事。",
+    "context": "speaker=choco",
+    "text": "하지만 초코는 산꼭대기에 있는 서리심장의 차가움 속에 아무도 꺼내고 싶지 않은 과거가 숨겨져 있다고 느꼈어요."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/4/1": {
+    "source": "……该来的躲不掉。明天，我带你进霜林，去见十年前的真相。",
+    "context": "speaker=bar",
+    "text": "...피할 수 없는 일이지. 내일, 자네를 서림으로 데려가 10년 전의 진실을 마주하게 해주겠네."
+  },
+  "story.json:/chapters/3/nodes/3/lore/title": {
+    "source": "一桌的想念",
+    "context": "",
+    "text": "한 상 가득 담긴 그리움"
+  },
+  "story.json:/chapters/3/nodes/3/lore/text": {
+    "source": "长桌宴上，归乡人轮流讲南方的日子，留下的人讲山谷的十年。讲到最后，大家发现：分开的两拨人，其实每一天都在想着同一座山谷。",
+    "context": "",
+    "text": "장식 만찬에서 귀향인들은 남쪽에서의 생활을 이야기하고, 남은 이들은 골짜리에서의 10년을 이야기했습니다. 결국 그들은 깨달았습니다. 헤어졌던 두 무리가 사실 매일같이 같은 골짜기를 생각하고 있었다는 것을요."
+  },
+  "story.json:/chapters/4/title": {
+    "source": "第五章 · 霜林深处",
+    "context": "",
+    "text": "제5장 · 서림 깊은 곳"
+  },
+  "story.json:/chapters/4/subtitle": {
+    "source": "第三种温度 · 释怀之勇",
+    "context": "",
+    "text": "세 번째 온도 · 용서의 용기"
+  },
+  "story.json:/chapters/4/hook": {
+    "source": "祖父的最后一页手账，究竟把谁留在了灯里？",
+    "context": "",
+    "text": "할아버지의 마지막 일기장, 과연 누구를 등불 속에 남겨두었을까?"
+  },
+  "story.json:/chapters/4/intro/0/1": {
+    "source": "归雁港背后是常年起雾的霜林，林深处藏着历代霜灵师的旧驿站。",
+    "context": "speaker=narrator",
+    "text": "귀안항 뒤편으로는 항상 안개가 자욱한 서림이 펼쳐져 있고, 그 깊은 곳에는 역대 서리술사들의 옛 숙소가 숨겨져 있습니다."
+  },
+  "story.json:/chapters/4/intro/1/1": {
+    "source": "巴尔沉默了十年的往事、祖父最后的足迹，都埋在这片安静的雪里。有些冰，要先在心里化开。",
+    "context": "speaker=narrator",
+    "text": "바르가 10년 동안 침묵했던 일들, 할아버지의 마지막 발자취는 모두 이 고요한 눈 속에 묻혀 있습니다. 어떤 얼음은 마음속에서 먼저 녹여내야 합니다."
+  },
+  "story.json:/chapters/4/worldLore/0/title": {
+    "source": "霜林与驿站",
+    "context": "",
+    "text": "서림과 숙소"
+  },
+  "story.json:/chapters/4/worldLore/0/text": {
+    "source": "霜林是通往山巅的必经之路，林中有历代霜灵师歇脚、传艺的驿站。十年长雪让林子结满雾凇，也把许多没来得及说的话，冻在了里面。",
+    "context": "",
+    "text": "서림은 산꼭대기로 향하는 필수 경로이며, 숲속에는 역대 서리술사들이 쉬어가며 기술을 전수하던 숙소들이 있습니다. 10년 동안 내린 눈이 숲을 상고로 뒤덮었고, 미처 전하지 못한 말들도 그 안에 얼어붙었습니다."
+  },
+  "story.json:/chapters/4/worldLore/1/title": {
+    "source": "释怀之勇",
+    "context": "",
+    "text": "용서의 용기"
+  },
+  "story.json:/chapters/4/worldLore/1/text": {
+    "source": "第三种人间温度叫「释怀之勇」：原谅当年没能护住的一切，也原谅那个一直自责的自己。",
+    "context": "",
+    "text": "세 번째 세상의 온도는 '용서의 용기'입니다. 당시 지키지 못했던 모든 것들을 용서하고, 계속 자책해온 자신을 용서하는 것이죠."
+  },
+  "story.json:/chapters/4/nodes/0/name": {
+    "source": "寻回雪径驿站",
+    "context": "",
+    "text": "눈길 숙소 찾기"
+  },
+  "story.json:/chapters/4/nodes/0/place": {
+    "source": "霜林 · 被雪埋住的第一座驿站",
+    "context": "",
+    "text": "서림 · 눈에 파묻힌 첫 번째 숙소"
+  },
+  "story.json:/chapters/4/nodes/0/pre/0/1": {
+    "source": "沿着这条雪径往里，第一座驿站是我和你祖父年轻时修的。先把它收拾出来，夜里才好进山。",
+    "context": "speaker=bar",
+    "text": "이 눈길을 따라 안으로 들어가면, 첫 번째 숙소는 나와 자네 할아버지가 젊었을 때 고친 곳이라네. 먼저 이곳을 정리해야 밤에 산으로 들어갈 수 있어."
+  },
+  "story.json:/chapters/4/nodes/0/pre/1/1": {
+    "source": "带上羽绒大衣，林子里的风，咬人的。",
+    "context": "speaker=elsa",
+    "text": "다운 재킷을 챙기게. 숲속의 바람은 아주 매섭거든."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/0/1": {
+    "source": "成套的家具重新摆好，篝火在驿站中央升起，雪夜里亮起一小方橘黄。",
+    "context": "speaker=narrator",
+    "text": "가구들이 다시 자리를 잡고 숙소 중앙에 모닥불이 피어오르자, 눈 내리는 밤에 작은 주황빛 공간이 밝아졌습니다."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/1/1": {
+    "source": "那年也是这样一炉火。埃文、我、还有守焰队的几个人，就在这儿，决定谁上山。",
+    "context": "speaker=bar",
+    "text": "그해에도 이런 불꽃이 있었지. 에번과 나, 그리고 수호대원 몇 명이 여기서 누가 산에 올라갈지 결정했었어."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/2/1": {
+    "source": "守焰队？从来没人跟我提过。",
+    "context": "speaker=choco",
+    "text": "수호대요? 아무도 저한테 말해준 적 없는데요."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/3/1": {
+    "source": "因为我们……没能守住。再往里走，到藏书窟，你自己看。",
+    "context": "speaker=bar",
+    "text": "우리가... 지켜내지 못했으니까. 더 안으로 가서 서고에 도착하면 직접 확인하게나."
+  },
+  "story.json:/chapters/4/nodes/0/lore/title": {
+    "source": "守焰队",
+    "context": "",
+    "text": "수호대"
+  },
+  "story.json:/chapters/4/nodes/0/lore/text": {
+    "source": "永暖圣火将熄那年，埃文召集了一支守焰队上山抢救霜心。队伍里有铁匠、猎人、裁缝的儿子和面包师的丈夫——最后，只有埃文一个人走到了山巅。",
+    "context": "",
+    "text": "영원의 온기 성화가 꺼져가던 해, 에번은 서리심장을 구하기 위해 수호대를 소집했습니다. 대원 중에는 대장장이, 사냥꾼, 재봉사의 아들, 그리고 제빵사의 남편이 있었죠. 결국, 산꼭대기까지 도달한 사람은 에번뿐이었습니다."
+  },
+  "story.json:/chapters/4/nodes/1/name": {
+    "source": "开启冰封藏书窟",
+    "context": "",
+    "text": "얼어붙은 서고 열기"
+  },
+  "story.json:/chapters/4/nodes/1/place": {
+    "source": "霜林 · 冻住的霜灵师书窟",
+    "context": "",
+    "text": "서리숲 · 얼어붙은 서리술사의 서고"
+  },
+  "story.json:/chapters/4/nodes/1/pre/0/1": {
+    "source": "书窟的门被一层永冻冰封住了，普通的火化不开，得用最纯净的永冻钻去引它同频。",
+    "context": "speaker=choco",
+    "text": "서고 문이 영구 동토로 뒤덮여 있어요. 일반적인 불로는 녹지 않으니, 가장 순수한 영구 동토 드릴을 사용해 공명시켜야 해요."
+  },
+  "story.json:/chapters/4/nodes/1/pre/1/1": {
+    "source": "里面，记着守焰队最后那一夜发生了什么。",
+    "context": "speaker=gunnar",
+    "text": "그 안에는 수호대원들이 마지막 밤에 겪었던 일들이 기록되어 있지."
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/0/1": {
+    "source": "永冻钻贴上冰门，冰层像退潮一样亮起又散开，露出满墙霜灵师的手札。",
+    "context": "speaker=narrator",
+    "text": "동토 드릴이 얼음문에 닿자, 얼음층이 밀물과 썰물이 교차하듯 빛나며 갈라지고 벽면을 가득 채운 서리술사들의 수첩이 드러났습니다."
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/1/1": {
+    "source": "是祖父的字……『霜心靠人间温度而跳，温度断供，它便沉睡，长雪随之而起。』",
+    "context": "speaker=choco",
+    "text": "할아버지의 글씨야... 『서리심장은 인간의 온기에 반응해 뛰고, 온기가 끊기면 잠들며 긴 눈이 내리기 시작한다.』"
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/2/1": {
+    "source": "『那一夜风雪太大，守焰队被困半山。我不能让所有人陪我送命——是我，命令他们下山的。』",
+    "context": "speaker=choco",
+    "text": "『그날 밤은 눈보라가 너무 심해 수호대가 산 중턱에 고립됐어. 모두가 함께 죽게 둘 순 없었지. 내가... 그들에게 내려가라고 명령했어.』"
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/3/1": {
+    "source": "……他把我们一个个推回驿站，自己独自上了山。我们活下来了，却怪了自己十年。",
+    "context": "speaker=bar",
+    "text": "...그분은 우리를 하나씩 역참으로 밀어내고 홀로 산을 오르셨지. 우리는 살아남았지만, 10년 동안 스스로를 자책하며 살았어."
+  },
+  "story.json:/chapters/4/nodes/1/lore/title": {
+    "source": "手札里的真相",
+    "context": "",
+    "text": "수첩 속의 진실"
+  },
+  "story.json:/chapters/4/nodes/1/lore/text": {
+    "source": "藏书窟的手札写明：当年并非守焰队怯懦，而是埃文强行命令同伴下山，独自赴险。幸存者背负了十年的『没能陪他走到最后』，其实是被他用命护下的人。",
+    "context": "",
+    "text": "서고의 수첩에는 당시 수호대원들이 겁을 먹은 것이 아니라, 에번이 동료들을 내보내고 홀로 위험에 뛰어들라고 강요했다는 사실이 적혀 있었습니다. 생존자들은 10년 동안 '끝까지 함께하지 못했다'는 죄책감을 안고 살았지만, 사실 그들은 그의 희생으로 목숨을 구한 사람들이었습니다."
+  },
+  "story.json:/chapters/4/nodes/2/name": {
+    "source": "旧炉与八音盒",
+    "context": "",
+    "text": "오래된 화로와 오르골"
+  },
+  "story.json:/chapters/4/nodes/2/place": {
+    "source": "霜林深处 · 守焰队最后的营地",
+    "context": "",
+    "text": "서리숲 깊은 곳 · 수호대의 마지막 캠프"
+  },
+  "story.json:/chapters/4/nodes/2/pre/0/1": {
+    "source": "这是我们当年撤下来的营地。我女儿塞给我的八音盒，慌乱里掉在了这儿……找了十年，不敢找。",
+    "context": "speaker=bar",
+    "text": "이건 우리가 예전에 철수했던 캠프야. 내 딸아이가 건네준 오르골이 당황한 나머지 여기 떨어졌고... 10년 동안 찾으면서도 차마 꺼내지 못했어."
+  },
+  "story.json:/chapters/4/nodes/2/pre/1/1": {
+    "source": "生起壁炉、摆好家具，把那件没织完的织云暖袍也带上——有些结，得在原地才解得开。",
+    "context": "speaker=elsa",
+    "text": "화로에 불을 지피고 가구를 배치하고, 아직 다 짜지 못한 구름직물 망토도 가져오렴. 어떤 매듭은 현장에서만 풀 수 있단다."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/0/1": {
+    "source": "壁炉重新燃起，八音盒从雪下被轻轻捧出，上紧发条，叮咚的旋律在林子里转了一圈。",
+    "context": "speaker=narrator",
+    "text": "화로에 다시 불이 붙고, 눈 아래 파묻혀 있던 오르골이 조심스럽게 꺼내졌습니다. 태엽을 감자 딩동거리는 선율이 숲속을 한 바퀴 휘감았습니다."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/1/1": {
+    "source": "就是这个调子……我一直以为，是我丢下了他，也丢下了答应女儿的事。",
+    "context": "speaker=bar",
+    "text": "바로 이 멜로디야... 난 내가 그를 버린 것도, 딸과의 약속을 저버린 것도라고만 생각했어."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/2/1": {
+    "source": "老伙计，埃文是自己要上山的，他把你推回来，是要你活着，替他看着山谷醒过来。",
+    "context": "speaker=gunnar",
+    "text": "이보게, 에번은 스스로 산에 오르겠다고 한 걸세. 자네를 돌려보낸 건 살아서 이 골짜기가 깨어나는 걸 지켜봐 달라는 뜻이었어."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/3/1": {
+    "source": "……十年了。这口气，我总算能松了。",
+    "context": "speaker=bar",
+    "text": "...10년이나 지났군. 이제야 마음의 짐을 내려놓겠어."
+  },
+  "story.json:/chapters/4/nodes/2/lore/title": {
+    "source": "铁匠的八音盒",
+    "context": "",
+    "text": "대장장이의 오르골"
+  },
+  "story.json:/chapters/4/nodes/2/lore/text": {
+    "source": "八音盒是巴尔女儿送他的护身符。十年里他不敢听这支曲子，怕想起自己『抛下同伴下山』。直到读到埃文的手札，他才明白，自己正是被托付要活下去的人。",
+    "context": "",
+    "text": "오르골은 바르의 딸이 준 부적 같은 것이었습니다. 그는 10년 동안 '동료를 버리고 내려왔다'는 기억 때문에 이 곡을 듣지 못했습니다. 하지만 에번의 수첩을 읽고서야 자신이 살아서 지켜내야 할 약속을 맡은 사람임을 깨달았습니다."
+  },
+  "story.json:/chapters/4/nodes/3/name": {
+    "source": "祖父的手账",
+    "context": "",
+    "text": "할아버지의 일기"
+  },
+  "story.json:/chapters/4/nodes/3/place": {
+    "source": "霜林尽头 · 埃文最后的歇脚处",
+    "context": "",
+    "text": "서리숲 끝자락 · 에번의 마지막 휴식처"
+  },
+  "story.json:/chapters/4/nodes/3/pre/0/1": {
+    "source": "前面的树下……有一只旧行囊，是祖父的。让我们用霜晶护着它，慢慢打开。",
+    "context": "speaker=choco",
+    "text": "앞쪽 나무 아래에... 할아버지의 낡은 배낭이 있어요. 서리정석으로 보호하면서 천천히 열어봐요."
+  },
+  "story.json:/chapters/4/nodes/3/pre/1/1": {
+    "source": "不知道为什么，越靠近，我灯里的光，跳得越厉害。",
+    "context": "speaker=choco",
+    "text": "왠지 모르게 가까워질수록 내 등불 속 빛이 더 세게 요동치네요."
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/0/1": {
+    "source": "行囊里是一本手账、半块没吃完的姜饼，和一页写给『提灯的后来人』的信。",
+    "context": "speaker=narrator",
+    "text": "배낭 안에는 일기장 한 권과 먹다 남은 생강 과자 반 조각, 그리고 '등불을 든 후임자'에게 보내는 편지 한 장이 들어 있었습니다."
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/1/1": {
+    "source": "『孩子，当你读到这里，我大约已经和霜心在一起了。』",
+    "context": "speaker=gramps",
+    "text": "『얘야, 네가 이 글을 읽고 있을 때쯤 나는 아마 서리심장과 함께하고 있을 게다.』"
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/2/1": {
+    "source": "『我把最后一点暖意封进风灯，化成一只叫啾可的霜灵，替我陪着你走到今天。』",
+    "context": "speaker=gramps",
+    "text": "『나는 마지막 온기를 바람등에 봉인해 초코라는 이름의 서리 정령으로 만들었단다. 오늘날까지 너와 동행할 수 있도록 말이다.』"
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/3/1": {
+    "source": "……原来，我就是祖父留给你的温度。我不是一只普通的霜灵，我是他没说完的那句『别怕』。",
+    "context": "speaker=choco",
+    "text": "...알고 보니 내가 할아버지가 남겨주신 온기였군요. 난 평범한 서리 정령이 아니라, 그분이 다 못하신 '겁내지 마'라는 말을 전하는 존재였어요."
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/4/1": {
+    "source": "『第三种温度是释怀，第四种，是把这盏灯，亲手传下去。山巅见，我的孩子。』",
+    "context": "speaker=gramps",
+    "text": "『세 번째 온도는 해방이고, 네 번째는 이 등불을 직접 다음 사람에게 전달하는 것이란다. 산 정상에서 만나자꾸나, 나의 아이야.』"
+  },
+  "story.json:/chapters/4/nodes/3/lore/title": {
+    "source": "灯里的人",
+    "context": "",
+    "text": "등 속의 존재"
+  },
+  "story.json:/chapters/4/nodes/3/lore/text": {
+    "source": "埃文上山前，把自己最后的暖意封进风灯，凝成霜灵啾可，陪在下一位霜灵师身边。啾可这才明白，自己十年的等待与陪伴，原是一场跨越生死的传灯。",
+    "context": "",
+    "text": "에번은 산에 오르기 전 마지막 온기를 바람등에 봉인해 서리 정령 초코로 만들었고, 다음 서리술사의 곁을 지키게 했습니다. 초코는 이제야 자신의 10년의 기다림과 동행이 생사를 넘나드는 등불 전달의 과정이었음을 깨달았습니다."
+  },
+  "story.json:/chapters/5/title": {
+    "source": "第六章 · 霜心山巅",
+    "context": "",
+    "text": "제6장 · 서리심장 산 정상"
+  },
+  "story.json:/chapters/5/subtitle": {
+    "source": "第四种温度 · 传灯之愿",
+    "context": "",
+    "text": "네 번째 온기 · 전승의 염원"
+  },
+  "story.json:/chapters/5/hook": {
+    "source": "要让春天回来，提灯的人必须留下什么？",
+    "context": "",
+    "text": "봄을 다시 불러오려면 등불을 든 사람이 무엇을 남겨야 할까요?"
+  },
+  "story.json:/chapters/5/intro/0/1": {
+    "source": "穿过霜林，长雪的源头就在头顶——风暴终年不散的霜心山巅。",
+    "context": "speaker=narrator",
+    "text": "서리숲을 지나면 머리 위로 긴 눈의 근원이 보입니다. 폭풍이 멈추지 않는 서리심장 산 정상입니다."
+  },
+  "story.json:/chapters/5/intro/1/1": {
+    "source": "四种人间温度已集齐其三。最后一程，带着所有人的暖意，把这盏灯，送到霜心面前。",
+    "context": "speaker=narrator",
+    "text": "네 가지 인간 세상의 온기 중 세 가지를 모았습니다. 마지막 여정, 모두의 온기를 담아 이 등불을 서리심장 앞에 바치세요."
+  },
+  "story.json:/chapters/5/worldLore/0/title": {
+    "source": "霜心",
+    "context": "",
+    "text": "서리심장"
+  },
+  "story.json:/chapters/5/worldLore/0/text": {
+    "source": "霜心是霜语谷大地的心脏，一颗由纯粹暖意凝成的蓝色晶心。人间的牵挂越暖，它跳得越稳；当人们彼此遗忘、四散离去，它便在孤独中沉睡，长雪由此而来。",
+    "context": "",
+    "text": "서리심장은 서리말 골짜기 대지의 심장으로, 순수한 온기가 응축되어 만들어진 푸른 결정입니다. 인간의 염원이 따뜻할수록 더 안정적으로 뛰고, 사람들이 서로를 잊고 흩어질 때 외로움 속에서 잠들며 긴 눈이 내리게 됩니다."
+  },
+  "story.json:/chapters/5/worldLore/1/title": {
+    "source": "传灯之愿",
+    "context": "",
+    "text": "전승의 염원"
+  },
+  "story.json:/chapters/5/worldLore/1/text": {
+    "source": "第四种人间温度叫「传灯之愿」：一代人把火种交给下一代，温暖因此不会随任何人的离去而熄灭。这是霜灵师一脉，最深的誓言。",
+    "context": "",
+    "text": "네 번째 온도는 '전승의 염원'입니다. 세대가 바뀌어도 불씨를 다음 세대에게 전달하여 온기가 꺼지지 않게 하는 것. 이것이 서리술사 가문의 가장 깊은 맹세입니다."
+  },
+  "story.json:/chapters/5/nodes/0/name": {
+    "source": "登上风暴阶梯",
+    "context": "",
+    "text": "폭풍 계단 오르기"
+  },
+  "story.json:/chapters/5/nodes/0/place": {
+    "source": "山巅 · 被狂风撕碎的千级冰阶",
+    "context": "",
+    "text": "산 정상 · 거센 바람에 부서진 천 개의 얼음 계단"
+  },
+  "story.json:/chapters/5/nodes/0/pre/0/1": {
+    "source": "最后这段冰阶，十年前我们没能走完。这一次，全村人替你在身后压着风。",
+    "context": "speaker=gunnar",
+    "text": "마지막 이 구간은 10년 전 우리가 다 마치지 못했네. 이번에는 온 마을 사람들이 뒤에서 바람을 막아줄 걸세."
+  },
+  "story.json:/chapters/5/nodes/0/pre/1/1": {
+    "source": "霜木殿堂做梁、霜晶照路、暖炉不停——{{playerName}}，往上走，别回头。",
+    "context": "speaker=bar",
+    "text": "서리나무가 들보가 되고, 서리정석이 길을 비추며, 따뜻한 화로가 계속 타오르니—{{playerName}}, 앞만 보고 올라가게. 뒤돌아보지 말고."
+  },
+  "story.json:/chapters/5/nodes/0/pre/1/2/spoken": {
+    "source": "霜木殿堂做梁、霜晶照路、暖炉不停——往上走，别回头。",
+    "context": "speaker=bar; prerecorded spoken variant",
+    "text": "서리나무가 들보가 되고, 서리정석이 길을 비추며, 따뜻한 화로가 계속 타오르니—앞만 보고 올라가세요. 뒤돌아보지 마시고요."
+  },
+  "story.json:/chapters/5/nodes/0/dialogue/0/1": {
+    "source": "霜木一级级钉进冰崖，霜晶在风雪里连成光的链，暖炉把刺骨的风挡在身外。",
+    "context": "speaker=narrator",
+    "text": "서리나무가 얼음 절벽에 하나씩 박히고, 서리정석이 눈보라 속에서 빛의 사슬을 이루며, 따뜻한 화로가 살을 에듯 차가운 바람을 막아냈습니다."
+  },
+  "story.json:/chapters/5/nodes/0/dialogue/1/1": {
+    "source": "山下的灯全亮着，给你照路呢！",
+    "context": "speaker=bobo",
+    "text": "산 아래 모든 등불이 켜져서 길을 비춰주고 있어!"
+  },
+  "story.json:/chapters/5/nodes/0/dialogue/2/1": {
+    "source": "我能听见霜心的心跳了，很慢，很轻，像在等人来。",
+    "context": "speaker=choco",
+    "text": "서리심장의 고동이 들려요. 아주 느리고 가볍게, 마치 누군가를 기다리는 것처럼요."
+  },
+  "story.json:/chapters/5/nodes/0/lore/title": {
+    "source": "全村的阶梯",
+    "context": "",
+    "text": "마을의 계단"
+  },
+  "story.json:/chapters/5/nodes/0/lore/text": {
+    "source": "这一次没有人独自登山。山下，归乡的人、留下的人一起点亮所有灯火；山上，年轻的霜灵师踩着众人合力搭起的阶梯，一步步走向风暴中心。",
+    "context": "",
+    "text": "이번에는 아무도 홀로 오르지 않습니다. 산 아래에서는 고향으로 돌아온 이들과 남겨진 이들이 함께 모든 등불을 밝히고, 산 위에서는 젊은 서리술사가 모두가 힘을 합쳐 만든 계단을 밟으며 폭풍의 중심을 향해 한 걸음씩 나아갑니다."
+  },
+  "story.json:/chapters/5/nodes/1/name": {
+    "source": "筑起四方暖坛",
+    "context": "",
+    "text": "네 개의 온기 제단 세우기"
+  },
+  "story.json:/chapters/5/nodes/1/place": {
+    "source": "山巅平台 · 霜心前的四座空坛",
+    "context": "",
+    "text": "산 정상 플랫폼 · 서리심장 앞의 네 개의 빈 제단"
+  },
+  "story.json:/chapters/5/nodes/1/pre/0/1": {
+    "source": "霜心前有四座空坛，正好对应四种温度。把壁炉、暖阳特调、织云暖袍、盛宴蛋糕一一奉上。",
+    "context": "speaker=choco",
+    "text": "서리심장 앞에 네 개의 빈 제단이 있고, 각각 네 가지 온도에 대응합니다. 화로, 따뜻한 태양 특제차, 구름직물 망토, 성찬 케이크를 하나씩 올리세요."
+  },
+  "story.json:/chapters/5/nodes/1/pre/1/1": {
+    "source": "盛宴蛋糕我做了最大的一个，分着吃，甜才够。",
+    "context": "speaker=mier",
+    "text": "성찬 케이크는 제가 제일 큰 걸로 만들었어요. 나눠 먹어야 충분히 달콤하니까요."
+  },
+  "story.json:/chapters/5/nodes/1/pre/2/1": {
+    "source": "织云暖袍，给山巅也披上一件吧。",
+    "context": "speaker=elsa",
+    "text": "구름직물 망토, 산 정상에도 한 벌 걸쳐주자꾸나."
+  },
+  "story.json:/chapters/5/nodes/1/dialogue/0/1": {
+    "source": "四座暖坛依次亮起：是希望的火、是相连的饮、是相护的衣、是相聚的食。",
+    "context": "speaker=narrator",
+    "text": "네 개의 제단이 차례로 밝아졌습니다. 그것은 희망의 불꽃이자, 연결된 음료이며, 서로를 지키는 옷이고, 함께 나누는 음식입니다."
+  },
+  "story.json:/chapters/5/nodes/1/dialogue/1/1": {
+    "source": "篝火之望、比邻之系、释怀之勇——都齐了。",
+    "context": "speaker=gunnar",
+    "text": "희망의 소망, 이웃과의 유대, 해방의 용기—모두 갖춰졌군."
+  },
+  "story.json:/chapters/5/nodes/1/dialogue/2/1": {
+    "source": "就差最后一样：传灯之愿。那要我，亲手交出去。",
+    "context": "speaker=choco",
+    "text": "이제 마지막 하나만 남았어요. 전승의 염원요. 그건 제가 직접 전달해야 해요."
+  },
+  "story.json:/chapters/5/nodes/1/lore/title": {
+    "source": "四坛同亮",
+    "context": "",
+    "text": "네 제단의 동시 점등"
+  },
+  "story.json:/chapters/5/nodes/1/lore/text": {
+    "source": "四座暖坛的光彼此呼应，霜心的跳动第一次变得有力。它沉睡了十年，不是因为寒冷太强，而是因为太久没收到人间的暖意。",
+    "context": "",
+    "text": "네 제단의 빛이 서로 공명하며 서리심장의 고동이 처음으로 힘차게 뛰기 시작했습니다. 그것은 추위 때문이 아니라 너무 오랫동안 세상의 온기를 받지 못해 잠들었던 것입니다."
+  },
+  "story.json:/chapters/5/nodes/2/name": {
+    "source": "叩开霜心之门",
+    "context": "",
+    "text": "서리심장의 문 열기"
+  },
+  "story.json:/chapters/5/nodes/2/place": {
+    "source": "风暴之眼 · 霜心外的最后一道冰门",
+    "context": "",
+    "text": "폭풍의 눈 · 서리심장 밖의 마지막 얼음문"
+  },
+  "story.json:/chapters/5/nodes/2/pre/0/1": {
+    "source": "门后就是霜心。永冻钻为钥、霜木为引，再把羽绒大衣系在门上——门后的风，一定很冷很冷。",
+    "context": "speaker=choco",
+    "text": "문 뒤에는 바로 서리심장이 있어요. 동토 드릴을 열쇠로, 서리나무를 유인으로 삼고, 문에 솜이불을 묶으세요. 문 너머의 바람은 아주 차가울 거예요."
+  },
+  "story.json:/chapters/5/nodes/2/pre/1/1": {
+    "source": "『别怕。门一开，你就明白霜灵师为什么世代守着这座山谷了。』",
+    "context": "speaker=gramps",
+    "text": "『겁내지 마라. 문이 열리면 왜 서리술사들이 대대로 이 골짜기를 지켜왔는지 알게 될 게다.』"
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/0/1": {
+    "source": "冰门无声开启。风暴之眼里没有风，只有一颗缓缓起伏的、巨大的蓝色心脏，和站在它面前、由光凝成的老人身影。",
+    "context": "speaker=narrator",
+    "text": "얼음 문이 소리 없이 열렸다. 폭풍의 눈 속에는 바람 대신 천천히 고동치는 거대한 푸른 심장과 그 앞에 빛으로 빚어진 노인의 형상이 서 있었다."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/1/1": {
+    "source": "你来了，{{playerName}}。路很长，辛苦你了，我的孩子。",
+    "context": "speaker=gramps",
+    "text": "왔구나, {{playerName}}. 먼 길을 오느라 고생 많았다, 나의 아이야."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/1/2/spoken": {
+    "source": "你来了。路很长，辛苦你了，我的孩子。",
+    "context": "speaker=gramps; prerecorded spoken variant",
+    "text": "왔구나. 먼 길을 오느라 고생 많았다, 나의 아이야."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/2/1": {
+    "source": "祖父……",
+    "context": "speaker=choco",
+    "text": "할아버지..."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/3/1": {
+    "source": "我把自己融进霜心，替它续了十年的跳，就是为了等你带着四种温度走到这里。现在，该让这颗心，靠整座山谷自己跳下去了。",
+    "context": "speaker=gramps",
+    "text": "나는 내 자신을 서리심장에 녹여 넣어, 네가 네 가지 온기를 품고 이곳에 도착할 때까지 10년 동안 심장을 뛰게 했단다. 이제 이 심장이 온 골짜기의 염원을 담아 스스로 고동칠 차례구나."
+  },
+  "story.json:/chapters/5/nodes/2/lore/title": {
+    "source": "光里的老人",
+    "context": "",
+    "text": "빛 속의 노인"
+  },
+  "story.json:/chapters/5/nodes/2/lore/text": {
+    "source": "埃文以自身为薪，让霜心在无人添暖的十年里没有彻底死去。他留下的光影等在门后，只为把最后一句话，亲口交给接班人。",
+    "context": "",
+    "text": "에번은 자신을 연료로 삼아, 아무도 온기를 더해주지 못한 10년 동안 서리심장이 완전히 죽지 않도록 지켜냈다. 그가 남긴 빛의 잔영은 문 뒤에서 마지막 한 마디를 후계자에게 직접 전하기 위해 기다리고 있었다."
+  },
+  "story.json:/chapters/5/nodes/3/name": {
+    "source": "长明之春",
+    "context": "",
+    "text": "영원한 봄"
+  },
+  "story.json:/chapters/5/nodes/3/place": {
+    "source": "霜心 · 万物复苏之地",
+    "context": "",
+    "text": "서리심장 · 만물이 깨어나는 땅"
+  },
+  "story.json:/chapters/5/nodes/3/pre/0/1": {
+    "source": "永暖圣火是希望，永冻钻是记忆，暖阳特调是牵挂，盛宴蛋糕是团圆——{{playerName}}，把这四样，放进霜心里。",
+    "context": "speaker=gramps",
+    "text": "영원의 온기 성화는 희망, 얼음 결정은 기억, 따스한 햇살 음료는 그리움, 축제 케이크는 재회를 의미한다. {{playerName}}, 이 네 가지를 서리심장에 넣어다오."
+  },
+  "story.json:/chapters/5/nodes/3/pre/0/2/spoken": {
+    "source": "永暖圣火是希望，永冻钻是记忆，暖阳特调是牵挂，盛宴蛋糕是团圆——把这四样，放进霜心里。",
+    "context": "speaker=gramps; prerecorded spoken variant",
+    "text": "영원의 온기 성화는 희망, 얼음 결정은 기억, 따스한 햇살 음료는 그리움, 축제 케이크는 재회를 의미한다. 이 네 가지를 서리심장 속에 넣어줘."
+  },
+  "story.json:/chapters/5/nodes/3/pre/1/1": {
+    "source": "还有我。我也是祖父留给山谷的、最后一点温度。",
+    "context": "speaker=choco",
+    "text": "그리고 나도 있어. 나 역시 할아버지가 골짜기에 남겨주신 마지막 온기 중 하나야."
+  },
+  "story.json:/chapters/5/nodes/3/pre/2/1": {
+    "source": "别为我难过，我不会消失——我会变成春风、变成炉火、变成每一次有人惦记另一个人时，心里那一下轻轻的暖。",
+    "context": "speaker=choco",
+    "text": "나 때문에 슬퍼하지 마. 난 사라지는 게 아니니까. 나는 봄바람이 되고, 화로의 불꽃이 되고, 누군가 다른 사람을 그리워할 때 마음속에 피어오르는 작은 온기가 될 거야."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/0/1": {
+    "source": "四样温度没入霜心，啾可化作一束温柔的光，与那颗巨大的心脏轻轻相拥。",
+    "context": "speaker=narrator",
+    "text": "네 가지 온기가 서리심장에 스며들자, 초코는 부드러운 빛으로 변해 거대한 심장을 따스하게 안아주었다."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/1/1": {
+    "source": "灯，传到你手上了。霜语谷的春天，就交给你们这一代，一直守下去。",
+    "context": "speaker=gramps",
+    "text": "등불이 네 손에 전달되었구나. 서리말 골짜기의 봄은 이제 너희 세대가 지켜나가야 한다. 계속해서 지켜다오."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/2/1": {
+    "source": "霜心猛地亮起，蓝色的光浪顺着山脊奔涌而下——所过之处，雪化了，草绿了，冰封十年的河，重新唱起了歌。",
+    "context": "speaker=narrator",
+    "text": "서리심장이 강렬하게 빛나며 푸른 빛의 물결이 산등성이를 타고 흘러내렸다. 그 빛이 닿는 곳마다 눈이 녹고 풀이 돋아났으며, 10년 동안 얼어붙었던 강물이 다시 노래를 부르기 시작했다."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/3/1": {
+    "source": "看呐，雪停了。这一次，是真的停了。",
+    "context": "speaker=gunnar",
+    "text": "보게나, 눈이 그쳤네. 이번에는 정말로 멈췄어."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/4/1": {
+    "source": "风里……有花开的味道。",
+    "context": "speaker=mier",
+    "text": "바람 속에... 꽃이 피는 향기가 나요."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/5/1": {
+    "source": "归乡的船，一眼望不到头啦！",
+    "context": "speaker=bobo",
+    "text": "고향으로 돌아가는 배가 끝도 없이 펼쳐져 있어!"
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/6/1": {
+    "source": "—— 霜语谷，四季重归，温暖长明 ——",
+    "context": "speaker=all",
+    "text": "— 서리말 골짜기, 사계절의 회복, 영원히 타오르는 온기 —"
+  },
+  "story.json:/chapters/5/nodes/3/lore/title": {
+    "source": "长明之春",
+    "context": "",
+    "text": "영원한 봄"
+  },
+  "story.json:/chapters/5/nodes/3/lore/text": {
+    "source": "霜心重新靠整座山谷的牵挂跳动，长雪散去。啾可没有离开，它住进了每一缕春风与每一捧炉火里——只要还有人彼此惦记，春天就再也不会走。",
+    "context": "",
+    "text": "서리심장은 이제 온 골짜기의 염원을 담아 다시 고동치고, 쌓였던 눈이 흩어졌다. 초코는 떠나지 않았다. 초코는 모든 봄바람과 화로의 불꽃 속에 머물게 되었다. 누군가 서로를 그리워하는 마음이 있는 한, 봄은 결코 사라지지 않을 것이다."
+  },
+  "story.json:/epilogue/0/1": {
+    "source": "后来，霜语谷的春天再也没有走过。",
+    "context": "speaker=narrator",
+    "text": "그 후로 서리말 골짜기의 봄은 다시는 떠나지 않았다."
+  },
+  "story.json:/epilogue/1/1": {
+    "source": "冈特重新背起猎弓，成了守林人，给每一个进山的孩子讲守焰队的故事。",
+    "context": "speaker=gunnar",
+    "text": "군나르는 다시 사냥용 활을 메고 숲의 파수꾼이 되어, 산에 들어오는 아이들에게 불꽃 수호대의 이야기를 들려주었다."
+  },
+  "story.json:/epilogue/2/1": {
+    "source": "蜜儿终于等回了妹妹，靠窗的那个位置，从此摆着两个人的茶杯。",
+    "context": "speaker=mier",
+    "text": "미엘은 마침내 동생을 다시 만났고, 창가 자리에는 이제 두 사람의 찻잔이 놓여 있다."
+  },
+  "story.json:/epilogue/3/1": {
+    "source": "波波成了归雁港最忙的邮差，它的邮袋里，再没有一封没送出去的信。",
+    "context": "speaker=bobo",
+    "text": "보보는 귀환항에서 가장 바쁜 배달부가 되었고, 보보의 가방 속에는 더 이상 배달되지 못한 편지가 하나도 남지 않았다."
+  },
+  "story.json:/epilogue/4/1": {
+    "source": "艾莎奶奶开了间织坊，把『一人一条围巾』的规矩，织进了山谷的每一天。",
+    "context": "speaker=elsa",
+    "text": "엘사 할머니는 재봉소를 열어 '모두를 위한 목도리'라는 약속을 골짜기의 매일 속에 수놓았다."
+  },
+  "story.json:/epilogue/5/1": {
+    "source": "巴尔修好暖流号，把八音盒的旋律铸进了圣殿的新钟，风一吹，整座山谷都听得见。",
+    "context": "speaker=bar",
+    "text": "바르는 온기호의 정비를 마치고 오르골 선율을 성전의 새 종에 주조했다. 바람이 불 때마다 온 골짜기가 그 소리를 들을 수 있었다."
+  },
+  "story.json:/epilogue/6/1": {
+    "source": "埃文的名字，和历代霜灵师一起，刻在了霜心之门上。",
+    "context": "speaker=gramps",
+    "text": "에번의 이름은 역대 서리술사들과 함께 서리심장 문에 새겨졌다."
+  },
+  "story.json:/epilogue/7/1": {
+    "source": "至于我嘛——当你合并出一件暖物、递出一杯热饮、为谁留一盏灯的时候，仔细听，我就在那一下轻轻的、暖暖的心跳里。",
+    "context": "speaker=choco",
+    "text": "나에 대해서라면— 네가 따뜻한 물건을 합치고, 따뜻한 음료를 건네고, 누군가를 위해 등불을 남길 때마다 잘 들어봐. 그 순간 느껴지는 작고 따스한 심장 박동 속에 내가 있을 테니까."
+  },
+  "story.json:/epilogue/8/1": {
+    "source": "《冰霜物语》 · 感谢 {{playerName}}，把春天一点一点，合并了回来。",
+    "context": "speaker=narrator",
+    "text": "《서리 이야기》 · {{playerName}}님, 봄을 하나씩 모아 다시 가져와 주셔서 감사합니다."
+  },
+  "story.json:/epilogue/8/2/spoken": {
+    "source": "冰霜物语。感谢你，把春天一点一点，合并了回来。",
+    "context": "speaker=narrator; prerecorded spoken variant",
+    "text": "서리 이야기. 당신이 봄을 조금씩 모아 다시 데려와 주어 고마워요."
+  },
+  "npcs.json:/npcs/0/name": {
+    "source": "冈特",
+    "context": "",
+    "text": "군나르"
+  },
+  "npcs.json:/npcs/0/title": {
+    "source": "老猎人",
+    "context": "",
+    "text": "노련한 사냥꾼"
+  },
+  "npcs.json:/npcs/0/arrival": {
+    "source": "门帘被风猛地掀开。冈特肩上的雪还没化，手里攥着一截冻裂的火哨灯芯。",
+    "context": "speaker=narrator",
+    "text": "바람에 문 커튼이 거칠게 휘날렸다. 군나르의 어깨 위 눈은 아직 녹지 않았고, 손에는 얼어 터진 화염 신호탄 심지가 들려 있었다."
+  },
+  "npcs.json:/npcs/0/request": {
+    "source": "巡山的火哨又被风雪压灭了。我得在天黑前把路标重新点亮，能替我备齐这些物资吗？",
+    "context": "speaker=gunnar",
+    "text": "산책용 화염 신호가 눈보라에 꺼져버렸군. 해가 지기 전에 이정표를 다시 밝혀야 하네. 이 물자들을 미리 준비해 줄 수 있겠나?"
+  },
+  "npcs.json:/npcs/0/thanks": {
+    "source": "火哨亮了。今晚走夜路的人，都知道家还在前面。",
+    "context": "speaker=gunnar",
+    "text": "화염 신호가 켜지면, 오늘 밤 길을 나서는 사람들은 모두 집이 앞에 있다는 걸 알게 될 거야."
+  },
+  "npcs.json:/npcs/1/name": {
+    "source": "蜜儿",
+    "context": "",
+    "text": "미엘"
+  },
+  "npcs.json:/npcs/1/title": {
+    "source": "面包师",
+    "context": "",
+    "text": "제빵사"
+  },
+  "npcs.json:/npcs/1/arrival": {
+    "source": "一阵淡淡的麦香钻进屋里，蜜儿抱着刚擦干净的烤盘，小心避开门口的积雪。",
+    "context": "speaker=narrator",
+    "text": "은은한 밀가루 향기가 방 안으로 스며들었다. 미엘은 막 닦아낸 쟁반을 안고 문 앞의 눈을 조심스럽게 피해 걸어 들어왔다."
+  },
+  "npcs.json:/npcs/1/request": {
+    "source": "烘焙坊的炉膛刚醒，可架子还是空的。帮我备齐这批物资，第一炉面包就分给广场上的大家。",
+    "context": "speaker=mier",
+    "text": "베이커리의 화로가 이제 막 깨어났지만, 선반은 아직 비어 있네요. 이 물자들을 준비해 주시면 첫 번째 빵을 광장의 사람들과 나눌 수 있어요."
+  },
+  "npcs.json:/npcs/1/thanks": {
+    "source": "闻到了吗？这是霜语谷重新开炉后的第一阵麦香。",
+    "context": "speaker=mier",
+    "text": "맡아보세요? 서리말 골짜기가 다시 문을 연 후 피어오르는 첫 밀가루 향기예요."
+  },
+  "npcs.json:/npcs/2/name": {
+    "source": "波波",
+    "context": "",
+    "text": "보보"
+  },
+  "npcs.json:/npcs/2/title": {
+    "source": "企鹅邮差",
+    "context": "",
+    "text": "펭귄 배달부"
+  },
+  "npcs.json:/npcs/2/arrival": {
+    "source": "窗外传来一串急促的铃响。波波拖着歪斜的雪橇，邮袋里露出几封落满霜的信。",
+    "context": "speaker=narrator",
+    "text": "창밖에서 다급한 종소리가 들려왔다. 보보는 비뚤어진 썰매를 끌고 있었고, 가방 속에는 서리가 내려앉은 편지들이 몇 통 보였다."
+  },
+  "npcs.json:/npcs/2/request": {
+    "source": "港口还压着一摞没送出去的信。给我这些物资，我就能把邮袋和雪橇修好。",
+    "context": "speaker=bobo",
+    "text": "항구에 아직 배달하지 못한 편지가 쌓여 있어. 이 물자들을 주면 가방이랑 썰매를 고칠 수 있을 거야."
+  },
+  "npcs.json:/npcs/2/thanks": {
+    "source": "信会送到的。等消息的人，不该再多等一个冬天。",
+    "context": "speaker=bobo",
+    "text": "편지는 꼭 전달될 거야. 소식을 기다리는 사람들이 또 한 계절을 더 기다리게 해서는 안 되니까."
+  },
+  "npcs.json:/npcs/3/name": {
+    "source": "艾莎奶奶",
+    "context": "",
+    "text": "엘사 할머니"
+  },
+  "npcs.json:/npcs/3/title": {
+    "source": "裁缝",
+    "context": "",
+    "text": "재봉사"
+  },
+  "npcs.json:/npcs/3/arrival": {
+    "source": "艾莎奶奶把一叠旧冬衣放到桌上，衣角还留着孩子们画下的歪歪扭扭的小太阳。",
+    "context": "speaker=narrator",
+    "text": "엘사 할머니는 오래된 겨울옷 더미를 탁자 위에 올려두었다. 옷자락에는 아이들이 그린 서툰 태양 그림이 남아 있었다."
+  },
+  "npcs.json:/npcs/3/request": {
+    "source": "孩子们的旧冬衣挡不住风了。我想赶在今晚前补好它们，还缺这一批材料。",
+    "context": "speaker=elsa",
+    "text": "아이들의 낡은 겨울옷은 이제 바람을 막아주지 못해. 오늘 밤이 되기 전에 수선하고 싶은데, 이 재료들이 더 필요하구나."
+  },
+  "npcs.json:/npcs/3/thanks": {
+    "source": "针脚缝住的不只是风，还有大家愿意留下来的心。",
+    "context": "speaker=elsa",
+    "text": "바늘땀으로 이어진 것은 단순히 옷감이 아니라, 이곳에 머물고자 하는 모두의 마음이란다."
+  },
+  "npcs.json:/npcs/4/name": {
+    "source": "巴尔",
+    "context": "",
+    "text": "바르"
+  },
+  "npcs.json:/npcs/4/title": {
+    "source": "铁匠",
+    "context": "",
+    "text": "대장장이"
+  },
+  "npcs.json:/npcs/4/arrival": {
+    "source": "沉重的工具箱落在地板上。巴尔摊开一枚断成两截的桥钉，断口像结了一层白霜。",
+    "context": "speaker=narrator",
+    "text": "무거운 공구함이 바닥에 떨어졌다. 바르는 두 동강 난 교량 못을 펼쳤고, 그 단면은 하얀 서리가 내려앉은 듯했다."
+  },
+  "npcs.json:/npcs/4/request": {
+    "source": "桥钉和炉架都冻脆了。我需要这些材料重新开锻，免得下一场风把路又吹断。",
+    "context": "speaker=bar",
+    "text": "교량 못과 화로 받침대가 모두 얼어붙어 부서졌어. 다음 폭풍에 길이 끊기지 않도록 이 재료들을 다시 제련해야 해."
+  },
+  "npcs.json:/npcs/4/thanks": {
+    "source": "铁重新红了。只要炉火还响，村子就不会散。",
+    "context": "speaker=bar",
+    "text": "철이 다시 붉게 달궈지면, 화로의 불꽃이 계속 타오르는 한 마을은 무너지지 않아."
+  },
+  "npcs.json:/npcs/5/name": {
+    "source": "啾可",
+    "context": "",
+    "text": "초코"
+  },
+  "npcs.json:/npcs/5/title": {
+    "source": "霜灵向导",
+    "context": "",
+    "text": "서리 정령 안내자"
+  },
+  "npcs.json:/npcs/6/name": {
+    "source": "埃文",
+    "context": "",
+    "text": "에번"
+  },
+  "npcs.json:/npcs/6/title": {
+    "source": "老霜灵师 · 祖父",
+    "context": "",
+    "text": "노련한 서리술사 · 할아버지"
+  },
+  "items.json:/families/crystal/name": {
+    "source": "冰晶",
+    "context": "",
+    "text": "얼음 결정"
+  },
+  "items.json:/families/crystal/tiers/0": {
+    "source": "碎冰晶",
+    "context": "",
+    "text": "부서진 얼음 결정"
+  },
+  "items.json:/families/crystal/tiers/1": {
+    "source": "冰晶粒",
+    "context": "",
+    "text": "얼음 결정 조각"
+  },
+  "items.json:/families/crystal/tiers/2": {
+    "source": "六角冰晶",
+    "context": "",
+    "text": "육각 얼음 결정"
+  },
+  "items.json:/families/crystal/tiers/3": {
+    "source": "蓝晶簇",
+    "context": "",
+    "text": "푸른 수정 무리"
+  },
+  "items.json:/families/crystal/tiers/4": {
+    "source": "冰棱柱",
+    "context": "",
+    "text": "얼음 파편 기둥"
+  },
+  "items.json:/families/crystal/tiers/5": {
+    "source": "冰晶冠",
+    "context": "",
+    "text": "얼음 결정 왕관"
+  },
+  "items.json:/families/crystal/tiers/6": {
+    "source": "霜晶宝石",
+    "context": "",
+    "text": "서리 결정 보석"
+  },
+  "items.json:/families/crystal/tiers/7": {
+    "source": "永冻钻",
+    "context": "",
+    "text": "영구 동결 다이아몬드"
+  },
+  "items.json:/families/fire/name": {
+    "source": "火种",
+    "context": "",
+    "text": "불씨"
+  },
+  "items.json:/families/fire/tiers/0": {
+    "source": "火星",
+    "context": "",
+    "text": "불꽃 조각"
+  },
+  "items.json:/families/fire/tiers/1": {
+    "source": "火苗",
+    "context": "",
+    "text": "작은 불꽃"
+  },
+  "items.json:/families/fire/tiers/2": {
+    "source": "火把",
+    "context": "",
+    "text": "횃불"
+  },
+  "items.json:/families/fire/tiers/3": {
+    "source": "小炭炉",
+    "context": "",
+    "text": "작은 화로"
+  },
+  "items.json:/families/fire/tiers/4": {
+    "source": "篝火堆",
+    "context": "",
+    "text": "모닥불"
+  },
+  "items.json:/families/fire/tiers/5": {
+    "source": "暖炉",
+    "context": "",
+    "text": "따뜻한 화로"
+  },
+  "items.json:/families/fire/tiers/6": {
+    "source": "壁炉",
+    "context": "",
+    "text": "벽난로"
+  },
+  "items.json:/families/fire/tiers/7": {
+    "source": "永暖圣火",
+    "context": "",
+    "text": "영원의 온기 성화"
+  },
+  "items.json:/families/drink/name": {
+    "source": "热饮",
+    "context": "",
+    "text": "따뜻한 음료"
+  },
+  "items.json:/families/drink/tiers/0": {
+    "source": "雪水",
+    "context": "",
+    "text": "눈물"
+  },
+  "items.json:/families/drink/tiers/1": {
+    "source": "温水",
+    "context": "",
+    "text": "미온수"
+  },
+  "items.json:/families/drink/tiers/2": {
+    "source": "热茶",
+    "context": "",
+    "text": "따뜻한 차"
+  },
+  "items.json:/families/drink/tiers/3": {
+    "source": "热可可",
+    "context": "",
+    "text": "따뜻한 코코아"
+  },
+  "items.json:/families/drink/tiers/4": {
+    "source": "焦糖拿铁",
+    "context": "",
+    "text": "카라멜 라떼"
+  },
+  "items.json:/families/drink/tiers/5": {
+    "source": "蜂蜜暖饮",
+    "context": "",
+    "text": "꿀 따뜻한 음료"
+  },
+  "items.json:/families/drink/tiers/6": {
+    "source": "香料热酒",
+    "context": "",
+    "text": "스파이시 핫 와인"
+  },
+  "items.json:/families/drink/tiers/7": {
+    "source": "暖阳特调",
+    "context": "",
+    "text": "선샤인 스페셜"
+  },
+  "items.json:/families/cloth/name": {
+    "source": "冬衣",
+    "context": "",
+    "text": "겨울 옷"
+  },
+  "items.json:/families/cloth/tiers/0": {
+    "source": "绒线团",
+    "context": "",
+    "text": "털실 뭉치"
+  },
+  "items.json:/families/cloth/tiers/1": {
+    "source": "围巾",
+    "context": "",
+    "text": "목도리"
+  },
+  "items.json:/families/cloth/tiers/2": {
+    "source": "手套",
+    "context": "",
+    "text": "장갑"
+  },
+  "items.json:/families/cloth/tiers/3": {
+    "source": "毛线帽",
+    "context": "",
+    "text": "털모자"
+  },
+  "items.json:/families/cloth/tiers/4": {
+    "source": "毛衣",
+    "context": "",
+    "text": "스웨터"
+  },
+  "items.json:/families/cloth/tiers/5": {
+    "source": "棉斗篷",
+    "context": "",
+    "text": "솜 망토"
+  },
+  "items.json:/families/cloth/tiers/6": {
+    "source": "羽绒大衣",
+    "context": "",
+    "text": "다운 코트"
+  },
+  "items.json:/families/cloth/tiers/7": {
+    "source": "织云暖袍",
+    "context": "",
+    "text": "구름결 따뜻한 로브"
+  },
+  "items.json:/families/wood/name": {
+    "source": "木料",
+    "context": "",
+    "text": "목재"
+  },
+  "items.json:/families/wood/tiers/0": {
+    "source": "松枝",
+    "context": "",
+    "text": "소나무 가지"
+  },
+  "items.json:/families/wood/tiers/1": {
+    "source": "木段",
+    "context": "",
+    "text": "나무 토막"
+  },
+  "items.json:/families/wood/tiers/2": {
+    "source": "木板",
+    "context": "",
+    "text": "나무 판자"
+  },
+  "items.json:/families/wood/tiers/3": {
+    "source": "木梁",
+    "context": "",
+    "text": "나무 들보"
+  },
+  "items.json:/families/wood/tiers/4": {
+    "source": "门窗框",
+    "context": "",
+    "text": "문과 창틀"
+  },
+  "items.json:/families/wood/tiers/5": {
+    "source": "成套家具",
+    "context": "",
+    "text": "가구 세트"
+  },
+  "items.json:/families/wood/tiers/6": {
+    "source": "木屋组件",
+    "context": "",
+    "text": "통나무집 부품"
+  },
+  "items.json:/families/wood/tiers/7": {
+    "source": "霜木殿堂",
+    "context": "",
+    "text": "서리나무 전당"
+  },
+  "items.json:/families/food/name": {
+    "source": "烘焙",
+    "context": "",
+    "text": "베이킹"
+  },
+  "items.json:/families/food/tiers/0": {
+    "source": "冻浆果",
+    "context": "",
+    "text": "얼어붙은 베리"
+  },
+  "items.json:/families/food/tiers/1": {
+    "source": "面粉",
+    "context": "",
+    "text": "밀가루"
+  },
+  "items.json:/families/food/tiers/2": {
+    "source": "生面团",
+    "context": "",
+    "text": "반죽"
+  },
+  "items.json:/families/food/tiers/3": {
+    "source": "烤麦饼",
+    "context": "",
+    "text": "구운 빵"
+  },
+  "items.json:/families/food/tiers/4": {
+    "source": "浆果派",
+    "context": "",
+    "text": "베리 파이"
+  },
+  "items.json:/families/food/tiers/5": {
+    "source": "霜糖蛋糕",
+    "context": "",
+    "text": "서리설탕 케이크"
+  },
+  "items.json:/families/food/tiers/6": {
+    "source": "姜饼屋",
+    "context": "",
+    "text": "진저브레드 하우스"
+  },
+  "items.json:/families/food/tiers/7": {
+    "source": "盛宴蛋糕",
+    "context": "",
+    "text": "연회용 케이크"
+  },
+  "items.json:/generators/g_crystal/name": {
+    "source": "霜晶矿脉",
+    "context": "",
+    "text": "서리 결정 광맥"
+  },
+  "items.json:/generators/g_fire/name": {
+    "source": "燧石火种",
+    "context": "",
+    "text": "부싯돌 불씨"
+  },
+  "items.json:/generators/g_drink/name": {
+    "source": "旧铜壶",
+    "context": "",
+    "text": "오래된 구리 주전자"
+  },
+  "items.json:/generators/g_wood/name": {
+    "source": "雪松堆",
+    "context": "",
+    "text": "소나무 더미"
+  },
+  "items.json:/generators/g_cloth/name": {
+    "source": "毛线篮",
+    "context": "",
+    "text": "털실 바구니"
+  },
+  "items.json:/generators/g_food/name": {
+    "source": "旧烤箱",
+    "context": "",
+    "text": "낡은 오븐"
+  },
+  "shop.json:/chests/0/name": {
+    "source": "青铜宝箱",
+    "context": "",
+    "text": "청동 보물상자"
+  },
+  "shop.json:/chests/1/name": {
+    "source": "白银宝箱",
+    "context": "",
+    "text": "은색 보물상자"
+  },
+  "shop.json:/chests/2/name": {
+    "source": "黄金宝箱",
+    "context": "",
+    "text": "황금 보물상자"
+  },
+  "shop.json:/energyPotion/iapPlaceholder": {
+    "source": "¥6 体力礼包（预留）",
+    "context": "",
+    "text": "¥6 체력 패키지(예약)"
+  },
+  "balance.json:/unlocks/0/text": {
+    "source": "开放冰晶链、火种链与青铜宝箱",
+    "context": "",
+    "text": "얼음 결정, 불씨 및 청동 보물상자 체인 해제"
+  },
+  "balance.json:/unlocks/1/text": {
+    "source": "热饮链解锁，商店上架旧铜壶",
+    "context": "",
+    "text": "따뜻한 음료 체인 해제, 상점에 오래된 구리 주전자 추가"
+  },
+  "balance.json:/unlocks/2/text": {
+    "source": "木料链解锁，更多冰封格可融化",
+    "context": "",
+    "text": "목재 체인 해제, 더 많은 얼어붙은 칸을 녹일 수 있습니다"
+  },
+  "balance.json:/unlocks/3/text": {
+    "source": "冬衣链解锁，商店上架毛线篮",
+    "context": "",
+    "text": "겨울옷 체인 해제, 상점에 털실 바구니 추가"
+  },
+  "balance.json:/unlocks/4/text": {
+    "source": "体力上限提升，白银宝箱上架",
+    "context": "",
+    "text": "체력 한도 증가, 은색 보물상자 추가"
+  },
+  "balance.json:/unlocks/5/text": {
+    "source": "烘焙链解锁，第二章剧情开放",
+    "context": "",
+    "text": "베이킹 체인 해제, 챕터 2 스토리 오픈"
+  },
+  "balance.json:/unlocks/6/text": {
+    "source": "黄金宝箱上架，第三章剧情开放",
+    "context": "",
+    "text": "황금 보물상자 추가, 챕터 3 스토리 오픈"
+  },
+  "balance.json:/unlocks/7/text": {
+    "source": "棋盘全部区域可融化，高阶订单出现",
+    "context": "",
+    "text": "체스판 전 구역 녹이기 가능, 상급 주문 등장"
+  },
+  "ui.json:/meta/title": {
+    "source": "冰霜物语",
+    "context": "",
+    "text": "서리 이야기"
+  },
+  "ui.json:/meta/subtitle": {
+    "source": "合并 · 重建 · 温暖山谷",
+    "context": "",
+    "text": "합성 · 재건 · 따뜻한 골짜기"
+  },
+  "ui.json:/shell/shop": {
+    "source": "商店",
+    "context": "",
+    "text": "상점"
+  },
+  "ui.json:/shell/book": {
+    "source": "图鉴",
+    "context": "",
+    "text": "도감"
+  },
+  "ui.json:/shell/valley": {
+    "source": "山谷",
+    "context": "",
+    "text": "골짜기"
+  },
+  "ui.json:/shell/settings": {
+    "source": "设置",
+    "context": "",
+    "text": "설정"
+  },
+  "ui.json:/shell/orders": {
+    "source": "村民请求",
+    "context": "",
+    "text": "주민의 요청"
+  },
+  "ui.json:/shell/mainQuest": {
+    "source": "主线任务",
+    "context": "",
+    "text": "메인 스토리"
+  },
+  "ui.json:/shell/sandbox": {
+    "source": "爽玩",
+    "context": "",
+    "text": "자유 모드"
+  },
+  "ui.json:/common/close": {
+    "source": "关闭",
+    "context": "",
+    "text": "닫기"
+  },
+  "ui.json:/common/continue": {
+    "source": "继续",
+    "context": "",
+    "text": "계속하기"
+  },
+  "ui.json:/common/cancel": {
+    "source": "取消",
+    "context": "",
+    "text": "취소"
+  },
+  "ui.json:/common/later": {
+    "source": "稍后",
+    "context": "",
+    "text": "나중에"
+  },
+  "ui.json:/common/view": {
+    "source": "查看",
+    "context": "",
+    "text": "확인"
+  },
+  "ui.json:/common/locked": {
+    "source": "尚未开放",
+    "context": "",
+    "text": "잠금 해제 전"
+  },
+  "ui.json:/common/free": {
+    "source": "免费",
+    "context": "",
+    "text": "무료"
+  },
+  "ui.json:/common/owned": {
+    "source": "已拥有",
+    "context": "",
+    "text": "획득함"
+  },
+  "ui.json:/common/coin": {
+    "source": "金",
+    "context": "",
+    "text": "골드"
+  },
+  "ui.json:/common/gem": {
+    "source": "钻",
+    "context": "",
+    "text": "다이아"
+  },
+  "ui.json:/common/level": {
+    "source": "Lv.{{level}}",
+    "context": "",
+    "text": "Lv.{{level}}"
+  },
+  "ui.json:/hud/full": {
+    "source": "已满",
+    "context": "",
+    "text": "가득 참"
+  },
+  "ui.json:/hud/afterglow": {
+    "source": "余温×{{count}}",
+    "context": "",
+    "text": "잔열 ×{{count}}"
+  },
+  "ui.json:/board/afterglow": {
+    "source": "余温生成 · 0体力",
+    "context": "",
+    "text": "잔열 생성 · 체력 0"
+  },
+  "ui.json:/board/discovery": {
+    "source": "新发现 · {{name}}",
+    "context": "",
+    "text": "새로 발견됨 · {{name}}"
+  },
+  "ui.json:/board/merge": {
+    "source": "合并 +1",
+    "context": "",
+    "text": "합성 +1"
+  },
+  "ui.json:/board/combo": {
+    "source": "暖流 ×{{count}}",
+    "context": "",
+    "text": "온기 ×{{count}}"
+  },
+  "ui.json:/board/energy": {
+    "source": "+{{count}}体力",
+    "context": "",
+    "text": "체력 +{{count}}"
+  },
+  "ui.json:/orders/requests": {
+    "source": "{{count}} 个请求",
+    "context": "",
+    "text": "요청 {{count}}건"
+  },
+  "ui.json:/orders/ready": {
+    "source": "{{count}} 可交付",
+    "context": "",
+    "text": "{{count}}개 완료 가능"
+  },
+  "ui.json:/orders/active": {
+    "source": "{{count}} 进行中",
+    "context": "",
+    "text": "{{count}} 진행 중"
+  },
+  "ui.json:/orders/none": {
+    "source": "暂无",
+    "context": "",
+    "text": "없음"
+  },
+  "ui.json:/orders/waiting": {
+    "source": "正在等你的消息",
+    "context": "",
+    "text": "소식을 기다리는 중"
+  },
+  "ui.json:/orders/visiting": {
+    "source": "{{title}}来访",
+    "context": "",
+    "text": "{{title}} 방문"
+  },
+  "ui.json:/orders/give": {
+    "source": "交给 {{name}}",
+    "context": "",
+    "text": "{{name}}에게 전달"
+  },
+  "ui.json:/orders/prepare": {
+    "source": "继续准备",
+    "context": "",
+    "text": "준비 계속하기"
+  },
+  "ui.json:/orders/listen": {
+    "source": "听听请求",
+    "context": "",
+    "text": "요청 확인"
+  },
+  "ui.json:/orders/refresh": {
+    "source": "换一封 · {{cost}}金",
+    "context": "",
+    "text": "교체 · {{cost}}골드"
+  },
+  "ui.json:/orders/stillNeeds": {
+    "source": "{{name}}还在等材料",
+    "context": "",
+    "text": "{{name}}이(가) 재료를 기다리는 중"
+  },
+  "ui.json:/orders/arrived": {
+    "source": "{{title}} · 来到风灯小屋",
+    "context": "",
+    "text": "{{title}} · 바람등 오두막에 도착"
+  },
+  "ui.json:/orders/needs": {
+    "source": "需要这些",
+    "context": "",
+    "text": "필요한 것들"
+  },
+  "ui.json:/orders/saveForLater": {
+    "source": "先放进请求箱",
+    "context": "",
+    "text": "먼저 요청 상자에 넣기"
+  },
+  "ui.json:/orders/accept": {
+    "source": "我来帮你",
+    "context": "",
+    "text": "내가 도와줄게"
+  },
+  "ui.json:/orders/responseTitle": {
+    "source": "{{name}}的回应",
+    "context": "",
+    "text": "{{name}}의 응답"
+  },
+  "ui.json:/orders/responsePlace": {
+    "source": "篝火广场 · 风雪中的回音",
+    "context": "",
+    "text": "모닥불 광장 · 눈보라 속의 메아리"
+  },
+  "ui.json:/orders/responseHook": {
+    "source": "每一份委托，都是一个人留下来的理由。",
+    "context": "",
+    "text": "모든 의뢰는 누군가가 남겨진 이유입니다."
+  },
+  "ui.json:/orders/backToBoard": {
+    "source": "回到合成盘",
+    "context": "",
+    "text": "합성판으로 돌아가기"
+  },
+  "ui.json:/items/chainLevel": {
+    "source": "{{family}} · {{level}}阶",
+    "context": "",
+    "text": "{{family}} · {{level}}단계"
+  },
+  "ui.json:/items/sell": {
+    "source": "出售",
+    "context": "",
+    "text": "판매"
+  },
+  "ui.json:/items/price": {
+    "source": "{{price}} 金",
+    "context": "",
+    "text": "{{price}} 골드"
+  },
+  "ui.json:/items/how": {
+    "source": "查看{{name}}怎么获得",
+    "context": "",
+    "text": "{{name}} 획득 방법 확인"
+  },
+  "ui.json:/shop/title": {
+    "source": "商店",
+    "context": "",
+    "text": "상점"
+  },
+  "ui.json:/shop/playMode": {
+    "source": "爽玩模式",
+    "context": "",
+    "text": "자유 모드"
+  },
+  "ui.json:/shop/energy": {
+    "source": "体力",
+    "context": "",
+    "text": "체력"
+  },
+  "ui.json:/shop/energyBottle": {
+    "source": "体力瓶",
+    "context": "",
+    "text": "체력 병"
+  },
+  "ui.json:/shop/energyDesc": {
+    "source": "立即回满体力（上限 {{max}}）",
+    "context": "",
+    "text": "즉시 체력 회복 (최대 {{max}})"
+  },
+  "ui.json:/shop/chests": {
+    "source": "宝箱",
+    "context": "",
+    "text": "보물상자"
+  },
+  "ui.json:/shop/workbenches": {
+    "source": "材料台（永久拥有）",
+    "context": "",
+    "text": "재료대 (영구 소유)"
+  },
+  "ui.json:/shop/chestDesc": {
+    "source": "{{count}}件 {{min}}—{{max}}阶材料 · {{seconds}}秒开启{{lock}}",
+    "context": "",
+    "text": "{{count}}개 {{min}}~{{max}}단계 재료 · {{seconds}}초 후 {{lock}} 해제"
+  },
+  "ui.json:/shop/unlockAt": {
+    "source": " · Lv.{{level}}开放",
+    "context": "",
+    "text": " · Lv.{{level}} 해제"
+  },
+  "ui.json:/shop/makeFamily": {
+    "source": "可获得“{{family}}”材料{{lock}}",
+    "context": "",
+    "text": "\"{{family}}\" 재료 획득 가능{{lock}}"
+  },
+  "ui.json:/valley/title": {
+    "source": "霜语谷",
+    "context": "",
+    "text": "서리말 골짜기"
+  },
+  "ui.json:/valley/mainQuest": {
+    "source": "🏮 主线任务",
+    "context": "",
+    "text": "🏮 메인 스토리"
+  },
+  "ui.json:/valley/journal": {
+    "source": "📓 山谷手账",
+    "context": "",
+    "text": "📓 골짜기 수첩"
+  },
+  "ui.json:/valley/tutorialDone": {
+    "source": "接下来跟着主线任务，让霜语谷一点点暖起来吧。",
+    "context": "",
+    "text": "메인 스토리를 따라가며 서리말 골짜기를 조금씩 따뜻하게 만들어보세요."
+  },
+  "ui.json:/quest/lookBack": {
+    "source": "回看 ✓",
+    "context": "",
+    "text": "다시 보기 ✓"
+  },
+  "ui.json:/quest/repair": {
+    "source": "开始修复",
+    "context": "",
+    "text": "수리 시작"
+  },
+  "ui.json:/quest/findMaterials": {
+    "source": "找材料",
+    "context": "",
+    "text": "재료 찾기"
+  },
+  "ui.json:/quest/levelUp": {
+    "source": "去升级",
+    "context": "",
+    "text": "업그레이드하러 가기"
+  },
+  "ui.json:/quest/completePrevious": {
+    "source": "完成上一段故事后开放",
+    "context": "",
+    "text": "이전 이야기를 완료하면 열립니다"
+  },
+  "ui.json:/quest/openAt": {
+    "source": "Lv.{{level}} 开放 · {{done}}/{{total}}",
+    "context": "",
+    "text": "Lv.{{level}} 해제 · {{done}}/{{total}}"
+  },
+  "ui.json:/quest/previousFirst": {
+    "source": "先完成前面的故事，这里的路才会出现",
+    "context": "",
+    "text": "앞선 이야기를 먼저 완료해야 이 길을 찾을 수 있어요."
+  },
+  "ui.json:/quest/viewList": {
+    "source": "查看所需物品",
+    "context": "",
+    "text": "필요한 아이템 확인"
+  },
+  "ui.json:/quest/handoverTitle": {
+    "source": "准备修复 · {{name}}",
+    "context": "",
+    "text": "수리 준비 · {{name}}"
+  },
+  "ui.json:/quest/handoverDesc": {
+    "source": "会消耗下面的材料和金币。确认后，故事将继续。",
+    "context": "",
+    "text": "재료와 골드가 소모됩니다. 확인을 누르면 이야기가 계속됩니다."
+  },
+  "ui.json:/quest/prepareMore": {
+    "source": "再准备一下",
+    "context": "",
+    "text": "준비가 더 필요해요"
+  },
+  "ui.json:/quest/confirm": {
+    "source": "开始修复",
+    "context": "",
+    "text": "수리 시작"
+  },
+  "ui.json:/source/title": {
+    "source": "🧭 {{item}}怎么获得",
+    "context": "",
+    "text": "🧭 {{item}} 획득 방법"
+  },
+  "ui.json:/source/lead": {
+    "source": "啾可把材料的来路画在风灯里了。跟着亮起的路线走，不用猜。",
+    "context": "",
+    "text": "초코가 재료의 경로를 바람등에 그려두었어요. 빛나는 길을 따라가면 돼요."
+  },
+  "ui.json:/source/next": {
+    "source": "🏮 下一步 · {{name}}",
+    "context": "",
+    "text": "🏮 다음 단계 · {{name}}"
+  },
+  "ui.json:/source/from": {
+    "source": "从这里获得",
+    "context": "",
+    "text": "여기에서 획득"
+  },
+  "ui.json:/source/path": {
+    "source": "合成路线",
+    "context": "",
+    "text": "합성 경로"
+  },
+  "ui.json:/source/missing": {
+    "source": "还差 {{count}}",
+    "context": "",
+    "text": "{{count}}개 더 필요해요"
+  },
+  "ui.json:/source/fromScratch": {
+    "source": "从头合成要 {{count}} 个基础材料",
+    "context": "",
+    "text": "처음부터 합성하려면 기초 재료 {{count}}개가 필요합니다."
+  },
+  "ui.json:/source/startPair": {
+    "source": "从亮起的这对开始合",
+    "context": "",
+    "text": "빛나는 이 쌍부터 합성을 시작하세요."
+  },
+  "ui.json:/source/findWorkbench": {
+    "source": "找材料台",
+    "context": "",
+    "text": "재료대 찾기"
+  },
+  "ui.json:/source/findOnBoard": {
+    "source": "在棋盘上找它",
+    "context": "",
+    "text": "체스판에서 찾아보세요"
+  },
+  "ui.json:/source/placeWorkbench": {
+    "source": "把材料台放上棋盘",
+    "context": "",
+    "text": "체스판에 재료대를 놓으세요"
+  },
+  "ui.json:/source/shopWorkbench": {
+    "source": "去商店找它",
+    "context": "",
+    "text": "상점에서 찾아보세요"
+  },
+  "ui.json:/source/readyChain": {
+    "source": "棋盘上已经有一条可合成路线",
+    "context": "",
+    "text": "체스판에 합성 가능한 경로가 생겼어요"
+  },
+  "ui.json:/source/materialsReady": {
+    "source": "材料已经齐了",
+    "context": "",
+    "text": "재료가 모두 준비되었습니다"
+  },
+  "ui.json:/source/tapAndMerge": {
+    "source": "点“{{name}}”取得材料，再把相同物品两两合并",
+    "context": "",
+    "text": "\"{{name}}\"을 눌러 재료를 얻고, 같은 아이템끼리 두 개씩 합치세요"
+  },
+  "ui.json:/source/ownedOffBoard": {
+    "source": "已经拥有，但还没放到棋盘上",
+    "context": "",
+    "text": "이미 보유 중이지만 아직 체스판에 놓지 않았습니다"
+  },
+  "ui.json:/source/lockedUntil": {
+    "source": "继续玩到 Lv.{{level}} 就会开放",
+    "context": "",
+    "text": "Lv.{{level}}까지 플레이하면 열립니다"
+  },
+  "ui.json:/source/availableInShop": {
+    "source": "“{{name}}”已经在商店开放",
+    "context": "",
+    "text": "\"{{name}}\"이(가) 상점에서 해제되었습니다"
+  },
+  "ui.json:/source/noSource": {
+    "source": "这件材料还没有找到获得方法",
+    "context": "",
+    "text": "이 재료의 획득 방법을 아직 찾지 못했습니다"
+  },
+  "ui.json:/source/noWorkbench": {
+    "source": "还没有“{{name}}”，先去商店或继续主线任务",
+    "context": "",
+    "text": "아직 \"{{name}}\"이(가) 없어요. 먼저 상점에 가거나 메인 스토리를 진행하세요"
+  },
+  "ui.json:/source/needLevel": {
+    "source": "先升到 Lv.{{level}}；材料可以提前准备。",
+    "context": "",
+    "text": "먼저 Lv.{{level}}까지 올리세요. 재료는 미리 준비할 수 있습니다."
+  },
+  "ui.json:/source/needCoins": {
+    "source": "还差 {{count}} 金币",
+    "context": "",
+    "text": "골드 {{count}}개가 더 필요합니다"
+  },
+  "ui.json:/source/hearRequests": {
+    "source": "去听村民请求",
+    "context": "",
+    "text": "마을 사람들의 요청 듣기"
+  },
+  "ui.json:/settings/title": {
+    "source": "设置",
+    "context": "",
+    "text": "설정"
+  },
+  "ui.json:/settings/player": {
+    "source": "🏮 提灯人",
+    "context": "",
+    "text": "🏮 등불지기"
+  },
+  "ui.json:/settings/gameLanguage": {
+    "source": "🌐 游戏语言",
+    "context": "",
+    "text": "🌐 게임 언어"
+  },
+  "ui.json:/settings/gameLanguageHelp": {
+    "source": "界面与剧情字幕",
+    "context": "",
+    "text": "인터페이스 및 스토리 자막"
+  },
+  "ui.json:/settings/voiceLanguage": {
+    "source": "🎙️ 配音语言",
+    "context": "",
+    "text": "🎙️ 음성 언어"
+  },
+  "ui.json:/settings/voiceLanguageHelp": {
+    "source": "可以和字幕不同",
+    "context": "",
+    "text": "자막과 다르게 설정할 수 있습니다"
+  },
+  "ui.json:/settings/bgm": {
+    "source": "背景音乐",
+    "context": "",
+    "text": "배경음악"
+  },
+  "ui.json:/settings/sfx": {
+    "source": "游戏音效",
+    "context": "",
+    "text": "게임 효과음"
+  },
+  "ui.json:/settings/voice": {
+    "source": "剧情语音",
+    "context": "",
+    "text": "스토리 음성"
+  },
+  "ui.json:/settings/playMode": {
+    "source": "🥽 爽玩模式（内测）",
+    "context": "",
+    "text": "🥽 자유 플레이 모드 (내부 테스트)"
+  },
+  "ui.json:/settings/playModeHelp": {
+    "source": "无限金币、钻石和体力，自由体验全部内容",
+    "context": "",
+    "text": "무한 골드, 다이아몬드, 체력으로 모든 콘텐츠를 자유롭게 체험하세요"
+  },
+  "ui.json:/settings/rules": {
+    "source": "📘 玩法规则与新手说明",
+    "context": "",
+    "text": "📘 게임 규칙 및 초보자 안내"
+  },
+  "ui.json:/settings/reset": {
+    "source": "重置进度（重新开始）",
+    "context": "",
+    "text": "진행도 초기화 (다시 시작)"
+  },
+  "ui.json:/settings/about": {
+    "source": "冰霜物语 Frost Story v0.3<br>支持离线游玩 · 原创剧情、美术与音乐 · 全对白配音",
+    "context": "",
+    "text": "Frost Story v0.3<br>오프라인 플레이 지원 · 독창적인 스토리, 아트, 음악 · 전체 음성 지원"
+  },
+  "ui.json:/settings/resetTitle": {
+    "source": "确定重新开始？",
+    "context": "",
+    "text": "정말 다시 시작하시겠습니까?"
+  },
+  "ui.json:/settings/resetDesc": {
+    "source": "游戏进度将被清空，且无法恢复。",
+    "context": "",
+    "text": "게임 진행도가 삭제되며 복구할 수 없습니다."
+  },
+  "ui.json:/settings/resetConfirm": {
+    "source": "清空并重新开始",
+    "context": "",
+    "text": "초기화 및 재시작"
+  },
+  "ui.json:/settings/playOn": {
+    "source": "爽玩模式已开启：资源无限",
+    "context": "",
+    "text": "자유 플레이 모드 활성화: 자원 무제한"
+  },
+  "ui.json:/settings/playOff": {
+    "source": "已关闭爽玩模式",
+    "context": "",
+    "text": "자유 플레이 모드 비활성화"
+  },
+  "ui.json:/sandbox/title": {
+    "source": "🥽 爽玩控制台",
+    "context": "",
+    "text": "🥽 자유 플레이 콘솔"
+  },
+  "ui.json:/sandbox/status": {
+    "source": "资源无限 · 金币、钻石、体力 ∞ · 材料台不用休息 · 宝箱立即开启",
+    "context": "",
+    "text": "자원 무제한 · 골드, 다이아몬드, 체력 ∞ · 재료대 휴식 없음 · 보물상자 즉시 열기"
+  },
+  "ui.json:/sandbox/level": {
+    "source": "直升 5 级",
+    "context": "",
+    "text": "5레벨 즉시 달성"
+  },
+  "ui.json:/sandbox/levelHelp": {
+    "source": "开放高阶材料和章节",
+    "context": "",
+    "text": "고급 재료 및 챕터 해제"
+  },
+  "ui.json:/sandbox/board": {
+    "source": "融化全部棋盘",
+    "context": "",
+    "text": "모든 체스판 녹이기"
+  },
+  "ui.json:/sandbox/boardHelp": {
+    "source": "48 格全部开放",
+    "context": "",
+    "text": "48칸 모두 해제"
+  },
+  "ui.json:/sandbox/benches": {
+    "source": "全部材料台",
+    "context": "",
+    "text": "모든 재료대"
+  },
+  "ui.json:/sandbox/benchesHelp": {
+    "source": "6 种材料一次拥有",
+    "context": "",
+    "text": "6종 재료 한꺼번에 소유"
+  },
+  "ui.json:/sandbox/fill": {
+    "source": "铺满材料",
+    "context": "",
+    "text": "재료 가득 채우기"
+  },
+  "ui.json:/sandbox/fillHelp": {
+    "source": "每种补充 1—3阶材料",
+    "context": "",
+    "text": "각 종류별로 1~3단계 재료 보충"
+  },
+  "ui.json:/sandbox/story": {
+    "source": "下一段剧情",
+    "context": "",
+    "text": "다음 이야기"
+  },
+  "ui.json:/sandbox/storyHelp": {
+    "source": "备齐下一段故事所需",
+    "context": "",
+    "text": "다음 이야기를 위한 준비 완료"
+  },
+  "ui.json:/sandbox/chests": {
+    "source": "宝箱立即开启",
+    "context": "",
+    "text": "보물상자 즉시 열기"
+  },
+  "ui.json:/sandbox/chestsHelp": {
+    "source": "跳过所有开箱等待",
+    "context": "",
+    "text": "모든 상자 열기 대기 건너뛰기"
+  },
+  "ui.json:/sandbox/clear": {
+    "source": "整理棋盘",
+    "context": "",
+    "text": "체스판 정리"
+  },
+  "ui.json:/sandbox/clearHelp": {
+    "source": "只保留材料台",
+    "context": "",
+    "text": "재료대만 남기기"
+  },
+  "ui.json:/sandbox/close": {
+    "source": "关闭爽玩模式",
+    "context": "",
+    "text": "쾌속 모드 끄기"
+  },
+  "ui.json:/sandbox/levelDone": {
+    "source": "已升到 Lv.{{level}} ⭐",
+    "context": "",
+    "text": "Lv.{{level}}로 상승 ⭐"
+  },
+  "ui.json:/sandbox/boardDone": {
+    "source": "棋盘上的冰都融化了 ❄️",
+    "context": "",
+    "text": "체스판 위의 얼음이 모두 녹았어요 ❄️"
+  },
+  "ui.json:/sandbox/benchesDone": {
+    "source": "全部材料台已放上棋盘 🏭",
+    "context": "",
+    "text": "모든 재료대가 체스판에 배치되었습니다 🏭"
+  },
+  "ui.json:/sandbox/fillDone": {
+    "source": "材料准备好了，尽情合成 ✨",
+    "context": "",
+    "text": "재료 준비 완료, 마음껏 합성하세요 ✨"
+  },
+  "ui.json:/sandbox/storyDone": {
+    "source": "六章故事已经全部完成 🎉",
+    "context": "",
+    "text": "여섯 장의 이야기가 모두 완료되었습니다 🎉"
+  },
+  "ui.json:/sandbox/storyPrepared": {
+    "source": "“{{name}}”需要的材料已备齐 📜",
+    "context": "",
+    "text": "“{{name}}”에게 필요한 재료가 모두 준비되었습니다 📜"
+  },
+  "ui.json:/sandbox/chestsDone": {
+    "source": "所有宝箱都可以打开了 🎁",
+    "context": "",
+    "text": "모든 보물상자를 열 수 있습니다 🎁"
+  },
+  "ui.json:/sandbox/clearDone": {
+    "source": "棋盘整理好了 🧹",
+    "context": "",
+    "text": "체스판 정리 완료 🧹"
+  },
+  "ui.json:/popups/levelMany": {
+    "source": "连续提升 {{count}} 级！",
+    "context": "",
+    "text": "연속 {{count}}레벨 상승!"
+  },
+  "ui.json:/popups/levelOne": {
+    "source": "等级提升",
+    "context": "",
+    "text": "레벨 상승"
+  },
+  "ui.json:/popups/levelStory": {
+    "source": "风灯越来越亮，新的材料和故事正在醒来。",
+    "context": "",
+    "text": "바람등이 점점 밝아지고, 새로운 재료와 이야기가 깨어나고 있어요."
+  },
+  "ui.json:/popups/energyFull": {
+    "source": "体力回满",
+    "context": "",
+    "text": "체력 가득 채우기"
+  },
+  "ui.json:/popups/ok": {
+    "source": "好的",
+    "context": "",
+    "text": "알겠어"
+  },
+  "ui.json:/popups/chestReady": {
+    "source": "✨ 宝箱可以打开了",
+    "context": "",
+    "text": "✨ 보물상자를 열 수 있습니다"
+  },
+  "ui.json:/popups/chestReward": {
+    "source": "打开可获得 {{count}} 件材料和金币",
+    "context": "",
+    "text": "열면 {{count}}개의 재료와 골드를 얻을 수 있어요"
+  },
+  "ui.json:/popups/openNow": {
+    "source": "立即开启",
+    "context": "",
+    "text": "즉시 열기"
+  },
+  "ui.json:/popups/opening": {
+    "source": "{{name}}开启中",
+    "context": "",
+    "text": "{{name}}이(가) 여는 중"
+  },
+  "ui.json:/popups/secondsLeft": {
+    "source": "还要 {{seconds}} 秒，也可以花 {{gems}} 钻立即开启",
+    "context": "",
+    "text": "{{seconds}}초 후 가능하며, {{gems}} 다이아몬드로 즉시 열 수 있습니다."
+  },
+  "ui.json:/popups/wait": {
+    "source": "等待",
+    "context": "",
+    "text": "대기"
+  },
+  "ui.json:/popups/skipGems": {
+    "source": "花 {{gems}} 钻跳过",
+    "context": "",
+    "text": "{{gems}} 다이아몬드 사용"
+  },
+  "ui.json:/popups/boardOpen": {
+    "source": "棋盘已经全部融化",
+    "context": "",
+    "text": "체스판의 얼음이 모두 녹았습니다"
+  },
+  "ui.json:/popups/meltTitle": {
+    "source": "融化冰封格",
+    "context": "",
+    "text": "얼어붙은 칸 녹이기"
+  },
+  "ui.json:/popups/meltDesc": {
+    "source": "花 {{cost}} 金币融化一格冰雪，获得更多空间。",
+    "context": "",
+    "text": "{{cost}} 골드를 사용하여 얼음을 녹이고 더 많은 공간을 확보하세요."
+  },
+  "ui.json:/popups/meltLevel": {
+    "source": "达到 Lv.{{level}} 后才能融化这里。",
+    "context": "",
+    "text": "Lv.{{level}}에 도달해야 이곳을 녹일 수 있습니다."
+  },
+  "ui.json:/popups/melt": {
+    "source": "融化 · {{cost}}金",
+    "context": "",
+    "text": "녹이기 · {{cost}}골드"
+  },
+  "ui.json:/popups/noEnergyTitle": {
+    "source": "体力不足",
+    "context": "",
+    "text": "체력 부족"
+  },
+  "ui.json:/popups/noEnergyDesc": {
+    "source": "体力会随时间恢复，也可以去商店用钻石购买体力瓶。",
+    "context": "",
+    "text": "시간이 지나면 체력이 회복됩니다. 상점에서 다이아몬드로 체력 물약을 구매할 수도 있어요."
+  },
+  "ui.json:/popups/gotIt": {
+    "source": "知道了",
+    "context": "",
+    "text": "알겠어"
+  },
+  "ui.json:/popups/goShop": {
+    "source": "去商店",
+    "context": "",
+    "text": "상점으로 이동"
+  },
+  "ui.json:/profile/role": {
+    "source": "霜灵 · 啾可",
+    "context": "",
+    "text": "서리 정령 · 초코"
+  },
+  "ui.json:/profile/newPrompt": {
+    "source": "风灯亮了。现在，把你的名字写进这段故事吧。",
+    "context": "",
+    "text": "바람등이 켜졌어요. 이제 이 이야기에 당신의 이름을 새겨주세요."
+  },
+  "ui.json:/profile/editPrompt": {
+    "source": "风灯里的名字也可以重写。以后，我该怎么称呼你？",
+    "context": "",
+    "text": "바람등에 적힌 이름은 언제든 바꿀 수 있어요. 앞으로 제가 당신을 뭐라고 부르면 좋을까요?"
+  },
+  "ui.json:/profile/label": {
+    "source": "希望大家怎么称呼你？",
+    "context": "",
+    "text": "모두가 당신을 어떻게 불러주길 원하시나요?"
+  },
+  "ui.json:/profile/placeholder": {
+    "source": "输入 1—12 个字",
+    "context": "",
+    "text": "1~12자 입력"
+  },
+  "ui.json:/profile/help": {
+    "source": "昵称只保存在你的游戏进度中，之后可在设置里修改。",
+    "context": "",
+    "text": "닉네임은 게임 진행도에만 저장되며, 나중에 설정에서 변경할 수 있습니다."
+  },
+  "ui.json:/profile/save": {
+    "source": "🏮 写进风灯",
+    "context": "",
+    "text": "🏮 바람등에 새기기"
+  },
+  "ui.json:/profile/saveEdit": {
+    "source": "保存称呼",
+    "context": "",
+    "text": "호칭 저장"
+  },
+  "ui.json:/profile/error": {
+    "source": "请使用 1—12 个字，不要包含括号或网页符号。",
+    "context": "",
+    "text": "1~12자 이내로 입력해 주세요. 괄호나 웹 기호는 포함할 수 없습니다."
+  },
+  "ui.json:/profile/fallback": {
+    "source": "提灯人",
+    "context": "",
+    "text": "등불지기"
+  },
+  "ui.json:/dialogue/prologue": {
+    "source": "序章",
+    "context": "",
+    "text": "프롤로그"
+  },
+  "ui.json:/dialogue/request": {
+    "source": "村民请求",
+    "context": "",
+    "text": "주민의 요청"
+  },
+  "ui.json:/dialogue/main": {
+    "source": "主线故事",
+    "context": "",
+    "text": "메인 스토리"
+  },
+  "ui.json:/dialogue/journal": {
+    "source": "霜语谷手记",
+    "context": "",
+    "text": "서리말 골짜기 수첩"
+  },
+  "ui.json:/dialogue/everyone": {
+    "source": "众人",
+    "context": "",
+    "text": "모두들"
+  },
+  "ui.json:/dialogue/review": {
+    "source": "回顾",
+    "context": "",
+    "text": "다시보기"
+  },
+  "ui.json:/dialogue/skip": {
+    "source": "跳过",
+    "context": "",
+    "text": "건너뛰기"
+  },
+  "ui.json:/dialogue/reviewTitle": {
+    "source": "本段回顾",
+    "context": "",
+    "text": "이번 회차 다시보기"
+  },
+  "ui.json:/dialogue/back": {
+    "source": "返回画面",
+    "context": "",
+    "text": "화면으로 돌아가기"
+  },
+  "ui.json:/dialogue/showAll": {
+    "source": "点击显示全文",
+    "context": "",
+    "text": "클릭하여 전체 내용 보기"
+  },
+  "ui.json:/welcome/chapter": {
+    "source": "序章 · 风灯归乡",
+    "context": "",
+    "text": "프롤로그 · 바람등의 귀향"
+  },
+  "ui.json:/welcome/title": {
+    "source": "雪里，有人在等这盏灯",
+    "context": "",
+    "text": "눈 속에서 누군가 이 등불을 기다리고 있어요"
+  },
+  "ui.json:/welcome/tip": {
+    "source": "戴上耳机，点亮祖父留下的风灯。",
+    "context": "",
+    "text": "이어폰을 끼고 할아버지가 남겨주신 바람등을 밝히세요."
+  },
+  "ui.json:/welcome/start": {
+    "source": "🏮 点亮风灯",
+    "context": "",
+    "text": "🏮 바람등 켜기"
+  },
+  "ui.json:/welcome/answer": {
+    "source": "回应啾可",
+    "context": "",
+    "text": "초코에게 답하기"
+  },
+  "ui.json:/welcome/tell": {
+    "source": "告诉啾可",
+    "context": "",
+    "text": "초코에게 말하기"
+  },
+  "ui.json:/welcome/enter": {
+    "source": "跟啾可进谷",
+    "context": "",
+    "text": "초코와 함께 골짜기로"
+  },
+  "ui.json:/chapter/short": {
+    "source": "第{{number}}章",
+    "context": "",
+    "text": "제{{number}}장"
+  },
+  "ui.json:/chapter/mystery": {
+    "source": "本章悬念 · {{hook}}",
+    "context": "",
+    "text": "이번 장의 복선 · {{hook}}"
+  },
+  "ui.json:/chapter/enter": {
+    "source": "进入本章 ▸",
+    "context": "",
+    "text": "이 장 시작 ▸"
+  },
+  "ui.json:/interaction/restore": {
+    "source": "亲手复苏 · {{chapter}}",
+    "context": "",
+    "text": "직접 깨우기 · {{chapter}}"
+  },
+  "ui.json:/interaction/skip": {
+    "source": "跳过动作",
+    "context": "",
+    "text": "동작 건너뛰기"
+  },
+  "ui.json:/interaction/step": {
+    "source": "第 {{number}} 步：{{label}}",
+    "context": "",
+    "text": "단계 {{number}}: {{label}}"
+  },
+  "ui.json:/interaction/progress": {
+    "source": "完成 {{done}} / {{total}}",
+    "context": "",
+    "text": "{{done}} / {{total}} 완료"
+  },
+  "ui.json:/interaction/continueStory": {
+    "source": "继续故事 ▸",
+    "context": "",
+    "text": "이야기 계속하기 ▸"
+  },
+  "ui.json:/interaction/myValley": {
+    "source": "我的山谷 · {{chapter}}",
+    "context": "",
+    "text": "나의 골짜기 · {{chapter}}"
+  },
+  "ui.json:/interaction/chooseLater": {
+    "source": "暂不选择",
+    "context": "",
+    "text": "선택하지 않음"
+  },
+  "ui.json:/interaction/chooseHint": {
+    "source": "选择一种布置，看看它会怎样改变这里",
+    "context": "",
+    "text": "배치 방식을 선택해 이곳이 어떻게 변할지 확인해보세요"
+  },
+  "ui.json:/interaction/defaultChoice": {
+    "source": "选好的主灯",
+    "context": "",
+    "text": "메인 조명 선택"
+  },
+  "ui.json:/interaction/preview": {
+    "source": "预览 · {{name}}：{{desc}}",
+    "context": "",
+    "text": "미리보기 · {{name}}: {{desc}}"
+  },
+  "ui.json:/interaction/adopted": {
+    "source": "已采用 {{name}}",
+    "context": "",
+    "text": "{{name}} 적용됨"
+  },
+  "ui.json:/interaction/useChoice": {
+    "source": "采用这个方案 ▸",
+    "context": "",
+    "text": "이 방식 채택 ▸"
+  },
+  "ui.json:/interaction/saved": {
+    "source": "已保存 ✓",
+    "context": "",
+    "text": "저장됨 ✓"
+  },
+  "ui.json:/rewards/finished": {
+    "source": "“{{name}}”完成",
+    "context": "",
+    "text": "\"{{name}}\" 완료"
+  },
+  "ui.json:/rewards/finale": {
+    "source": "霜心苏醒！",
+    "context": "",
+    "text": "서리심장이 깨어났어요!"
+  },
+  "ui.json:/rewards/defaultStory": {
+    "source": "山谷里又有一处亮起了灯。",
+    "context": "",
+    "text": "골짜기에 또 다른 불빛이 켜졌습니다."
+  },
+  "ui.json:/rewards/rush": {
+    "source": "⭐ 连升 {{count}} 级 · 已到 Lv.{{level}}",
+    "context": "",
+    "text": "⭐ {{count}}레벨 연속 상승 · Lv.{{level}} 달성"
+  },
+  "ui.json:/rewards/experience": {
+    "source": "{{count}}经验",
+    "context": "",
+    "text": "{{count}} 경험치"
+  },
+  "ui.json:/rewards/newWorkbench": {
+    "source": "新材料台",
+    "context": "",
+    "text": "새 재료대"
+  },
+  "ui.json:/rewards/ending": {
+    "source": "看结局",
+    "context": "",
+    "text": "결말 보기"
+  },
+  "ui.json:/rewards/great": {
+    "source": "太棒了",
+    "context": "",
+    "text": "정말 멋져요"
+  },
+  "ui.json:/journal/origin": {
+    "source": "📖 故事缘起",
+    "context": "",
+    "text": "📖 이야기의 시작"
+  },
+  "ui.json:/journal/originLocked": {
+    "source": "完成第一处修复后开放",
+    "context": "",
+    "text": "첫 번째 복구 완료 시 해제"
+  },
+  "ui.json:/journal/partners": {
+    "source": "🧑‍🤝‍🧑 山谷伙伴",
+    "context": "",
+    "text": "🧑‍🤝‍🧑 골짜기 동료"
+  },
+  "ui.json:/journal/notMet": {
+    "source": "尚未相识",
+    "context": "",
+    "text": "아직 만나지 못함"
+  },
+  "ui.json:/journal/notExperienced": {
+    "source": "🔒 尚未经历：{{name}}",
+    "context": "",
+    "text": "🔒 아직 경험하지 않음: {{name}}"
+  },
+  "ui.json:/journal/yourChoice": {
+    "source": "{{icon}} 你的布置 · {{name}}",
+    "context": "",
+    "text": "{{icon}} 당신의 배치 · {{name}}"
+  },
+  "ui.json:/rules/title": {
+    "source": "📘 玩法规则",
+    "context": "",
+    "text": "📘 게임 규칙"
+  },
+  "ui.json:/rules/generate": {
+    "source": "点材料台",
+    "context": "",
+    "text": "재료대 클릭"
+  },
+  "ui.json:/rules/merge": {
+    "source": "两两合并",
+    "context": "",
+    "text": "두 개씩 합치기"
+  },
+  "ui.json:/rules/orders": {
+    "source": "完成请求",
+    "context": "",
+    "text": "요청 완료"
+  },
+  "ui.json:/rules/expand": {
+    "source": "升级扩格",
+    "context": "",
+    "text": "업그레이드 및 확장"
+  },
+  "ui.json:/rules/story": {
+    "source": "推进故事",
+    "context": "",
+    "text": "이야기 진행"
+  },
+  "ui.json:/rules/mergeDesc": {
+    "source": "两个同类、同阶物品拖到一起，会变成更高一阶；不同物品可以交换位置。",
+    "context": "",
+    "text": "같은 종류와 등급의 아이템을 합치면 더 높은 단계로 변하며, 다른 아이템끼리는 위치를 바꿀 수 있습니다."
+  },
+  "ui.json:/rules/generateDesc": {
+    "source": "点材料台会消耗体力；连续使用后要短暂休息，体力离线也会恢复。",
+    "context": "",
+    "text": "재료대를 클릭하면 체력이 소모됩니다. 연속 사용 시 잠시 휴식이 필요하며, 오프라인 상태에서도 체력이 회복됩니다."
+  },
+  "ui.json:/rules/ordersDesc": {
+    "source": "先听村民说明来意，回应“我来帮你”后请求才会开始。备齐材料交付，还会听到角色的后续。",
+    "context": "",
+    "text": "먼저 마을 사람의 사연을 듣고 \"도와줄게요\"라고 답해야 요청이 시작됩니다. 재료를 모두 모아 전달하면 캐릭터의 후속 이야기를 들을 수 있습니다."
+  },
+  "ui.json:/rules/boardDesc": {
+    "source": "点带雪锁的格子可花金币融化；霜泡可以直接点破，宝箱倒计时结束后即可开启。",
+    "context": "",
+    "text": "눈 자물쇠가 있는 칸은 골드로 녹일 수 있고, 서리 거품은 바로 터뜨릴 수 있습니다. 보물상자는 카운트다운이 끝나면 열립니다."
+  },
+  "ui.json:/rules/storyDesc": {
+    "source": "打开任务架里的“主线任务”或进入“山谷”，依次经历 6 章 24 段故事，唤醒霜心、迎回春天。手账会留下世界和伙伴们的回忆。",
+    "context": "",
+    "text": "임무 선반의 \"메인 퀘스트\"를 열거나 \"골짜기\"에 들어가 6장 24단계의 이야기를 거치며 서리심장을 깨우고 봄을 맞이하세요. 수첩에는 세상과 동료들의 추억이 기록됩니다."
+  },
+  "ui.json:/rules/done": {
+    "source": "知道了，开始合并",
+    "context": "",
+    "text": "알겠어요, 합치기 시작"
+  },
+  "ui.json:/errors/boardFull": {
+    "source": "棋盘满了，先合并或出售一些物品",
+    "context": "",
+    "text": "보드가 가득 찼습니다. 아이템을 먼저 합치거나 판매하세요."
+  },
+  "ui.json:/errors/workbenchResting": {
+    "source": "材料台正在休息……",
+    "context": "",
+    "text": "재료대가 휴식 중입니다..."
+  },
+  "ui.json:/errors/noEnergy": {
+    "source": "体力不足，等它恢复或去商店看看",
+    "context": "",
+    "text": "체력이 부족합니다. 회복될 때까지 기다리거나 상점에 들러보세요."
+  },
+  "ui.json:/errors/frozen": {
+    "source": "这片区域还被冰封着",
+    "context": "",
+    "text": "이 구역은 아직 얼어붙어 있습니다."
+  },
+  "ui.json:/errors/sameItems": {
+    "source": "只有两个相同的物品才能合并",
+    "context": "",
+    "text": "동일한 아이템 두 개만 합칠 수 있습니다."
+  },
+  "ui.json:/errors/needLevel": {
+    "source": "需要达到 Lv.{{level}} 才能融化这片冰",
+    "context": "",
+    "text": "얼음을 녹이려면 Lv.{{level}}에 도달해야 합니다."
+  },
+  "ui.json:/errors/noCoins": {
+    "source": "金币不足",
+    "context": "",
+    "text": "골드가 부족합니다"
+  },
+  "ui.json:/errors/noGems": {
+    "source": "钻石不足",
+    "context": "",
+    "text": "다이아몬드가 부족합니다"
+  },
+  "ui.json:/errors/requirements": {
+    "source": "材料还没备齐",
+    "context": "",
+    "text": "재료가 아직 다 모이지 않았습니다"
+  },
+  "ui.json:/errors/alreadyOwned": {
+    "source": "已经拥有了",
+    "context": "",
+    "text": "이미 보유 중입니다"
+  },
+  "ui.json:/errors/energyFull": {
+    "source": "体力已回满",
+    "context": "",
+    "text": "체력이 모두 회복되었습니다"
+  },
+  "ui.json:/errors/notReady": {
+    "source": "材料或金币还没备齐",
+    "context": "",
+    "text": "재료나 골드가 부족합니다"
+  },
+  "ui.json:/errors/notOpen": {
+    "source": "这里还没有开放",
+    "context": "",
+    "text": "이곳은 아직 열리지 않았습니다"
+  },
+  "ui.json:/loading/config": {
+    "source": "读取故事与数值……",
+    "context": "",
+    "text": "이야기와 수치 불러오는 중..."
+  },
+  "ui.json:/loading/chains": {
+    "source": "整理合成路线……",
+    "context": "",
+    "text": "합성 경로 정리 중..."
+  },
+  "ui.json:/loading/waking": {
+    "source": "唤醒霜语谷……",
+    "context": "",
+    "text": "서리말 골짜기 깨우는 중..."
+  },
+  "ui.json:/loading/failed": {
+    "source": "加载失败：{{error}}",
+    "context": "",
+    "text": "로드 실패: {{error}}"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/title": {
+    "source": "让第一封信过桥",
+    "context": "",
+    "text": "첫 번째 편지를 건너게 하기"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/prompt": {
+    "source": "把桥重新接上，让波波亲手送出十年来的第一封信。",
+    "context": "",
+    "text": "다리를 다시 연결해 보보가 직접 10년 만의 첫 번째 편지를 배달하게 하세요."
+  },
+  "story.json:/chapters/0/nodes/2/interaction/complete": {
+    "source": "桥索绷紧，风灯亮起。波波抱紧邮袋，踩着你铺出的路跑向村里。",
+    "context": "",
+    "text": "다리 줄이 팽팽해지고 바람등이 켜집니다. 보보는 가방을 꼭 껴안고 당신이 닦아놓은 길을 따라 마을로 달려갑니다."
+  },
+  "story.json:/chapters/0/nodes/2/interaction/steps/0/label": {
+    "source": "架稳主梁",
+    "context": "",
+    "text": "주 들보 고정하기"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/steps/1/label": {
+    "source": "收紧桥索",
+    "context": "",
+    "text": "다리 줄 조이기"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/steps/2/label": {
+    "source": "挂上引路灯",
+    "context": "",
+    "text": "길잡이 등 걸기"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/title": {
+    "source": "唤醒沉睡的烤箱",
+    "context": "",
+    "text": "잠든 오븐 깨우기"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/prompt": {
+    "source": "和蜜儿一起把第一炉香气送回街上。",
+    "context": "",
+    "text": "미엘과 함께 첫 번째 향기를 거리로 실어 보내세요."
+  },
+  "story.json:/chapters/1/nodes/0/interaction/complete": {
+    "source": "炉门透出金光，第一张麦饼鼓了起来。街上有人循着香味推开了窗。",
+    "context": "",
+    "text": "오븐 문에서 금빛이 새어 나오고, 첫 번째 밀빵이 부풀어 오릅니다. 거리의 사람들이 향기를 따라 창문을 열어봅니다."
+  },
+  "story.json:/chapters/1/nodes/0/interaction/steps/0/label": {
+    "source": "敲落炉门冰花",
+    "context": "",
+    "text": "오븐 문의 얼음꽃 털어내기"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/steps/1/label": {
+    "source": "送入霜木",
+    "context": "",
+    "text": "서리나무 넣기"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/steps/2/label": {
+    "source": "点亮第一炉",
+    "context": "",
+    "text": "첫 번째 불 밝히기"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/title": {
+    "source": "织下第一条归乡围巾",
+    "context": "",
+    "text": "첫 번째 귀향 목도리 짜기"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/prompt": {
+    "source": "选一个会留在裁缝铺招牌上的纹样。你的选择会写进回忆手账。",
+    "context": "",
+    "text": "재봉소 간판에 남길 문양을 선택하세요. 당신의 선택이 추억 수첩에 기록됩니다."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/complete": {
+    "source": "艾莎把你选的纹样织进围巾，又在招牌上添了同样的一针。",
+    "context": "",
+    "text": "엘사가 당신이 고른 문양을 목도리에 짜 넣고, 간판에도 똑같이 한 땀을 더합니다."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/0/name": {
+    "source": "归雁纹",
+    "context": "",
+    "text": "귀안 무늬"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/0/desc": {
+    "source": "给远行的人一条回家的路",
+    "context": "",
+    "text": "먼 길 떠난 이들에게 집으로 돌아오는 길을."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/1/name": {
+    "source": "炉火纹",
+    "context": "",
+    "text": "화로 문양"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/1/desc": {
+    "source": "把广场第一堆火织进围巾",
+    "context": "",
+    "text": "광장의 첫 번째 모닥불을 목도리에 담아내기"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/2/name": {
+    "source": "霜星纹",
+    "context": "",
+    "text": "서리별 무늬"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/2/desc": {
+    "source": "让雪夜也有可以辨认的星光",
+    "context": "",
+    "text": "눈 내리는 밤에도 알아볼 수 있는 별빛을."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/title": {
+    "source": "让圣殿重新接纳人声",
+    "context": "",
+    "text": "성전에 다시 사람들의 목소리를 채우기"
+  },
+  "story.json:/chapters/2/nodes/0/interaction/prompt": {
+    "source": "先挡住风，再安置暖炉。每一步都让这座空殿更像家。",
+    "context": "",
+    "text": "먼저 바람을 막고 따뜻한 화로를 놓으세요. 한 걸음씩 이 빈 성전이 집처럼 변해갑니다."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/complete": {
+    "source": "门缝不再呼啸，暖炉映亮石墙。十年来，圣殿第一次传回了笑声。",
+    "context": "",
+    "text": "문틈의 바람 소리가 잦아들고, 화로가 돌벽을 밝힙니다. 10년 만에 성전에 웃음소리가 울려 퍼집니다."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/steps/0/label": {
+    "source": "顶住破门",
+    "context": "",
+    "text": "부서진 문 고정하기"
+  },
+  "story.json:/chapters/2/nodes/0/interaction/steps/1/label": {
+    "source": "安置暖炉",
+    "context": "",
+    "text": "화로 설치하기"
+  },
+  "story.json:/chapters/2/nodes/0/interaction/steps/2/label": {
+    "source": "点起大厅火光",
+    "context": "",
+    "text": "홀에 불 밝히기"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/title": {
+    "source": "把一片星空留在穹顶",
+    "context": "",
+    "text": "돔 위에 별하늘 남기기"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/prompt": {
+    "source": "霜晶会记住你排下的星图。选中的图案会留在回忆手账。",
+    "context": "",
+    "text": "서리정령이 당신이 배치한 성도를 기억할 것입니다. 선택한 문양은 추억 수첩에 남습니다."
+  },
+  "story.json:/chapters/2/nodes/1/interaction/complete": {
+    "source": "最后一枚霜晶归位，属于你的星图在穹顶缓缓亮起。",
+    "context": "",
+    "text": "마지막 서리정이 제자리를 찾고, 당신만의 성도가 돔 위에서 천천히 밝아옵니다."
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/0/name": {
+    "source": "归雁星阵",
+    "context": "",
+    "text": "귀안 성좌"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/0/desc": {
+    "source": "为离乡的人指向霜语谷",
+    "context": "",
+    "text": "떠난 이들을 위한 서리말 골짜기 안내"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/1/name": {
+    "source": "守望猎弓",
+    "context": "",
+    "text": "사수하는 사냥 활"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/1/desc": {
+    "source": "纪念独自守村十年的冈特",
+    "context": "",
+    "text": "홀로 마을을 지킨 10년의 세월, 그를 기리며"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/2/name": {
+    "source": "风灯星环",
+    "context": "",
+    "text": "바람등 성운"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/2/desc": {
+    "source": "让守焰人的灯在夜空相逢",
+    "context": "",
+    "text": "밤하늘 아래 불꽃을 지키는 이들의 등불이 만나도록"
+  }
+}

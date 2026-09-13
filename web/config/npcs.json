@@ -1,38 +1,83 @@
 {
   "npcs": [
     {
-      "id": "gunnar", "name": "冈特", "title": "老猎人", "img": "npc_gunnar.png", "order": true,
+      "id": "gunnar",
+      "name": "冈特",
+      "title": "老猎人",
+      "img": "npc_gunnar.png",
+      "order": true,
       "arrival": "门帘被风猛地掀开。冈特肩上的雪还没化，手里攥着一截冻裂的火哨灯芯。",
       "request": "巡山的火哨又被风雪压灭了。我得在天黑前把路标重新点亮，能替我备齐这些物资吗？",
       "thanks": "火哨亮了。今晚走夜路的人，都知道家还在前面。",
-      "voiceRequest": "assets/audio/voice/gunnar_request.ogg",
-      "voiceThanks": "assets/audio/voice/gunnar_thanks.ogg"
+      "voiceArrivalId": "gunnar_arrival",
+      "voiceRequestId": "gunnar_request",
+      "voiceThanksId": "gunnar_thanks"
     },
     {
-      "id": "mier", "name": "蜜儿", "title": "面包师", "img": "npc_mier.png", "order": true,
+      "id": "mier",
+      "name": "蜜儿",
+      "title": "面包师",
+      "img": "npc_mier.png",
+      "order": true,
       "arrival": "一阵淡淡的麦香钻进屋里，蜜儿抱着刚擦干净的烤盘，小心避开门口的积雪。",
       "request": "烘焙坊的炉膛刚醒，可架子还是空的。帮我备齐这批物资，第一炉面包就分给广场上的大家。",
-      "thanks": "闻到了吗？这是霜语谷重新开炉后的第一阵麦香。"
+      "thanks": "闻到了吗？这是霜语谷重新开炉后的第一阵麦香。",
+      "voiceArrivalId": "mier_arrival",
+      "voiceRequestId": "mier_request",
+      "voiceThanksId": "mier_thanks"
     },
     {
-      "id": "bobo", "name": "波波", "title": "企鹅邮差", "img": "npc_bobo.png", "order": true,
+      "id": "bobo",
+      "name": "波波",
+      "title": "企鹅邮差",
+      "img": "npc_bobo.png",
+      "order": true,
       "arrival": "窗外传来一串急促的铃响。波波拖着歪斜的雪橇，邮袋里露出几封落满霜的信。",
       "request": "港口还压着一摞没送出去的信。给我这些物资，我就能把邮袋和雪橇修好。",
-      "thanks": "信会送到的。等消息的人，不该再多等一个冬天。"
+      "thanks": "信会送到的。等消息的人，不该再多等一个冬天。",
+      "voiceArrivalId": "bobo_arrival",
+      "voiceRequestId": "bobo_request",
+      "voiceThanksId": "bobo_thanks"
     },
     {
-      "id": "elsa", "name": "艾莎奶奶", "title": "裁缝", "img": "npc_elsa.png", "order": true,
+      "id": "elsa",
+      "name": "艾莎奶奶",
+      "title": "裁缝",
+      "img": "npc_elsa.png",
+      "order": true,
       "arrival": "艾莎奶奶把一叠旧冬衣放到桌上，衣角还留着孩子们画下的歪歪扭扭的小太阳。",
       "request": "孩子们的旧冬衣挡不住风了。我想赶在今晚前补好它们，还缺这一批材料。",
-      "thanks": "针脚缝住的不只是风，还有大家愿意留下来的心。"
+      "thanks": "针脚缝住的不只是风，还有大家愿意留下来的心。",
+      "voiceArrivalId": "elsa_arrival",
+      "voiceRequestId": "elsa_request",
+      "voiceThanksId": "elsa_thanks"
     },
     {
-      "id": "bar", "name": "巴尔", "title": "铁匠", "img": "npc_bar.png", "order": true,
+      "id": "bar",
+      "name": "巴尔",
+      "title": "铁匠",
+      "img": "npc_bar.png",
+      "order": true,
       "arrival": "沉重的工具箱落在地板上。巴尔摊开一枚断成两截的桥钉，断口像结了一层白霜。",
       "request": "桥钉和炉架都冻脆了。我需要这些材料重新开锻，免得下一场风把路又吹断。",
-      "thanks": "铁重新红了。只要炉火还响，村子就不会散。"
+      "thanks": "铁重新红了。只要炉火还响，村子就不会散。",
+      "voiceArrivalId": "bar_arrival",
+      "voiceRequestId": "bar_request",
+      "voiceThanksId": "bar_thanks"
     },
-    { "id": "choco", "name": "啾可", "title": "霜灵向导", "img": "npc_sprite.png", "order": false },
-    { "id": "gramps", "name": "埃文", "title": "老霜灵师 · 祖父", "img": "npc_gramps.png", "order": false }
+    {
+      "id": "choco",
+      "name": "啾可",
+      "title": "霜灵向导",
+      "img": "npc_sprite.png",
+      "order": false
+    },
+    {
+      "id": "gramps",
+      "name": "埃文",
+      "title": "老霜灵师 · 祖父",
+      "img": "npc_gramps.png",
+      "order": false
+    }
   ]
 }

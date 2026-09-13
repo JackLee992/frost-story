@@ -1,0 +1,83 @@
+{
+  "npcs": [
+    {
+      "id": "gunnar",
+      "name": "グンナー",
+      "title": "老練な猟師",
+      "img": "npc_gunnar.png",
+      "order": true,
+      "arrival": "戸口の幕が風に大きくめくれた。肩の雪も解けぬまま、グンナーは凍って裂けた火笛の芯を握りしめていた。",
+      "request": "巡山の火の笛がまた雪に埋もれて消えた。日が暮れる前に道標を再点灯させなきゃならん。この資材を揃えてくれるか？\n",
+      "thanks": "火笛が灯った。今夜、暗い山道を歩く者にも、その先に家があるとわかるだろう。",
+      "voiceArrivalId": "gunnar_arrival",
+      "voiceRequestId": "gunnar_request",
+      "voiceThanksId": "gunnar_thanks"
+    },
+    {
+      "id": "mier",
+      "name": "ミエル",
+      "title": "パン職人",
+      "img": "npc_mier.png",
+      "order": true,
+      "arrival": "かすかな麦の香りが部屋に流れ込み、ミエルは磨き上げたばかりの天板を抱え、入り口の雪を避けながら慎重に進んだ。\n",
+      "request": "ベーカリーの窯は目を覚ましたけれど、棚はまだ空っぽなの。この材料をそろえてくれたら、最初のパンを広場のみんなに配るわ。",
+      "thanks": "香る？ 霜語りの谷で、窯が目を覚ましてから初めての麦の香りよ。",
+      "voiceArrivalId": "mier_arrival",
+      "voiceRequestId": "mier_request",
+      "voiceThanksId": "mier_thanks"
+    },
+    {
+      "id": "bobo",
+      "name": "ボボ",
+      "title": "ペンギン郵便配達員",
+      "img": "npc_bobo.png",
+      "order": true,
+      "arrival": "窓の外から急かすような鈴の音が響く。ボボは傾いたそりを引き、郵便袋からは霜に覆われた数通の手紙が覗いていた。\n",
+      "request": "港には、まだ届けられていない手紙が山ほどあるんだ。この材料があれば、郵便袋とそりを直せるよ。",
+      "thanks": "手紙は必ず届けるよ。知らせを待つ人に、もうひと冬だって待たせちゃいけない。",
+      "voiceArrivalId": "bobo_arrival",
+      "voiceRequestId": "bobo_request",
+      "voiceThanksId": "bobo_thanks"
+    },
+    {
+      "id": "elsa",
+      "name": "エルサおばあちゃん",
+      "title": "仕立屋",
+      "img": "npc_elsa.png",
+      "order": true,
+      "arrival": "エルサおばあちゃんは古い冬着の山をテーブルに置いた。裾には子供たちが描いた、いびつな太陽の絵が残っている。\n",
+      "request": "子供たちの古い冬着ではもう風を防げないわ。今夜までに修繕したいのだけれど、この材料が足りなくて。\n",
+      "thanks": "針で縫い留めるのは風だけじゃないわ。ここに留まろうとするみんなの心も一緒にね。\n",
+      "voiceArrivalId": "elsa_arrival",
+      "voiceRequestId": "elsa_request",
+      "voiceThanksId": "elsa_thanks"
+    },
+    {
+      "id": "bar",
+      "name": "バル",
+      "title": "鍛冶師",
+      "img": "npc_bar.png",
+      "order": true,
+      "arrival": "重い道具箱が床に落ちた。バルは二つに割れた橋の釘を広げた。その断面には白い霜がうっすらと付着している。\n",
+      "request": "橋釘も炉台も凍って脆くなった。次の風で道まで折られる前に、この材料で鍛え直す。",
+      "thanks": "鉄がまた赤くなった。炉の音が続く限り、この村はばらばらにはならない。",
+      "voiceArrivalId": "bar_arrival",
+      "voiceRequestId": "bar_request",
+      "voiceThanksId": "bar_thanks"
+    },
+    {
+      "id": "choco",
+      "name": "チョコ",
+      "title": "霜の精の導き手",
+      "img": "npc_sprite.png",
+      "order": false
+    },
+    {
+      "id": "gramps",
+      "name": "エヴァン",
+      "title": "老いた霜術師・祖父",
+      "img": "npc_gramps.png",
+      "order": false
+    }
+  ]
+}

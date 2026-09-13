@@ -1,0 +1,126 @@
+{
+  "board": {
+    "cols": 6,
+    "rows": 8,
+    "initialUnlocked": 24,
+    "unlockBaseCost": 40,
+    "unlockCostGrowth": 1.16,
+    "unlockLevelStep": 4,
+    "fullWarnAt": 2
+  },
+  "energy": {
+    "start": 50,
+    "baseMax": 50,
+    "perLevels": 5,
+    "maxCap": 100,
+    "regenSec": 90
+  },
+  "xp": {
+    "base": 24,
+    "pow": 1.35,
+    "sprint": [
+      20,
+      24,
+      28,
+      34,
+      40,
+      48,
+      58,
+      70,
+      84
+    ]
+  },
+  "earlyFlow": {
+    "maxChapter": 3,
+    "comboWindowMs": 6000,
+    "comboEnergyAt3": 2,
+    "comboCoinAt5": 10,
+    "comboWarmthAt5": 1,
+    "freeTapsCap": 24,
+    "discoveryCoinPerTier": 2,
+    "discoveryXpPerTier": 2
+  },
+  "order": {
+    "slots": 3,
+    "coinMul": 1.8,
+    "xpPerTier": 6,
+    "xpBase": 20,
+    "gemChance": 0.2,
+    "refreshCost": 10,
+    "refreshGrowth": 1.5,
+    "maxTierByLv": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        8,
+        5
+      ]
+    ],
+    "countByLv": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ]
+  },
+  "bubble": {
+    "autoPopSec": 15
+  },
+  "levelRewards": {
+    "coinBase": 60,
+    "gemEvery": 3,
+    "gemAmount": 5
+  },
+  "unlocks": [
+    {
+      "lv": 1,
+      "text": "Unlock Ice Crystal Chain, Spark Chain & Bronze Chest"
+    },
+    {
+      "lv": 2,
+      "text": "Hot Drink Chain unlocked; Old Copper Kettle added to shop"
+    },
+    {
+      "lv": 3,
+      "text": "Lumber Chain unlocked; more Frozen Tiles can be melted"
+    },
+    {
+      "lv": 4,
+      "text": "Winter Wear chain unlocked. Woolen Basket added to Shop."
+    },
+    {
+      "lv": 5,
+      "text": "Stamina cap increased. Silver Chest added."
+    },
+    {
+      "lv": 6,
+      "text": "Baking chain unlocked. Chapter 2 story open."
+    },
+    {
+      "lv": 8,
+      "text": "Gold Chest added. Chapter 3 story open."
+    },
+    {
+      "lv": 10,
+      "text": "All board areas meltable. High-tier orders appear."
+    }
+  ]
+}

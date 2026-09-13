@@ -1,0 +1,126 @@
+{
+  "board": {
+    "cols": 6,
+    "rows": 8,
+    "initialUnlocked": 24,
+    "unlockBaseCost": 40,
+    "unlockCostGrowth": 1.16,
+    "unlockLevelStep": 4,
+    "fullWarnAt": 2
+  },
+  "energy": {
+    "start": 50,
+    "baseMax": 50,
+    "perLevels": 5,
+    "maxCap": 100,
+    "regenSec": 90
+  },
+  "xp": {
+    "base": 24,
+    "pow": 1.35,
+    "sprint": [
+      20,
+      24,
+      28,
+      34,
+      40,
+      48,
+      58,
+      70,
+      84
+    ]
+  },
+  "earlyFlow": {
+    "maxChapter": 3,
+    "comboWindowMs": 6000,
+    "comboEnergyAt3": 2,
+    "comboCoinAt5": 10,
+    "comboWarmthAt5": 1,
+    "freeTapsCap": 24,
+    "discoveryCoinPerTier": 2,
+    "discoveryXpPerTier": 2
+  },
+  "order": {
+    "slots": 3,
+    "coinMul": 1.8,
+    "xpPerTier": 6,
+    "xpBase": 20,
+    "gemChance": 0.2,
+    "refreshCost": 10,
+    "refreshGrowth": 1.5,
+    "maxTierByLv": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        8,
+        5
+      ]
+    ],
+    "countByLv": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ]
+  },
+  "bubble": {
+    "autoPopSec": 15
+  },
+  "levelRewards": {
+    "coinBase": 60,
+    "gemEvery": 3,
+    "gemAmount": 5
+  },
+  "unlocks": [
+    {
+      "lv": 1,
+      "text": "氷晶の鎖、火の種、青銅の宝箱を解放"
+    },
+    {
+      "lv": 2,
+      "text": "温かい飲み物の鎖を解放。ショップに古い銅のポットが登場"
+    },
+    {
+      "lv": 3,
+      "text": "木材の鎖を解放。より多くの氷結エリアを溶かすことができる"
+    },
+    {
+      "lv": 4,
+      "text": "冬衣の鎖を解放、ショップに毛糸バスケットが登場"
+    },
+    {
+      "lv": 5,
+      "text": "体力の最大値を上昇、シルバー宝箱が登場"
+    },
+    {
+      "lv": 6,
+      "text": "焼き菓子の鎖を解放、第2章のストーリー開放"
+    },
+    {
+      "lv": 8,
+      "text": "ゴールド宝箱が登場、第3章のストーリー開放"
+    },
+    {
+      "lv": 10,
+      "text": "盤面の全エリアが溶融可能、高難度依頼が登場"
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const base = 'http://127.0.0.1:8099/';
 
-async function boot(page, query = '?safeTop=32&safeRight=0&safeBottom=24&safeLeft=0&contentVersion=e2e') {
+async function boot(page, query = '?safeTop=32&safeRight=0&safeBottom=24&safeLeft=0&contentVersion=e2e&lang=zh-CN') {
   const errors = [];
   page.on('pageerror', error => errors.push(`pageerror: ${error.message}`));
   page.on('console', message => { if (message.type() === 'error') errors.push(`console: ${message.text()}`); });
@@ -28,8 +28,141 @@ async function skipWelcome(page){
     await page.waitForTimeout(190);
   }
   await page.locator('.dlg-next').waitFor({state:'detached',timeout:3000}).catch(()=>{});
+  const profile=page.locator('[data-profile-name]');
+  if(await profile.isVisible().catch(()=>false)){
+    await profile.fill('雪灯');
+    await page.locator('[data-save-profile]').click();
+    for(let i=0;i<4;i++){
+      const next=page.locator('.dlg-next').last();
+      if(!(await next.isVisible().catch(()=>false))) break;
+      await next.click({force:true}); await page.waitForTimeout(160);
+    }
+  }
   await page.waitForTimeout(150);
 }
+
+test('序章用故事收集玩家称呼，并允许在设置中安全修改', async ({ browser }) => {
+  const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+  const page=await context.newPage();
+  await page.goto(base); await page.evaluate(()=>localStorage.clear());
+  const errors=await boot(page);
+  await page.locator('.welcome-start').click();
+  for(let i=0;i<12;i++){
+    if(await page.locator('[data-profile-name]').isVisible().catch(()=>false)) break;
+    const next=page.locator('.dlg-next').last();
+    await next.click({force:true}); await page.waitForTimeout(120);
+  }
+  await expect(page.locator('.profile-story')).toContainText('怎么称呼你');
+  // GeckoView 在部分 edge-to-edge 真机上不会同步缩小 visualViewport；输入框聚焦本身
+  // 必须触发保底布局，让全部关键控件留在三星键盘顶边（约 60% 屏高）之上。
+  await page.locator('[data-profile-name]').focus();
+  for(const selector of ['[data-profile-name]','[data-save-profile]']){
+    const rect=await page.locator(selector).boundingBox();
+    expect(rect.y+rect.height).toBeLessThanOrEqual(480);
+  }
+  // Android edge-to-edge 下软键盘可能覆盖而不缩小 layout viewport；用 visual viewport
+  // 等价高度回归，确保玩家始终看得到输入框和提交按钮。
+  await page.evaluate(()=>{
+    document.documentElement.style.setProperty('--visual-vh','450px');
+    document.documentElement.style.setProperty('--visual-top','0px');
+    document.body.classList.add('keyboard-open');
+  });
+  for(const selector of ['[data-profile-name]','[data-save-profile]']){
+    const rect=await page.locator(selector).boundingBox();
+    expect(rect.y+rect.height).toBeLessThanOrEqual(450);
+  }
+  await page.screenshot({path:'artifacts/qa/web-profile-keyboard.png',fullPage:true});
+  await page.evaluate(()=>{
+    document.body.classList.remove('keyboard-open');
+    document.documentElement.style.setProperty('--visual-vh',`${window.innerHeight}px`);
+  });
+  await page.locator('[data-profile-name]').fill('<img>');
+  await page.locator('[data-save-profile]').click();
+  await expect(page.locator('.profile-error')).toContainText('符号');
+  await page.locator('[data-profile-name]').fill('雪团');
+  await page.locator('[data-save-profile]').click();
+  await expect(page.locator('.story-say')).toContainText('雪团');
+  await page.locator('.story-skip').click();
+  expect(await page.evaluate(()=>window.__game.state.profile.nickname)).toBe('雪团');
+  expect(JSON.parse(await page.evaluate(()=>localStorage.getItem('froststory.save.v1'))).profile.nickname).toBe('雪团');
+
+  await page.locator('[data-panel="settings"]').click();
+  await expect(page.locator('[data-profile-edit]')).toContainText('雪团');
+  await expect(page.locator('[data-game-language]')).toHaveValue('zh-CN');
+  await expect(page.locator('[data-voice-language]')).toHaveValue('zh-CN');
+  await page.locator('[data-voice-language]').selectOption('ja');
+  expect(await page.evaluate(()=>window.__game.state.settings.voiceLanguage)).toBe('ja');
+  expect(await page.evaluate(()=>window.__game.state.settings.language)).toBe('zh-CN');
+  await page.locator('[data-profile-edit]').click();
+  await page.locator('[data-profile-name]').fill('小雪灯');
+  await page.locator('[data-save-profile]').click();
+  await expect(page.locator('.story-say')).toContainText('小雪灯');
+  await page.locator('.story-skip').click();
+  await page.reload({waitUntil:'networkidle'}); await page.waitForFunction(()=>Boolean(window.__game));
+  expect(await page.evaluate(()=>window.__game.state.profile.nickname)).toBe('小雪灯');
+  expect(await page.evaluate(()=>window.__game.state.settings.language)).toBe('zh-CN');
+  expect(await page.evaluate(()=>window.__game.state.settings.voiceLanguage)).toBe('ja');
+  expect(errors).toEqual([]);
+  await context.close();
+});
+
+test('界面语言与配音语言独立保存', async ({ browser }) => {
+  const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:3,isMobile:true,hasTouch:true,locale:'en-US'});
+  const page=await context.newPage();
+  await page.goto(base); await page.evaluate(()=>localStorage.clear());
+  const errors=await boot(page,'?safeTop=20&safeBottom=20&contentVersion=i18n-e2e');
+  expect(await page.evaluate(()=>window.__game.Config.locale)).toBe('en');
+  await expect(page.locator('#dock')).toContainText('Settings');
+  await page.evaluate(()=>window.__game.ui.closeModal());
+  await page.locator('[data-panel="settings"]').click();
+  await page.locator('[data-voice-language]').selectOption('ko');
+  expect(await page.evaluate(()=>({game:window.__game.state.settings.language,voice:window.__game.state.settings.voiceLanguage})))
+    .toEqual({game:'en',voice:'ko'});
+  await page.locator('[data-game-language]').selectOption('ja');
+  await page.waitForFunction(()=>window.__game?.Config?.locale==='ja');
+  expect(await page.evaluate(()=>({game:window.__game.state.settings.language,voice:window.__game.state.settings.voiceLanguage,
+    documentLanguage:document.documentElement.lang}))).toEqual({game:'ja',voice:'ko',documentLanguage:'ja'});
+  expect(await page.evaluate(()=>window.__game.Config.voiceUrl('prologue_01',window.__game.state.settings.voiceLanguage)))
+    .toContain('/ko/prologue_01.ogg');
+  expect(errors).toEqual([]);
+  await context.close();
+});
+
+test('中英日韩在窄屏均可用，并能读取各自离线配音', async ({ browser }) => {
+  test.setTimeout(60_000);
+  const cases=[
+    {locale:'zh-CN',title:'冰霜物语'},
+    {locale:'en',title:'Frost Story'},
+    {locale:'ja',title:'フロスト・ストーリー'},
+    {locale:'ko',title:'프로스트 스토리'}
+  ];
+  for(const item of cases){
+    const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+    const page=await context.newPage();
+    const errors=await boot(page,`?safeTop=32&safeBottom=24&contentVersion=i18n-${item.locale}&lang=${item.locale}`);
+    await expect(page).toHaveTitle(item.title);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+    expect(await page.evaluate(()=>window.__game.Config.locale)).toBe(item.locale);
+    const voice=await page.evaluate(async locale=>{
+      const response=await fetch(window.__game.Config.voiceUrl('prologue_01',locale));
+      const bytes=new Uint8Array(await response.arrayBuffer());
+      return {ok:response.ok,size:bytes.length,header:String.fromCharCode(...bytes.slice(0,4))};
+    },item.locale);
+    expect(voice.ok).toBe(true);
+    expect(voice.size).toBeGreaterThan(1000);
+    expect(voice.header).toBe('OggS');
+    await page.evaluate(()=>window.__game.ui.closeModal());
+    await page.locator('[data-panel="settings"]').click();
+    await expect(page.locator('[data-game-language]')).toHaveValue(item.locale);
+    await expect(page.locator('[data-voice-language]')).toHaveValue(item.locale);
+    const modal=await page.locator('.modal').boundingBox();
+    expect(modal.x).toBeGreaterThanOrEqual(0);
+    expect(modal.x+modal.width).toBeLessThanOrEqual(360);
+    expect(errors).toEqual([]);
+    await page.screenshot({path:`artifacts/qa/web-locale-${item.locale}.png`,fullPage:true});
+    await context.close();
+  }
+});
 
 test('全屏安全区、六章入口与固定来源存档', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 360, height: 800 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
@@ -99,7 +232,7 @@ test('全屏安全区、六章入口与固定来源存档', async ({ browser }) 
 test('左右挖孔边距不会遮住操作控件', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 393, height: 852 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
-  const errors = await boot(page, '?safeTop=40&safeRight=18&safeBottom=28&safeLeft=12&contentVersion=e2e');
+  const errors = await boot(page, '?safeTop=40&safeRight=18&safeBottom=28&safeLeft=12&contentVersion=e2e&lang=zh-CN');
   const left = await page.locator('#levelBadge').boundingBox();
   const right = await page.locator('.hud-right').boundingBox();
   const dock = await page.locator('#dock').boundingBox();
@@ -252,13 +385,21 @@ test('失败交易保留当前弹窗、列表与滚动位置', async ({ browser 
   await page.evaluate(()=>{ window.__game.state.coin=0; window.__game.state.gem=0; window.__game.ui.renderHUD(); });
   await page.locator('[data-panel="shop"]').click();
   await page.locator('.modal').evaluate(el=>{el.dataset.instance='shop-stable';});
-  await page.locator('.m-body').evaluate(el=>{el.scrollTop=220;});
+  await page.locator('.m-body').evaluate(el=>{el.scrollTop=Math.min(24,el.scrollHeight-el.clientHeight);});
+  const touchTap=async selector=>{
+    // locator.click() 会先把目标滚到视口内，反而改变本用例正在验证的 scrollTop；
+    // 这里用真实触屏坐标点击当前可见按钮，匹配 Android 用户手势。
+    const rect=await page.locator(selector).boundingBox();
+    expect(rect).not.toBeNull();
+    await page.touchscreen.tap(rect.x+rect.width/2,rect.y+rect.height/2);
+  };
   const before=await page.evaluate(()=>({
     cells:JSON.stringify(window.__game.state.cells),coin:window.__game.state.coin,gem:window.__game.state.gem,
     scroll:document.querySelector('.m-body').scrollTop
   }));
+  expect(before.scroll).toBeGreaterThan(0);
 
-  await page.locator('[data-chest="chest_bronze"]').click();
+  await touchTap('[data-chest="chest_bronze"]');
   await expect(page.locator('.toast').last()).toContainText('金币不足');
   await expect(page.locator('.modal')).toHaveAttribute('data-instance','shop-stable');
   await expect(page.locator('.modal-mask')).toHaveCount(1);
@@ -266,14 +407,14 @@ test('失败交易保留当前弹窗、列表与滚动位置', async ({ browser 
   expect(await page.evaluate(()=>JSON.stringify(window.__game.state.cells))).toBe(before.cells);
   expect(await page.evaluate(()=>window.__game.state.coin)).toBe(before.coin);
 
-  await page.locator('[data-energy]').click();
+  await touchTap('[data-energy]');
   await expect(page.locator('.toast').last()).toContainText('钻石不足');
   await expect(page.locator('.modal')).toHaveAttribute('data-instance','shop-stable');
   expect(await page.locator('.m-body').evaluate(el=>el.scrollTop)).toBe(before.scroll);
   expect(await page.evaluate(()=>window.__game.state.gem)).toBe(before.gem);
 
   await page.evaluate(()=>{window.__game.state.coin=1000;});
-  await page.locator('[data-chest="chest_bronze"]').click();
+  await touchTap('[data-chest="chest_bronze"]');
   await expect(page.locator('.modal')).toHaveAttribute('data-instance','shop-stable');
   expect(await page.locator('.m-body').evaluate(el=>el.scrollTop)).toBe(before.scroll);
   expect(await page.evaluate(()=>window.__game.state.cells.filter(c=>c?.k==='c').length)).toBe(1);
@@ -368,6 +509,118 @@ test('关键剧情包含连续电影对白、亲手复苏与可持久化装修�
   });
   await expect(page.locator('.story-say')).toContainText('霜晶星灯');
   await page.locator('.story-skip').click();
+  expect(errors).toEqual([]);
+  await context.close();
+});
+
+test('前三章交替安排场景操作、个人选择与喘息节点', async ({ browser }) => {
+  const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+  const page=await context.newPage();
+  await page.goto(base);
+  await page.evaluate(()=>localStorage.clear());
+  const errors=await boot(page);
+  await page.evaluate(()=>window.__game.ui.closeModal());
+
+  await page.evaluate(()=>{
+    const ch=window.__game.Config.story[0],node=ch.nodes.find(item=>item.id==='n13');
+    window.__beatDone=false;
+    window.__game.ui._storyBeat(ch,node,()=>{window.__beatDone=true;});
+  });
+  const bridge=page.locator('.story-act[data-node="n13"]');
+  await expect(bridge).toContainText('让第一封信过桥');
+  await expect(bridge.locator('.story-act-target')).toHaveCount(3);
+  for(let i=0;i<3;i++) await bridge.locator('.story-act-target').nth(i).click();
+  await expect(bridge.locator('.story-act-result')).toContainText('波波抱紧邮袋');
+  await page.screenshot({path:'artifacts/qa/web-story-bridge-beat.png',fullPage:true});
+  await bridge.locator('.story-act-continue').click();
+  await page.waitForFunction(()=>window.__beatDone===true);
+
+  await page.evaluate(()=>{
+    const ch=window.__game.Config.story[1],node=ch.nodes.find(item=>item.id==='n22');
+    window.__choiceBeatDone=false;
+    window.__game.ui._storyBeat(ch,node,()=>{window.__choiceBeatDone=true;});
+  });
+  await expect(page.locator('.story-act[data-node="n22"]')).toContainText('归乡围巾');
+  await page.locator('[data-choice="hearth"]').click();
+  await page.locator('.story-choice-confirm').click();
+  await page.waitForFunction(()=>window.__choiceBeatDone===true);
+  expect(await page.evaluate(()=>window.__game.state.storyChoice('n22')?.id)).toBe('hearth');
+
+  await page.evaluate(()=>{
+    const ch=window.__game.Config.story[2],node=ch.nodes.find(item=>item.id==='n32');
+    window.__choiceBeatDone=false;
+    window.__game.ui._storyBeat(ch,node,()=>{window.__choiceBeatDone=true;});
+  });
+  const dome=page.locator('.story-act[data-node="n32"]');
+  await expect(dome).toContainText('把一片星空留在穹顶');
+  await dome.locator('[data-choice="hunterbow"]').click();
+  await page.screenshot({path:'artifacts/qa/web-story-dome-choice.png',fullPage:true});
+  await dome.locator('.story-choice-confirm').click();
+  await page.waitForFunction(()=>window.__choiceBeatDone===true);
+  expect(await page.evaluate(()=>({n22:window.__game.state.storyChoice('n22')?.id,n32:window.__game.state.storyChoice('n32')?.id})))
+    .toEqual({n22:'hearth',n32:'hunterbow'});
+  expect(errors).toEqual([]);
+  await context.close();
+});
+
+test('主线缺料可追踪合成路径并一键定位生成器或商店', async ({ browser }) => {
+  const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+  const page=await context.newPage();
+  await page.goto(base);
+  await page.evaluate(()=>localStorage.clear());
+  const errors=await boot(page);
+  await skipWelcome(page);
+
+  await page.locator('[data-panel="story"]').click();
+  await expect(page.locator('[data-build="n11"]')).toContainText('找材料');
+  // 真机快速结束序章时，上一帧排队的教学刷新不得把啾可/光圈重新叠到当前弹层下。
+  await expect(page.locator('.modal-mask')).toHaveCount(1);
+  await expect(page.locator('#companion')).toHaveCSS('display','none');
+  await expect(page.locator('#guideLayer')).toHaveClass(/hidden/);
+  await page.evaluate(()=>window.__game.ui._tutorial());
+  await expect(page.locator('#companion')).toHaveCSS('display','none');
+  await expect(page.locator('#guideLayer')).toHaveClass(/hidden/);
+  await page.locator('.m-close').click();
+
+  // 带修饰 class 的专用对话框仍必须使用透明宿主，否则外壳+内卡会看起来像弹窗重叠。
+  await page.evaluate(()=>window.__game.ui._levelUp([{lv:2,reward:{coin:120,gem:0},text:'热饮链解锁'}]));
+  await expect(page.locator('.modal-mask')).toHaveCount(1);
+  await expect(page.locator('.modal')).toHaveClass(/bare/);
+  await page.locator('.cd-ok').click();
+
+  await page.locator('.quest-summary').click();
+  await expect(page.locator('#quest')).not.toHaveClass(/collapsed/);
+  await expect(page.locator('#quest .q-go')).toContainText('找材料');
+  await page.locator('#quest .q-go').click();
+  const guide=page.locator('.objective-guide');
+  await expect(guide).toBeVisible();
+  await expect(guide).toContainText('篝火堆');
+  await expect(guide).toContainText('燧石火种');
+  await expect(guide).toContainText('火星 → 火苗 → 火把 → 小炭炉 → 篝火堆');
+  await expect(guide).toContainText('棋盘上已经有一条可合成路线');
+  await page.screenshot({path:'artifacts/qa/web-material-guide.png',fullPage:true});
+
+  await guide.locator('[data-locate-chain="fire"]').click();
+  await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','source');
+  await expect(page.locator('#companion .comp-say')).toContainText('两个火星拖到一起');
+  await page.evaluate(()=>{ const {chapter,node}=window.__game.state.currentObjective(); window.__game.ui._objectiveGuide(chapter,node); });
+  await guide.locator('[data-locate-generator="g_fire"]').click();
+  await expect(page.locator('#guideLayer')).toHaveAttribute('data-step','source');
+  await expect(page.locator('#companion .comp-say')).toContainText('燧石火种');
+
+  await page.evaluate(()=>{
+    const s=window.__game.state;
+    s.lv=6;
+    s.ownedGens=s.ownedGens.filter(id=>id!=='g_food');
+    s.cells=s.cells.map(cell=>cell?.k==='g'&&cell.gid==='g_food'?null:cell);
+    window.__game.scene.sync(true);
+    window.__game.ui._materialGuide('food',4,1);
+  });
+  await expect(page.locator('.material-guide')).toContainText('旧烤箱');
+  await page.locator('.material-guide [data-shop-generator="g_food"]').click();
+  await expect(page.locator('.m-title')).toContainText('商店');
+  await expect(page.locator('[data-goods-generator="g_food"]')).toHaveClass(/source-focus/);
+  await page.screenshot({path:'artifacts/qa/web-material-source-shop.png',fullPage:true});
   expect(errors).toEqual([]);
   await context.close();
 });

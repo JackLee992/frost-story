@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">冰霜物语</string>
+    <string name="exit_prompt">再按一次退出冰霜物语</string>
+    <string name="content_update_ready">新内容 %1$s 已下载，将在下次启动时生效</string>
 </resources>

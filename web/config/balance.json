@@ -1,7 +1,21 @@
 {
   "board": { "cols": 6, "rows": 8, "initialUnlocked": 24, "unlockBaseCost": 40, "unlockCostGrowth": 1.16, "unlockLevelStep": 4, "fullWarnAt": 2 },
   "energy": { "start": 50, "baseMax": 50, "perLevels": 5, "maxCap": 100, "regenSec": 90 },
-  "xp": { "base": 24, "pow": 1.35 },
+  "xp": {
+    "base": 24,
+    "pow": 1.35,
+    "sprint": [20, 24, 28, 34, 40, 48, 58, 70, 84]
+  },
+  "earlyFlow": {
+    "maxChapter": 3,
+    "comboWindowMs": 6000,
+    "comboEnergyAt3": 2,
+    "comboCoinAt5": 10,
+    "comboWarmthAt5": 1,
+    "freeTapsCap": 24,
+    "discoveryCoinPerTier": 2,
+    "discoveryXpPerTier": 2
+  },
   "order": {
     "slots": 3,
     "coinMul": 1.8,

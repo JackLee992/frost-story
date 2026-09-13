@@ -1,0 +1,2710 @@
+{
+  "version": 3,
+  "profile": {
+    "prompt": [
+      [
+        "choco",
+        "Wait... the wind lantern recognizes your hand, but I still don't know what to call you.",
+        {
+          "voiceId": "profile_prompt_01"
+        }
+      ],
+      [
+        "choco",
+        "Tell me. When all the lights in the valley are lit, I'll share your name with everyone coming home.",
+        {
+          "voiceId": "profile_prompt_02"
+        }
+      ]
+    ],
+    "confirm": [
+      [
+        "choco",
+        "{{playerName}}... Okay, I've got it. Let's go find spring together.",
+        {
+          "spoken": "You... Okay, I've got it. Let's go find spring together.",
+          "voiceId": "profile_confirm_01"
+        }
+      ]
+    ]
+  },
+  "companion": {
+    "tutorial": {
+      "produce": {
+        "text": "The wind lantern is warming up... Touch that blue light.",
+        "voiceId": "companion_tutorial_produce"
+      },
+      "merge": {
+        "text": "These two frost crystals are resonating. Try bringing them together?",
+        "voiceId": "companion_tutorial_merge"
+      },
+      "request": {
+        "text": "Shh—someone's coming through the snow. Let's listen to why they're knocking.",
+        "voiceId": "companion_tutorial_request"
+      },
+      "order": {
+        "text": "Gunnar entrusted us with the fire whistle. Give him the finished frost crystal.",
+        "voiceId": "companion_tutorial_order"
+      },
+      "unlock": {
+        "text": "The fire whistle reveals a loose piece of ice. Tap that snow lock.",
+        "voiceId": "companion_tutorial_unlock"
+      },
+      "shop": {
+        "text": "Mier said the market is reopening. Let's see what's glowing inside.",
+        "voiceId": "companion_tutorial_shop"
+      },
+      "story": {
+        "text": "A faint spark sounds from beneath the plaza. Go to the valley; it's waiting for us.",
+        "voiceId": "companion_tutorial_story"
+      }
+    },
+    "reactions": {
+      "produce": {
+        "text": "It's awake... your grandfather's mine still recognizes you.",
+        "voiceId": "companion_reactions_produce"
+      },
+      "merge": {
+        "text": "Do you hear that? There's a spark in the sound of cracking ice.",
+        "voiceId": "companion_reactions_merge"
+      },
+      "request": {
+        "text": "Gunnar didn't leave. He's been guarding the night roads for this empty village.",
+        "voiceId": "companion_reactions_request"
+      },
+      "order": {
+        "text": "The first fire whistle lit up in the distance.",
+        "voiceId": "companion_reactions_order"
+      },
+      "unlock": {
+        "text": "Beneath the ice lies a path left behind ten years ago.",
+        "voiceId": "companion_reactions_unlock"
+      },
+      "shop": {
+        "text": "The shelves are empty, but the bell still rings. This place will be lively again.",
+        "voiceId": "companion_reactions_shop"
+      }
+    },
+    "orders": {
+      "accepted": {
+        "text": "{{npcName}} entrusted this to us. Check the materials already on the board first.",
+        "spoken": "This was entrusted to us. Check the materials on the board first.",
+        "voiceId": "companion_orders_accepted"
+      },
+      "followup": {
+        "text": "See? We're giving more than just materials. The village has one more story for people to remember.",
+        "voiceId": "companion_orders_followup"
+      }
+    },
+    "idle": {
+      "complete": {
+        "text": "The valley is blooming with spring now, but we can keep merging and gathering to make life even warmer.",
+        "voiceId": "companion_idle_complete"
+      },
+      "ready": {
+        "text": "All materials for \"{{nodeName}}\" are ready! Open the Valley Delivery to continue the story.",
+        "spoken": "All materials are ready! Open the Valley Delivery to continue the story.",
+        "voiceId": "companion_idle_ready"
+      },
+      "lack": {
+        "text": "\"{{nodeName}}\" is missing {{itemName}}. Tap the red items in the quest to find the {{generatorName}} and full merge chain.",
+        "spoken": "One more material needed. Tap the red items in the quest to find the Supply Station and full merge chain.",
+        "voiceId": "companion_idle_lack"
+      },
+      "lvlock": {
+        "text": "This part of the story awaits Lv. {{level}}. Just complete a few more commissions.",
+        "spoken": "This part of the story requires a few more levels. Just complete a few more commissions.",
+        "voiceId": "companion_idle_lvlock"
+      },
+      "next": {
+        "text": "Just follow the main quest. Next stop: \"{{nodeName}}\".",
+        "spoken": "Just follow the main quest. The next stop is just ahead.",
+        "voiceId": "companion_idle_next"
+      }
+    },
+    "source": {
+      "generator": {
+        "text": "The {{generatorName}} is here. Tap it to produce {{baseItem}}. Merge pairs of identical items to progress along the chain.",
+        "spoken": "The Supply Station is here. Tap it for base materials. Merge pairs of identical items to progress along the chain.",
+        "voiceId": "companion_source_generator"
+      },
+      "merge": {
+        "text": "Drag these two {{currentItem}} together first. Each merge brings you closer to {{targetItem}}. Tap red items to light up the next pair.",
+        "spoken": "Drag the two lit materials together. Each merge brings you closer to the goal. Tap red items to light up the next pair.",
+        "voiceId": "companion_source_merge"
+      }
+    }
+  },
+  "prologue": [
+    [
+      "narrator",
+      "In the north lies a snow-buried valley called Frostwhisper Valley.",
+      {
+        "voiceId": "prologue_01"
+      }
+    ],
+    [
+      "narrator",
+      "Ten years ago, the Everwarm Flame at the heart of the valley suddenly went out, and the blizzard never stopped.",
+      {
+        "voiceId": "prologue_02"
+      }
+    ],
+    [
+      "choco",
+      "I'm Choco, the last frost spirit living in your grandfather's wind lantern.",
+      {
+        "voiceId": "prologue_03"
+      }
+    ],
+    [
+      "choco",
+      "He used to say—someone always has to clear the first patch of snow. Now it's your turn to carry this wind lantern home.",
+      {
+        "voiceId": "prologue_04"
+      }
+    ]
+  ],
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Chapter 1 · The Village Awakens",
+      "subtitle": "The First Fire, the First Wisp of Smoke",
+      "hook": "Why did Grandfather leave the last wind lantern to me?",
+      "scene": "story_1.png",
+      "bgm": "bgm",
+      "mood": "cold",
+      "unlockLv": 1,
+      "intro": [
+        [
+          "narrator",
+          "The blizzard raged for ten years as the campfires of Frostwhisper Valley faded one by one.",
+          {
+            "voiceId": "chapter_01_intro_01"
+          }
+        ],
+        [
+          "narrator",
+          "I carried my grandfather's wind lantern back to the village. The snow was deep, but if you're willing to bend down, you can always clear a path.",
+          {
+            "voiceId": "chapter_01_intro_02"
+          }
+        ]
+      ],
+      "worldLore": [
+        {
+          "id": "w_longsnow",
+          "title": "Ten Years of Snow",
+          "text": "Since the winter the Everwarm Flame died, snow fell in endless waves and never melted. People fled south in groups, leaving those behind to guard shrinking fires like they were guarding a fading heartbeat."
+        },
+        {
+          "id": "w_frostcrafter",
+          "title": "Frostweaver",
+          "text": "A frostweaver shapes crystals with a wind lantern and warms the valley through the Everwarm Flame. Evan was the finest Frostweaver in Frostwhisper Valley, and the player's grandfather. After the catastrophe ten years ago, he vanished at the mountain peak."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n11",
+          "name": "Rekindle the Campfire Plaza",
+          "place": "Village Center · Frozen Fountain Square",
+          "coin": 20,
+          "cg": "cg_first_flame.png",
+          "need": [
+            {
+              "fam": "fire",
+              "tier": 5,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "choco",
+              "There may still be a spark alive beneath the fire pit in the plaza!",
+              {
+                "voiceId": "n11_pre_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Child, merge a roaring Bonfire, then spend a few Coins to get it going—this is where the village wakes.",
+              {
+                "voiceId": "n11_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "choco",
+              "There's still a spark! Don't let the wind take it—just a bit closer.",
+              {
+                "voiceId": "n11_dialogue_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Ten years... I can finally feel my fingers again. I'm Gunnar, the last old hunter who never left this village.",
+              {
+                "voiceId": "n11_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "{{playerName}}, you're carrying Evan's wind lantern, aren't you? He was your grandfather and the valley's finest frostweaver.",
+              {
+                "spoken": "You're carrying Evan's wind lantern, aren't you? He was your grandfather and the valley's finest frostweaver.",
+                "voiceId": "n11_dialogue_03"
+              }
+            ],
+            [
+              "choco",
+              "Listen—someone just opened a window. That first fire isn't a pretty sight. It's proof they finally dare to believe we've come back.",
+              {
+                "voiceId": "n11_dialogue_04"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "Guard the First Spark",
+            "prompt": "Complete three steps in order to keep this flame alive.",
+            "complete": "The first fire didn't go out. One by one, windows that had been dark for a decade began to glow.",
+            "steps": [
+              {
+                "id": "kindling",
+                "label": "Add Frostwood",
+                "icon": "🪵",
+                "x": 48,
+                "y": 72,
+                "sfx": "tap"
+              },
+              {
+                "id": "lantern",
+                "label": "Bring the Light",
+                "icon": "🏮",
+                "x": 34,
+                "y": 57,
+                "sfx": "flame"
+              },
+              {
+                "id": "shelter",
+                "label": "Protect the Flame",
+                "icon": "🔥",
+                "x": 61,
+                "y": 55,
+                "sfx": "chime"
+              }
+            ]
+          },
+          "lore": {
+            "title": "The First Fire",
+            "text": "For the first time in ten years, the fire in the plaza didn't die before dawn. Gunnar said that as long as people are willing to sit around a fire, the village isn't dead."
+          },
+          "reward": {
+            "coin": 80,
+            "gem": 2,
+            "xp": 50,
+            "energy": 10,
+            "freeTaps": 8,
+            "generator": "g_wood",
+            "starter": [
+              {
+                "fam": "wood",
+                "tier": 1,
+                "n": 2
+              },
+              {
+                "fam": "wood",
+                "tier": 2,
+                "n": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "n12",
+          "name": "Repair Hunter's Cabin",
+          "place": "East Village · Gunnar's Leaky Cabin",
+          "coin": 35,
+          "unlockLv": 3,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 3,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "gunnar",
+              "My roof has been leaking snow for three years. At night, it falls on my bedding; in the morning, I have to dig myself out from under the snow.",
+              {
+                "voiceId": "n12_pre_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Merge two sturdy Wood Planks and set aside a little pay, so these old bones can sleep one night without snow falling in.",
+              {
+                "voiceId": "n12_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "gunnar",
+              "With the boards nailed down, the wind is blocked. The house is so quiet you can hear the charcoal crackle.",
+              {
+                "voiceId": "n12_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "Grandpa Gunnar, you mentioned my grandfather... where did he go ten years ago?",
+              {
+                "voiceId": "n12_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "Evan... he went to the mountain peak. Once you make this village a bit warmer, I'll tell you the story.",
+              {
+                "voiceId": "n12_dialogue_03"
+              }
+            ],
+            [
+              "choco",
+              "Alright. Then I'll start by making sure no house lets in any snow.",
+              {
+                "voiceId": "n12_dialogue_04"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The Hunter's Old Wound",
+            "text": "Gunnar's left leg was frostbitten during a night watch ten years ago, and he hasn't been able to enter the deep mountains since. He never complains; he only keeps his polished old hunting bow hanging behind the door."
+          },
+          "reward": {
+            "coin": 90,
+            "gem": 3,
+            "xp": 50,
+            "energy": 10,
+            "freeTaps": 8,
+            "generator": "g_drink",
+            "starter": [
+              {
+                "fam": "drink",
+                "tier": 1,
+                "n": 2
+              },
+              {
+                "fam": "drink",
+                "tier": 2,
+                "n": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "n13",
+          "name": "Raise the Village Bridge",
+          "place": "West Village · Broken Entrance Bridge",
+          "coin": 50,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 4,
+              "n": 1
+            },
+            {
+              "fam": "fire",
+              "tier": 3,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "bobo",
+              "Ex-excuse me—is anyone on the other side of the bridge? I'm Bobo the courier, carrying a bag of letters undelivered for ten years!",
+              {
+                "voiceId": "n13_pre_01"
+              }
+            ],
+            [
+              "bobo",
+              "But the bridge is broken, and I'm too scared to trust the ice. Could you lay a Wooden Beam and light a Torch to show the way? Everyone is waiting for news from outside.",
+              {
+                "voiceId": "n13_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "bobo",
+              "L-the letters can reach the village now! Look at this one—it came from beyond the mountain, addressed to \"Those Still in Frostwhisper Valley.\"",
+              {
+                "voiceId": "n13_dialogue_01"
+              }
+            ],
+            [
+              "gunnar",
+              "The world outside hasn't forgotten us yet.",
+              {
+                "voiceId": "n13_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "The bridge is open; it's time for the neighbors to come home one by one. Grandma Elsa asked me to bring a basket of yarn to knit warm gloves for those on the road.",
+              {
+                "voiceId": "n13_dialogue_03"
+              }
+            ],
+            [
+              "bobo",
+              "That's great! I'll deliver these letters to every corner of the valley right now!",
+              {
+                "voiceId": "n13_dialogue_04"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "Carry the First Letter Across",
+            "prompt": "Rebuild the bridge so Bobo can deliver the first letter in ten years himself.",
+            "complete": "The ropes pull taut and the wind lantern flares to life. Clutching his mailbag, Bobo dashes across the path you laid.",
+            "steps": [
+              {
+                "id": "beam",
+                "label": "Set the Main Beam",
+                "icon": "🪵",
+                "x": 34,
+                "y": 66,
+                "sfx": "tap"
+              },
+              {
+                "id": "rope",
+                "label": "Tighten the Bridge Ropes",
+                "icon": "🪢",
+                "x": 67,
+                "y": 49,
+                "sfx": "tap"
+              },
+              {
+                "id": "waylight",
+                "label": "Hang the Wayfinder Lantern",
+                "icon": "🏮",
+                "x": 51,
+                "y": 32,
+                "sfx": "chime"
+              }
+            ]
+          },
+          "lore": {
+            "title": "A Bag of Old Letters",
+            "text": "Bobo's mailbag contains letters left by villagers who migrated south, addressed to \"Dad,\" \"Grandma,\" or \"Neighbors who stayed.\" He says as long as the letters exist, people are never truly out of touch."
+          },
+          "reward": {
+            "coin": 110,
+            "gem": 5,
+            "xp": 55,
+            "energy": 12,
+            "freeTaps": 10,
+            "generator": "g_cloth",
+            "starter": [
+              {
+                "fam": "cloth",
+                "tier": 1,
+                "n": 2
+              },
+              {
+                "fam": "cloth",
+                "tier": 2,
+                "n": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "n14",
+          "name": "Gathering by the Hearth",
+          "place": "Square · Re-lit Town Hall",
+          "coin": 70,
+          "unlockLv": 4,
+          "need": [
+            {
+              "fam": "cloth",
+              "tier": 3,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 3,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "gunnar",
+              "Gather everyone at the town hall tonight. For ten years, no one dared gather at night—everyone was afraid there'd be fewer people left after.",
+              {
+                "voiceId": "n14_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "Then we'll knit some gloves and brew pots of hot tea to keep everyone warm tonight, so they feel safe staying.",
+              {
+                "voiceId": "n14_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "You hang the \"{{choice}}\" from the rafters. With crackling fire and steaming tea, laughter fills the town hall for the first time.",
+              {
+                "spoken": "You hang your chosen main lamp from the rafters. With crackling fire and steaming tea, laughter fills the town hall for the first time.",
+                "voiceId": "n14_dialogue_01"
+              }
+            ],
+            [
+              "gunnar",
+              "On the night Evan left, there was a fire just like this. He said the Sacred Flame wasn't blown out by the wind; it grew cold because people forgot it and stopped adding wood.",
+              {
+                "voiceId": "n14_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "Before he climbed the mountain, he gave me this wind lantern and said, \"When the next person willing to clear the snow comes home, return it to them for me.\"",
+              {
+                "voiceId": "n14_dialogue_03"
+              }
+            ],
+            [
+              "choco",
+              "So I was left behind just to wait for you, {{playerName}}.",
+              {
+                "spoken": "So I was left behind just to wait for you.",
+                "voiceId": "n14_dialogue_04"
+              }
+            ],
+            [
+              "choco",
+              "The village is waking up, but we need more than just ourselves—there's the other side of the bridge, and the entire street buried in snow.",
+              {
+                "voiceId": "n14_dialogue_05"
+              }
+            ],
+            [
+              "mier",
+              "I've rolled over the old oven from the bakery. When the next light flickers on, let the aroma cross the bridge too.",
+              {
+                "voiceId": "n14_dialogue_06"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "choice",
+            "title": "Leave a Light for the Town Hall",
+            "prompt": "The villagers will remember your choice, and it will be kept in the Memory Journal.",
+            "complete": "The lantern hangs from the rafters—and its story enters your Memory Journal. From now on, this hall bears your mark.",
+            "options": [
+              {
+                "id": "amber",
+                "name": "Pine Resin Lamp",
+                "icon": "🏮",
+                "desc": "Warm as an old hearth.",
+                "accent": "#f5a33c"
+              },
+              {
+                "id": "crystal",
+                "name": "Frost Crystal Lamp",
+                "icon": "✨",
+                "desc": "Refracts snow into a starry sky.",
+                "accent": "#6fc8ef"
+              },
+              {
+                "id": "hearth",
+                "name": "Hunter's Wall Lamp",
+                "icon": "🔥",
+                "desc": "Sturdy, bright, and windproof.",
+                "accent": "#e56d46"
+              }
+            ]
+          },
+          "lore": {
+            "title": "Promise of the Wind Lantern",
+            "text": "Before heading up the mountain, the old frostweaver Evan left a wind lantern and entrusted it to Gunnar to give to \"the next person who clears the snow.\" The frost spirit Choco inside has been waiting for ten whole years."
+          },
+          "reward": {
+            "coin": 140,
+            "gem": 5,
+            "xp": 65,
+            "energy": 15,
+            "freeTaps": 12,
+            "generator": "g_food",
+            "starter": [
+              {
+                "fam": "food",
+                "tier": 1,
+                "n": 2
+              },
+              {
+                "fam": "food",
+                "tier": 2,
+                "n": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Chapter 2: Sugarfrost Workshop Street",
+      "subtitle": "Kindling the Hearth in Every Shop",
+      "hook": "A reply ten years late—whose name is written on it?",
+      "scene": "story_2.png",
+      "bgm": "bgm_street",
+      "mood": "bustling",
+      "unlockLv": 6,
+      "intro": [
+        [
+          "narrator",
+          "Beyond the wooden bridge, the bakery, tailor shop, and old pier lie buried in snow, their signs weighed down by the frost.",
+          {
+            "voiceId": "chapter_02_intro_01"
+          }
+        ],
+        [
+          "narrator",
+          "Light a fire in every shop. Let this street breathe again, filled with warmth and aroma.",
+          {
+            "voiceId": "chapter_02_intro_02"
+          }
+        ]
+      ],
+      "worldLore": [
+        {
+          "id": "w_workstreet",
+          "title": "Sugarfrost Workshop Street",
+          "text": "Before the Catastrophe, this was the heart of the valley: Mier's berry pies had lines stretching to the docks; every child had a scarf knitted by Grandma Elsa."
+        },
+        {
+          "id": "w_warmth",
+          "title": "Warmth",
+          "text": "The people of Frostwhisper Valley call the feeling of being \"remembered\" Warmth—a hot drink, a knitted scarf, or a lamp left lit for someone. With every completed commission, the warmth of the valley grows."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n21",
+          "name": "Reopen Frost-Sugar Bakery",
+          "place": "Workshop Street · The Frost-Kissed Bakery",
+          "coin": 90,
+          "need": [
+            {
+              "fam": "food",
+              "tier": 4,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 3,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "mier",
+              "Oh! I hear footsteps of a living soul! I'm Mier, the baker. My oven is frozen shut, and my recipe book is a block of ice...",
+              {
+                "voiceId": "n21_pre_01"
+              }
+            ],
+            [
+              "mier",
+              "Help me bake a flatbread and brew some hot tea to warm up the oven first, okay? Once the scent drifts out, the neighbors will know home is still here.",
+              {
+                "voiceId": "n21_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "mier",
+              "Once the oven warms up, the smell of flatbread will reach the foot of the mountain! Just wait—the first batch is only the beginning; berry pies are coming soon too.",
+              {
+                "voiceId": "n21_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "That's the scent of the valley waking up. Mier, why didn't you leave during the Cataclysm?",
+              {
+                "voiceId": "n21_dialogue_02"
+              }
+            ],
+            [
+              "mier",
+              "I promised my sister I'd keep the shop open until she came home for the first pie from my oven.",
+              {
+                "voiceId": "n21_dialogue_03"
+              }
+            ],
+            [
+              "mier",
+              "The first pie is yours, {{playerName}}. Thank you for letting me believe I can wait for someone again.",
+              {
+                "spoken": "The first pie is yours. Thank you for letting me believe I can wait for someone again.",
+                "voiceId": "n21_dialogue_04"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "Wake the Sleeping Oven",
+            "prompt": "Help Mier send the scent of the first bake down the street.",
+            "complete": "Golden light spills from the oven as the first Baked Flatbread puffs up. Along the street, someone follows the scent and opens a window.",
+            "steps": [
+              {
+                "id": "defrost",
+                "label": "Knock Frost from the Door",
+                "icon": "❄️",
+                "x": 30,
+                "y": 52,
+                "sfx": "tap"
+              },
+              {
+                "id": "firewood",
+                "label": "Feed It Frostwood",
+                "icon": "🪵",
+                "x": 55,
+                "y": 68,
+                "sfx": "tap"
+              },
+              {
+                "id": "oven",
+                "label": "Light the First Fire",
+                "icon": "🥧",
+                "x": 69,
+                "y": 43,
+                "sfx": "flame"
+              }
+            ]
+          },
+          "lore": {
+            "title": "The Undelivered Berry Pie",
+            "text": "Mier's sister missed the last ferry when she moved south, and they were separated. For ten years, Mier baked an extra pie every day, placing it by the window."
+          },
+          "reward": {
+            "coin": 170,
+            "gem": 5,
+            "xp": 50,
+            "energy": 12,
+            "freeTaps": 8
+          }
+        },
+        {
+          "id": "n22",
+          "name": "Reopen Warm Sun Tailor Shop",
+          "place": "Workshop Street · The Yarn-Tangled Tailor Shop",
+          "coin": 110,
+          "need": [
+            {
+              "fam": "cloth",
+              "tier": 4,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 2,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "elsa",
+              "Oh my, my spectacles are frozen to the table! Come here, child, help Grandma knit a wool cap and a scarf.",
+              {
+                "voiceId": "n22_pre_01"
+              }
+            ],
+            [
+              "elsa",
+              "I'll make them soft and cozy. One scarf for each person—no one in this valley should be left shivering anymore.",
+              {
+                "voiceId": "n22_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "elsa",
+              "Every hat should be soft and cozy, with a scarf for each person. No one gets left in the cold.",
+              {
+                "voiceId": "n22_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "Grandma Elsa's knitting feels warmer than a hearth fire.",
+              {
+                "voiceId": "n22_dialogue_02"
+              }
+            ],
+            [
+              "elsa",
+              "I'm old, and my fingers don't always obey, but when I think of someone out in the cold, I can manage one more stitch.",
+              {
+                "voiceId": "n22_dialogue_03"
+              }
+            ],
+            [
+              "elsa",
+              "You're just like your grandfather—skilled hands and a warm heart.",
+              {
+                "voiceId": "n22_dialogue_04"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "choice",
+            "title": "Weave the First Homecoming Scarf",
+            "prompt": "Choose the pattern that will hang on the tailor shop's sign. Your choice will be saved in your Memory Journal.",
+            "complete": "Elsa weaves your pattern into the scarf, then stitches the same mark onto the shop sign.",
+            "options": [
+              {
+                "id": "homewing",
+                "name": "Homewing Motif",
+                "icon": "🪶",
+                "desc": "A road home for everyone who journeyed far.",
+                "accent": "#6fc8ef"
+              },
+              {
+                "id": "hearth",
+                "name": "Hearthfire Motif",
+                "icon": "🔥",
+                "desc": "The plaza's first flame, woven into every thread.",
+                "accent": "#e56d46"
+              },
+              {
+                "id": "froststar",
+                "name": "Froststar Motif",
+                "icon": "✨",
+                "desc": "A star bright enough to find through falling snow.",
+                "accent": "#8d82d8"
+              }
+            ]
+          },
+          "lore": {
+            "title": "A Scarf for Each",
+            "text": "The winter of the Catastrophe, Elsa knitted every scrap of yarn into scarves and hung them at the village entrance. Anyone who felt cold could take one. Ten years later, those scarves remain, though they've faded to the color of snow."
+          },
+          "reward": {
+            "coin": 190,
+            "gem": 8,
+            "xp": 50,
+            "energy": 12,
+            "freeTaps": 8
+          }
+        },
+        {
+          "id": "n23",
+          "name": "Clearing the Ice Pier",
+          "place": "End of the Street · The Frozen Old Pier",
+          "coin": 130,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 5,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 3,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "bobo",
+              "The pier is frozen! The fishing boats can't get out, and no one from the outside can get in!",
+              {
+                "voiceId": "n23_pre_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Fit sturdy Door & Window Frames, then brew plenty of Hot Tea for the icebreakers. Once the ice gives way, this route will live again.",
+              {
+                "voiceId": "n23_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "bobo",
+              "The pier is fixed! The boats can head out to the lake, and the tea is ready for the crew!",
+              {
+                "voiceId": "n23_dialogue_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Listen... that's the sound of ice being broken. This street is coming back to life.",
+              {
+                "voiceId": "n23_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "The sailors left a crate of supplies for you, and your wind lanterns have enough warmth for ten more uses. Use them to merge the next batch of materials while they're hot.",
+              {
+                "voiceId": "n23_dialogue_03"
+              }
+            ],
+            [
+              "mier",
+              "Once the first ship docks, I'm baking a whole windowsill full of pies!",
+              {
+                "voiceId": "n23_dialogue_04"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The First Strike",
+            "text": "The ice on the pier was thick enough for horses to run on. The crew took turns striking it all day long. When the first trickle of lake water surged through the cracks, everyone in the street ran to the shore to cheer."
+          },
+          "reward": {
+            "coin": 220,
+            "gem": 10,
+            "xp": 55,
+            "energy": 15,
+            "freeTaps": 10
+          }
+        },
+        {
+          "id": "n24",
+          "name": "Lantern Feast on Workshop Street",
+          "place": "Workshop Street · Night of Lanterns",
+          "coin": 160,
+          "unlockLv": 7,
+          "need": [
+            {
+              "fam": "food",
+              "tier": 5,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 4,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 4,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "mier",
+              "The pier is open! Let's have a lantern feast tonight. It's time for the neighbors who haven't met in ten years to celebrate together.",
+              {
+                "voiceId": "n24_pre_01"
+              }
+            ],
+            [
+              "elsa",
+              "I'll knit new hats for everyone. Child, I'm counting on you for the cakes and hot drinks.",
+              {
+                "voiceId": "n24_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "Wind lanterns line the eaves. Berry Pies are sliced and shared, Hot Cocoa warms everyone from within, and new hats glow soft and fuzzy in the light.",
+              {
+                "voiceId": "n24_dialogue_01"
+              }
+            ],
+            [
+              "bobo",
+              "I have good news for everyone—I received a reply from across the mountains! They said those who migrated south have been waiting for the valley's lights to shine again.",
+              {
+                "voiceId": "n24_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "Once the lights are on, they'll find their way home.",
+              {
+                "voiceId": "n24_dialogue_03"
+              }
+            ],
+            [
+              "choco",
+              "But the sanctuary at the highest peak is still dark. That was the place where the last light went out ten years ago.",
+              {
+                "voiceId": "n24_dialogue_04"
+              }
+            ],
+            [
+              "gunnar",
+              "It's time. Let's climb the mountain and face the flame no one has dared touch in ten years.",
+              {
+                "voiceId": "n24_dialogue_05"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "Light Up Workshop Street",
+            "prompt": "Light each lantern along the eaves so those far away can see the way home.",
+            "complete": "As the last lantern flickered to life, a spark appeared on the mountain—as if someone in the distance was answering back.",
+            "steps": [
+              {
+                "id": "bakery",
+                "label": "Bakery",
+                "icon": "🥧",
+                "x": 25,
+                "y": 48,
+                "sfx": "chime"
+              },
+              {
+                "id": "tailor",
+                "label": "Tailor Shop",
+                "icon": "🧣",
+                "x": 53,
+                "y": 39,
+                "sfx": "chime"
+              },
+              {
+                "id": "harbor",
+                "label": "Pier Lanterns",
+                "icon": "🏮",
+                "x": 77,
+                "y": 51,
+                "sfx": "flame"
+              }
+            ]
+          },
+          "lore": {
+            "title": "The One Waiting for the Light",
+            "text": "That night of the Lantern Feast, Bobo read the reply over and over. The people of Nancian wrote at the end: \"As long as the valley keeps its lights burning, we will one day return.\""
+          },
+          "reward": {
+            "coin": 260,
+            "gem": 10,
+            "xp": 65,
+            "energy": 18,
+            "freeTaps": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Chapter 3 · Everwarm Sanctuary",
+      "subtitle": "Where the last light faded ten years ago",
+      "hook": "If rekindling the Sacred Flame isn't the end, what truly froze the valley?",
+      "scene": "story_3.png",
+      "bgm": "bgm_temple",
+      "mood": "holy",
+      "unlockLv": 8,
+      "intro": [
+        [
+          "narrator",
+          "At the highest peak lies the Everwarm Sanctuary. Its white stone has been weathered into pale blue by wind and snow; its gates have remained shut for ten years.",
+          {
+            "voiceId": "chapter_03_intro_01"
+          }
+        ],
+        [
+          "narrator",
+          "Legend says if the sacred fire is rekindled, no blizzard can ever swallow this land again. But when we pushed open that door, we realized—the story was only just beginning.",
+          {
+            "voiceId": "chapter_03_intro_02"
+          }
+        ]
+      ],
+      "worldLore": [
+        {
+          "id": "w_temple",
+          "title": "Everwarm Sanctuary",
+          "text": "Built at the valley's peak, the Everwarm Flame has burned in the temple's heart for centuries, serving as the heat source for all of Frostwhisper Valley. Generations of frostweavers have guarded the flame; Evan was the last."
+        },
+        {
+          "id": "w_eternalflame",
+          "title": "Everwarm Flame",
+          "text": "Legend says the flame was taken from the \"Frostheart\" atop the peak—the first fire in the world that refused to go out. It burns not on wood, but on the warmth of people caring for one another."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n31",
+          "name": "Restore the Hearth Hall",
+          "place": "Temple 1F · Dusty Hearth Hall",
+          "coin": 200,
+          "need": [
+            {
+              "fam": "fire",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "wood",
+              "tier": 5,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "bar",
+              "Finally, someone's here. I'm Barr, the blacksmith. For ten years, I've been guarding this broken door.",
+              {
+                "voiceId": "n31_pre_01"
+              }
+            ],
+            [
+              "bar",
+              "I've reinforced the stone walls. All we need is a Warm Stove and some sturdy Door & Window Frames. Make the hall livable first; we'll build the true Fireplace once everyone returns.",
+              {
+                "voiceId": "n31_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "bar",
+              "Once this Warm Stove is burning, even the stones can breathe easy. When everyone returns, we'll rebuild it into a Fireplace that lasts a hundred years.",
+              {
+                "voiceId": "n31_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "The hall is warm now; everyone has a place to gather. Uncle Barr, have you been guarding this alone for ten years?",
+              {
+                "voiceId": "n31_dialogue_02"
+              }
+            ],
+            [
+              "bar",
+              "...I promised someone I wouldn't let this place collapse. Let's work first; we can talk about the past later.",
+              {
+                "voiceId": "n31_dialogue_03"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "Bring Voices Back to the Sanctuary",
+            "prompt": "Stop the wind, then set the Warm Stove. With every step, the empty hall feels more like home.",
+            "complete": "The doors fall quiet and firelight washes over the stone. For the first time in ten years, laughter echoes through the Sanctuary.",
+            "steps": [
+              {
+                "id": "doors",
+                "label": "Brace the Broken Doors",
+                "icon": "🚪",
+                "x": 27,
+                "y": 53,
+                "sfx": "tap"
+              },
+              {
+                "id": "stove",
+                "label": "Set the Warm Stove",
+                "icon": "🪵",
+                "x": 55,
+                "y": 69,
+                "sfx": "tap"
+              },
+              {
+                "id": "hearth",
+                "label": "Light the Hall",
+                "icon": "🔥",
+                "x": 68,
+                "y": 43,
+                "sfx": "flame"
+              }
+            ]
+          },
+          "lore": {
+            "title": "The Gatekeeper Smith",
+            "text": "Barr is a man of few words, but his hammer never stops. For ten years, he alone has reinforced the temple and cleared the snow; every crack-free stone in the hall bears the marks of his work."
+          },
+          "reward": {
+            "coin": 320,
+            "gem": 10,
+            "xp": 80,
+            "energy": 15,
+            "freeTaps": 10
+          }
+        },
+        {
+          "id": "n32",
+          "name": "Supporting the Temple Dome",
+          "place": "Temple 2F · Cracked Starry Dome",
+          "coin": 240,
+          "need": [
+            {
+              "fam": "crystal",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 5,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "elsa",
+              "A large crack in the dome lets snow and wind pour in. We need to set a crystal crown to catch the light and hang curtains of knitted wool to block the wind.",
+              {
+                "voiceId": "n32_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "Let the light flood the hall again, as if we're bringing the stars back onto the roof.",
+              {
+                "voiceId": "n32_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "elsa",
+              "When the frost crystals are set in the dome, they'll scatter light like a field of stars.",
+              {
+                "voiceId": "n32_dialogue_01"
+              }
+            ],
+            [
+              "mier",
+              "Once we hang the thick wool curtains, the wind won't be able to get in anymore.",
+              {
+                "voiceId": "n32_dialogue_02"
+              }
+            ],
+            [
+              "narrator",
+              "The moment the frost crystals lit up, the hall was bathed in a pale blue haze, like the starry sky of ten years ago falling back to earth.",
+              {
+                "voiceId": "n32_dialogue_03"
+              }
+            ],
+            [
+              "bar",
+              "...It's just like it was that year. Only one step left.",
+              {
+                "voiceId": "n32_dialogue_04"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "choice",
+            "title": "Leave a Sky of Your Own in the Dome",
+            "prompt": "Frost Crystals remember the constellations you arrange. Your design will remain in the Memory Journal.",
+            "complete": "The last Frost Crystal settles into place, and your constellation slowly kindles across the dome.",
+            "options": [
+              {
+                "id": "homegeese",
+                "name": "Homewing Constellation",
+                "icon": "🪽",
+                "desc": "Points those far from home back toward Frostwhisper Valley.",
+                "accent": "#6fc8ef"
+              },
+              {
+                "id": "hunterbow",
+                "name": "Watcher's Bow",
+                "icon": "🏹",
+                "desc": "Honors Gunnar, who watched over the village alone for ten years.",
+                "accent": "#d59a52"
+              },
+              {
+                "id": "lanternring",
+                "name": "Wind-Lantern Ring",
+                "icon": "🏮",
+                "desc": "Lets every Flamekeeper's lantern meet beneath one sky.",
+                "accent": "#8d82d8"
+              }
+            ]
+          },
+          "lore": {
+            "title": "Luminous Stones",
+            "text": "Frost crystals are unique to Frostwhisper Valley and can hold onto light. By setting the largest crystal in the dome, frostweavers ensured that even if a blizzard sealed the mountain, there would always be a piece of the starry sky inside."
+          },
+          "reward": {
+            "coin": 380,
+            "gem": 12,
+            "xp": 90,
+            "energy": 18,
+            "freeTaps": 10
+          }
+        },
+        {
+          "id": "n33",
+          "name": "Kindle the Everwarm Flame",
+          "place": "Temple Heart · The Everwarm Flame, Extinguished for a Decade",
+          "coin": 300,
+          "cg": "cg_flame.png",
+          "need": [
+            {
+              "fam": "fire",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "wood",
+              "tier": 6,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "gunnar",
+              "A Warm Stove, Honey Brew, a Furniture Set... we don't need the rarest offerings in the world. {{playerName}}, a Flamekeeper brings every bit of warmth within reach.",
+              {
+                "spoken": "A Warm Stove, Honey Brew, a Furniture Set... we don't need the rarest offerings in the world. A Flamekeeper brings every bit of warmth within reach.",
+                "voiceId": "n33_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "I've stood here with my lantern for ten years, waiting for this moment. Come, let us return the fire to where it belongs.",
+              {
+                "voiceId": "n33_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "The Warm Stove's flame touched the heart of the altar—whoosh! A pillar of gold surged upward, and the Frostwood Furniture chimed like wind bells in the heat.",
+              {
+                "voiceId": "n33_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "Everwarm Flame... please, never go out again.",
+              {
+                "voiceId": "n33_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "Look—the snowfall is easing!",
+              {
+                "voiceId": "n33_dialogue_03"
+              }
+            ],
+            [
+              "narrator",
+              "But the light rose only halfway before casting a moving image across the dome: at the eye of the mountaintop storm lay a huge blue heart, beating faintly.",
+              {
+                "voiceId": "n33_dialogue_04"
+              }
+            ],
+            [
+              "bar",
+              "Just as I thought... the Sacred Flame is only the key. Whatever truly froze the valley is up there.",
+              {
+                "voiceId": "n33_dialogue_05"
+              }
+            ],
+            [
+              "choco",
+              "That's... the Frostheart. It's still alive, it's just forgotten how to beat.",
+              {
+                "voiceId": "n33_dialogue_06"
+              }
+            ]
+          ],
+          "interaction": {
+            "type": "tap-sequence",
+            "title": "Complete the Flamekeeper's Ritual",
+            "prompt": "The three offerings must be presented in order for the Everwarm Flame to recognize a new keeper.",
+            "complete": "The flame surged toward the dome, revealing an even greater secret.",
+            "steps": [
+              {
+                "id": "wood",
+                "label": "Place Frostwood",
+                "icon": "🪵",
+                "x": 36,
+                "y": 70,
+                "sfx": "tap"
+              },
+              {
+                "id": "drink",
+                "label": "Offer Warm Drink",
+                "icon": "☕",
+                "x": 65,
+                "y": 70,
+                "sfx": "chime"
+              },
+              {
+                "id": "flame",
+                "label": "Restore the Flame",
+                "icon": "🔥",
+                "x": 50,
+                "y": 49,
+                "sfx": "flame"
+              }
+            ]
+          },
+          "lore": {
+            "title": "The Flame is Only a Key",
+            "text": "Many believed that lighting the Everwarm Flame was the end. But the light revealed the \"Frostheart\" within the eye of the mountain storm—the source of the eternal snows. The flame isn't the destination; it is the first key to the truth."
+          },
+          "reward": {
+            "coin": 500,
+            "gem": 50,
+            "xp": 110,
+            "energy": 20,
+            "freeTaps": 12
+          }
+        },
+        {
+          "id": "n34",
+          "name": "The Flameheart Prophecy",
+          "place": "Temple Side Hall · Murals Illuminated by Fire",
+          "coin": 340,
+          "unlockLv": 9,
+          "need": [
+            {
+              "fam": "crystal",
+              "tier": 5,
+              "n": 1
+            },
+            {
+              "fam": "fire",
+              "tier": 5,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 5,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "choco",
+              "The sacred fire cast ancient murals onto the walls, though some words were covered by frost. Using the crystals to catch the light, let's read them together.",
+              {
+                "voiceId": "n34_pre_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Evan surely read these back then.",
+              {
+                "voiceId": "n34_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "As the ice pillars, bonfires, and woolens fell into place, lines of ancient frost-script began to glow on the mural.",
+              {
+                "voiceId": "n34_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "\"The Long Snow began when the Frostheart slept. To call spring home, seek four kinds of human warmth—\"",
+              {
+                "voiceId": "n34_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "\"The hope of a bonfire. The bond between neighbors. The courage to let go. The wish to pass on the light. When all four warmths unite, the Frostheart shall wake.\"",
+              {
+                "voiceId": "n34_dialogue_03"
+              }
+            ],
+            [
+              "bar",
+              "We have the hope of the bonfire. The other three lie in the outer port, across the snows, and within our own hearts.",
+              {
+                "voiceId": "n34_dialogue_04"
+              }
+            ],
+            [
+              "gunnar",
+              "Let's go to Homewing Harbor first. The bridge and pier are open; it's time to bring the scattered families home.",
+              {
+                "voiceId": "n34_dialogue_05"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "Four Human Warmths",
+            "text": "The ancient mural describes four types of warmth needed to awaken the Frostheart: Hope (Bonfire), Connection (Neighbor), Forgiveness (Courage), and Legacy (Torch). These are the four maps for our journey ahead."
+          },
+          "reward": {
+            "coin": 560,
+            "gem": 20,
+            "xp": 140,
+            "energy": 24,
+            "freeTaps": 14
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Chapter 4 · Homewing Harbor",
+      "subtitle": "Second Warmth · Bond of Neighbors",
+      "hook": "Will there be someone on the first ship home who Mier has waited ten years for?",
+      "scene": "story_4.png",
+      "bgm": "bgm_harbor",
+      "mood": "hopeful",
+      "unlockLv": 10,
+      "intro": [
+        [
+          "narrator",
+          "Beyond the thawing river lies Frostwhisper Valley's old gateway to the world—Homewing Harbor.",
+          {
+            "voiceId": "chapter_04_intro_01"
+          }
+        ],
+        [
+          "narrator",
+          "The port was sealed for ten years; the lighthouse went dark, and the ferries were frozen in ice. To bring the lost ones home, we must first light their way back.",
+          {
+            "voiceId": "chapter_04_intro_02"
+          }
+        ]
+      ],
+      "worldLore": [
+        {
+          "id": "w_gooseharbor",
+          "title": "Homewing Harbor",
+          "text": "Homewing Harbor is Frostwhisper Valley's only passage to the outside world. Every spring, those who moved south would ride the ferry home like returning geese. After the Long Snow began, the last ship to leave never came back."
+        },
+        {
+          "id": "w_bond",
+          "title": "The Neighborly Bond",
+          "text": "A second kind of warmth is the \"Neighborly Bond\": knowing you are missed by those far away, and being willing to keep a lamp lit and a road mended for them."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n41",
+          "name": "Light the Beacon",
+          "place": "Homewing Harbor · The Lighthouse Dark for Ten Years",
+          "coin": 1300,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "fire",
+              "tier": 6,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "bobo",
+              "The lighthouse hasn't shone for a decade! Ships returning home can't find the shore at all!",
+              {
+                "voiceId": "n41_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "We'll build the tower with cabin parts and top it with a constant hearth. Let its light be the first to say \"Welcome home\" for the valley.",
+              {
+                "voiceId": "n41_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "The lighthouse flared back to life, its beam sweeping across the gray sea like an arm slowly opening wide.",
+              {
+                "voiceId": "n41_dialogue_01"
+              }
+            ],
+            [
+              "bobo",
+              "It's lit! It's lit! Ships miles away can see that light now!",
+              {
+                "voiceId": "n41_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "Years ago, when Evan saw the villagers off at the port, he stood under this very tower and said, \"As long as the light shines, you can always come home.\"",
+              {
+                "voiceId": "n41_dialogue_03"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "Light on the Sea",
+            "text": "The night the lighthouse flared, a few fishing lights on the distant sea hesitated before turning toward the shore—for the first time in ten years, a ship steered toward Frostwhisper Valley."
+          },
+          "reward": {
+            "coin": 600,
+            "gem": 12
+          }
+        },
+        {
+          "id": "n42",
+          "name": "Repair the Ferry",
+          "place": "Homewing Harbor · The Old Ferry Frozen in the Ice",
+          "coin": 1500,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 6,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "bar",
+              "The hulls are cracked, and the boilers have gone cold. Without a ship, no matter how bright the light is, no one can cross this sea.",
+              {
+                "voiceId": "n42_pre_01"
+              }
+            ],
+            [
+              "mier",
+              "We must stock enough honeyed drinks in the cabins. The road home is cold; everyone needs to have warm hands when they step off the boat.",
+              {
+                "voiceId": "n42_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "As the new planks were fitted and the boiler roared back to life, the ferry exhaled its first breath of white steam in ten years.",
+              {
+                "voiceId": "n42_dialogue_01"
+              }
+            ],
+            [
+              "bobo",
+              "Woo-hoo! She's sounding again—the Warm Current can sail!",
+              {
+                "voiceId": "n42_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "We have a ship, we have light, and we have warm drinks. Now, all we need is a reason for people to want to come home.",
+              {
+                "voiceId": "n42_dialogue_03"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The Warm Current",
+            "text": "The Warm Current is Homewing Harbor's oldest ferry; before the disaster, she crossed between the two shores every day. When the old captain handed Barr the key, he said, 'Look after her. Come spring, I want to take her out one last time.'"
+          },
+          "reward": {
+            "coin": 680,
+            "gem": 12
+          }
+        },
+        {
+          "id": "n43",
+          "name": "Set Up the Market",
+          "place": "Homewing Harbor · The Deserted Pier Market",
+          "coin": 1700,
+          "unlockLv": 11,
+          "need": [
+            {
+              "fam": "food",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "crystal",
+              "tier": 5,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "mier",
+              "People coming home need a place to stay, a hot meal, and clean clothes. Let's get the market set up first!",
+              {
+                "voiceId": "n43_pre_01"
+              }
+            ],
+            [
+              "elsa",
+              "Let's hang some Frost Crystals. When it looks warm from afar, people will finally believe this isn't a dream.",
+              {
+                "voiceId": "n43_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "The sweet scent of ginger bread, heavy down coats, and glowing Frost Crystals gave the empty pier the silhouette of a home.",
+              {
+                "voiceId": "n43_dialogue_01"
+              }
+            ],
+            [
+              "bobo",
+              "Report! The first homecoming boat has docked—it's a family of three. They said they burst into tears when they saw the lighthouse.",
+              {
+                "voiceId": "n43_dialogue_02"
+              }
+            ],
+            [
+              "mier",
+              "Welcome, welcome! Fresh pies just out of the oven, plenty for everyone!",
+              {
+                "voiceId": "n43_dialogue_03"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The First Returnee",
+            "text": "The first to return was a woman holding her child. She stood at the pier for a long time, saying that every winter in the south, she would look north and think: \"I'm just afraid that one day I'll turn around and find all the lights gone—then there'd be no way back.\""
+          },
+          "reward": {
+            "coin": 760,
+            "gem": 15
+          }
+        },
+        {
+          "id": "n44",
+          "name": "The Long Table Feast",
+          "place": "Homewing Harbor · The Long Table for Those Coming Home",
+          "coin": 2000,
+          "unlockLv": 11,
+          "cg": "cg_feast.png",
+          "need": [
+            {
+              "fam": "food",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 7,
+              "n": 2
+            },
+            {
+              "fam": "cloth",
+              "tier": 6,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "gunnar",
+              "More people are coming back. Let's host a long-table feast—everyone, those who left and those who stayed, sit down and share a meal.",
+              {
+                "voiceId": "n44_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "Feast cakes, spiced mulled wine, warm cloaks—this table must be filled with ten years of longing.",
+              {
+                "voiceId": "n44_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "A long wooden table stretched from the pier to the end of the street. Strangers sat side-by-side as hot dishes passed along like a flowing river of warmth.",
+              {
+                "voiceId": "n44_dialogue_01"
+              }
+            ],
+            [
+              "mier",
+              "My sister... she hasn't come back yet. But I dare to wait now. Look, so many people have returned.",
+              {
+                "voiceId": "n44_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "{{playerName}}, you've secured the second kind of warmth for the valley—when people care for one another, that bond never fades.",
+              {
+                "spoken": "You've secured the second kind of warmth for the valley—when people care for one another, that bond never fades.",
+                "voiceId": "n44_dialogue_03"
+              }
+            ],
+            [
+              "choco",
+              "But Choco always felt that the chill of the Frostheart atop the peak hid a story no one wanted to mention.",
+              {
+                "voiceId": "n44_dialogue_04"
+              }
+            ],
+            [
+              "bar",
+              "...There's no hiding from what comes next. Tomorrow, I'll take you into Frostwood and show you the truth of ten years ago.",
+              {
+                "voiceId": "n44_dialogue_05"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "A Table of Longing",
+            "text": "At the long table, those who returned spoke of their lives in the south, while those who stayed shared stories of the valley's past decade. In the end, they realized that both groups had been thinking of the same valley every single day."
+          },
+          "reward": {
+            "coin": 900,
+            "gem": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Chapter 5 · Deep in the Frostwood",
+      "subtitle": "The Third Warmth · Courage to Let Go",
+      "hook": "On the final page of Grandfather's journal, who exactly was left behind in the light?",
+      "scene": "story_5.png",
+      "bgm": "bgm_memory",
+      "mood": "tender",
+      "unlockLv": 12,
+      "intro": [
+        [
+          "narrator",
+          "Behind Homewing Harbor lies Frostwood, shrouded in mist all year. Deep among the trees stands an old waystation used by generations of Frostweavers.",
+          {
+            "voiceId": "chapter_05_intro_01"
+          }
+        ],
+        [
+          "narrator",
+          "Barr's decade-long silence, his grandfather's final footprints—all are buried in this quiet snow. Some ice must first be melted in the heart.",
+          {
+            "voiceId": "chapter_05_intro_02"
+          }
+        ]
+      ],
+      "worldLore": [
+        {
+          "id": "w_frostwood",
+          "title": "Frostwood & Stations",
+          "text": "The Frostwood is the only path to the peak. It contains stations where frostweavers of past eras rested and shared their craft. Ten years of heavy snow have coated the trees in rime, freezing untold words within them."
+        },
+        {
+          "id": "w_forgive",
+          "title": "Courage to Let Go",
+          "text": "The third human warmth is the \"Courage to Let Go\": forgiving everything you couldn't protect back then, and forgiving yourself for the guilt you've carried."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n51",
+          "name": "Find Snowpath Station",
+          "place": "Frostwood · The first station buried in snow",
+          "coin": 2200,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "fire",
+              "tier": 5,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "bar",
+              "Follow this snowy path inward; the first outpost was built by you and your grandfather in your youth. Let's clear it out before we head into the mountains tonight.",
+              {
+                "voiceId": "n51_pre_01"
+              }
+            ],
+            [
+              "elsa",
+              "Put on your down coat. The wind in the woods has a bite to it.",
+              {
+                "voiceId": "n51_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "Furniture was rearranged and a bonfire rose in the center of the outpost, casting a small square of orange light into the snowy night.",
+              {
+                "voiceId": "n51_dialogue_01"
+              }
+            ],
+            [
+              "bar",
+              "It was just like this fire years ago. Evan, myself, and a few from the Flame Guard were here, deciding who would head up the mountain.",
+              {
+                "voiceId": "n51_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "The Flame Guard? No one ever mentioned them to me.",
+              {
+                "voiceId": "n51_dialogue_03"
+              }
+            ],
+            [
+              "bar",
+              "Because we... failed to keep it. Go further in to the Archive; see for yourself.",
+              {
+                "voiceId": "n51_dialogue_04"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The Flame Guard",
+            "text": "The year the Everwarm Flame began to fade, Evan gathered a Flame Guard to rescue the Frostheart. The team included a blacksmith, hunters, a tailor's son, and a baker's husband—in the end, only Evan reached the peak."
+          },
+          "reward": {
+            "coin": 950,
+            "gem": 15
+          }
+        },
+        {
+          "id": "n52",
+          "name": "Open the Frozen Archive",
+          "place": "Frostwood · The Frozen frostweaver Archive",
+          "coin": 2500,
+          "need": [
+            {
+              "fam": "crystal",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "crystal",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 6,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "choco",
+              "The archive door is sealed by permafrost. Ordinary fire won't melt it; you need a pure Perma-Drill to sync with its frequency.",
+              {
+                "voiceId": "n52_pre_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Inside lies the record of what happened on that final night of the Flame Guard.",
+              {
+                "voiceId": "n52_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "As the Perma-Drill touched the ice door, the frost glowed and receded like a ebbing tide, revealing walls lined with frostweaver journals.",
+              {
+                "voiceId": "n52_dialogue_01"
+              }
+            ],
+            [
+              "choco",
+              "It's my grandfather's handwriting... 'The Frostheart beats upon the warmth of the mortal world. If the heat fails, it falls into slumber, and the eternal snow follows.'",
+              {
+                "voiceId": "n52_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "'That night, the blizzard was too great; the Flame Guard was trapped halfway up. I couldn't let everyone die with me—it was I who ordered them down.'",
+              {
+                "voiceId": "n52_dialogue_03"
+              }
+            ],
+            [
+              "bar",
+              "...He pushed us back to the outpost one by one and climbed alone. We survived, but we blamed ourselves for ten years.",
+              {
+                "voiceId": "n52_dialogue_04"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "Truths in the Journals",
+            "text": "The archive journals reveal: It wasn't cowardice that drove the Flame Guard away; Evan forced them down to save them while he faced the danger alone. The survivors spent a decade feeling guilty for \"leaving him behind,\" when they were actually being protected by his sacrifice."
+          },
+          "reward": {
+            "coin": 1100,
+            "gem": 18
+          }
+        },
+        {
+          "id": "n53",
+          "name": "Old Hearth & Music Box",
+          "place": "Deep in Frostwood · The Flame Guard's Final Camp",
+          "coin": 2800,
+          "unlockLv": 13,
+          "need": [
+            {
+              "fam": "fire",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "wood",
+              "tier": 6,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 8,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "bar",
+              "This is our old camp. My daughter gave me this music box; it fell here in the chaos... I didn't dare look for it for ten years.",
+              {
+                "voiceId": "n53_pre_01"
+              }
+            ],
+            [
+              "elsa",
+              "Light the hearth, set the furniture, and bring that unfinished Cloud-Weave Cloak—some knots can only be untied where they were tied.",
+              {
+                "voiceId": "n53_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "The hearth flared again. The music box was gently lifted from the snow; as it was wound, its tinkling melody drifted through the woods.",
+              {
+                "voiceId": "n53_dialogue_01"
+              }
+            ],
+            [
+              "bar",
+              "That's the tune... I always thought I had abandoned him, and abandoned my promise to my daughter.",
+              {
+                "voiceId": "n53_dialogue_02"
+              }
+            ],
+            [
+              "gunnar",
+              "Old friend, Evan chose to go up. He pushed you back so you could live—to watch the valley wake up for him.",
+              {
+                "voiceId": "n53_dialogue_03"
+              }
+            ],
+            [
+              "bar",
+              "...Ten years. I can finally let this weight go.",
+              {
+                "voiceId": "n53_dialogue_04"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The Blacksmith's Music Box",
+            "text": "The music box was a charm from Barr's daughter. For ten years, he dared not listen to its tune, fearing it would remind him of \"abandoning his comrades.\" Only after reading Evan's journal did he realize he was the one entrusted with staying alive."
+          },
+          "reward": {
+            "coin": 1200,
+            "gem": 18
+          }
+        },
+        {
+          "id": "n54",
+          "name": "Grandfather's Journal",
+          "place": "At the edge of Frostwood · Evan's Final Resting Place",
+          "coin": 3100,
+          "unlockLv": 13,
+          "cg": "cg_memory.png",
+          "need": [
+            {
+              "fam": "crystal",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "food",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 7,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "choco",
+              "Under the trees ahead... there's an old satchel. It belongs to my grandfather. Let's protect it with Frost Crystals and open it slowly.",
+              {
+                "voiceId": "n54_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "I don't know why, but as we got closer, the light in my lantern began to pulse more wildly.",
+              {
+                "voiceId": "n54_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "Inside was a journal, half a piece of ginger bread, and a letter addressed to 'the one who carries the lamp.'",
+              {
+                "voiceId": "n54_dialogue_01"
+              }
+            ],
+            [
+              "gramps",
+              "'Child, by the time you read this, I will likely be with the Frostheart.'",
+              {
+                "voiceId": "n54_dialogue_02"
+              }
+            ],
+            [
+              "gramps",
+              "'I sealed the last bit of warmth into a wind lantern, turning it into a frost spirit named Choco to accompany you until today.'",
+              {
+                "voiceId": "n54_dialogue_03"
+              }
+            ],
+            [
+              "choco",
+              "...So, I am the warmth my grandfather left for you. I'm not just an ordinary frost spirit; I am his unfinished 'Don't be afraid.'",
+              {
+                "voiceId": "n54_dialogue_04"
+              }
+            ],
+            [
+              "gramps",
+              "'The third warmth is release; the fourth is passing this lantern to another. See you at the peak, my child.'",
+              {
+                "voiceId": "n54_dialogue_05"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The One in the Lantern",
+            "text": "Before ascending, Evan sealed his final warmth into a wind lantern, forming the frost spirit Choco to stay by the next frostweaver. Only then did Choco realize that ten years of waiting and companionship was actually a passing of the torch across life and death."
+          },
+          "reward": {
+            "coin": 1300,
+            "gem": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Chapter 6 · Frostheart Peak",
+      "subtitle": "The Fourth Temperature: Vow of the Lantern",
+      "hook": "To bring back spring, what must the lantern bearer leave behind?",
+      "scene": "story_6.png",
+      "bgm": "bgm_spring",
+      "mood": "finale",
+      "unlockLv": 14,
+      "intro": [
+        [
+          "narrator",
+          "Beyond Frostwood, the source of the Long Snow looms overhead—the summit of Frostheart Mountain, where the storm never rests.",
+          {
+            "voiceId": "chapter_06_intro_01"
+          }
+        ],
+        [
+          "narrator",
+          "Three of the four mortal warmths are gathered. For the final stretch, carry everyone's warmth and deliver this lantern to the Frostheart.",
+          {
+            "voiceId": "chapter_06_intro_02"
+          }
+        ]
+      ],
+      "worldLore": [
+        {
+          "id": "w_frostheart",
+          "title": "Frostheart",
+          "text": "The Frostheart is the heart of Frostwhisper Valley, a blue core formed from pure warmth. The warmer the human connections, the steadier its beat; when people forget one another and drift apart, it falls into a lonely slumber, giving rise to the Great Snow."
+        },
+        {
+          "id": "w_passflame",
+          "title": "Vow of the Lantern",
+          "text": "The fourth earthly temperature is the \"Vow of the Lantern\": passing the flame from one generation to the next so that warmth never fades with a passing life. This is the deepest vow of the frostweaver lineage."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n61",
+          "name": "Climb the Storm Stairs",
+          "place": "Mountain Peak · A thousand ice steps torn by gale winds",
+          "coin": 3400,
+          "need": [
+            {
+              "fam": "wood",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "crystal",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "fire",
+              "tier": 6,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "gunnar",
+              "We couldn't finish these last icy steps ten years ago. This time, the whole village stands behind you to hold back the wind.",
+              {
+                "voiceId": "n61_pre_01"
+              }
+            ],
+            [
+              "bar",
+              "Frost-wood beams, Frost-crystal paths, and a constant hearth—{{playerName}}, move forward, don't look back.",
+              {
+                "spoken": "Frost-wood beams, Frost-crystal paths, and a constant hearth—move forward, don't look back.",
+                "voiceId": "n61_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "Frost-wood was driven into the ice cliffs, Frost-crystals formed chains of light in the snow, and the hearth blocked the biting wind.",
+              {
+                "voiceId": "n61_dialogue_01"
+              }
+            ],
+            [
+              "bobo",
+              "All the lights below are lit to guide your way!",
+              {
+                "voiceId": "n61_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "I can hear the Frostheart's heartbeat now. It's slow and faint, as if it's waiting for someone.",
+              {
+                "voiceId": "n61_dialogue_03"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The Village Stairs",
+            "text": "No one climbs alone this time. Below, those returning home and those staying behind light every lamp; above, young frostweavers step upon the stairs built by everyone's hands toward the heart of the storm."
+          },
+          "reward": {
+            "coin": 1400,
+            "gem": 20
+          }
+        },
+        {
+          "id": "n62",
+          "name": "Build the Four Warmth Altars",
+          "place": "Mountain Platform · Four empty altars before the Frostheart",
+          "coin": 3800,
+          "need": [
+            {
+              "fam": "fire",
+              "tier": 7,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "food",
+              "tier": 8,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "choco",
+              "There are four empty urns before the Frostheart, matching the four types of warmth. Offer the hearth, the special brew, the cloak, and the feast cake one by one.",
+              {
+                "voiceId": "n62_pre_01"
+              }
+            ],
+            [
+              "mier",
+              "I made a huge feast cake; we'll share it so there's enough sweetness for everyone.",
+              {
+                "voiceId": "n62_pre_02"
+              }
+            ],
+            [
+              "elsa",
+              "The Cloud-Weave Cloak... let's drape it over the peak as well.",
+              {
+                "voiceId": "n62_pre_03"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "Four warm urns lit up in turn: the fire of hope, the drink of connection, the garment of protection, and the food of gathering.",
+              {
+                "voiceId": "n62_dialogue_01"
+              }
+            ],
+            [
+              "gunnar",
+              "Hope's flame, neighborly bonds, the courage of release—all are gathered.",
+              {
+                "voiceId": "n62_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "Only one thing remains: the wish to pass the light. That must be done by me, personally.",
+              {
+                "voiceId": "n62_dialogue_03"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "Four Altars Aglow",
+            "text": "The light from the four altars resonates, and the Frostheart's beat grows strong for the first time. It slept for ten years, not because the cold was too great, but because it hadn't felt human warmth in so long."
+          },
+          "reward": {
+            "coin": 1600,
+            "gem": 25
+          }
+        },
+        {
+          "id": "n63",
+          "name": "Open the Gate of Frostheart",
+          "place": "Eye of the Storm · The final ice gate outside the Frostheart",
+          "coin": 4200,
+          "unlockLv": 15,
+          "need": [
+            {
+              "fam": "crystal",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "wood",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "cloth",
+              "tier": 7,
+              "n": 2
+            }
+          ],
+          "pre": [
+            [
+              "choco",
+              "The Frostheart is just behind the door. Use the Perma-Drill as a key, the Frost-wood as a guide, and tie the down coat to the door—the wind beyond will be very, very cold.",
+              {
+                "voiceId": "n63_pre_01"
+              }
+            ],
+            [
+              "gramps",
+              "Don't be afraid. Once the door opens, you'll see why frostweavers have guarded this valley for generations.",
+              {
+                "voiceId": "n63_pre_02"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "The Ice Gate opened silently. In the eye of the storm, there was no wind—only a massive blue heart beating slowly, and an old man made of light standing before it.",
+              {
+                "voiceId": "n63_dialogue_01"
+              }
+            ],
+            [
+              "gramps",
+              "You've come, {{playerName}}. It was a long road; you've worked hard, my child.",
+              {
+                "spoken": "You've come. It was a long road; you've worked hard, my child.",
+                "voiceId": "n63_dialogue_02"
+              }
+            ],
+            [
+              "choco",
+              "Grandfather...",
+              {
+                "voiceId": "n63_dialogue_03"
+              }
+            ],
+            [
+              "gramps",
+              "I merged myself into the Frostheart to keep it beating for ten years, just so you could arrive here with the four temperatures. Now, let this heart beat on its own for the whole valley.",
+              {
+                "voiceId": "n63_dialogue_04"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "The Old Man of Light",
+            "text": "Evan used himself as fuel to keep the Frostheart from dying during those ten years of solitude. His lingering light waited behind the door just to deliver his final words to his successor."
+          },
+          "reward": {
+            "coin": 1800,
+            "gem": 30
+          }
+        },
+        {
+          "id": "n64",
+          "name": "Spring of Everlight",
+          "place": "Frostheart · Land of Awakening",
+          "coin": 5000,
+          "unlockLv": 15,
+          "cg": "cg_spring.png",
+          "finale": true,
+          "need": [
+            {
+              "fam": "fire",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "crystal",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "drink",
+              "tier": 8,
+              "n": 1
+            },
+            {
+              "fam": "food",
+              "tier": 8,
+              "n": 1
+            }
+          ],
+          "pre": [
+            [
+              "gramps",
+              "The Everwarm Flame is hope, the Everfrost Drill is memory, the Sunny Special is longing, and the Feast Cake is reunion—{{playerName}}, place these four into the Frostheart.",
+              {
+                "spoken": "The Everwarm Flame is hope, the Everfrost Drill is memory, the Sunny Special is longing, and the Feast Cake is reunion—place these four into the Frostheart.",
+                "voiceId": "n64_pre_01"
+              }
+            ],
+            [
+              "choco",
+              "And me. I am also the last bit of warmth my grandfather left for the valley.",
+              {
+                "voiceId": "n64_pre_02"
+              }
+            ],
+            [
+              "choco",
+              "Don't be sad for me; I won't disappear. I will become the spring breeze, the hearth fire, and that tiny spark of warmth felt whenever someone thinks of another.",
+              {
+                "voiceId": "n64_pre_03"
+              }
+            ]
+          ],
+          "dialogue": [
+            [
+              "narrator",
+              "As the four temperatures merged into the Frostheart, Choco turned into a beam of gentle light, embracing the massive heart.",
+              {
+                "voiceId": "n64_dialogue_01"
+              }
+            ],
+            [
+              "gramps",
+              "The lantern is in your hands now. The spring of Frostwhisper Valley is in your hands; keep it safe for generations to come.",
+              {
+                "voiceId": "n64_dialogue_02"
+              }
+            ],
+            [
+              "narrator",
+              "The Frostheart flared brilliantly, a wave of blue light surging down the ridge—wherever it touched, snow melted, grass turned green, and the river, frozen for ten years, began to sing once more.",
+              {
+                "voiceId": "n64_dialogue_03"
+              }
+            ],
+            [
+              "gunnar",
+              "Look, the snow has stopped. This time, it's really stopped.",
+              {
+                "voiceId": "n64_dialogue_04"
+              }
+            ],
+            [
+              "mier",
+              "The wind... smells like blooming flowers.",
+              {
+                "voiceId": "n64_dialogue_05"
+              }
+            ],
+            [
+              "bobo",
+              "The fleet of ships heading home stretches as far as the eye can see!",
+              {
+                "voiceId": "n64_dialogue_06"
+              }
+            ],
+            [
+              "all",
+              "— Frostwhisper Valley: Seasons Restored, Warmth Everlasting —",
+              {
+                "voiceId": "n64_dialogue_07"
+              }
+            ]
+          ],
+          "lore": {
+            "title": "Spring of Everlight",
+            "text": "The Frostheart beat anew with the valley's devotion, and the snow vanished. Choco didn't leave; it lived on in every spring breeze and every hearth fire—as long as people care for one another, spring will never fade."
+          },
+          "reward": {
+            "coin": 3000,
+            "gem": 100
+          }
+        }
+      ]
+    }
+  ],
+  "epilogue": [
+    [
+      "narrator",
+      "From then on, spring never left Frostwhisper Valley again.",
+      {
+        "voiceId": "epilogue_01"
+      }
+    ],
+    [
+      "gunnar",
+      "Gunnar took up his hunting bow once more as a forest guardian, telling tales of the Flame Guard to every child who entered the woods.",
+      {
+        "voiceId": "epilogue_02"
+      }
+    ],
+    [
+      "mier",
+      "Mier finally welcomed her sister home; from then on, two teacups sat by the window.",
+      {
+        "voiceId": "epilogue_03"
+      }
+    ],
+    [
+      "bobo",
+      "Bobo became the busiest courier in Homewing Harbor. Not a single undelivered letter remained in his mailbag.",
+      {
+        "voiceId": "epilogue_04"
+      }
+    ],
+    [
+      "elsa",
+      "Grandma Elsa opened a weaving shop, weaving the tradition of 'a scarf for everyone' into every day in the valley.",
+      {
+        "voiceId": "epilogue_05"
+      }
+    ],
+    [
+      "bar",
+      "Barr restored the Warm Current and cast the music box's melody into the sanctuary's new bell. Whenever the wind blows, the whole valley can hear it.",
+      {
+        "voiceId": "epilogue_06"
+      }
+    ],
+    [
+      "gramps",
+      "Evan's name was carved onto the Gate of Frostheart, alongside those of every frostweaver before him.",
+      {
+        "voiceId": "epilogue_07"
+      }
+    ],
+    [
+      "choco",
+      "As for me—whenever you merge a warm item, hand out a hot drink, or leave a light on for someone, listen closely. I'm right there in that soft, warm heartbeat.",
+      {
+        "voiceId": "epilogue_08"
+      }
+    ],
+    [
+      "narrator",
+      "Frost Story · Thank you, {{playerName}}, for merging spring back together, one piece at a time.",
+      {
+        "spoken": "Frost Story. Thank you for merging spring back together, one piece at a time.",
+        "voiceId": "epilogue_09"
+      }
+    ]
+  ]
+}

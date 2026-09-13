@@ -1,0 +1,3364 @@
+{
+  "story.json:/profile/prompt/0/1": {
+    "source": "等等……风灯认得你的手，可我还不知道该怎么称呼你。",
+    "context": "speaker=choco",
+    "text": "Wait... the wind lantern recognizes your hand, but I still don't know what to call you."
+  },
+  "story.json:/profile/prompt/1/1": {
+    "source": "告诉我吧。等谷里的灯都亮起来，我要把这个名字告诉每一个回家的人。",
+    "context": "speaker=choco",
+    "text": "Tell me. When all the lights in the valley are lit, I'll share your name with everyone coming home."
+  },
+  "story.json:/profile/confirm/0/1": {
+    "source": "{{playerName}}……好，我记住了。走吧，我们一起把春天找回来。",
+    "context": "speaker=choco",
+    "text": "{{playerName}}... Okay, I've got it. Let's go find spring together."
+  },
+  "story.json:/profile/confirm/0/2/spoken": {
+    "source": "你……好，我记住了。走吧，我们一起把春天找回来。",
+    "context": "speaker=choco; prerecorded spoken variant",
+    "text": "You... Okay, I've got it. Let's go find spring together."
+  },
+  "story.json:/companion/tutorial/produce/text": {
+    "source": "风灯在发热……碰一下那道蓝光。",
+    "context": "speaker=choco",
+    "text": "The wind lantern is warming up... Touch that blue light."
+  },
+  "story.json:/companion/tutorial/merge/text": {
+    "source": "这两枚冰晶在互相呼应。让它们靠在一起试试？",
+    "context": "speaker=choco",
+    "text": "These two frost crystals are resonating. Try bringing them together?"
+  },
+  "story.json:/companion/tutorial/request/text": {
+    "source": "嘘——有人踩着雪来了。先听听他为什么敲门。",
+    "context": "speaker=choco",
+    "text": "Shh—someone's coming through the snow. Let's listen to why they're knocking."
+  },
+  "story.json:/companion/tutorial/order/text": {
+    "source": "冈特把火哨交给我们了。把做好的冰晶递给他吧。",
+    "context": "speaker=choco",
+    "text": "Gunnar entrusted us with the fire whistle. Give him the finished frost crystal."
+  },
+  "story.json:/companion/tutorial/unlock/text": {
+    "source": "火哨照见了一块松动的冰。碰一碰那枚雪锁。",
+    "context": "speaker=choco",
+    "text": "The fire whistle reveals a loose piece of ice. Tap that snow lock."
+  },
+  "story.json:/companion/tutorial/shop/text": {
+    "source": "蜜儿说集市重新开门了。进去看看有什么在发光。",
+    "context": "speaker=choco",
+    "text": "Mier said the market is reopening. Let's see what's glowing inside."
+  },
+  "story.json:/companion/tutorial/story/text": {
+    "source": "广场下面传来微弱的火星声。去山谷看看，它在等我们。",
+    "context": "speaker=choco",
+    "text": "A faint spark sounds from beneath the plaza. Go to the valley; it's waiting for us."
+  },
+  "story.json:/companion/reactions/produce/text": {
+    "source": "它醒了……祖父的矿脉还认得你。",
+    "context": "speaker=choco",
+    "text": "It's awake... your grandfather's mine still recognizes you."
+  },
+  "story.json:/companion/reactions/merge/text": {
+    "source": "听见了吗？冰裂开的声音里，有一点火。",
+    "context": "speaker=choco",
+    "text": "Do you hear that? There's a spark in the sound of cracking ice."
+  },
+  "story.json:/companion/reactions/request/text": {
+    "source": "冈特没有走。他一直替空村子守着夜路。",
+    "context": "speaker=choco",
+    "text": "Gunnar didn't leave. He's been guarding the night roads for this empty village."
+  },
+  "story.json:/companion/reactions/order/text": {
+    "source": "远处的第一盏火哨亮了。",
+    "context": "speaker=choco",
+    "text": "The first fire whistle lit up in the distance."
+  },
+  "story.json:/companion/reactions/unlock/text": {
+    "source": "冰层下面，是十年前留下的路。",
+    "context": "speaker=choco",
+    "text": "Beneath the ice lies a path left behind ten years ago."
+  },
+  "story.json:/companion/reactions/shop/text": {
+    "source": "货架空着，但门铃还会响。这里会重新热闹起来。",
+    "context": "speaker=choco",
+    "text": "The shelves are empty, but the bell still rings. This place will be lively again."
+  },
+  "story.json:/companion/orders/accepted/text": {
+    "source": "{{npcName}}把这件事托给我们了。先看看棋盘上已经有的材料。",
+    "context": "speaker=choco",
+    "text": "{{npcName}} entrusted this to us. Check the materials already on the board first."
+  },
+  "story.json:/companion/orders/accepted/spoken": {
+    "source": "这件事托给我们了。先看看棋盘上已经有的材料。",
+    "context": "speaker=choco",
+    "text": "This was entrusted to us. Check the materials on the board first."
+  },
+  "story.json:/companion/orders/followup/text": {
+    "source": "你看，我们交出去的不只是材料。村子里又多了一件会被人记住的事。",
+    "context": "speaker=choco",
+    "text": "See? We're giving more than just materials. The village has one more story for people to remember."
+  },
+  "story.json:/companion/idle/complete/text": {
+    "source": "山谷已经四季如春啦，不过我们还能继续合并、收集，把日子过得更暖。",
+    "context": "speaker=choco",
+    "text": "The valley is blooming with spring now, but we can keep merging and gathering to make life even warmer."
+  },
+  "story.json:/companion/idle/ready/text": {
+    "source": "「{{nodeName}}」的材料都齐啦！快打开山谷交付，故事就要往下走了。",
+    "context": "speaker=choco",
+    "text": "All materials for \"{{nodeName}}\" are ready! Open the Valley Delivery to continue the story."
+  },
+  "story.json:/companion/idle/ready/spoken": {
+    "source": "材料都齐啦！快打开山谷交付，故事就要往下走了。",
+    "context": "speaker=choco",
+    "text": "All materials are ready! Open the Valley Delivery to continue the story."
+  },
+  "story.json:/companion/idle/lack/text": {
+    "source": "「{{nodeName}}」还差{{itemName}}。点任务里的红色材料，我会带你找到{{generatorName}}和完整合成路线。",
+    "context": "speaker=choco",
+    "text": "\"{{nodeName}}\" is missing {{itemName}}. Tap the red items in the quest to find the {{generatorName}} and full merge chain."
+  },
+  "story.json:/companion/idle/lack/spoken": {
+    "source": "还差一种材料。点任务里的红色材料，我会带你找到材料台和完整合成路线。",
+    "context": "speaker=choco",
+    "text": "One more material needed. Tap the red items in the quest to find the Supply Station and full merge chain."
+  },
+  "story.json:/companion/idle/lvlock/text": {
+    "source": "这段故事要等我们升到 Lv.{{level}}，多交付些委托就好。",
+    "context": "speaker=choco",
+    "text": "This part of the story awaits Lv. {{level}}. Just complete a few more commissions."
+  },
+  "story.json:/companion/idle/lvlock/spoken": {
+    "source": "这段故事还要再升几级，多交付些委托就好。",
+    "context": "speaker=choco",
+    "text": "This part of the story requires a few more levels. Just complete a few more commissions."
+  },
+  "story.json:/companion/idle/next/text": {
+    "source": "跟着主线走就好，下一站：「{{nodeName}}」。",
+    "context": "speaker=choco",
+    "text": "Just follow the main quest. Next stop: \"{{nodeName}}\"."
+  },
+  "story.json:/companion/idle/next/spoken": {
+    "source": "跟着主线走就好，下一站就在前面。",
+    "context": "speaker=choco",
+    "text": "Just follow the main quest. The next stop is just ahead."
+  },
+  "story.json:/companion/source/generator/text": {
+    "source": "{{generatorName}}就在这里。点它会产出{{baseItem}}，把相同材料两两合并，就会沿着路线升阶。",
+    "context": "speaker=choco",
+    "text": "The {{generatorName}} is here. Tap it to produce {{baseItem}}. Merge pairs of identical items to progress along the chain."
+  },
+  "story.json:/companion/source/generator/spoken": {
+    "source": "材料台就在这里。点它取得基础材料，再把相同材料两两合并，就会沿着路线升阶。",
+    "context": "speaker=choco",
+    "text": "The Supply Station is here. Tap it for base materials. Merge pairs of identical items to progress along the chain."
+  },
+  "story.json:/companion/source/merge/text": {
+    "source": "先把这两个{{currentItem}}拖到一起。每合一次都会更接近{{targetItem}}；需要时再点红色材料，我就照亮下一对。",
+    "context": "speaker=choco",
+    "text": "Drag these two {{currentItem}} together first. Each merge brings you closer to {{targetItem}}. Tap red items to light up the next pair."
+  },
+  "story.json:/companion/source/merge/spoken": {
+    "source": "先把照亮的两个材料拖到一起。每合一次都会更接近目标；需要时再点红色材料，我就照亮下一对。",
+    "context": "speaker=choco",
+    "text": "Drag the two lit materials together. Each merge brings you closer to the goal. Tap red items to light up the next pair."
+  },
+  "story.json:/prologue/0/1": {
+    "source": "北方有一座被雪埋住的山谷，名叫霜语谷。",
+    "context": "speaker=narrator",
+    "text": "In the north lies a snow-buried valley called Frostwhisper Valley."
+  },
+  "story.json:/prologue/1/1": {
+    "source": "十年前，谷心的「永暖圣火」骤然熄灭，从此暴风雪再没有停过。",
+    "context": "speaker=narrator",
+    "text": "Ten years ago, the Everwarm Flame at the heart of the valley suddenly went out, and the blizzard never stopped."
+  },
+  "story.json:/prologue/2/1": {
+    "source": "我是啾可，住在你祖父风灯里的最后一只霜灵。",
+    "context": "speaker=choco",
+    "text": "I'm Choco, the last frost spirit living in your grandfather's wind lantern."
+  },
+  "story.json:/prologue/3/1": {
+    "source": "他说过——雪，总得有人先扫。现在，换你提着这盏灯回家了。",
+    "context": "speaker=choco",
+    "text": "He used to say—someone always has to clear the snow first. Now, it's your turn to carry this lamp home."
+  },
+  "story.json:/chapters/0/title": {
+    "source": "第一章 · 苏醒之村",
+    "text": "Chapter 1: Awakening Village"
+  },
+  "story.json:/chapters/0/subtitle": {
+    "source": "第一堆火，第一缕烟",
+    "text": "The First Fire, The First Spark"
+  },
+  "story.json:/chapters/0/hook": {
+    "source": "祖父为什么把最后一盏风灯留给我？",
+    "text": "Why did Grandfather leave the last wind lantern to me?"
+  },
+  "story.json:/chapters/0/intro/0/1": {
+    "source": "暴风雪下了整整十年，霜语谷的篝火一盏接一盏熄灭。",
+    "context": "speaker=narrator",
+    "text": "The blizzard raged for ten years as the campfires of Frostwhisper Valley faded one by one."
+  },
+  "story.json:/chapters/0/intro/1/1": {
+    "source": "我提着祖父留下的风灯回到村子。雪很深，可只要肯弯腰，总能扫出第一条路。",
+    "context": "speaker=narrator",
+    "text": "I carried my grandfather's wind lantern back to the village. The snow was deep, but if you're willing to bend down, you can always clear a path."
+  },
+  "story.json:/chapters/0/worldLore/0/title": {
+    "source": "长雪十年",
+    "text": "Ten Years of Snow"
+  },
+  "story.json:/chapters/0/worldLore/0/text": {
+    "source": "永暖圣火熄灭那年冬天开始，雪一场接一场，再也没有化过。谷里人一批批南迁，留下的人守着越来越小的火堆，像守着快要睡着的心跳。",
+    "text": "Since the winter the Everwarm Flame died, snow fell in endless waves and never melted. People fled south in groups, leaving those behind to guard shrinking fires like they were guarding a fading heartbeat."
+  },
+  "story.json:/chapters/0/worldLore/1/title": {
+    "source": "霜灵师",
+    "text": "Frostweaver"
+  },
+  "story.json:/chapters/0/worldLore/1/text": {
+    "source": "霜语谷的人把风、火、水、木凝在掌心，两两相合，化出更暖、更结实的东西——这门手艺叫霜灵术。人们说，最好的霜灵师能把春天也一点点合出来。",
+    "text": "The people of Frostwhisper Valley would condense wind, fire, water, and wood in their palms, merging them into something warmer and stronger—this craft is called frostweaving. They say a master weaver can weave even the spring out of nothing."
+  },
+  "story.json:/chapters/0/nodes/0/name": {
+    "source": "重燃篝火广场",
+    "text": "Rekindle the Campfire Plaza"
+  },
+  "story.json:/chapters/0/nodes/0/place": {
+    "source": "村落中央 · 冻住的喷泉广场",
+    "text": "Village Center · Frozen Fountain Square"
+  },
+  "story.json:/chapters/0/nodes/0/pre/0/1": {
+    "source": "广场的火堆底下，好像还压着一点没冻死的火星！",
+    "context": "speaker=choco",
+    "text": "Under the pile in the plaza, there seems to be a spark that hasn't frozen over yet!"
+  },
+  "story.json:/chapters/0/nodes/0/pre/1/1": {
+    "source": "孩子，把一堆足够旺的「篝火堆」合出来，再添些金币引火——这村子，就从这儿醒。",
+    "context": "speaker=gunnar",
+    "text": "Child, forge a sturdy \"Campfire\" and add some coins to light it—this village will wake up from here."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/0/1": {
+    "source": "还有一点火星！别让它被风抢走——再靠近一点。",
+    "context": "speaker=choco",
+    "text": "There's still a spark! Don't let the wind take it—just a bit closer."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/1/1": {
+    "source": "十年了……手指头总算又有了知觉。我叫冈特，是这村里最后一个没走的老猎人。",
+    "context": "speaker=gunnar",
+    "text": "Ten years... my fingers finally have feeling again. I'm Gunnar, the last old hunter left in this village."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/2/1": {
+    "source": "{{playerName}}，你提的这盏风灯，是埃文的吧。他是你祖父，也是谷里最好的霜灵师。",
+    "context": "speaker=gunnar",
+    "text": "{{playerName}}, you're carrying Evan's wind lantern, aren't you? He was your grandfather and the valley's finest frostweaver."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/2/2/spoken": {
+    "source": "你提的这盏风灯，是埃文的吧。他是你祖父，也是谷里最好的霜灵师。",
+    "context": "speaker=gunnar; prerecorded spoken variant",
+    "text": "You're carrying Evan's wind lantern, aren't you? He was your grandfather and the valley's finest frostweaver."
+  },
+  "story.json:/chapters/0/nodes/0/dialogue/3/1": {
+    "source": "你听，屋里有人推开窗了。第一堆火不是景色——是他们终于敢相信，我们回来了。",
+    "context": "speaker=choco",
+    "text": "Listen, someone inside just opened a window. The first fire isn't just scenery—it's them finally daring to believe we're back."
+  },
+  "story.json:/chapters/0/nodes/0/interaction/title": {
+    "source": "亲手守住第一点火",
+    "text": "Guard the First Spark"
+  },
+  "story.json:/chapters/0/nodes/0/interaction/prompt": {
+    "source": "按顺序完成三步，让这簇火真正活下来。",
+    "text": "Complete three steps in order to keep this flame alive."
+  },
+  "story.json:/chapters/0/nodes/0/interaction/complete": {
+    "source": "第一堆火没有熄灭。黑了十年的窗，一扇接一扇亮了起来。",
+    "text": "The first fire didn't go out. One by one, windows that had been dark for a decade began to glow."
+  },
+  "story.json:/chapters/0/nodes/0/interaction/steps/0/label": {
+    "source": "添上霜木",
+    "text": "Add Frostwood"
+  },
+  "story.json:/chapters/0/nodes/0/interaction/steps/1/label": {
+    "source": "引入灯火",
+    "text": "Bring the Light"
+  },
+  "story.json:/chapters/0/nodes/0/interaction/steps/2/label": {
+    "source": "护住火种",
+    "text": "Protect the Flame"
+  },
+  "story.json:/chapters/0/nodes/0/lore/title": {
+    "source": "第一堆火",
+    "text": "The First Fire"
+  },
+  "story.json:/chapters/0/nodes/0/lore/text": {
+    "source": "十年里，广场的火堆第一次没有在天亮前熄灭。冈特说，人只要还肯围着火坐下，村子就不算死。",
+    "text": "For the first time in ten years, the fire in the plaza didn't die before dawn. Gunnar said that as long as people are willing to sit around a fire, the village isn't dead."
+  },
+  "story.json:/chapters/0/nodes/1/name": {
+    "source": "修补猎人小屋",
+    "text": "Repair Hunter's Cabin"
+  },
+  "story.json:/chapters/0/nodes/1/place": {
+    "source": "村东 · 冈特漏雪的木屋",
+    "text": "East Village · Gunnar's Leaky Cabin"
+  },
+  "story.json:/chapters/0/nodes/1/pre/0/1": {
+    "source": "我这屋顶漏雪漏了三年，夜里雪落在被上，早上得从雪堆里把自己刨出来。",
+    "context": "speaker=gunnar",
+    "text": "My roof has been leaking snow for three years. At night, it falls on my bedding; in the morning, I have to dig myself out from under the snow."
+  },
+  "story.json:/chapters/0/nodes/1/pre/1/1": {
+    "source": "合两块结实的木板，再凑点工钱，让我这把老骨头，也睡个不漏雪的觉吧。",
+    "context": "speaker=gunnar",
+    "text": "Nail down two sturdy planks and give me some coin so these old bones can get a dry night's sleep."
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/0/1": {
+    "source": "木板一钉，风雪被挡在门外，屋里静得能听见炭火爆开的声音。",
+    "context": "speaker=gunnar",
+    "text": "With the boards nailed down, the wind is blocked. The house is so quiet you can hear the charcoal crackle."
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/1/1": {
+    "source": "冈特爷爷，你刚才说我祖父……他十年前到底去了哪里？",
+    "context": "speaker=choco",
+    "text": "Grandpa Gunnar, you mentioned my grandfather... where did he go ten years ago?"
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/2/1": {
+    "source": "埃文他……最后去了山巅。等你把这村子焐得再暖些，我慢慢讲给你听。",
+    "context": "speaker=gunnar",
+    "text": "Evan... he went to the mountain peak. Once you make this village a bit warmer, I'll tell you the story."
+  },
+  "story.json:/chapters/0/nodes/1/dialogue/3/1": {
+    "source": "好。那我就先让每一间屋子，都不再漏雪。",
+    "context": "speaker=choco",
+    "text": "Alright. Then I'll start by making sure no house lets in any snow."
+  },
+  "story.json:/chapters/0/nodes/1/lore/title": {
+    "source": "猎人的旧伤",
+    "text": "The Hunter's Old Wound"
+  },
+  "story.json:/chapters/0/nodes/1/lore/text": {
+    "source": "冈特的左腿在十年前那场守夜里冻伤，从此再没能走进深山。他从不抱怨，只把擦得发亮的旧猎弓挂在门后。",
+    "text": "Gunnar's left leg was frostbitten during a night watch ten years ago, and he hasn't been able to enter the deep mountains since. He never complains; he only keeps his polished old hunting bow hanging behind the door."
+  },
+  "story.json:/chapters/0/nodes/2/name": {
+    "source": "架起村门木桥",
+    "text": "Repairing the Village Bridge"
+  },
+  "story.json:/chapters/0/nodes/2/place": {
+    "source": "村西 · 断裂的入村桥",
+    "text": "West Village · Broken Entrance Bridge"
+  },
+  "story.json:/chapters/0/nodes/2/pre/0/1": {
+    "source": "请、请问——桥那头还有人吗？我是邮差波波，驮着一袋子十年没送出去的信！",
+    "context": "speaker=bobo",
+    "text": "Ex-excuse me—is anyone on the other side of the bridge? I'm Bobo the courier, carrying a bag of letters undelivered for ten years!"
+  },
+  "story.json:/chapters/0/nodes/2/pre/1/1": {
+    "source": "可桥断了，我又不敢踩冰。能架上木梁、点支火把照路吗？大家都等着外面的消息呢。",
+    "context": "speaker=bobo",
+    "text": "But the bridge is broken and I can't walk on ice. Can you lay some beams and light a torch? Everyone is waiting for news from outside."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/0/1": {
+    "source": "信、信件能送进村了！你看这封——是从山那边寄来的，收信人写着「还留在霜语谷的人」。",
+    "context": "speaker=bobo",
+    "text": "The letters can be delivered! Look at this one—it came from across the mountains, addressed to \"Those still in Frostwhisper Valley.\""
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/1/1": {
+    "source": "外面的世界，还没忘记我们啊。",
+    "context": "speaker=gunnar",
+    "text": "The world outside hasn't forgotten us yet."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/2/1": {
+    "source": "桥通了，街坊们也该一个一个回来了。艾莎奶奶托我送来毛线篮，先给赶路的人织一双暖手套。",
+    "context": "speaker=choco",
+    "text": "The bridge is open; it's time for the neighbors to come home one by one. Grandma Elsa asked me to bring a basket of yarn to knit warm gloves for those on the road."
+  },
+  "story.json:/chapters/0/nodes/2/dialogue/3/1": {
+    "source": "太好啦！我这就去把信，送到山谷每一个角落！",
+    "context": "speaker=bobo",
+    "text": "That's great! I'll deliver these letters to every corner of the valley right now!"
+  },
+  "story.json:/chapters/0/nodes/2/lore/title": {
+    "source": "一袋子旧信",
+    "text": "A Bag of Old Letters"
+  },
+  "story.json:/chapters/0/nodes/2/lore/text": {
+    "source": "波波的邮袋里装着南迁村民留下的信，收信人多是「爸爸」「奶奶」「没走的邻居」。它说，信只要还在，人和人就没真正断了联系。",
+    "text": "Bobo's mailbag contains letters left by villagers who migrated south, addressed to \"Dad,\" \"Grandma,\" or \"Neighbors who stayed.\" He says as long as the letters exist, people are never truly out of touch."
+  },
+  "story.json:/chapters/0/nodes/3/name": {
+    "source": "围炉夜话",
+    "text": "Gathering by the Hearth"
+  },
+  "story.json:/chapters/0/nodes/3/place": {
+    "source": "广场 · 重新点亮的村厅",
+    "text": "Square · Re-lit Town Hall"
+  },
+  "story.json:/chapters/0/nodes/3/pre/0/1": {
+    "source": "今晚把大家都叫到村厅来吧。十年了，没人敢在夜里聚一聚——都怕聚完，人又少几个。",
+    "context": "speaker=gunnar",
+    "text": "Gather everyone at the town hall tonight. For ten years, no one dared gather at night—everyone was afraid there'd be fewer people left after."
+  },
+  "story.json:/chapters/0/nodes/3/pre/1/1": {
+    "source": "那我们就织几副手套、煮几壶热茶，把这一夜过得暖暖和和的，让大家敢留下来。",
+    "context": "speaker=choco",
+    "text": "Then we'll knit some gloves and brew pots of hot tea to keep everyone warm tonight, so they feel safe staying."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/0/1": {
+    "source": "你把「{{choice}}」挂上房梁。炉火噼啪，热茶冒着白汽，村厅里第一次有了说笑声。",
+    "context": "speaker=narrator",
+    "text": "You hang the \"{{choice}}\" from the rafters. With crackling fire and steaming tea, laughter fills the town hall for the first time."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/0/2/spoken": {
+    "source": "你把选好的主灯挂上房梁。炉火噼啪，热茶冒着白汽，村厅里第一次有了说笑声。",
+    "context": "speaker=narrator; prerecorded spoken variant",
+    "text": "You hang your chosen main lamp from the rafters. With crackling fire and steaming tea, laughter fills the town hall for the first time."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/1/1": {
+    "source": "埃文临走那晚，也是这样一炉火。他说圣火不是被风吹灭的，是被人一点点遗忘、没人再添柴，才冷下去的。",
+    "context": "speaker=gunnar",
+    "text": "On the night Evan left, there was a fire just like this. He said the Sacred Flame wasn't blown out by the wind; it grew cold because people forgot it and stopped adding wood."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/2/1": {
+    "source": "他上山前把这盏风灯交给我，说『等下一个肯扫雪的人回来，就替我还给它』。",
+    "context": "speaker=gunnar",
+    "text": "He gave me this wind lantern before heading up the mountain, saying, \"Give it back to me when the next person willing to clear the snow returns.\""
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/3/1": {
+    "source": "原来我被留下来，是为了等你呀，{{playerName}}。",
+    "context": "speaker=choco",
+    "text": "So I was left behind just to wait for you, {{playerName}}."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/3/2/spoken": {
+    "source": "原来我被留下来，是为了等你呀。",
+    "context": "speaker=choco; prerecorded spoken variant",
+    "text": "So I was left behind just to wait for you."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/4/1": {
+    "source": "村子醒了，可光有我们还不够——木桥那头，还有整条沉在雪里的街。",
+    "context": "speaker=choco",
+    "text": "The village is waking up, but we need more than just ourselves—there's the other side of the bridge, and the entire street buried in snow."
+  },
+  "story.json:/chapters/0/nodes/3/dialogue/5/1": {
+    "source": "我把面包坊的旧烤箱推来了。下一盏灯亮起时，让香味也跟着过桥吧。",
+    "context": "speaker=mier",
+    "text": "I've rolled over the old oven from the bakery. When the next light flickers on, let the aroma cross the bridge too."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/title": {
+    "source": "给村厅留一盏你的灯",
+    "text": "Leave a Light for the Town Hall"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/prompt": {
+    "source": "村民会记住你的选择，回忆手账也会保留它。",
+    "text": "The villagers will remember your choice, and it will be kept in the Memory Journal."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/complete": {
+    "source": "灯被挂上房梁，也被记进回忆手账。从今往后，这间屋子有了你的痕迹。",
+    "context": "",
+    "text": "The lamps are hung from the beams and recorded in your Memory Journal. From now on, this house bears your mark."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/0/name": {
+    "source": "松脂暖灯",
+    "text": "Pine Resin Lamp"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/0/desc": {
+    "source": "像旧家壁炉一样温暖",
+    "text": "Warm as an old hearth."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/1/name": {
+    "source": "霜晶星灯",
+    "text": "Frost Crystal Lamp"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/1/desc": {
+    "source": "把雪光折成一片星空",
+    "text": "Refracts snow into a starry sky."
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/2/name": {
+    "source": "猎人壁灯",
+    "text": "Hunter's Wall Lamp"
+  },
+  "story.json:/chapters/0/nodes/3/interaction/options/2/desc": {
+    "source": "结实、明亮，风吹不灭",
+    "text": "Sturdy, bright, and windproof."
+  },
+  "story.json:/chapters/0/nodes/3/lore/title": {
+    "source": "风灯之约",
+    "text": "Promise of the Wind Lantern"
+  },
+  "story.json:/chapters/0/nodes/3/lore/text": {
+    "source": "老霜灵师埃文上山前留下一盏风灯，托冈特转交给「下一个肯扫雪的人」。灯里的霜灵啾可，就这样等了整整十年。",
+    "text": "Before heading up the mountain, the old frostweaver Evan left a wind lantern and entrusted it to Gunnar to give to \"the next person who clears the snow.\" The frost spirit Choco inside has been waiting for ten whole years."
+  },
+  "story.json:/chapters/1/title": {
+    "source": "第二章 · 糖霜工坊街",
+    "text": "Chapter 2: Sugarfrost Workshop Street"
+  },
+  "story.json:/chapters/1/subtitle": {
+    "source": "炉火点进每一间铺子",
+    "text": "Kindling the Hearth in Every Shop"
+  },
+  "story.json:/chapters/1/hook": {
+    "source": "一封迟到十年的回信，写着谁的名字？",
+    "text": "A reply ten years late—whose name is written on it?"
+  },
+  "story.json:/chapters/1/intro/0/1": {
+    "source": "木桥那头，面包坊、裁缝铺和旧码头都还沉在雪里，招牌被雪压得抬不起头。",
+    "context": "speaker=narrator",
+    "text": "Beyond the wooden bridge, the bakery, tailor shop, and old pier lie buried in snow, their signs weighed down by the frost."
+  },
+  "story.json:/chapters/1/intro/1/1": {
+    "source": "把炉火点进每一间铺子，让这条街重新冒出热气、飘出香味。",
+    "context": "speaker=narrator",
+    "text": "Light a fire in every shop. Let this street breathe again, filled with warmth and aroma."
+  },
+  "story.json:/chapters/1/worldLore/0/title": {
+    "source": "糖霜工坊街",
+    "text": "Sugarfrost Workshop Street"
+  },
+  "story.json:/chapters/1/worldLore/0/text": {
+    "source": "灾变前，这条街是整座山谷最热闹的地方：蜜儿的浆果派出炉时，队伍能排到码头；艾莎奶奶的围巾，每个孩子都有一条。",
+    "text": "Before the Catastrophe, this was the heart of the valley: Mier's berry pies had lines stretching to the docks; every child had a scarf knitted by Grandma Elsa."
+  },
+  "story.json:/chapters/1/worldLore/1/title": {
+    "source": "暖意",
+    "text": "Warmth"
+  },
+  "story.json:/chapters/1/worldLore/1/text": {
+    "source": "霜语谷人把「被人惦记」称作暖意——递一杯热饮、织一条围巾、替谁留一盏灯。订单上每完成一件委托，山谷的暖意就多一分。",
+    "text": "The people of Frostwhisper Valley call the feeling of being \"remembered\" Warmth—a hot drink, a knitted scarf, or a lamp left lit for someone. With every completed commission, the warmth of the valley grows."
+  },
+  "story.json:/chapters/1/nodes/0/name": {
+    "source": "重开霜糖烘焙坊",
+    "text": "Reopen Frost-Sugar Bakery"
+  },
+  "story.json:/chapters/1/nodes/0/place": {
+    "source": "工坊街 · 结满冰花的面包坊",
+    "text": "Workshop Street · The Frost-Kissed Bakery"
+  },
+  "story.json:/chapters/1/nodes/0/pre/0/1": {
+    "source": "呀，是活人的脚步声！我是蜜儿，面包师。我的烤箱冻得打不开，配方本也冻成了冰砖……",
+    "context": "speaker=mier",
+    "text": "Oh! I hear footsteps of a living soul! I'm Mier, the baker. My oven is frozen shut, and my recipe book is a block of ice..."
+  },
+  "story.json:/chapters/1/nodes/0/pre/1/1": {
+    "source": "帮我烤一张麦饼、沏一杯热茶，让烤箱先暖起来好不好？香味一出来，街坊就知道家还在了。",
+    "context": "speaker=mier",
+    "text": "Help me bake a flatbread and brew some hot tea to warm up the oven first, okay? Once the scent drifts out, the neighbors will know home is still here."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/0/1": {
+    "source": "烤箱一热，麦饼的香味能飘到山脚！你闻——第一炉只是开始，浆果派很快也会回来。",
+    "context": "speaker=mier",
+    "text": "Once the oven warms up, the smell of flatbread will reach the foot of the mountain! Just wait—the first batch is only the beginning; berry pies are coming soon too."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/1/1": {
+    "source": "这就是山谷醒来的味道呀。蜜儿姐，灾变那年你怎么没走？",
+    "context": "speaker=choco",
+    "text": "That's the scent of the valley waking up. Mier, why didn't you leave during the Cataclysm?"
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/2/1": {
+    "source": "我答应过妹妹，要守着店，等她回来吃我烤的第一个派。",
+    "context": "speaker=mier",
+    "text": "I promised my sister I'd stay and guard the shop until she came back to eat my first baked pie."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/3/1": {
+    "source": "第一个派，一定给你，{{playerName}}。谢谢你，让我又能开始等一个人了。",
+    "context": "speaker=mier",
+    "text": "The first pie is yours, {{playerName}}. Thank you for giving me someone to start waiting for again."
+  },
+  "story.json:/chapters/1/nodes/0/dialogue/3/2/spoken": {
+    "source": "第一个派，一定给你。谢谢你，让我又能开始等一个人了。",
+    "context": "speaker=mier; prerecorded spoken variant",
+    "text": "The first pie is yours. Thank you for giving me someone to start waiting for again."
+  },
+  "story.json:/chapters/1/nodes/0/lore/title": {
+    "source": "没送出的浆果派",
+    "text": "The Undelivered Berry Pie"
+  },
+  "story.json:/chapters/1/nodes/0/lore/text": {
+    "source": "蜜儿的妹妹南迁那年没赶上最后一班渡轮，姐妹就此失散。蜜儿每天都多烤一个派，摆在靠窗的位置，摆了十年。",
+    "text": "Mier's sister missed the last ferry when she moved south, and they were separated. For ten years, Mier baked an extra pie every day, placing it by the window."
+  },
+  "story.json:/chapters/1/nodes/1/name": {
+    "source": "重开暖阳裁缝铺",
+    "text": "Reopen Warm Sun Tailor Shop"
+  },
+  "story.json:/chapters/1/nodes/1/place": {
+    "source": "工坊街 · 毛线缠成冰藤的裁缝铺",
+    "text": "Workshop Street · The Yarn-Tangled Tailor Shop"
+  },
+  "story.json:/chapters/1/nodes/1/pre/0/1": {
+    "source": "哎哟，我的老花镜都冻在桌上喽。来，孩子，帮奶奶赶一顶毛线帽，再备一条围巾。",
+    "context": "speaker=elsa",
+    "text": "Oh my, my spectacles are frozen to the table! Come here, child, help Grandma knit a wool cap and a scarf."
+  },
+  "story.json:/chapters/1/nodes/1/pre/1/1": {
+    "source": "我要织得松松软软，围巾一人一条——这山谷里，再不许有人冻着。",
+    "context": "speaker=elsa",
+    "text": "I'll make them soft and cozy. One scarf for each person—no one in this valley should be left shivering anymore."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/0/1": {
+    "source": "帽子要织得松松软软，围巾一人一条，谁都不许再冻着。",
+    "context": "speaker=elsa",
+    "text": "Make the hats soft and cozy, one scarf for everyone; no one is allowed to stay cold."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/1/1": {
+    "source": "艾莎奶奶的针线，比炉火还暖呢。",
+    "context": "speaker=choco",
+    "text": "Grandma Elsa's knitting feels warmer than a hearth fire."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/2/1": {
+    "source": "老啦，手指不听使唤，可一想到有人正冷着，就还能再织一针。",
+    "context": "speaker=elsa",
+    "text": "I'm old, and my fingers don't always obey, but when I think of someone out in the cold, I can manage one more stitch."
+  },
+  "story.json:/chapters/1/nodes/1/dialogue/3/1": {
+    "source": "你和你祖父一个样，手巧，心也热。",
+    "context": "speaker=elsa",
+    "text": "You're just like your grandfather—skilled hands and a warm heart."
+  },
+  "story.json:/chapters/1/nodes/1/lore/title": {
+    "source": "一人一条围巾",
+    "text": "A Scarf for Each"
+  },
+  "story.json:/chapters/1/nodes/1/lore/text": {
+    "source": "灾变那年冬天，艾莎把店里所有毛线织成围巾，挂在村口，谁冷了就自己取一条。十年过去，那些围巾还在，只是褪成了雪的颜色。",
+    "text": "The winter of the Catastrophe, Elsa knitted every scrap of yarn into scarves and hung them at the village entrance. Anyone who felt cold could take one. Ten years later, those scarves remain, though they've faded to the color of snow."
+  },
+  "story.json:/chapters/1/nodes/2/name": {
+    "source": "疏通破冰码头",
+    "text": "Clearing the Ice Pier"
+  },
+  "story.json:/chapters/1/nodes/2/place": {
+    "source": "街尾 · 被冰锁住的旧码头",
+    "text": "End of the Street · The Frozen Old Pier"
+  },
+  "story.json:/chapters/1/nodes/2/pre/0/1": {
+    "source": "码头冻住啦，渔船出不去，外面的人也回不来！",
+    "context": "speaker=bobo",
+    "text": "The pier is frozen! The fishing boats can't get out, and no one from the outside can get in!"
+  },
+  "story.json:/chapters/1/nodes/2/pre/1/1": {
+    "source": "换上结实的门窗框，再给破冰的船工备足热茶。冰一破开，这条路就活了。",
+    "context": "speaker=gunnar",
+    "text": "Replace the door frames with sturdy ones, and prep plenty of hot tea for the ice-breaking sailors. Once the ice breaks, this route will come alive."
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/0/1": {
+    "source": "码头修好啦，渔船可以出湖，热茶给船工们备好！",
+    "context": "speaker=bobo",
+    "text": "The pier is fixed! The boats can head out to the lake, and the tea is ready for the crew!"
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/1/1": {
+    "source": "听，是凿冰的声音。这条街，又活过来喽。",
+    "context": "speaker=gunnar",
+    "text": "Listen... that's the sound of ice being broken. This street is coming back to life."
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/2/1": {
+    "source": "船工们把一箱没用完的补给留给你了，风灯里又攒下十次余温。趁热把下一批材料合出来吧。",
+    "context": "speaker=choco",
+    "text": "The sailors left a crate of supplies for you, and your wind lanterns have enough warmth for ten more uses. Use them to merge the next batch of materials while they're hot."
+  },
+  "story.json:/chapters/1/nodes/2/dialogue/3/1": {
+    "source": "等第一艘船靠岸，我要烤满满一窗台的派！",
+    "context": "speaker=mier",
+    "text": "Once the first ship docks, I'm baking a whole windowsill full of pies!"
+  },
+  "story.json:/chapters/1/nodes/2/lore/title": {
+    "source": "破冰第一锤",
+    "text": "The First Strike"
+  },
+  "story.json:/chapters/1/nodes/2/lore/text": {
+    "source": "码头的冰厚得能跑马。船工们轮着锤，锤了整整一天，当第一缕湖水从裂缝里漫上来时，整条街的人都跑到岸边欢呼。",
+    "text": "The ice on the pier was thick enough for horses to run on. The crew took turns striking it all day long. When the first trickle of lake water surged through the cracks, everyone in the street ran to the shore to cheer."
+  },
+  "story.json:/chapters/1/nodes/3/name": {
+    "source": "长街灯宴",
+    "text": "Lantern Banquet"
+  },
+  "story.json:/chapters/1/nodes/3/place": {
+    "source": "工坊街 · 张灯的夜晚",
+    "text": "Workshop Street · Night of Lanterns"
+  },
+  "story.json:/chapters/1/nodes/3/pre/0/1": {
+    "source": "码头通了，今晚办一场灯宴吧！让十年没聚过的街坊，痛痛快快热闹一回。",
+    "context": "speaker=mier",
+    "text": "The pier is open! Let's have a lantern feast tonight. It's time for the neighbors who haven't met in ten years to celebrate together."
+  },
+  "story.json:/chapters/1/nodes/3/pre/1/1": {
+    "source": "我给每个人缝一顶新帽子。孩子，蛋糕和热饮就拜托你啦。",
+    "context": "speaker=elsa",
+    "text": "I'll knit new hats for everyone. Child, I'm counting on you for the cakes and hot drinks."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/0/1": {
+    "source": "一盏盏风灯挂上街檐，浆果派切开，热可可甜得发暖，新帽子在灯下毛茸茸的。",
+    "context": "speaker=narrator",
+    "text": "Wind lanterns hang from every eave, berry pies are sliced open, hot cocoa warms the soul, and new hats look cozy under the glow."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/1/1": {
+    "source": "报告大家一个好消息——我收到山那边的回信了！信上说，南迁的人，一直在等山谷重新亮起灯。",
+    "context": "speaker=bobo",
+    "text": "I have good news for everyone—I received a reply from across the mountains! They said those who migrated south have been waiting for the valley's lights to shine again."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/2/1": {
+    "source": "灯一亮，他们就认得回家的路了。",
+    "context": "speaker=gunnar",
+    "text": "Once the lights are on, they'll find their way home."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/3/1": {
+    "source": "可山谷最高处的圣殿还是黑的。那里，是十年前最后熄灭的地方。",
+    "context": "speaker=choco",
+    "text": "But the sanctuary at the highest peak is still dark. That was the place where the last light went out ten years ago."
+  },
+  "story.json:/chapters/1/nodes/3/dialogue/4/1": {
+    "source": "是时候了。我们上山，去会会那团十年没敢碰的火。",
+    "context": "speaker=gunnar",
+    "text": "It's time. We head up the mountain to face that flame we haven't dared touch in a decade."
+  },
+  "story.json:/chapters/1/nodes/3/interaction/title": {
+    "source": "点亮整条工坊街",
+    "text": "Light Up Workshop Street"
+  },
+  "story.json:/chapters/1/nodes/3/interaction/prompt": {
+    "source": "沿着街檐逐盏点灯，让远方的人看见回家的方向。",
+    "text": "Light each lantern along the eaves so those far away can see the way home."
+  },
+  "story.json:/chapters/1/nodes/3/interaction/complete": {
+    "source": "最后一盏灯亮起时，山那边忽然也亮了一点——像有人在远方回应。",
+    "text": "As the last lantern flickered to life, a spark appeared on the mountain—as if someone in the distance was answering back."
+  },
+  "story.json:/chapters/1/nodes/3/interaction/steps/0/label": {
+    "source": "烘焙坊",
+    "text": "Bakery"
+  },
+  "story.json:/chapters/1/nodes/3/interaction/steps/1/label": {
+    "source": "裁缝铺",
+    "text": "Tailor Shop"
+  },
+  "story.json:/chapters/1/nodes/3/interaction/steps/2/label": {
+    "source": "码头灯",
+    "text": "Pier Lanterns"
+  },
+  "story.json:/chapters/1/nodes/3/lore/title": {
+    "source": "等灯的人",
+    "text": "The One Waiting for the Light"
+  },
+  "story.json:/chapters/1/nodes/3/lore/text": {
+    "source": "灯宴那晚，波波把回信读了一遍又一遍。南迁的人在信末写：『只要山谷还亮着灯，我们就总有一天会回去。』",
+    "text": "That night of the Lantern Feast, Bobo read the reply over and over. The people of Nancian wrote at the end: \"As long as the valley keeps its lights burning, we will one day return.\""
+  },
+  "story.json:/chapters/2/title": {
+    "source": "第三章 · 永暖圣殿",
+    "text": "Chapter 3 · Temple of Everwarm"
+  },
+  "story.json:/chapters/2/subtitle": {
+    "source": "十年前最后熄灭的地方",
+    "text": "Where the last light faded ten years ago"
+  },
+  "story.json:/chapters/2/hook": {
+    "source": "圣火若不是终点，真正冻住山谷的是什么？",
+    "text": "If the Everwarm Flame wasn't the end, what was it that truly froze the valley?"
+  },
+  "story.json:/chapters/2/intro/0/1": {
+    "source": "山谷最高处的永暖圣殿，白石被风雪磨成了淡蓝色，大门紧闭了十年。",
+    "context": "speaker=narrator",
+    "text": "At the highest peak lies the Everwarm Sanctuary. Its white stone has been weathered into pale blue by wind and snow; its gates have remained shut for ten years."
+  },
+  "story.json:/chapters/2/intro/1/1": {
+    "source": "传说只要圣火重燃，暴风雪就再也无法吞没这片土地。可推开那扇门，我们才发现——故事，才刚刚开始。",
+    "context": "speaker=narrator",
+    "text": "Legend says if the sacred fire is rekindled, no blizzard can ever swallow this land again. But when we pushed open that door, we realized—the story was only just beginning."
+  },
+  "story.json:/chapters/2/worldLore/0/title": {
+    "source": "永暖圣殿",
+    "text": "Temple of Everwarm"
+  },
+  "story.json:/chapters/2/worldLore/0/text": {
+    "source": "圣殿建在山谷最高处，永暖圣火在殿心烧了几百年，是整座霜语谷的热源。霜灵师世代守焰，埃文是最后一任守焰人。",
+    "text": "Built at the valley's peak, the Everwarm Flame has burned in the temple's heart for centuries, serving as the heat source for all of Frostwhisper Valley. Generations of frostweavers have guarded the flame; Evan was the last."
+  },
+  "story.json:/chapters/2/worldLore/1/title": {
+    "source": "永暖圣火",
+    "text": "Everwarm Flame"
+  },
+  "story.json:/chapters/2/worldLore/1/text": {
+    "source": "传说圣火取自山巅「霜心」，是人间第一捧不肯熄灭的火。它烧的不是柴，是人与人之间彼此惦记的那点温度。",
+    "text": "Legend says the flame was taken from the \"Frostheart\" atop the peak—the first fire in the world that refused to go out. It burns not on wood, but on the warmth of people caring for one another."
+  },
+  "story.json:/chapters/2/nodes/0/name": {
+    "source": "修缮壁炉大厅",
+    "text": "Repairing the Hearth Hall"
+  },
+  "story.json:/chapters/2/nodes/0/place": {
+    "source": "圣殿一层 · 积灰的壁炉大厅",
+    "text": "Temple 1F · Dusty Hearth Hall"
+  },
+  "story.json:/chapters/2/nodes/0/pre/0/1": {
+    "source": "可算有人上来了。我是铁匠巴尔，十年了，一直是我守着这扇破门。",
+    "context": "speaker=bar",
+    "text": "Finally, someone's here. I'm Barr, the blacksmith. For ten years, I've been guarding this broken door."
+  },
+  "story.json:/chapters/2/nodes/0/pre/1/1": {
+    "source": "石壁我加固过了，就差一座暖炉、几扇结实门窗。先让大厅能待人，真正的壁炉以后慢慢砌。",
+    "context": "speaker=bar",
+    "text": "I've reinforced the stone walls; all we need is a heater and some sturdy doors and windows. Let's make the hall habitable first; we can build the real hearth later."
+  },
+  "story.json:/chapters/2/nodes/0/dialogue/0/1": {
+    "source": "这暖炉一烧起来，连石头都跟着松了口气。等人回来，我们再把它砌成能烧一百年的壁炉。",
+    "context": "speaker=bar",
+    "text": "Once this heater fires up, even the stones will seem to relax. When others return, we'll forge it into a hearth that can burn for a hundred years."
+  },
+  "story.json:/chapters/2/nodes/0/dialogue/1/1": {
+    "source": "大厅暖了，大家就有地方围坐在一起了。巴尔叔叔，你一个人守了十年？",
+    "context": "speaker=choco",
+    "text": "The hall is warm now; everyone has a place to gather. Uncle Barr, have you been guarding this alone for ten years?"
+  },
+  "story.json:/chapters/2/nodes/0/dialogue/2/1": {
+    "source": "……我答应过一个人，不让这地方塌。先干活，旧事，往后再说。",
+    "context": "speaker=bar",
+    "text": "...I promised someone I wouldn't let this place collapse. Let's work first; we can talk about the past later."
+  },
+  "story.json:/chapters/2/nodes/0/lore/title": {
+    "source": "守门的铁匠",
+    "text": "The Gatekeeper Smith"
+  },
+  "story.json:/chapters/2/nodes/0/lore/text": {
+    "source": "巴尔话少，锤子却没停过。十年里他一个人加固圣殿、清走积雪，殿里每一块没裂开的石头，都有他敲过的痕迹。",
+    "text": "Barr is a man of few words, but his hammer never stops. For ten years, he alone has reinforced the temple and cleared the snow; every crack-free stone in the hall bears the marks of his work."
+  },
+  "story.json:/chapters/2/nodes/1/name": {
+    "source": "托起圣殿穹顶",
+    "text": "Supporting the Temple Dome"
+  },
+  "story.json:/chapters/2/nodes/1/place": {
+    "source": "圣殿二层 · 开裂的星空穹顶",
+    "text": "Temple 2F · Cracked Starry Dome"
+  },
+  "story.json:/chapters/2/nodes/1/pre/0/1": {
+    "source": "穹顶裂了道大口子，风雪直直往里灌。得嵌一顶冰晶冠把光接住，再挂上毛衣织成的挡风帘。",
+    "context": "speaker=elsa",
+    "text": "A large crack in the dome lets snow and wind pour in. We need to set a crystal crown to catch the light and hang curtains of knitted wool to block the wind."
+  },
+  "story.json:/chapters/2/nodes/1/pre/1/1": {
+    "source": "让光重新洒满大厅，像把星星搬回了屋顶。",
+    "context": "speaker=choco",
+    "text": "Let the light flood the hall again, as if we're bringing the stars back onto the roof."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/0/1": {
+    "source": "霜晶嵌进穹顶，会把光撒得像星星一样。",
+    "context": "speaker=elsa",
+    "text": "When the frost crystals are set in the dome, they'll scatter light like a field of stars."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/1/1": {
+    "source": "再挂上厚毛衣织成的挡风帘，风就灌不进来啦。",
+    "context": "speaker=mier",
+    "text": "Once we hang the thick wool curtains, the wind won't be able to get in anymore."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/2/1": {
+    "source": "霜晶亮起的一瞬，整座大厅浮起淡蓝色的光尘，像十年前的星空，落回了人间。",
+    "context": "speaker=narrator",
+    "text": "The moment the frost crystals lit up, the hall was bathed in a pale blue haze, like the starry sky of ten years ago falling back to earth."
+  },
+  "story.json:/chapters/2/nodes/1/dialogue/3/1": {
+    "source": "……跟那年一模一样。只差最后一步了。",
+    "context": "speaker=bar",
+    "text": "...It's just like it was that year. Only one step left."
+  },
+  "story.json:/chapters/2/nodes/1/lore/title": {
+    "source": "会发光的石头",
+    "text": "Luminous Stones"
+  },
+  "story.json:/chapters/2/nodes/1/lore/text": {
+    "source": "霜晶是霜语谷独有的冰晶，会记住光。守焰人把最大的霜晶嵌在穹顶，哪怕暴风雪封山，殿里也永远有一片不化的星空。",
+    "text": "Frost crystals are unique to Frostwhisper Valley and can hold onto light. By setting the largest crystal in the dome, frostweavers ensured that even if a blizzard sealed the mountain, there would always be a piece of the starry sky inside."
+  },
+  "story.json:/chapters/2/nodes/2/name": {
+    "source": "点燃永暖圣火",
+    "text": "Kindle the Everwarm Flame"
+  },
+  "story.json:/chapters/2/nodes/2/place": {
+    "source": "圣殿殿心 · 熄灭十年的圣火坛",
+    "text": "Temple Heart · The Everwarm Flame, Extinguished for a Decade"
+  },
+  "story.json:/chapters/2/nodes/2/pre/0/1": {
+    "source": "暖炉、蜂蜜暖饮、成套家具……不用等到世上最稀有的供物。{{playerName}}，守焰人的礼节，是把手边的温暖都带来。",
+    "context": "speaker=gunnar",
+    "text": "A heater, honeyed drinks, a set of furniture... we don't need the rarest offerings in the world. {{playerName}}, the rite of the Flamekeeper is to bring all the warmth you have at hand."
+  },
+  "story.json:/chapters/2/nodes/2/pre/0/2/spoken": {
+    "source": "暖炉、蜂蜜暖饮、成套家具……不用等到世上最稀有的供物。守焰人的礼节，是把手边的温暖都带来。",
+    "context": "speaker=gunnar; prerecorded spoken variant",
+    "text": "A heater, honeyed drinks, a set of furniture... we don't need the rarest offerings in the world. The rite of the Flamekeeper is to bring all the warmth you have at hand."
+  },
+  "story.json:/chapters/2/nodes/2/pre/1/1": {
+    "source": "我提着灯站了十年，就等这一刻。来吧，让我们一起，把火送回它该在的地方。",
+    "context": "speaker=choco",
+    "text": "I've stood here with my lantern for ten years, waiting for this moment. Come, let us return the fire to where it belongs."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/0/1": {
+    "source": "暖炉的火落入坛心，「轰」地腾起金色火柱，霜木家具在火里发出风铃一样的轻响。",
+    "context": "speaker=narrator",
+    "text": "As the heater's flame fell into the heart-vessel, a golden pillar of fire erupted with a roar, and the frostwood furniture chimed like bells in the heat."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/1/1": {
+    "source": "永暖圣火……请你，再也不要熄灭。",
+    "context": "speaker=choco",
+    "text": "Everwarm Flame... please, never go out again."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/2/1": {
+    "source": "看呐——雪，小了！",
+    "context": "speaker=gunnar",
+    "text": "Look—the snow is receding!"
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/3/1": {
+    "source": "可火光只升到半空，便在穹顶映出一幅流动的画面：山巅风暴的正中心，沉着一颗微弱跳动的、巨大的蓝色心脏。",
+    "context": "speaker=narrator",
+    "text": "But the light only rose halfway before reflecting a moving image on the dome: at the center of the mountain storm lay a massive, pulsing blue heart."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/4/1": {
+    "source": "果然……圣火只是钥匙。真正冻住山谷的东西，在那上面。",
+    "context": "speaker=bar",
+    "text": "Just as I thought... the sacred fire is only the key. The thing truly freezing the valley lies upon it."
+  },
+  "story.json:/chapters/2/nodes/2/dialogue/5/1": {
+    "source": "那是……霜心。它还活着，只是快要忘了，该怎么跳动。",
+    "context": "speaker=choco",
+    "text": "That's... the Frostheart. It's still alive, it's just forgotten how to beat."
+  },
+  "story.json:/chapters/2/nodes/2/interaction/title": {
+    "source": "完成守焰人的仪式",
+    "text": "Complete the Flamekeeper's Ritual"
+  },
+  "story.json:/chapters/2/nodes/2/interaction/prompt": {
+    "source": "三件供物必须依次回应，圣火才会承认新的守焰人。",
+    "text": "The three offerings must be presented in order for the Everwarm Flame to recognize a new keeper."
+  },
+  "story.json:/chapters/2/nodes/2/interaction/complete": {
+    "source": "圣火冲上穹顶，却照出了一个更大的秘密。",
+    "text": "The flame surged toward the dome, revealing an even greater secret."
+  },
+  "story.json:/chapters/2/nodes/2/interaction/steps/0/label": {
+    "source": "放下霜木",
+    "text": "Place Frostwood"
+  },
+  "story.json:/chapters/2/nodes/2/interaction/steps/1/label": {
+    "source": "献上暖饮",
+    "text": "Offer Warm Drink"
+  },
+  "story.json:/chapters/2/nodes/2/interaction/steps/2/label": {
+    "source": "送回圣火",
+    "text": "Restore the Flame"
+  },
+  "story.json:/chapters/2/nodes/2/lore/title": {
+    "source": "圣火只是钥匙",
+    "text": "The Flame is Only a Key"
+  },
+  "story.json:/chapters/2/nodes/2/lore/text": {
+    "source": "谁都以为点燃圣火便是结局。可火光映出山巅风暴之眼里的「霜心」——长雪的源头。圣火不是终点，它是通往真相的第一把钥匙。",
+    "text": "Many believed that lighting the Everwarm Flame was the end. But the light revealed the \"Frostheart\" within the eye of the mountain storm—the source of the eternal snows. The flame isn't the destination; it is the first key to the truth."
+  },
+  "story.json:/chapters/2/nodes/3/name": {
+    "source": "焰心的预言",
+    "text": "Prophecy of the Flame Heart"
+  },
+  "story.json:/chapters/2/nodes/3/place": {
+    "source": "圣殿偏厅 · 火光映出的壁画",
+    "text": "Temple Side Hall · Murals Illuminated by Fire"
+  },
+  "story.json:/chapters/2/nodes/3/pre/0/1": {
+    "source": "圣火在墙上投出了古早的壁画，可有些字被霜盖住了。用霜晶接住火光，我们一起读它。",
+    "context": "speaker=choco",
+    "text": "The sacred fire cast ancient murals onto the walls, though some words were covered by frost. Using the crystals to catch the light, let's read them together."
+  },
+  "story.json:/chapters/2/nodes/3/pre/1/1": {
+    "source": "埃文当年，一定也读到了这些。",
+    "context": "speaker=gunnar",
+    "text": "Evan surely read these back then."
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/0/1": {
+    "source": "冰棱柱、篝火堆与毛衣就位，壁画上的古霜文一行行亮了起来。",
+    "context": "speaker=narrator",
+    "text": "As the ice pillars, bonfires, and woolens fell into place, lines of ancient frost-script began to glow on the mural."
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/1/1": {
+    "source": "『长雪起于霜心之眠。欲令春归，须以四种人间温度为引——』",
+    "context": "speaker=choco",
+    "text": "“Long snow rises from the Frostheart's sleep. To call spring back, four earthly warmths must be used as guides—”\""
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/2/1": {
+    "source": "『篝火之望，比邻之系，释怀之勇，传灯之愿。四温齐聚，霜心方醒。』",
+    "context": "speaker=choco",
+    "text": "“Hope of the bonfire, bond of neighbors, courage of release, and the wish to pass the light. When four warms unite, the Frostheart shall awaken.”\""
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/3/1": {
+    "source": "篝火之望，我们已经有了。剩下三样，在外港、在雪原、也在我们自己心里。",
+    "context": "speaker=bar",
+    "text": "We have the hope of the bonfire. The other three lie in the outer port, across the snows, and within our own hearts."
+  },
+  "story.json:/chapters/2/nodes/3/dialogue/4/1": {
+    "source": "先去归雁港吧。木桥、码头都通了，是时候把走散的人，接回家了。",
+    "context": "speaker=gunnar",
+    "text": "Let's head to Goose-Return Port first. With the bridge and pier open, it's time to bring those who wandered away back home."
+  },
+  "story.json:/chapters/2/nodes/3/lore/title": {
+    "source": "四种人间温度",
+    "text": "Four Human Warmths"
+  },
+  "story.json:/chapters/2/nodes/3/lore/text": {
+    "source": "古壁画写着唤醒霜心的四种温度：篝火之望（希望）、比邻之系（联结）、释怀之勇（原谅）、传灯之愿（传承）。这正是接下来旅途的四张地图。",
+    "text": "The ancient mural describes four types of warmth needed to awaken the Frostheart: Hope (Bonfire), Connection (Neighbor), Forgiveness (Courage), and Legacy (Torch). These are the four maps for our journey ahead."
+  },
+  "story.json:/chapters/3/title": {
+    "source": "第四章 · 归雁港",
+    "text": "Chapter 4 · Migrant Harbor"
+  },
+  "story.json:/chapters/3/subtitle": {
+    "source": "第二种温度 · 比邻之系",
+    "text": "Second Warmth · Bond of Neighbors"
+  },
+  "story.json:/chapters/3/hook": {
+    "source": "第一艘归乡船上，会不会有蜜儿等了十年的人？",
+    "text": "Will there be someone on the first ship home who Mier has waited ten years for?"
+  },
+  "story.json:/chapters/3/intro/0/1": {
+    "source": "顺着解冻的河道向外走，是霜语谷曾经的门户——归雁港。",
+    "context": "speaker=narrator",
+    "text": "Following the thawed river path leads to the former gateway of Frostwhisper Valley—Goose-Return Port."
+  },
+  "story.json:/chapters/3/intro/1/1": {
+    "source": "十年封港，灯塔瞎了，渡轮冻在冰里。要让走散的人回家，先得替他们，把回家的路点亮。",
+    "context": "speaker=narrator",
+    "text": "The port was sealed for ten years; the lighthouse went dark, and the ferries were frozen in ice. To bring the lost ones home, we must first light their way back."
+  },
+  "story.json:/chapters/3/worldLore/0/title": {
+    "source": "归雁港",
+    "text": "Homebound Harbor"
+  },
+  "story.json:/chapters/3/worldLore/0/text": {
+    "source": "归雁港是霜语谷通向外界的唯一港口，每年春天，南迁的人会像归雁一样随渡船回来。长雪之后，最后一班离港的船，再没等来返航。",
+    "text": "Homebound Harbor is the only port connecting Frostwhisper Valley to the outside world. Every spring, those who migrated south would return like homing geese on ferries. After the Great Snow, the final ship to leave never returned."
+  },
+  "story.json:/chapters/3/worldLore/1/title": {
+    "source": "比邻之系",
+    "text": "The Neighborly Bond"
+  },
+  "story.json:/chapters/3/worldLore/1/text": {
+    "source": "第二种人间温度叫「比邻之系」：知道自己被远方的人惦记，也愿意为他们留一盏灯、修一条路。",
+    "text": "A second kind of warmth is the \"Neighborly Bond\": knowing you are missed by those far away, and being willing to keep a lamp lit and a road mended for them."
+  },
+  "story.json:/chapters/3/nodes/0/name": {
+    "source": "点亮归航灯塔",
+    "text": "Light the Beacon"
+  },
+  "story.json:/chapters/3/nodes/0/place": {
+    "source": "归雁港 · 瞎了十年的灯塔",
+    "text": "Homebound Harbor · The Darkened Lighthouse"
+  },
+  "story.json:/chapters/3/nodes/0/pre/0/1": {
+    "source": "灯塔的灯十年没亮，归乡的船在海上根本找不到岸！",
+    "context": "speaker=bobo",
+    "text": "The lighthouse hasn't shone for a decade! Ships returning home can't find the shore at all!"
+  },
+  "story.json:/chapters/3/nodes/0/pre/1/1": {
+    "source": "我们用木屋组件搭起塔身，再供上一座长明暖炉。让光，替山谷先喊一声『欢迎回家』。",
+    "context": "speaker=choco",
+    "text": "We'll build the tower with cabin parts and top it with a constant hearth. Let its light be the first to say \"Welcome home\" for the valley."
+  },
+  "story.json:/chapters/3/nodes/0/dialogue/0/1": {
+    "source": "灯塔重新旋亮，光柱扫过灰蒙蒙的海面，像一只缓缓张开的手臂。",
+    "context": "speaker=narrator",
+    "text": "The lighthouse flared back to life, its beam sweeping across the gray sea like an arm slowly opening wide."
+  },
+  "story.json:/chapters/3/nodes/0/dialogue/1/1": {
+    "source": "亮了亮了！这束光，几十里外的船都看得见！",
+    "context": "speaker=bobo",
+    "text": "It's lit! It's lit! Ships miles away can see that light now!"
+  },
+  "story.json:/chapters/3/nodes/0/dialogue/2/1": {
+    "source": "当年埃文送村里人离港，也是站在这座塔下，说『灯亮着，你们随时能回来』。",
+    "context": "speaker=gunnar",
+    "text": "Years ago, when Evan saw the villagers off at the port, he stood under this very tower and said, \"As long as the light shines, you can always come home.\""
+  },
+  "story.json:/chapters/3/nodes/0/lore/title": {
+    "source": "海上的光",
+    "text": "Light on the Sea"
+  },
+  "story.json:/chapters/3/nodes/0/lore/text": {
+    "source": "灯塔旋亮的那一夜，远方海面上有几点渔火迟疑地朝岸边靠了靠——那是十年里，第一次有船，朝着霜语谷的方向转舵。",
+    "text": "The night the lighthouse flared, a few fishing lights on the distant sea hesitated before turning toward the shore—for the first time in ten years, a ship steered toward Frostwhisper Valley."
+  },
+  "story.json:/chapters/3/nodes/1/name": {
+    "source": "修好暖流渡轮",
+    "text": "Repair the Ferry"
+  },
+  "story.json:/chapters/3/nodes/1/place": {
+    "source": "归雁港 · 冻在冰里的旧渡轮",
+    "text": "Homebound Harbor · The Frozen Ferry"
+  },
+  "story.json:/chapters/3/nodes/1/pre/0/1": {
+    "source": "船壳冻裂了，锅炉也凉透。没有船，灯再亮，人也过不了这片海。",
+    "context": "speaker=bar",
+    "text": "The hulls are cracked, and the boilers have gone cold. Without a ship, no matter how bright the light is, no one can cross this sea."
+  },
+  "story.json:/chapters/3/nodes/1/pre/1/1": {
+    "source": "船舱里一定要备足蜂蜜暖饮，归乡的路冷，得让每个人下船时，手是暖的。",
+    "context": "speaker=mier",
+    "text": "We must stock enough honeyed drinks in the cabins. The road home is cold; everyone needs to have warm hands when they step off the boat."
+  },
+  "story.json:/chapters/3/nodes/1/dialogue/0/1": {
+    "source": "新船板一块块合上，锅炉重新低吼，渡轮喷出十年来第一口白汽。",
+    "context": "speaker=narrator",
+    "text": "As the new planks were fitted and the boiler roared back to life, the ferry exhaled its first breath of white steam in ten years."
+  },
+  "story.json:/chapters/3/nodes/1/dialogue/1/1": {
+    "source": "呜——！它响了，暖流号又能开啦！",
+    "context": "speaker=bobo",
+    "text": "Whoa—! It's working! The Warmth Flow can sail again!"
+  },
+  "story.json:/chapters/3/nodes/1/dialogue/2/1": {
+    "source": "船在，灯在，热饮在。现在，就差一个让人愿意回来的理由了。",
+    "context": "speaker=choco",
+    "text": "We have a ship, we have light, and we have warm drinks. Now, all we need is a reason for people to want to come home."
+  },
+  "story.json:/chapters/3/nodes/1/lore/title": {
+    "source": "暖流号",
+    "text": "The Warmthed"
+  },
+  "story.json:/chapters/3/nodes/1/lore/text": {
+    "source": "暖流号是归雁港最老的渡轮，灾变前每天往返两岸。老船长把船钥匙交给巴尔时说：『替我看着它，等春天，我还要开它最后一趟。』",
+    "text": "The Warmthed is the oldest ferry at Homebound Harbor, crossing daily before the disaster. The old captain gave the keys to Barr, saying: \"Watch over it for me. I'll sail it one last time in the spring.\""
+  },
+  "story.json:/chapters/3/nodes/2/name": {
+    "source": "搭起归乡集市",
+    "text": "Set Up the Market"
+  },
+  "story.json:/chapters/3/nodes/2/place": {
+    "source": "归雁港 · 空无一人的码头集市",
+    "text": "Homebound Harbor · The Empty Pier Market"
+  },
+  "story.json:/chapters/3/nodes/2/pre/0/1": {
+    "source": "人回来总得有个落脚、有口热乎饭、有件干净衣裳。我们把集市先支棱起来！",
+    "context": "speaker=mier",
+    "text": "People coming home need a place to stay, a hot meal, and clean clothes. Let's get the market set up first!"
+  },
+  "story.json:/chapters/3/nodes/2/pre/1/1": {
+    "source": "再挂些霜晶灯，远远看着暖，人才敢相信这不是梦。",
+    "context": "speaker=elsa",
+    "text": "Let's hang some Frost Crystals. When it looks warm from afar, people will finally believe this isn't a dream."
+  },
+  "story.json:/chapters/3/nodes/2/dialogue/0/1": {
+    "source": "姜饼屋的甜香、厚实的羽绒大衣、一盏盏霜晶灯，让空荡荡的码头，有了家的轮廓。",
+    "context": "speaker=narrator",
+    "text": "The sweet scent of ginger bread, heavy down coats, and glowing Frost Crystals gave the empty pier the silhouette of a home."
+  },
+  "story.json:/chapters/3/nodes/2/dialogue/1/1": {
+    "source": "报告！第一艘归乡小船靠岸啦——上面是一家三口，他们说，看见灯塔就哭了。",
+    "context": "speaker=bobo",
+    "text": "Report! The first homecoming boat has docked—it's a family of three. They said they burst into tears when they saw the lighthouse."
+  },
+  "story.json:/chapters/3/nodes/2/dialogue/2/1": {
+    "source": "快请进快请进，派刚出炉，管够！",
+    "context": "speaker=mier",
+    "text": "Welcome, welcome! Fresh pies just out of the oven, plenty for everyone!"
+  },
+  "story.json:/chapters/3/nodes/2/lore/title": {
+    "source": "第一位归乡人",
+    "text": "The First Returnee"
+  },
+  "story.json:/chapters/3/nodes/2/lore/text": {
+    "source": "第一个回来的是抱着孩子的女人。她在码头站了很久，说她在南方每年冬天都往北边望，『就怕哪天回头，连灯都没了，那才是真的回不去了』。",
+    "text": "The first to return was a woman holding her child. She stood at the pier for a long time, saying that every winter in the south, she would look north and think: \"I'm just afraid that one day I'll turn around and find all the lights gone—then there'd be no way back.\""
+  },
+  "story.json:/chapters/3/nodes/3/name": {
+    "source": "百家长桌宴",
+    "text": "The Long Table Feast"
+  },
+  "story.json:/chapters/3/nodes/3/place": {
+    "source": "归雁港 · 迎归乡人的长桌",
+    "text": "Return Goose Port · The Welcome Table"
+  },
+  "story.json:/chapters/3/nodes/3/pre/0/1": {
+    "source": "回来的人越来越多，办一场长桌宴吧，走的、留的，都坐下来吃顿饭。",
+    "context": "speaker=gunnar",
+    "text": "More people are coming back. Let's host a long-table feast—everyone, those who left and those who stayed, sit down and share a meal."
+  },
+  "story.json:/chapters/3/nodes/3/pre/1/1": {
+    "source": "盛宴蛋糕、香料热酒、暖和斗篷——这一桌，要摆满十年的想念。",
+    "context": "speaker=choco",
+    "text": "Feast cakes, spiced mulled wine, warm cloaks—this table must be filled with ten years of longing."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/0/1": {
+    "source": "长长的木桌从码头一直摆到街尾，素不相识的人挨坐着，热菜一道道传下去，像一条流动的暖河。",
+    "context": "speaker=narrator",
+    "text": "A long wooden table stretched from the pier to the end of the street. Strangers sat side-by-side as hot dishes passed along like a flowing river of warmth."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/1/1": {
+    "source": "我妹妹……还没回来。但我现在敢等了，你看，这么多人都回来了。",
+    "context": "speaker=mier",
+    "text": "My sister... she hasn't come back yet. But I dare to wait now. Look, so many people have returned."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/2/1": {
+    "source": "{{playerName}}，第二种温度，你已经替山谷拿到了——人惦记着人，就散不了。",
+    "context": "speaker=gunnar",
+    "text": "{{playerName}}, you've secured the second kind of warmth for the valley—when people care for one another, that bond never fades."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/2/2/spoken": {
+    "source": "第二种温度，你已经替山谷拿到了——人惦记着人，就散不了。",
+    "context": "speaker=gunnar; prerecorded spoken variant",
+    "text": "You've secured the second kind of warmth for the valley—when people care for one another, that bond never fades."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/3/1": {
+    "source": "可啾可总觉得，山巅那颗霜心的冷，藏着一段没人愿意提起的往事。",
+    "context": "speaker=choco",
+    "text": "But Choco always felt that the chill of the Frostheart atop the peak hid a story no one wanted to mention."
+  },
+  "story.json:/chapters/3/nodes/3/dialogue/4/1": {
+    "source": "……该来的躲不掉。明天，我带你进霜林，去见十年前的真相。",
+    "context": "speaker=bar",
+    "text": "...What's coming can't be avoided. Tomorrow, I'll lead you into the Frost Woods to face the truth from ten years ago."
+  },
+  "story.json:/chapters/3/nodes/3/lore/title": {
+    "source": "一桌的想念",
+    "text": "A Table of Longing"
+  },
+  "story.json:/chapters/3/nodes/3/lore/text": {
+    "source": "长桌宴上，归乡人轮流讲南方的日子，留下的人讲山谷的十年。讲到最后，大家发现：分开的两拨人，其实每一天都在想着同一座山谷。",
+    "text": "At the long table, those who returned spoke of their lives in the south, while those who stayed shared stories of the valley's past decade. In the end, they realized that both groups had been thinking of the same valley every single day."
+  },
+  "story.json:/chapters/4/title": {
+    "source": "第五章 · 霜林深处",
+    "text": "Chapter 5 · Deep in the Frostwood"
+  },
+  "story.json:/chapters/4/subtitle": {
+    "source": "第三种温度 · 释怀之勇",
+    "text": "The Third Warmth · Courage to Let Go"
+  },
+  "story.json:/chapters/4/hook": {
+    "source": "祖父的最后一页手账，究竟把谁留在了灯里？",
+    "text": "On the final page of Grandfather's journal, who exactly was left behind in the light?"
+  },
+  "story.json:/chapters/4/intro/0/1": {
+    "source": "归雁港背后是常年起雾的霜林，林深处藏着历代霜灵师的旧驿站。",
+    "context": "speaker=narrator",
+    "text": "Behind Swanport lies the Frost Woods, where a perpetual mist hangs. Deep within lie the old outposts of past frostweavers."
+  },
+  "story.json:/chapters/4/intro/1/1": {
+    "source": "巴尔沉默了十年的往事、祖父最后的足迹，都埋在这片安静的雪里。有些冰，要先在心里化开。",
+    "context": "speaker=narrator",
+    "text": "Barr's decade-long silence, his grandfather's final footprints—all are buried in this quiet snow. Some ice must first be melted in the heart."
+  },
+  "story.json:/chapters/4/worldLore/0/title": {
+    "source": "霜林与驿站",
+    "text": "Frostwood & Stations"
+  },
+  "story.json:/chapters/4/worldLore/0/text": {
+    "source": "霜林是通往山巅的必经之路，林中有历代霜灵师歇脚、传艺的驿站。十年长雪让林子结满雾凇，也把许多没来得及说的话，冻在了里面。",
+    "text": "The Frostwood is the only path to the peak. It contains stations where frostweavers of past eras rested and shared their craft. Ten years of heavy snow have coated the trees in rime, freezing untold words within them."
+  },
+  "story.json:/chapters/4/worldLore/1/title": {
+    "source": "释怀之勇",
+    "text": "Courage to Let Go"
+  },
+  "story.json:/chapters/4/worldLore/1/text": {
+    "source": "第三种人间温度叫「释怀之勇」：原谅当年没能护住的一切，也原谅那个一直自责的自己。",
+    "text": "The third human warmth is the \"Courage to Let Go\": forgiving everything you couldn't protect back then, and forgiving yourself for the guilt you've carried."
+  },
+  "story.json:/chapters/4/nodes/0/name": {
+    "source": "寻回雪径驿站",
+    "text": "Find Snowpath Station"
+  },
+  "story.json:/chapters/4/nodes/0/place": {
+    "source": "霜林 · 被雪埋住的第一座驿站",
+    "text": "Frostwood · The first station buried in snow"
+  },
+  "story.json:/chapters/4/nodes/0/pre/0/1": {
+    "source": "沿着这条雪径往里，第一座驿站是我和你祖父年轻时修的。先把它收拾出来，夜里才好进山。",
+    "context": "speaker=bar",
+    "text": "Follow this snowy path inward; the first outpost was built by you and your grandfather in your youth. Let's clear it out before we head into the mountains tonight."
+  },
+  "story.json:/chapters/4/nodes/0/pre/1/1": {
+    "source": "带上羽绒大衣，林子里的风，咬人的。",
+    "context": "speaker=elsa",
+    "text": "Put on your down coat. The wind in the woods has a bite to it."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/0/1": {
+    "source": "成套的家具重新摆好，篝火在驿站中央升起，雪夜里亮起一小方橘黄。",
+    "context": "speaker=narrator",
+    "text": "Furniture was rearranged and a bonfire rose in the center of the outpost, casting a small square of orange light into the snowy night."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/1/1": {
+    "source": "那年也是这样一炉火。埃文、我、还有守焰队的几个人，就在这儿，决定谁上山。",
+    "context": "speaker=bar",
+    "text": "It was just like this fire years ago. Evan, myself, and a few from the Flame Guard were here, deciding who would head up the mountain."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/2/1": {
+    "source": "守焰队？从来没人跟我提过。",
+    "context": "speaker=choco",
+    "text": "The Flame Guard? No one ever mentioned them to me."
+  },
+  "story.json:/chapters/4/nodes/0/dialogue/3/1": {
+    "source": "因为我们……没能守住。再往里走，到藏书窟，你自己看。",
+    "context": "speaker=bar",
+    "text": "Because we... failed to keep it. Go further in to the Archive; see for yourself."
+  },
+  "story.json:/chapters/4/nodes/0/lore/title": {
+    "source": "守焰队",
+    "text": "The Flame Guard"
+  },
+  "story.json:/chapters/4/nodes/0/lore/text": {
+    "source": "永暖圣火将熄那年，埃文召集了一支守焰队上山抢救霜心。队伍里有铁匠、猎人、裁缝的儿子和面包师的丈夫——最后，只有埃文一个人走到了山巅。",
+    "text": "The year the Everwarm Flame began to fade, Evan gathered a Flame Guard to rescue the Frostheart. The team included a blacksmith, hunters, a tailor's son, and a baker's husband—in the end, only Evan reached the peak."
+  },
+  "story.json:/chapters/4/nodes/1/name": {
+    "source": "开启冰封藏书窟",
+    "text": "Open the Frozen Archive"
+  },
+  "story.json:/chapters/4/nodes/1/place": {
+    "source": "霜林 · 冻住的霜灵师书窟",
+    "text": "Frostwood · The Frozen frostweaver Archive"
+  },
+  "story.json:/chapters/4/nodes/1/pre/0/1": {
+    "source": "书窟的门被一层永冻冰封住了，普通的火化不开，得用最纯净的永冻钻去引它同频。",
+    "context": "speaker=choco",
+    "text": "The archive door is sealed by permafrost. Ordinary fire won't melt it; you need a pure Perma-Drill to sync with its frequency."
+  },
+  "story.json:/chapters/4/nodes/1/pre/1/1": {
+    "source": "里面，记着守焰队最后那一夜发生了什么。",
+    "context": "speaker=gunnar",
+    "text": "Inside lies the record of what happened on that final night of the Flame Guard."
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/0/1": {
+    "source": "永冻钻贴上冰门，冰层像退潮一样亮起又散开，露出满墙霜灵师的手札。",
+    "context": "speaker=narrator",
+    "text": "As the Perma-Drill touched the ice door, the frost glowed and receded like a ebbing tide, revealing walls lined with frostweaver journals."
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/1/1": {
+    "source": "是祖父的字……『霜心靠人间温度而跳，温度断供，它便沉睡，长雪随之而起。』",
+    "context": "speaker=choco",
+    "text": "It's my grandfather's handwriting... 'The Frostheart beats upon the warmth of the mortal world. If the heat fails, it falls into slumber, and the eternal snow follows.'"
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/2/1": {
+    "source": "『那一夜风雪太大，守焰队被困半山。我不能让所有人陪我送命——是我，命令他们下山的。』",
+    "context": "speaker=choco",
+    "text": "'That night, the blizzard was too great; the Flame Guard was trapped halfway up. I couldn't let everyone die with me—it was I who ordered them down.'"
+  },
+  "story.json:/chapters/4/nodes/1/dialogue/3/1": {
+    "source": "……他把我们一个个推回驿站，自己独自上了山。我们活下来了，却怪了自己十年。",
+    "context": "speaker=bar",
+    "text": "...He pushed us back to the outpost one by one and climbed alone. We survived, but we blamed ourselves for ten years."
+  },
+  "story.json:/chapters/4/nodes/1/lore/title": {
+    "source": "手札里的真相",
+    "text": "Truths in the Journals"
+  },
+  "story.json:/chapters/4/nodes/1/lore/text": {
+    "source": "藏书窟的手札写明：当年并非守焰队怯懦，而是埃文强行命令同伴下山，独自赴险。幸存者背负了十年的『没能陪他走到最后』，其实是被他用命护下的人。",
+    "text": "The archive journals reveal: It wasn't cowardice that drove the Flame Guard away; Evan forced them down to save them while he faced the danger alone. The survivors spent a decade feeling guilty for \"leaving him behind,\" when they were actually being protected by his sacrifice."
+  },
+  "story.json:/chapters/4/nodes/2/name": {
+    "source": "旧炉与八音盒",
+    "text": "Old Hearth & Music Box"
+  },
+  "story.json:/chapters/4/nodes/2/place": {
+    "source": "霜林深处 · 守焰队最后的营地",
+    "text": "Deep in Frostwood · The Flame Guard's Final Camp"
+  },
+  "story.json:/chapters/4/nodes/2/pre/0/1": {
+    "source": "这是我们当年撤下来的营地。我女儿塞给我的八音盒，慌乱里掉在了这儿……找了十年，不敢找。",
+    "context": "speaker=bar",
+    "text": "This is our old camp. My daughter gave me this music box; it fell here in the chaos... I didn't dare look for it for ten years."
+  },
+  "story.json:/chapters/4/nodes/2/pre/1/1": {
+    "source": "生起壁炉、摆好家具，把那件没织完的织云暖袍也带上——有些结，得在原地才解得开。",
+    "context": "speaker=elsa",
+    "text": "Light the hearth, set the furniture, and bring that unfinished Cloud-Weave Cloak—some knots can only be untied where they were tied."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/0/1": {
+    "source": "壁炉重新燃起，八音盒从雪下被轻轻捧出，上紧发条，叮咚的旋律在林子里转了一圈。",
+    "context": "speaker=narrator",
+    "text": "The hearth flared again. The music box was gently lifted from the snow; as it was wound, its tinkling melody drifted through the woods."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/1/1": {
+    "source": "就是这个调子……我一直以为，是我丢下了他，也丢下了答应女儿的事。",
+    "context": "speaker=bar",
+    "text": "That's the tune... I always thought I had abandoned him, and abandoned my promise to my daughter."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/2/1": {
+    "source": "老伙计，埃文是自己要上山的，他把你推回来，是要你活着，替他看着山谷醒过来。",
+    "context": "speaker=gunnar",
+    "text": "Old friend, Evan chose to go up. He pushed you back so you could live—to watch the valley wake up for him."
+  },
+  "story.json:/chapters/4/nodes/2/dialogue/3/1": {
+    "source": "……十年了。这口气，我总算能松了。",
+    "context": "speaker=bar",
+    "text": "...Ten years. I can finally let this weight go."
+  },
+  "story.json:/chapters/4/nodes/2/lore/title": {
+    "source": "铁匠的八音盒",
+    "text": "The Blacksmith's Music Box"
+  },
+  "story.json:/chapters/4/nodes/2/lore/text": {
+    "source": "八音盒是巴尔女儿送他的护身符。十年里他不敢听这支曲子，怕想起自己『抛下同伴下山』。直到读到埃文的手札，他才明白，自己正是被托付要活下去的人。",
+    "text": "The music box was a charm from Barr's daughter. For ten years, he dared not listen to its tune, fearing it would remind him of \"abandoning his comrades.\" Only after reading Evan's journal did he realize he was the one entrusted with staying alive."
+  },
+  "story.json:/chapters/4/nodes/3/name": {
+    "source": "祖父的手账",
+    "text": "Grandfather's Journal"
+  },
+  "story.json:/chapters/4/nodes/3/place": {
+    "source": "霜林尽头 · 埃文最后的歇脚处",
+    "text": "At the edge of Frostwood · Evan's Final Resting Place"
+  },
+  "story.json:/chapters/4/nodes/3/pre/0/1": {
+    "source": "前面的树下……有一只旧行囊，是祖父的。让我们用霜晶护着它，慢慢打开。",
+    "context": "speaker=choco",
+    "text": "Under the trees ahead... there's an old satchel. It belongs to my grandfather. Let's protect it with Frost Crystals and open it slowly."
+  },
+  "story.json:/chapters/4/nodes/3/pre/1/1": {
+    "source": "不知道为什么，越靠近，我灯里的光，跳得越厉害。",
+    "context": "speaker=choco",
+    "text": "I don't know why, but as we got closer, the light in my lantern began to pulse more wildly."
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/0/1": {
+    "source": "行囊里是一本手账、半块没吃完的姜饼，和一页写给『提灯的后来人』的信。",
+    "context": "speaker=narrator",
+    "text": "Inside was a journal, half a piece of ginger bread, and a letter addressed to 'the one who carries the lamp.'"
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/1/1": {
+    "source": "『孩子，当你读到这里，我大约已经和霜心在一起了。』",
+    "context": "speaker=gramps",
+    "text": "'Child, by the time you read this, I will likely be with the Frostheart.'"
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/2/1": {
+    "source": "『我把最后一点暖意封进风灯，化成一只叫啾可的霜灵，替我陪着你走到今天。』",
+    "context": "speaker=gramps",
+    "text": "'I sealed the last bit of warmth into a wind lantern, turning it into a frost spirit named Choco to accompany you until today.'"
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/3/1": {
+    "source": "……原来，我就是祖父留给你的温度。我不是一只普通的霜灵，我是他没说完的那句『别怕』。",
+    "context": "speaker=choco",
+    "text": "...So, I am the warmth my grandfather left for you. I'm not just an ordinary frost spirit; I am his unfinished 'Don't be afraid.'"
+  },
+  "story.json:/chapters/4/nodes/3/dialogue/4/1": {
+    "source": "『第三种温度是释怀，第四种，是把这盏灯，亲手传下去。山巅见，我的孩子。』",
+    "context": "speaker=gramps",
+    "text": "'The third warmth is release; the fourth is passing this lantern to another. See you at the peak, my child.'"
+  },
+  "story.json:/chapters/4/nodes/3/lore/title": {
+    "source": "灯里的人",
+    "text": "The One in the Lantern"
+  },
+  "story.json:/chapters/4/nodes/3/lore/text": {
+    "source": "埃文上山前，把自己最后的暖意封进风灯，凝成霜灵啾可，陪在下一位霜灵师身边。啾可这才明白，自己十年的等待与陪伴，原是一场跨越生死的传灯。",
+    "text": "Before ascending, Evan sealed his final warmth into a wind lantern, forming the frost spirit Choco to stay by the next frostweaver. Only then did Choco realize that ten years of waiting and companionship was actually a passing of the torch across life and death."
+  },
+  "story.json:/chapters/5/title": {
+    "source": "第六章 · 霜心山巅",
+    "text": "Chapter 6 · Frostheart Peak"
+  },
+  "story.json:/chapters/5/subtitle": {
+    "source": "第四种温度 · 传灯之愿",
+    "text": "The Fourth Temperature: Vow of the Lantern"
+  },
+  "story.json:/chapters/5/hook": {
+    "source": "要让春天回来，提灯的人必须留下什么？",
+    "text": "To bring back spring, what must the lantern bearer leave behind?"
+  },
+  "story.json:/chapters/5/intro/0/1": {
+    "source": "穿过霜林，长雪的源头就在头顶——风暴终年不散的霜心山巅。",
+    "context": "speaker=narrator",
+    "text": "Passing through the Frost Woods, the source of the eternal snow lay above—the summit of Frostheart Mountain where storms never cease."
+  },
+  "story.json:/chapters/5/intro/1/1": {
+    "source": "四种人间温度已集齐其三。最后一程，带着所有人的暖意，把这盏灯，送到霜心面前。",
+    "context": "speaker=narrator",
+    "text": "Three of the four mortal warmths are gathered. For the final stretch, carry everyone's warmth and deliver this lantern to the Frostheart."
+  },
+  "story.json:/chapters/5/worldLore/0/title": {
+    "source": "霜心",
+    "text": "Frostheart"
+  },
+  "story.json:/chapters/5/worldLore/0/text": {
+    "source": "霜心是霜语谷大地的心脏，一颗由纯粹暖意凝成的蓝色晶心。人间的牵挂越暖，它跳得越稳；当人们彼此遗忘、四散离去，它便在孤独中沉睡，长雪由此而来。",
+    "text": "The Frostheart is the heart of Frostwhisper Valley, a blue core formed from pure warmth. The warmer the human connections, the steadier its beat; when people forget one another and drift apart, it falls into a lonely slumber, giving rise to the Great Snow."
+  },
+  "story.json:/chapters/5/worldLore/1/title": {
+    "source": "传灯之愿",
+    "text": "Vow of the Lantern"
+  },
+  "story.json:/chapters/5/worldLore/1/text": {
+    "source": "第四种人间温度叫「传灯之愿」：一代人把火种交给下一代，温暖因此不会随任何人的离去而熄灭。这是霜灵师一脉，最深的誓言。",
+    "text": "The fourth earthly temperature is the \"Vow of the Lantern\": passing the flame from one generation to the next so that warmth never fades with a passing life. This is the deepest vow of the frostweaver lineage."
+  },
+  "story.json:/chapters/5/nodes/0/name": {
+    "source": "登上风暴阶梯",
+    "text": "Climb the Storm Stairs"
+  },
+  "story.json:/chapters/5/nodes/0/place": {
+    "source": "山巅 · 被狂风撕碎的千级冰阶",
+    "text": "Mountain Peak · A thousand ice steps torn by gale winds"
+  },
+  "story.json:/chapters/5/nodes/0/pre/0/1": {
+    "source": "最后这段冰阶，十年前我们没能走完。这一次，全村人替你在身后压着风。",
+    "context": "speaker=gunnar",
+    "text": "We couldn't finish these last icy steps ten years ago. This time, the whole village stands behind you to hold back the wind."
+  },
+  "story.json:/chapters/5/nodes/0/pre/1/1": {
+    "source": "霜木殿堂做梁、霜晶照路、暖炉不停——{{playerName}}，往上走，别回头。",
+    "context": "speaker=bar",
+    "text": "Frost-wood beams, Frost-crystal paths, and a constant hearth—{{playerName}}, move forward, don't look back."
+  },
+  "story.json:/chapters/5/nodes/0/pre/1/2/spoken": {
+    "source": "霜木殿堂做梁、霜晶照路、暖炉不停——往上走，别回头。",
+    "context": "speaker=bar; prerecorded spoken variant",
+    "text": "Frost-wood beams, Frost-crystal paths, and a constant hearth—move forward, don't look back."
+  },
+  "story.json:/chapters/5/nodes/0/dialogue/0/1": {
+    "source": "霜木一级级钉进冰崖，霜晶在风雪里连成光的链，暖炉把刺骨的风挡在身外。",
+    "context": "speaker=narrator",
+    "text": "Frost-wood was driven into the ice cliffs, Frost-crystals formed chains of light in the snow, and the hearth blocked the biting wind."
+  },
+  "story.json:/chapters/5/nodes/0/dialogue/1/1": {
+    "source": "山下的灯全亮着，给你照路呢！",
+    "context": "speaker=bobo",
+    "text": "All the lights below are lit to guide your way!"
+  },
+  "story.json:/chapters/5/nodes/0/dialogue/2/1": {
+    "source": "我能听见霜心的心跳了，很慢，很轻，像在等人来。",
+    "context": "speaker=choco",
+    "text": "I can hear the Frostheart's heartbeat now. It's slow and faint, as if it's waiting for someone."
+  },
+  "story.json:/chapters/5/nodes/0/lore/title": {
+    "source": "全村的阶梯",
+    "text": "The Village Stairs"
+  },
+  "story.json:/chapters/5/nodes/0/lore/text": {
+    "source": "这一次没有人独自登山。山下，归乡的人、留下的人一起点亮所有灯火；山上，年轻的霜灵师踩着众人合力搭起的阶梯，一步步走向风暴中心。",
+    "text": "No one climbs alone this time. Below, those returning home and those staying behind light every lamp; above, young frostweavers step upon the stairs built by everyone's hands toward the heart of the storm."
+  },
+  "story.json:/chapters/5/nodes/1/name": {
+    "source": "筑起四方暖坛",
+    "text": "Build the Four Warmth Altars"
+  },
+  "story.json:/chapters/5/nodes/1/place": {
+    "source": "山巅平台 · 霜心前的四座空坛",
+    "text": "Mountain Platform · Four empty altars before the Frostheart"
+  },
+  "story.json:/chapters/5/nodes/1/pre/0/1": {
+    "source": "霜心前有四座空坛，正好对应四种温度。把壁炉、暖阳特调、织云暖袍、盛宴蛋糕一一奉上。",
+    "context": "speaker=choco",
+    "text": "There are four empty urns before the Frostheart, matching the four types of warmth. Offer the hearth, the special brew, the cloak, and the feast cake one by one."
+  },
+  "story.json:/chapters/5/nodes/1/pre/1/1": {
+    "source": "盛宴蛋糕我做了最大的一个，分着吃，甜才够。",
+    "context": "speaker=mier",
+    "text": "I made a huge feast cake; we'll share it so there's enough sweetness for everyone."
+  },
+  "story.json:/chapters/5/nodes/1/pre/2/1": {
+    "source": "织云暖袍，给山巅也披上一件吧。",
+    "context": "speaker=elsa",
+    "text": "The Cloud-Weave Cloak... let's drape it over the peak as well."
+  },
+  "story.json:/chapters/5/nodes/1/dialogue/0/1": {
+    "source": "四座暖坛依次亮起：是希望的火、是相连的饮、是相护的衣、是相聚的食。",
+    "context": "speaker=narrator",
+    "text": "Four warm urns lit up in turn: the fire of hope, the drink of connection, the garment of protection, and the food of gathering."
+  },
+  "story.json:/chapters/5/nodes/1/dialogue/1/1": {
+    "source": "篝火之望、比邻之系、释怀之勇——都齐了。",
+    "context": "speaker=gunnar",
+    "text": "Hope's flame, neighborly bonds, the courage of release—all are gathered."
+  },
+  "story.json:/chapters/5/nodes/1/dialogue/2/1": {
+    "source": "就差最后一样：传灯之愿。那要我，亲手交出去。",
+    "context": "speaker=choco",
+    "text": "Only one thing remains: the wish to pass the light. That must be done by me, personally."
+  },
+  "story.json:/chapters/5/nodes/1/lore/title": {
+    "source": "四坛同亮",
+    "text": "Four Altars Aglow"
+  },
+  "story.json:/chapters/5/nodes/1/lore/text": {
+    "source": "四座暖坛的光彼此呼应，霜心的跳动第一次变得有力。它沉睡了十年，不是因为寒冷太强，而是因为太久没收到人间的暖意。",
+    "text": "The light from the four altars resonates, and the Frostheart's beat grows strong for the first time. It slept for ten years, not because the cold was too great, but because it hadn't felt human warmth in so long."
+  },
+  "story.json:/chapters/5/nodes/2/name": {
+    "source": "叩开霜心之门",
+    "text": "Open the Gate of Frostheart"
+  },
+  "story.json:/chapters/5/nodes/2/place": {
+    "source": "风暴之眼 · 霜心外的最后一道冰门",
+    "text": "Eye of the Storm · The final ice gate outside the Frostheart"
+  },
+  "story.json:/chapters/5/nodes/2/pre/0/1": {
+    "source": "门后就是霜心。永冻钻为钥、霜木为引，再把羽绒大衣系在门上——门后的风，一定很冷很冷。",
+    "context": "speaker=choco",
+    "text": "The Frostheart is just behind the door. Use the Perma-Drill as a key, the Frost-wood as a guide, and tie the down coat to the door—the wind beyond will be very, very cold."
+  },
+  "story.json:/chapters/5/nodes/2/pre/1/1": {
+    "source": "『别怕。门一开，你就明白霜灵师为什么世代守着这座山谷了。』",
+    "context": "speaker=gramps",
+    "text": "Don't be afraid. Once the door opens, you'll see why frostweavers have guarded this valley for generations."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/0/1": {
+    "source": "冰门无声开启。风暴之眼里没有风，只有一颗缓缓起伏的、巨大的蓝色心脏，和站在它面前、由光凝成的老人身影。",
+    "context": "speaker=narrator",
+    "text": "The Ice Gate opened silently. In the eye of the storm, there was no wind—only a massive blue heart beating slowly, and an old man made of light standing before it."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/1/1": {
+    "source": "你来了，{{playerName}}。路很长，辛苦你了，我的孩子。",
+    "context": "speaker=gramps",
+    "text": "You've come, {{playerName}}. It was a long road; you've worked hard, my child."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/1/2/spoken": {
+    "source": "你来了。路很长，辛苦你了，我的孩子。",
+    "context": "speaker=gramps; prerecorded spoken variant",
+    "text": "You've come. It was a long road; you've worked hard, my child."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/2/1": {
+    "source": "祖父……",
+    "context": "speaker=choco",
+    "text": "Grandfather..."
+  },
+  "story.json:/chapters/5/nodes/2/dialogue/3/1": {
+    "source": "我把自己融进霜心，替它续了十年的跳，就是为了等你带着四种温度走到这里。现在，该让这颗心，靠整座山谷自己跳下去了。",
+    "context": "speaker=gramps",
+    "text": "I merged myself into the Frostheart to keep it beating for ten years, just so you could arrive here with the four temperatures. Now, let this heart beat on its own for the whole valley."
+  },
+  "story.json:/chapters/5/nodes/2/lore/title": {
+    "source": "光里的老人",
+    "text": "The Old Man of Light"
+  },
+  "story.json:/chapters/5/nodes/2/lore/text": {
+    "source": "埃文以自身为薪，让霜心在无人添暖的十年里没有彻底死去。他留下的光影等在门后，只为把最后一句话，亲口交给接班人。",
+    "text": "Evan used himself as fuel to keep the Frostheart from dying during those ten years of solitude. His lingering light waited behind the door just to deliver his final words to his successor."
+  },
+  "story.json:/chapters/5/nodes/3/name": {
+    "source": "长明之春",
+    "text": "Spring of Everlight"
+  },
+  "story.json:/chapters/5/nodes/3/place": {
+    "source": "霜心 · 万物复苏之地",
+    "text": "Frostheart · Land of Awakening"
+  },
+  "story.json:/chapters/5/nodes/3/pre/0/1": {
+    "source": "永暖圣火是希望，永冻钻是记忆，暖阳特调是牵挂，盛宴蛋糕是团圆——{{playerName}}，把这四样，放进霜心里。",
+    "context": "speaker=gramps",
+    "text": "The Everwarm Flame is hope, the Everfrost Drill is memory, the Sunny Special is longing, and the Feast Cake is reunion—{{playerName}}, place these four into the Frostheart."
+  },
+  "story.json:/chapters/5/nodes/3/pre/0/2/spoken": {
+    "source": "永暖圣火是希望，永冻钻是记忆，暖阳特调是牵挂，盛宴蛋糕是团圆——把这四样，放进霜心里。",
+    "context": "speaker=gramps; prerecorded spoken variant",
+    "text": "The Everwarm Flame is hope, the Everfrost Drill is memory, the Sunny Special is longing, and the Feast Cake is reunion—place these four into the Frostheart."
+  },
+  "story.json:/chapters/5/nodes/3/pre/1/1": {
+    "source": "还有我。我也是祖父留给山谷的、最后一点温度。",
+    "context": "speaker=choco",
+    "text": "And me. I am also the last bit of warmth my grandfather left for the valley."
+  },
+  "story.json:/chapters/5/nodes/3/pre/2/1": {
+    "source": "别为我难过，我不会消失——我会变成春风、变成炉火、变成每一次有人惦记另一个人时，心里那一下轻轻的暖。",
+    "context": "speaker=choco",
+    "text": "Don't be sad for me; I won't disappear. I will become the spring breeze, the hearth fire, and that tiny spark of warmth felt whenever someone thinks of another."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/0/1": {
+    "source": "四样温度没入霜心，啾可化作一束温柔的光，与那颗巨大的心脏轻轻相拥。",
+    "context": "speaker=narrator",
+    "text": "As the four temperatures merged into the Frostheart, Choco turned into a beam of gentle light, embracing the massive heart."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/1/1": {
+    "source": "灯，传到你手上了。霜语谷的春天，就交给你们这一代，一直守下去。",
+    "context": "speaker=gramps",
+    "text": "The lantern is in your hands now. The spring of Frostwhisper Valley is in your hands; keep it safe for generations to come."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/2/1": {
+    "source": "霜心猛地亮起，蓝色的光浪顺着山脊奔涌而下——所过之处，雪化了，草绿了，冰封十年的河，重新唱起了歌。",
+    "context": "speaker=narrator",
+    "text": "The Frostheart flared brilliantly, a wave of blue light surging down the ridge—wherever it touched, snow melted, grass turned green, and the river, frozen for ten years, began to sing once more."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/3/1": {
+    "source": "看呐，雪停了。这一次，是真的停了。",
+    "context": "speaker=gunnar",
+    "text": "Look, the snow has stopped. This time, it's really stopped."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/4/1": {
+    "source": "风里……有花开的味道。",
+    "context": "speaker=mier",
+    "text": "The wind... smells like blooming flowers."
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/5/1": {
+    "source": "归乡的船，一眼望不到头啦！",
+    "context": "speaker=bobo",
+    "text": "The fleet of ships heading home stretches as far as the eye can see!"
+  },
+  "story.json:/chapters/5/nodes/3/dialogue/6/1": {
+    "source": "—— 霜语谷，四季重归，温暖长明 ——",
+    "context": "speaker=all",
+    "text": "— Frostwhisper Valley: Seasons Restored, Warmth Everlasting —"
+  },
+  "story.json:/chapters/5/nodes/3/lore/title": {
+    "source": "长明之春",
+    "text": "Spring of Everlight"
+  },
+  "story.json:/chapters/5/nodes/3/lore/text": {
+    "source": "霜心重新靠整座山谷的牵挂跳动，长雪散去。啾可没有离开，它住进了每一缕春风与每一捧炉火里——只要还有人彼此惦记，春天就再也不会走。",
+    "text": "The Frostheart beat anew with the valley's devotion, and the snow vanished. Choco didn't leave; it lived on in every spring breeze and every hearth fire—as long as people care for one another, spring will never fade."
+  },
+  "story.json:/epilogue/0/1": {
+    "source": "后来，霜语谷的春天再也没有走过。",
+    "context": "speaker=narrator",
+    "text": "From then on, spring never left Frostwhisper Valley again."
+  },
+  "story.json:/epilogue/1/1": {
+    "source": "冈特重新背起猎弓，成了守林人，给每一个进山的孩子讲守焰队的故事。",
+    "context": "speaker=gunnar",
+    "text": "Gunnar took up his hunting bow once more as a forest guardian, telling tales of the Flame Guard to every child who entered the woods."
+  },
+  "story.json:/epilogue/2/1": {
+    "source": "蜜儿终于等回了妹妹，靠窗的那个位置，从此摆着两个人的茶杯。",
+    "context": "speaker=mier",
+    "text": "Mier finally welcomed her sister home; from then on, two teacups sat by the window."
+  },
+  "story.json:/epilogue/3/1": {
+    "source": "波波成了归雁港最忙的邮差，它的邮袋里，再没有一封没送出去的信。",
+    "context": "speaker=bobo",
+    "text": "Bobo became the busiest courier in Migrant Port. Not a single letter remained undelivered in his bag."
+  },
+  "story.json:/epilogue/4/1": {
+    "source": "艾莎奶奶开了间织坊，把『一人一条围巾』的规矩，织进了山谷的每一天。",
+    "context": "speaker=elsa",
+    "text": "Grandma Elsa opened a weaving shop, weaving the tradition of 'a scarf for everyone' into every day in the valley."
+  },
+  "story.json:/epilogue/5/1": {
+    "source": "巴尔修好暖流号，把八音盒的旋律铸进了圣殿的新钟，风一吹，整座山谷都听得见。",
+    "context": "speaker=bar",
+    "text": "Barr repaired the Warmth Stream and cast the melody of the music box into the sanctuary's new bell. Now, when the wind blows, the whole valley can hear it."
+  },
+  "story.json:/epilogue/6/1": {
+    "source": "埃文的名字，和历代霜灵师一起，刻在了霜心之门上。",
+    "context": "speaker=gramps",
+    "text": "Evan's name was carved onto the Gate of Frostheart, alongside those of every frostweaver before him."
+  },
+  "story.json:/epilogue/7/1": {
+    "source": "至于我嘛——当你合并出一件暖物、递出一杯热饮、为谁留一盏灯的时候，仔细听，我就在那一下轻轻的、暖暖的心跳里。",
+    "context": "speaker=choco",
+    "text": "As for me—whenever you merge a warm item, hand out a hot drink, or leave a light on for someone, listen closely. I'm right there in that soft, warm heartbeat."
+  },
+  "story.json:/epilogue/8/1": {
+    "source": "《冰霜物语》 · 感谢 {{playerName}}，把春天一点一点，合并了回来。",
+    "context": "speaker=narrator",
+    "text": "Frost Story · Thank you, {{playerName}}, for merging spring back piece by piece."
+  },
+  "story.json:/epilogue/8/2/spoken": {
+    "source": "冰霜物语。感谢你，把春天一点一点，合并了回来。",
+    "context": "speaker=narrator; prerecorded spoken variant",
+    "text": "Frost Story. Thank you for merging spring back piece by piece."
+  },
+  "npcs.json:/npcs/0/name": {
+    "source": "冈特",
+    "text": "Gunnar"
+  },
+  "npcs.json:/npcs/0/title": {
+    "source": "老猎人",
+    "text": "Old Hunter"
+  },
+  "npcs.json:/npcs/0/arrival": {
+    "source": "门帘被风猛地掀开。冈特肩上的雪还没化，手里攥着一截冻裂的火哨灯芯。",
+    "context": "speaker=narrator",
+    "text": "The door curtain was whipped open by the wind. The snow on Gunnar's shoulders hadn't melted yet, and he clutched a frozen, cracked fire-whistle wick in his hand."
+  },
+  "npcs.json:/npcs/0/request": {
+    "source": "巡山的火哨又被风雪压灭了。我得在天黑前把路标重新点亮，能替我备齐这些物资吗？",
+    "context": "speaker=gunnar",
+    "text": "The wind and snow have doused the patrol beacons again. I need to relight the markers before dark. Could you gather these supplies for me?"
+  },
+  "npcs.json:/npcs/0/thanks": {
+    "source": "火哨亮了。今晚走夜路的人，都知道家还在前面。",
+    "context": "speaker=gunnar",
+    "text": "When the beacon glows, everyone traveling at night knows home is just ahead."
+  },
+  "npcs.json:/npcs/1/name": {
+    "source": "蜜儿",
+    "text": "Mier"
+  },
+  "npcs.json:/npcs/1/title": {
+    "source": "面包师",
+    "text": "Baker"
+  },
+  "npcs.json:/npcs/1/arrival": {
+    "source": "一阵淡淡的麦香钻进屋里，蜜儿抱着刚擦干净的烤盘，小心避开门口的积雪。",
+    "context": "speaker=narrator",
+    "text": "A faint scent of wheat drifted into the room as Mier held a freshly wiped baking tray, carefully stepping around the snow at the door."
+  },
+  "npcs.json:/npcs/1/request": {
+    "source": "烘焙坊的炉膛刚醒，可架子还是空的。帮我备齐这批物资，第一炉面包就分给广场上的大家。",
+    "context": "speaker=mier",
+    "text": "The bakery's hearth has just woken up, but the racks are still empty. Help me gather these supplies, and I'll share the first batch of bread with everyone in the square."
+  },
+  "npcs.json:/npcs/1/thanks": {
+    "source": "闻到了吗？这是霜语谷重新开炉后的第一阵麦香。",
+    "context": "speaker=mier",
+    "text": "Can you smell it? This is the first scent of wheat from Frostwhisper Valley since the ovens were relit."
+  },
+  "npcs.json:/npcs/2/name": {
+    "source": "波波",
+    "text": "Bobo"
+  },
+  "npcs.json:/npcs/2/title": {
+    "source": "企鹅邮差",
+    "text": "Penguin Postman"
+  },
+  "npcs.json:/npcs/2/arrival": {
+    "source": "窗外传来一串急促的铃响。波波拖着歪斜的雪橇，邮袋里露出几封落满霜的信。",
+    "context": "speaker=narrator",
+    "text": "A frantic jingle of bells came from outside. Bobo pulled a crooked sled toward him, several frost-covered letters peeking out of his mailbag."
+  },
+  "npcs.json:/npcs/2/request": {
+    "source": "港口还压着一摞没送出去的信。给我这些物资，我就能把邮袋和雪橇修好。",
+    "context": "speaker=bobo",
+    "text": "There's a pile of undelivered mail at the port. With these supplies, I can fix my bag and sled."
+  },
+  "npcs.json:/npcs/2/thanks": {
+    "source": "信会送到的。等消息的人，不该再多等一个冬天。",
+    "context": "speaker=bobo",
+    "text": "The letters will get through. Those waiting for news shouldn't have to wait another winter."
+  },
+  "npcs.json:/npcs/3/name": {
+    "source": "艾莎奶奶",
+    "text": "Grandma Elsa"
+  },
+  "npcs.json:/npcs/3/title": {
+    "source": "裁缝",
+    "text": "Seamstress"
+  },
+  "npcs.json:/npcs/3/arrival": {
+    "source": "艾莎奶奶把一叠旧冬衣放到桌上，衣角还留着孩子们画下的歪歪扭扭的小太阳。",
+    "context": "speaker=narrator",
+    "text": "Grandma Elsa placed a stack of old winter clothes on the table; the corners still bore crooked little suns drawn by children."
+  },
+  "npcs.json:/npcs/3/request": {
+    "source": "孩子们的旧冬衣挡不住风了。我想赶在今晚前补好它们，还缺这一批材料。",
+    "context": "speaker=elsa",
+    "text": "These old coats can no longer block the wind. I want to patch them before tonight, but I'm missing these materials."
+  },
+  "npcs.json:/npcs/3/thanks": {
+    "source": "针脚缝住的不只是风，还有大家愿意留下来的心。",
+    "context": "speaker=elsa",
+    "text": "The stitches hold more than just against the wind; they hold the hearts of those who choose to stay."
+  },
+  "npcs.json:/npcs/4/name": {
+    "source": "巴尔",
+    "text": "Barr"
+  },
+  "npcs.json:/npcs/4/title": {
+    "source": "铁匠",
+    "text": "Blacksmith"
+  },
+  "npcs.json:/npcs/4/arrival": {
+    "source": "沉重的工具箱落在地板上。巴尔摊开一枚断成两截的桥钉，断口像结了一层白霜。",
+    "context": "speaker=narrator",
+    "text": "A heavy toolbox hit the floor. Barr spread out a bridge bolt snapped in two, its edge coated in a layer of white frost."
+  },
+  "npcs.json:/npcs/4/request": {
+    "source": "桥钉和炉架都冻脆了。我需要这些材料重新开锻，免得下一场风把路又吹断。",
+    "context": "speaker=bar",
+    "text": "The bolts and brackets are frozen brittle. I need these materials to forge them anew before the next wind cuts the path again."
+  },
+  "npcs.json:/npcs/4/thanks": {
+    "source": "铁重新红了。只要炉火还响，村子就不会散。",
+    "context": "speaker=bar",
+    "text": "When the iron glows red and the forge roars, the village stays whole."
+  },
+  "npcs.json:/npcs/5/name": {
+    "source": "啾可",
+    "text": "Choco"
+  },
+  "npcs.json:/npcs/5/title": {
+    "source": "霜灵向导",
+    "text": "Frost Spirit Guide"
+  },
+  "npcs.json:/npcs/6/name": {
+    "source": "埃文",
+    "text": "Evan"
+  },
+  "npcs.json:/npcs/6/title": {
+    "source": "老霜灵师 · 祖父",
+    "text": "Old Frostweaver · Grandfather"
+  },
+  "items.json:/families/crystal/name": {
+    "source": "冰晶",
+    "text": "Ice Crystal"
+  },
+  "items.json:/families/crystal/tiers/0": {
+    "source": "碎冰晶",
+    "text": "Crushed Ice Crystal"
+  },
+  "items.json:/families/crystal/tiers/1": {
+    "source": "冰晶粒",
+    "text": "Ice Crystal Grain"
+  },
+  "items.json:/families/crystal/tiers/2": {
+    "source": "六角冰晶",
+    "text": "Hexagonal Ice Crystal"
+  },
+  "items.json:/families/crystal/tiers/3": {
+    "source": "蓝晶簇",
+    "text": "Blue Crystal Cluster"
+  },
+  "items.json:/families/crystal/tiers/4": {
+    "source": "冰棱柱",
+    "text": "Ice Prism"
+  },
+  "items.json:/families/crystal/tiers/5": {
+    "source": "冰晶冠",
+    "text": "Ice Crystal Crown"
+  },
+  "items.json:/families/crystal/tiers/6": {
+    "source": "霜晶宝石",
+    "text": "Frost Crystal Gem"
+  },
+  "items.json:/families/crystal/tiers/7": {
+    "source": "永冻钻",
+    "text": "Permafrost Diamond"
+  },
+  "items.json:/families/fire/name": {
+    "source": "火种",
+    "text": "Ember Seed"
+  },
+  "items.json:/families/fire/tiers/0": {
+    "source": "火星",
+    "text": "Fire Spark"
+  },
+  "items.json:/families/fire/tiers/1": {
+    "source": "火苗",
+    "text": "Flamelet"
+  },
+  "items.json:/families/fire/tiers/2": {
+    "source": "火把",
+    "text": "Torch"
+  },
+  "items.json:/families/fire/tiers/3": {
+    "source": "小炭炉",
+    "text": "Small Forge"
+  },
+  "items.json:/families/fire/tiers/4": {
+    "source": "篝火堆",
+    "text": "Bonfire"
+  },
+  "items.json:/families/fire/tiers/5": {
+    "source": "暖炉",
+    "text": "Warm Stove"
+  },
+  "items.json:/families/fire/tiers/6": {
+    "source": "壁炉",
+    "text": "Fireplace"
+  },
+  "items.json:/families/fire/tiers/7": {
+    "source": "永暖圣火",
+    "text": "Everwarm Flame"
+  },
+  "items.json:/families/drink/name": {
+    "source": "热饮",
+    "text": "Hot Drink"
+  },
+  "items.json:/families/drink/tiers/0": {
+    "source": "雪水",
+    "text": "Snow Water"
+  },
+  "items.json:/families/drink/tiers/1": {
+    "source": "温水",
+    "text": "Warm Water"
+  },
+  "items.json:/families/drink/tiers/2": {
+    "source": "热茶",
+    "text": "Hot Tea"
+  },
+  "items.json:/families/drink/tiers/3": {
+    "source": "热可可",
+    "text": "Hot Cocoa"
+  },
+  "items.json:/families/drink/tiers/4": {
+    "source": "焦糖拿铁",
+    "text": "Caramel Latte"
+  },
+  "items.json:/families/drink/tiers/5": {
+    "source": "蜂蜜暖饮",
+    "text": "Honey Warm Drink"
+  },
+  "items.json:/families/drink/tiers/6": {
+    "source": "香料热酒",
+    "text": "Spiced Mulled Wine"
+  },
+  "items.json:/families/drink/tiers/7": {
+    "source": "暖阳特调",
+    "text": "Sunny Special Blend"
+  },
+  "items.json:/families/cloth/name": {
+    "source": "冬衣",
+    "text": "Winter Wear"
+  },
+  "items.json:/families/cloth/tiers/0": {
+    "source": "绒线团",
+    "text": "Woolen Yarn"
+  },
+  "items.json:/families/cloth/tiers/1": {
+    "source": "围巾",
+    "text": "Scarf"
+  },
+  "items.json:/families/cloth/tiers/2": {
+    "source": "手套",
+    "text": "Gloves"
+  },
+  "items.json:/families/cloth/tiers/3": {
+    "source": "毛线帽",
+    "text": "Beanie"
+  },
+  "items.json:/families/cloth/tiers/4": {
+    "source": "毛衣",
+    "text": "Sweater"
+  },
+  "items.json:/families/cloth/tiers/5": {
+    "source": "棉斗篷",
+    "text": "Cotton Cloak"
+  },
+  "items.json:/families/cloth/tiers/6": {
+    "source": "羽绒大衣",
+    "text": "Down Coat"
+  },
+  "items.json:/families/cloth/tiers/7": {
+    "source": "织云暖袍",
+    "text": "Cloudweave Robe"
+  },
+  "items.json:/families/wood/name": {
+    "source": "木料",
+    "text": "Lumber"
+  },
+  "items.json:/families/wood/tiers/0": {
+    "source": "松枝",
+    "text": "Pine Branch"
+  },
+  "items.json:/families/wood/tiers/1": {
+    "source": "木段",
+    "text": "Log"
+  },
+  "items.json:/families/wood/tiers/2": {
+    "source": "木板",
+    "text": "Wood Plank"
+  },
+  "items.json:/families/wood/tiers/3": {
+    "source": "木梁",
+    "text": "Wooden Beam"
+  },
+  "items.json:/families/wood/tiers/4": {
+    "source": "门窗框",
+    "text": "Door & Window Frame"
+  },
+  "items.json:/families/wood/tiers/5": {
+    "source": "成套家具",
+    "text": "Furniture Set"
+  },
+  "items.json:/families/wood/tiers/6": {
+    "source": "木屋组件",
+    "text": "Cabin Parts"
+  },
+  "items.json:/families/wood/tiers/7": {
+    "source": "霜木殿堂",
+    "text": "Frostwood Hall"
+  },
+  "items.json:/families/food/name": {
+    "source": "烘焙",
+    "text": "Roasting"
+  },
+  "items.json:/families/food/tiers/0": {
+    "source": "冻浆果",
+    "text": "Frozen Berries"
+  },
+  "items.json:/families/food/tiers/1": {
+    "source": "面粉",
+    "text": "Flour"
+  },
+  "items.json:/families/food/tiers/2": {
+    "source": "生面团",
+    "text": "Raw Dough"
+  },
+  "items.json:/families/food/tiers/3": {
+    "source": "烤麦饼",
+    "text": "Baked Flatbread"
+  },
+  "items.json:/families/food/tiers/4": {
+    "source": "浆果派",
+    "text": "Berry Pie"
+  },
+  "items.json:/families/food/tiers/5": {
+    "source": "霜糖蛋糕",
+    "text": "Frost Sugar Cake"
+  },
+  "items.json:/families/food/tiers/6": {
+    "source": "姜饼屋",
+    "text": "Gingerbread House"
+  },
+  "items.json:/families/food/tiers/7": {
+    "source": "盛宴蛋糕",
+    "text": "Feast Cake"
+  },
+  "items.json:/generators/g_crystal/name": {
+    "source": "霜晶矿脉",
+    "text": "Frost Crystal Vein"
+  },
+  "items.json:/generators/g_fire/name": {
+    "source": "燧石火种",
+    "text": "Flint Spark"
+  },
+  "items.json:/generators/g_drink/name": {
+    "source": "旧铜壶",
+    "text": "Old Copper Kettle"
+  },
+  "items.json:/generators/g_wood/name": {
+    "source": "雪松堆",
+    "text": "Cedar Pile"
+  },
+  "items.json:/generators/g_cloth/name": {
+    "source": "毛线篮",
+    "text": "Yarn Basket"
+  },
+  "items.json:/generators/g_food/name": {
+    "source": "旧烤箱",
+    "text": "Old Oven"
+  },
+  "shop.json:/chests/0/name": {
+    "source": "青铜宝箱",
+    "text": "Bronze Chest"
+  },
+  "shop.json:/chests/1/name": {
+    "source": "白银宝箱",
+    "text": "Silver Chest"
+  },
+  "shop.json:/chests/2/name": {
+    "source": "黄金宝箱",
+    "text": "Gold Chest"
+  },
+  "shop.json:/energyPotion/iapPlaceholder": {
+    "source": "¥6 体力礼包（预留）",
+    "text": "$6 Stamina Pack (Reserved)"
+  },
+  "balance.json:/unlocks/0/text": {
+    "source": "开放冰晶链、火种链与青铜宝箱",
+    "text": "Unlock Ice Crystal Chain, Spark Chain & Bronze Chest"
+  },
+  "balance.json:/unlocks/1/text": {
+    "source": "热饮链解锁，商店上架旧铜壶",
+    "text": "Hot Drink Chain unlocked; Old Copper Kettle added to shop"
+  },
+  "balance.json:/unlocks/2/text": {
+    "source": "木料链解锁，更多冰封格可融化",
+    "text": "Lumber Chain unlocked; more Frozen Tiles can be melted"
+  },
+  "balance.json:/unlocks/3/text": {
+    "source": "冬衣链解锁，商店上架毛线篮",
+    "text": "Winter Wear chain unlocked. Woolen Basket added to Shop."
+  },
+  "balance.json:/unlocks/4/text": {
+    "source": "体力上限提升，白银宝箱上架",
+    "text": "Stamina cap increased. Silver Chest added."
+  },
+  "balance.json:/unlocks/5/text": {
+    "source": "烘焙链解锁，第二章剧情开放",
+    "text": "Baking chain unlocked. Chapter 2 story open."
+  },
+  "balance.json:/unlocks/6/text": {
+    "source": "黄金宝箱上架，第三章剧情开放",
+    "text": "Gold Chest added. Chapter 3 story open."
+  },
+  "balance.json:/unlocks/7/text": {
+    "source": "棋盘全部区域可融化，高阶订单出现",
+    "text": "All board areas meltable. High-tier orders appear."
+  },
+  "ui.json:/meta/title": {
+    "source": "冰霜物语",
+    "text": "Frost Tales"
+  },
+  "ui.json:/meta/subtitle": {
+    "source": "合并 · 重建 · 温暖山谷",
+    "text": "Merge · Rebuild · Warm Valley"
+  },
+  "ui.json:/shell/shop": {
+    "source": "商店",
+    "text": "Shop"
+  },
+  "ui.json:/shell/book": {
+    "source": "图鉴",
+    "text": "Bestiary"
+  },
+  "ui.json:/shell/valley": {
+    "source": "山谷",
+    "text": "Valley"
+  },
+  "ui.json:/shell/settings": {
+    "source": "设置",
+    "text": "Settings"
+  },
+  "ui.json:/shell/orders": {
+    "source": "村民请求",
+    "text": "Villager Requests"
+  },
+  "ui.json:/shell/mainQuest": {
+    "source": "主线任务",
+    "text": "Main Quest"
+  },
+  "ui.json:/shell/sandbox": {
+    "source": "爽玩",
+    "text": "Free Play"
+  },
+  "ui.json:/common/close": {
+    "source": "关闭",
+    "text": "Close"
+  },
+  "ui.json:/common/continue": {
+    "source": "继续",
+    "text": "Continue"
+  },
+  "ui.json:/common/cancel": {
+    "source": "取消",
+    "text": "Cancel"
+  },
+  "ui.json:/common/later": {
+    "source": "稍后",
+    "text": "Later"
+  },
+  "ui.json:/common/view": {
+    "source": "查看",
+    "text": "View"
+  },
+  "ui.json:/common/locked": {
+    "source": "尚未开放",
+    "text": "Locked"
+  },
+  "ui.json:/common/free": {
+    "source": "免费",
+    "text": "Free"
+  },
+  "ui.json:/common/owned": {
+    "source": "已拥有",
+    "text": "Owned"
+  },
+  "ui.json:/common/coin": {
+    "source": "金",
+    "text": "Gold"
+  },
+  "ui.json:/common/gem": {
+    "source": "钻",
+    "text": "Diamonds"
+  },
+  "ui.json:/common/level": {
+    "source": "Lv.{{level}}",
+    "text": "Lv.{{level}}"
+  },
+  "ui.json:/hud/full": {
+    "source": "已满",
+    "text": "Maxed"
+  },
+  "ui.json:/hud/afterglow": {
+    "source": "余温×{{count}}",
+    "text": "Lingering Warmth x{{count}}"
+  },
+  "ui.json:/orders/requests": {
+    "source": "{{count}} 个请求",
+    "text": "{{count}} Requests"
+  },
+  "ui.json:/orders/ready": {
+    "source": "{{count}} 可交付",
+    "text": "{{count}} Ready"
+  },
+  "ui.json:/orders/active": {
+    "source": "{{count}} 进行中",
+    "text": "{{count}} In Progress"
+  },
+  "ui.json:/orders/none": {
+    "source": "暂无",
+    "text": "None"
+  },
+  "ui.json:/orders/waiting": {
+    "source": "正在等你的消息",
+    "text": "Waiting for your message"
+  },
+  "ui.json:/orders/visiting": {
+    "source": "{{title}}来访",
+    "text": "{{title}}'s Visit"
+  },
+  "ui.json:/orders/give": {
+    "source": "交给 {{name}}",
+    "text": "Give to {{name}}"
+  },
+  "ui.json:/orders/prepare": {
+    "source": "继续准备",
+    "text": "Keep Preparing"
+  },
+  "ui.json:/orders/listen": {
+    "source": "听听请求",
+    "text": "Hear Request"
+  },
+  "ui.json:/orders/refresh": {
+    "source": "换一封 · {{cost}}金",
+    "text": "Exchange for {{cost}} Gold"
+  },
+  "ui.json:/orders/stillNeeds": {
+    "source": "{{name}}还在等材料",
+    "text": "{{name}} is waiting for materials"
+  },
+  "ui.json:/orders/arrived": {
+    "source": "{{title}} · 来到风灯小屋",
+    "text": "{{title}} · Arrived at the wind lantern cottage"
+  },
+  "ui.json:/orders/needs": {
+    "source": "需要这些",
+    "text": "Need these"
+  },
+  "ui.json:/orders/saveForLater": {
+    "source": "先放进请求箱",
+    "text": "Put in Request Box first"
+  },
+  "ui.json:/orders/accept": {
+    "source": "我来帮你",
+    "text": "I'll help you"
+  },
+  "ui.json:/orders/responseTitle": {
+    "source": "{{name}}的回应",
+    "text": "{{name}}'s Response"
+  },
+  "ui.json:/orders/responsePlace": {
+    "source": "篝火广场 · 风雪中的回音",
+    "text": "Bonfire Plaza · Echoes in the Snow"
+  },
+  "ui.json:/orders/responseHook": {
+    "source": "每一份委托，都是一个人留下来的理由。",
+    "text": "Every request is a reason for someone to stay."
+  },
+  "ui.json:/orders/backToBoard": {
+    "source": "回到合成盘",
+    "text": "Back to Synthesis Plate"
+  },
+  "ui.json:/items/chainLevel": {
+    "source": "{{family}} · {{level}}阶",
+    "text": "{{family}} · Tier {{level}}"
+  },
+  "ui.json:/items/sell": {
+    "source": "出售",
+    "text": "Sell"
+  },
+  "ui.json:/items/price": {
+    "source": "{{price}} 金",
+    "text": "{{price}} Gold"
+  },
+  "ui.json:/items/how": {
+    "source": "查看{{name}}怎么获得",
+    "text": "See how to get {{name}}"
+  },
+  "ui.json:/shop/title": {
+    "source": "商店",
+    "text": "Shop"
+  },
+  "ui.json:/shop/playMode": {
+    "source": "爽玩模式",
+    "text": "Free Play Mode"
+  },
+  "ui.json:/shop/energy": {
+    "source": "体力",
+    "text": "Stamina"
+  },
+  "ui.json:/shop/energyBottle": {
+    "source": "体力瓶",
+    "text": "Stamina Potion"
+  },
+  "ui.json:/shop/energyDesc": {
+    "source": "立即回满体力（上限 {{max}}）",
+    "text": "Refill Stamina Now (Max {{max}})"
+  },
+  "ui.json:/shop/chests": {
+    "source": "宝箱",
+    "text": "Treasure Chest"
+  },
+  "ui.json:/shop/workbenches": {
+    "source": "材料台（永久拥有）",
+    "text": "Material Bench (Permanent)"
+  },
+  "ui.json:/shop/chestDesc": {
+    "source": "{{count}}件 {{min}}—{{max}}阶材料 · {{seconds}}秒开启{{lock}}",
+    "text": "{{count}} items of {{min}}—{{max}} Tier materials · Opens in {{seconds}}s{{lock}}"
+  },
+  "ui.json:/shop/unlockAt": {
+    "source": " · Lv.{{level}}开放",
+    "text": " · Lv.{{level}} to Unlock"
+  },
+  "ui.json:/shop/makeFamily": {
+    "source": "可获得“{{family}}”材料{{lock}}",
+    "text": "Can obtain \"{{family}}\" materials{{lock}}"
+  },
+  "ui.json:/valley/title": {
+    "source": "霜语谷",
+    "text": "Frostwhisper Valley"
+  },
+  "ui.json:/valley/mainQuest": {
+    "source": "🏮 主线任务",
+    "text": "🏮 Main Quest"
+  },
+  "ui.json:/valley/journal": {
+    "source": "📓 山谷手账",
+    "text": "📓 Valley Journal"
+  },
+  "ui.json:/valley/tutorialDone": {
+    "source": "接下来跟着主线任务，让霜语谷一点点暖起来吧。",
+    "text": "Follow the main quests to slowly warm up Frostwhisper Valley."
+  },
+  "ui.json:/quest/lookBack": {
+    "source": "回看 ✓",
+    "text": "Review ✓"
+  },
+  "ui.json:/quest/repair": {
+    "source": "开始修复",
+    "text": "Start Repair"
+  },
+  "ui.json:/quest/findMaterials": {
+    "source": "找材料",
+    "text": "Find Materials"
+  },
+  "ui.json:/quest/levelUp": {
+    "source": "去升级",
+    "text": "Go Upgrade"
+  },
+  "ui.json:/quest/completePrevious": {
+    "source": "完成上一段故事后开放",
+    "text": "Unlocked after previous chapter"
+  },
+  "ui.json:/quest/openAt": {
+    "source": "Lv.{{level}} 开放 · {{done}}/{{total}}",
+    "text": "Lv.{{level}} Unlock · {{done}}/{{total}}"
+  },
+  "ui.json:/quest/previousFirst": {
+    "source": "先完成前面的故事，这里的路才会出现",
+    "text": "Complete the earlier story to open this path."
+  },
+  "ui.json:/quest/viewList": {
+    "source": "查看所需物品",
+    "text": "View Required Items"
+  },
+  "ui.json:/quest/handoverTitle": {
+    "source": "准备修复 · {{name}}",
+    "text": "Prepare Repair · {{name}}"
+  },
+  "ui.json:/quest/handoverDesc": {
+    "source": "会消耗下面的材料和金币。确认后，故事将继续。",
+    "text": "This will consume the materials and coins listed below. Confirm to continue the story."
+  },
+  "ui.json:/quest/prepareMore": {
+    "source": "再准备一下",
+    "text": "Get ready first"
+  },
+  "ui.json:/quest/confirm": {
+    "source": "开始修复",
+    "text": "Start Repair"
+  },
+  "ui.json:/source/title": {
+    "source": "🧭 {{item}}怎么获得",
+    "text": "🧭 How to get {{item}}"
+  },
+  "ui.json:/source/lead": {
+    "source": "啾可把材料的来路画在风灯里了。跟着亮起的路线走，不用猜。",
+    "text": "Choco mapped the materials inside the wind lantern. Just follow the glowing path—no guessing needed."
+  },
+  "ui.json:/source/next": {
+    "source": "🏮 下一步 · {{name}}",
+    "text": "🏮 Next Step · {{name}}"
+  },
+  "ui.json:/source/from": {
+    "source": "从这里获得",
+    "text": "Obtain from here"
+  },
+  "ui.json:/source/path": {
+    "source": "合成路线",
+    "text": "Synthesis Path"
+  },
+  "ui.json:/source/missing": {
+    "source": "还差 {{count}}",
+    "text": "Need {{count}} more"
+  },
+  "ui.json:/source/fromScratch": {
+    "source": "从头合成要 {{count}} 个基础材料",
+    "text": "Crafting from scratch requires {{count}} base materials."
+  },
+  "ui.json:/source/startPair": {
+    "source": "从亮起的这对开始合",
+    "text": "Start crafting from this highlighted pair."
+  },
+  "ui.json:/source/findWorkbench": {
+    "source": "找材料台",
+    "text": "Find Material Stand"
+  },
+  "ui.json:/source/findOnBoard": {
+    "source": "在棋盘上找它",
+    "text": "Find it on the board"
+  },
+  "ui.json:/source/placeWorkbench": {
+    "source": "把材料台放上棋盘",
+    "text": "Place the material stand on the board"
+  },
+  "ui.json:/source/shopWorkbench": {
+    "source": "去商店找它",
+    "text": "Find it in the shop"
+  },
+  "ui.json:/source/readyChain": {
+    "source": "棋盘上已经有一条可合成路线",
+    "text": "There is a synthesis path available on the board."
+  },
+  "ui.json:/source/materialsReady": {
+    "source": "材料已经齐了",
+    "text": "Materials ready"
+  },
+  "ui.json:/source/tapAndMerge": {
+    "source": "点“{{name}}”取得材料，再把相同物品两两合并",
+    "text": "Tap \"{{name}}\" to get materials, then merge identical items in pairs."
+  },
+  "ui.json:/source/ownedOffBoard": {
+    "source": "已经拥有，但还没放到棋盘上",
+    "text": "Owned, but not placed on the board yet."
+  },
+  "ui.json:/source/lockedUntil": {
+    "source": "继续玩到 Lv.{{level}} 就会开放",
+    "text": "Keep playing until Lv.{{level}} to unlock."
+  },
+  "ui.json:/source/availableInShop": {
+    "source": "“{{name}}”已经在商店开放",
+    "text": "\"{{name}}\" is now available in the shop."
+  },
+  "ui.json:/source/noSource": {
+    "source": "这件材料还没有找到获得方法",
+    "text": "No way to obtain this material has been found yet."
+  },
+  "ui.json:/source/noWorkbench": {
+    "source": "还没有“{{name}}”，先去商店或继续主线任务",
+    "text": "You don't have \"{{name}}\" yet. Visit the shop or continue the main quest."
+  },
+  "ui.json:/source/needLevel": {
+    "source": "先升到 Lv.{{level}}；材料可以提前准备。",
+    "text": "Reach Lv.{{level}} first; you can prep materials in advance."
+  },
+  "ui.json:/source/needCoins": {
+    "source": "还差 {{count}} 金币",
+    "text": "Need {{count}} more coins"
+  },
+  "ui.json:/source/hearRequests": {
+    "source": "去听村民请求",
+    "text": "Listen to Villager Requests"
+  },
+  "ui.json:/settings/title": {
+    "source": "设置",
+    "text": "Settings"
+  },
+  "ui.json:/settings/player": {
+    "source": "🏮 提灯人",
+    "text": "🏮 Lantern Bearer"
+  },
+  "ui.json:/settings/gameLanguage": {
+    "source": "🌐 游戏语言",
+    "text": "🌐 Game Language"
+  },
+  "ui.json:/settings/gameLanguageHelp": {
+    "source": "界面与剧情字幕",
+    "text": "UI & Story Subtitles"
+  },
+  "ui.json:/settings/voiceLanguage": {
+    "source": "🎙️ 配音语言",
+    "text": "🎙️ Voiceover Language"
+  },
+  "ui.json:/settings/voiceLanguageHelp": {
+    "source": "可以和字幕不同",
+    "text": "Can be different from subtitles"
+  },
+  "ui.json:/settings/bgm": {
+    "source": "背景音乐",
+    "text": "BGM"
+  },
+  "ui.json:/settings/sfx": {
+    "source": "游戏音效",
+    "text": "SFX"
+  },
+  "ui.json:/settings/voice": {
+    "source": "剧情语音",
+    "text": "Voice Acting"
+  },
+  "ui.json:/settings/playMode": {
+    "source": "🥽 爽玩模式（内测）",
+    "text": "🥽 Chill Mode (Beta)"
+  },
+  "ui.json:/settings/playModeHelp": {
+    "source": "无限金币、钻石和体力，自由体验全部内容",
+    "text": "Unlimited coins, diamonds, and stamina. Experience everything freely."
+  },
+  "ui.json:/settings/rules": {
+    "source": "📘 玩法规则与新手说明",
+    "text": "📘 Rules & Tutorial"
+  },
+  "ui.json:/settings/reset": {
+    "source": "重置进度（重新开始）",
+    "text": "Reset Progress (Restart)"
+  },
+  "ui.json:/settings/about": {
+    "source": "冰霜物语 Frost Story v0.3<br>支持离线游玩 · 原创剧情、美术与音乐 · 全对白配音",
+    "context": "",
+    "text": "Frost Story v0.3<br>Offline Play • Original Story, Art & Music • Full Voice Acting"
+  },
+  "ui.json:/settings/resetTitle": {
+    "source": "确定重新开始？",
+    "text": "Confirm restart?"
+  },
+  "ui.json:/settings/resetDesc": {
+    "source": "游戏进度将被清空，且无法恢复。",
+    "text": "Your progress will be wiped and cannot be recovered."
+  },
+  "ui.json:/settings/resetConfirm": {
+    "source": "清空并重新开始",
+    "text": "Wipe & Restart"
+  },
+  "ui.json:/settings/playOn": {
+    "source": "爽玩模式已开启：资源无限",
+    "text": "Chill Mode Enabled: Unlimited Resources"
+  },
+  "ui.json:/settings/playOff": {
+    "source": "已关闭爽玩模式",
+    "text": "Chill Mode Disabled"
+  },
+  "ui.json:/sandbox/title": {
+    "source": "🥽 爽玩控制台",
+    "text": "🥽 Chill Console"
+  },
+  "ui.json:/sandbox/status": {
+    "source": "资源无限 · 金币、钻石、体力 ∞ · 材料台不用休息 · 宝箱立即开启",
+    "text": "Unlimited Resources • Coins, Diamonds, Stamina ∞ • No rest needed at material stations • Chests open instantly"
+  },
+  "ui.json:/sandbox/level": {
+    "source": "直升 5 级",
+    "text": "Skip 5 Levels"
+  },
+  "ui.json:/sandbox/levelHelp": {
+    "source": "开放高阶材料和章节",
+    "text": "Unlock High-tier Materials & Chapters"
+  },
+  "ui.json:/sandbox/board": {
+    "source": "融化全部棋盘",
+    "text": "Melt All Boards"
+  },
+  "ui.json:/sandbox/boardHelp": {
+    "source": "48 格全部开放",
+    "text": "All 48 Slots Unlocked"
+  },
+  "ui.json:/sandbox/benches": {
+    "source": "全部材料台",
+    "text": "All Material Stations"
+  },
+  "ui.json:/sandbox/benchesHelp": {
+    "source": "6 种材料一次拥有",
+    "text": "Hold 6 Materials at Once"
+  },
+  "ui.json:/sandbox/fill": {
+    "source": "铺满材料",
+    "text": "Fill with Materials"
+  },
+  "ui.json:/sandbox/fillHelp": {
+    "source": "每种补充 1—3阶材料",
+    "text": "Add Tiers 1-3 for each material"
+  },
+  "ui.json:/sandbox/story": {
+    "source": "下一段剧情",
+    "text": "Next Chapter"
+  },
+  "ui.json:/sandbox/storyHelp": {
+    "source": "备齐下一段故事所需",
+    "text": "Gather materials for the next story"
+  },
+  "ui.json:/sandbox/chests": {
+    "source": "宝箱立即开启",
+    "text": "Open chest now"
+  },
+  "ui.json:/sandbox/chestsHelp": {
+    "source": "跳过所有开箱等待",
+    "text": "Skip all opening waits"
+  },
+  "ui.json:/sandbox/clear": {
+    "source": "整理棋盘",
+    "text": "Organize Board"
+  },
+  "ui.json:/sandbox/clearHelp": {
+    "source": "只保留材料台",
+    "text": "Keep only Workbenches"
+  },
+  "ui.json:/sandbox/close": {
+    "source": "关闭爽玩模式",
+    "text": "Turn off Easy Mode"
+  },
+  "ui.json:/sandbox/levelDone": {
+    "source": "已升到 Lv.{{level}} ⭐",
+    "text": "Leveled up to Lv.{{level}} ⭐"
+  },
+  "ui.json:/sandbox/boardDone": {
+    "source": "棋盘上的冰都融化了 ❄️",
+    "text": "The ice on the board has melted ❄️"
+  },
+  "ui.json:/sandbox/benchesDone": {
+    "source": "全部材料台已放上棋盘 🏭",
+    "text": "All Workbenches are placed 🏭"
+  },
+  "ui.json:/sandbox/fillDone": {
+    "source": "材料准备好了，尽情合成 ✨",
+    "text": "Materials ready! Time to craft ✨"
+  },
+  "ui.json:/sandbox/storyDone": {
+    "source": "六章故事已经全部完成 🎉",
+    "text": "All 6 chapters completed 🎉"
+  },
+  "ui.json:/sandbox/storyPrepared": {
+    "source": "“{{name}}”需要的材料已备齐 📜",
+    "text": "Materials for \"{{name}}\" are ready 📜"
+  },
+  "ui.json:/sandbox/chestsDone": {
+    "source": "所有宝箱都可以打开了 🎁",
+    "text": "All chests can be opened 🎁"
+  },
+  "ui.json:/sandbox/clearDone": {
+    "source": "棋盘整理好了 🧹",
+    "text": "Board organized 🧹"
+  },
+  "ui.json:/popups/levelMany": {
+    "source": "连续提升 {{count}} 级！",
+    "text": "Leveled up {{count}} times!"
+  },
+  "ui.json:/popups/levelOne": {
+    "source": "等级提升",
+    "text": "Level Up"
+  },
+  "ui.json:/popups/levelStory": {
+    "source": "风灯越来越亮，新的材料和故事正在醒来。",
+    "text": "The wind lantern glows brighter as new materials and stories awaken."
+  },
+  "ui.json:/popups/energyFull": {
+    "source": "体力回满",
+    "text": "Stamina Refilled"
+  },
+  "ui.json:/popups/ok": {
+    "source": "好的",
+    "text": "Okay"
+  },
+  "ui.json:/popups/chestReady": {
+    "source": "✨ 宝箱可以打开了",
+    "text": "✨ Chest ready to open"
+  },
+  "ui.json:/popups/chestReward": {
+    "source": "打开可获得 {{count}} 件材料和金币",
+    "text": "Open to get {{count}} materials and coins"
+  },
+  "ui.json:/popups/openNow": {
+    "source": "立即开启",
+    "text": "Open Now"
+  },
+  "ui.json:/popups/opening": {
+    "source": "{{name}}开启中",
+    "text": "{{name}} opening..."
+  },
+  "ui.json:/popups/secondsLeft": {
+    "source": "还要 {{seconds}} 秒，也可以花 {{gems}} 钻立即开启",
+    "text": "Wait {{seconds}}s or spend {{gems}} gems to open now"
+  },
+  "ui.json:/popups/wait": {
+    "source": "等待",
+    "text": "Wait"
+  },
+  "ui.json:/popups/skipGems": {
+    "source": "花 {{gems}} 钻跳过",
+    "text": "Skip for {{gems}} gems"
+  },
+  "ui.json:/popups/boardOpen": {
+    "source": "棋盘已经全部融化",
+    "text": "All ice has melted"
+  },
+  "ui.json:/popups/meltTitle": {
+    "source": "融化冰封格",
+    "text": "Melt Ice Tile"
+  },
+  "ui.json:/popups/meltDesc": {
+    "source": "花 {{cost}} 金币融化一格冰雪，获得更多空间。",
+    "text": "Spend {{cost}} coins to melt one tile and gain more space."
+  },
+  "ui.json:/popups/meltLevel": {
+    "source": "达到 Lv.{{level}} 后才能融化这里。",
+    "text": "Reach Lv.{{level}} to melt this area."
+  },
+  "ui.json:/popups/melt": {
+    "source": "融化 · {{cost}}金",
+    "text": "Melt · {{cost}} Coins"
+  },
+  "ui.json:/popups/noEnergyTitle": {
+    "source": "体力不足",
+    "text": "Not enough Stamina"
+  },
+  "ui.json:/popups/noEnergyDesc": {
+    "source": "体力会随时间恢复，也可以去商店用钻石购买体力瓶。",
+    "text": "Stamina recovers over time. You can also buy Stamina Potions in the Shop."
+  },
+  "ui.json:/popups/gotIt": {
+    "source": "知道了",
+    "text": "Got it"
+  },
+  "ui.json:/popups/goShop": {
+    "source": "去商店",
+    "text": "Go to Shop"
+  },
+  "ui.json:/profile/role": {
+    "source": "霜灵 · 啾可",
+    "text": "frost spirit · Choco"
+  },
+  "ui.json:/profile/newPrompt": {
+    "source": "风灯亮了。现在，把你的名字写进这段故事吧。",
+    "text": "The wind lantern is lit. Now, write your name into this story."
+  },
+  "ui.json:/profile/editPrompt": {
+    "source": "风灯里的名字也可以重写。以后，我该怎么称呼你？",
+    "text": "Names in the wind lantern can be rewritten. How should I call you from now on?"
+  },
+  "ui.json:/profile/label": {
+    "source": "希望大家怎么称呼你？",
+    "text": "How would you like everyone to address you?"
+  },
+  "ui.json:/profile/placeholder": {
+    "source": "输入 1—12 个字",
+    "text": "Enter 1-12 characters"
+  },
+  "ui.json:/profile/help": {
+    "source": "昵称只保存在你的游戏进度中，之后可在设置里修改。",
+    "text": "Your nickname is saved in your game progress and can be changed in Settings."
+  },
+  "ui.json:/profile/save": {
+    "source": "🏮 写进风灯",
+    "text": "🏮 Write into the Lantern"
+  },
+  "ui.json:/profile/saveEdit": {
+    "source": "保存称呼",
+    "text": "Save Name"
+  },
+  "ui.json:/profile/error": {
+    "source": "请使用 1—12 个字，不要包含括号或网页符号。",
+    "text": "Please use 1-12 characters. Do not include brackets or web symbols."
+  },
+  "ui.json:/profile/fallback": {
+    "source": "提灯人",
+    "text": "Lantern Bearer"
+  },
+  "ui.json:/dialogue/prologue": {
+    "source": "序章",
+    "text": "Prologue"
+  },
+  "ui.json:/dialogue/request": {
+    "source": "村民请求",
+    "text": "Villager Request"
+  },
+  "ui.json:/dialogue/main": {
+    "source": "主线故事",
+    "text": "Main Story"
+  },
+  "ui.json:/dialogue/journal": {
+    "source": "霜语谷手记",
+    "text": "Frostwhisper Valley Journal"
+  },
+  "ui.json:/dialogue/everyone": {
+    "source": "众人",
+    "text": "Everyone"
+  },
+  "ui.json:/dialogue/review": {
+    "source": "回顾",
+    "text": "Review"
+  },
+  "ui.json:/dialogue/skip": {
+    "source": "跳过",
+    "text": "Skip"
+  },
+  "ui.json:/dialogue/reviewTitle": {
+    "source": "本段回顾",
+    "text": "Chapter Review"
+  },
+  "ui.json:/dialogue/back": {
+    "source": "返回画面",
+    "text": "Back to Scene"
+  },
+  "ui.json:/dialogue/showAll": {
+    "source": "点击显示全文",
+    "text": "Tap to show full text"
+  },
+  "ui.json:/welcome/chapter": {
+    "source": "序章 · 风灯归乡",
+    "text": "Prologue · Return of the Lantern"
+  },
+  "ui.json:/welcome/title": {
+    "source": "雪里，有人在等这盏灯",
+    "text": "In the snow, someone is waiting for this light."
+  },
+  "ui.json:/welcome/tip": {
+    "source": "戴上耳机，点亮祖父留下的风灯。",
+    "text": "Put on your headphones and light the wind lantern left by your grandfather."
+  },
+  "ui.json:/welcome/start": {
+    "source": "🏮 点亮风灯",
+    "text": "🏮 Light the Wind Lantern"
+  },
+  "ui.json:/welcome/answer": {
+    "source": "回应啾可",
+    "text": "Respond to Choco"
+  },
+  "ui.json:/welcome/tell": {
+    "source": "告诉啾可",
+    "text": "Tell Choco"
+  },
+  "ui.json:/welcome/enter": {
+    "source": "跟啾可进谷",
+    "text": "Enter the Valley with Choco"
+  },
+  "ui.json:/chapter/mystery": {
+    "source": "本章悬念 · {{hook}}",
+    "text": "Chapter Hook · {{hook}}"
+  },
+  "ui.json:/chapter/enter": {
+    "source": "进入本章 ▸",
+    "text": "Enter Chapter ▸"
+  },
+  "ui.json:/interaction/restore": {
+    "source": "亲手复苏 · {{chapter}}",
+    "text": "Awaken · {{chapter}}"
+  },
+  "ui.json:/interaction/skip": {
+    "source": "跳过动作",
+    "text": "Skip Action"
+  },
+  "ui.json:/interaction/step": {
+    "source": "第 {{number}} 步：{{label}}",
+    "text": "Step {{number}}: {{label}}"
+  },
+  "ui.json:/interaction/progress": {
+    "source": "完成 {{done}} / {{total}}",
+    "text": "Done: {{done}} / {{total}}"
+  },
+  "ui.json:/interaction/continueStory": {
+    "source": "继续故事 ▸",
+    "text": "Continue Story ▸"
+  },
+  "ui.json:/interaction/myValley": {
+    "source": "我的山谷 · {{chapter}}",
+    "text": "My Valley · {{chapter}}"
+  },
+  "ui.json:/interaction/chooseLater": {
+    "source": "暂不选择",
+    "text": "Skip for Now"
+  },
+  "ui.json:/interaction/chooseHint": {
+    "source": "选择一种布置，看看它会怎样改变这里",
+    "text": "Pick a layout to see how it changes the place."
+  },
+  "ui.json:/interaction/defaultChoice": {
+    "source": "选好的主灯",
+    "text": "Select Main Light"
+  },
+  "ui.json:/interaction/preview": {
+    "source": "预览 · {{name}}：{{desc}}",
+    "text": "Preview · {{name}}: {{desc}}"
+  },
+  "ui.json:/interaction/adopted": {
+    "source": "已采用 {{name}}",
+    "text": "Selected {{name}}"
+  },
+  "ui.json:/interaction/useChoice": {
+    "source": "采用这个方案 ▸",
+    "text": "Apply Plan ▸"
+  },
+  "ui.json:/interaction/saved": {
+    "source": "已保存 ✓",
+    "text": "Saved ✓"
+  },
+  "ui.json:/rewards/finished": {
+    "source": "“{{name}}”完成",
+    "text": "\"{{name}}\" Complete"
+  },
+  "ui.json:/rewards/finale": {
+    "source": "霜心苏醒！",
+    "text": "Frostheart Awakens!"
+  },
+  "ui.json:/rewards/defaultStory": {
+    "source": "山谷里又有一处亮起了灯。",
+    "text": "Another light shines in the valley."
+  },
+  "ui.json:/rewards/rush": {
+    "source": "⭐ 连升 {{count}} 级 · 已到 Lv.{{level}}",
+    "text": "⭐ Level Up {{count}} · Reached Lv.{{level}}"
+  },
+  "ui.json:/rewards/experience": {
+    "source": "{{count}}经验",
+    "text": "{{count}} XP"
+  },
+  "ui.json:/rewards/newWorkbench": {
+    "source": "新材料台",
+    "text": "New Material Table"
+  },
+  "ui.json:/rewards/ending": {
+    "source": "看结局",
+    "text": "View Ending"
+  },
+  "ui.json:/rewards/great": {
+    "source": "太棒了",
+    "text": "Amazing!"
+  },
+  "ui.json:/journal/origin": {
+    "source": "📖 故事缘起",
+    "text": "📖 Origin Story"
+  },
+  "ui.json:/journal/originLocked": {
+    "source": "完成第一处修复后开放",
+    "text": "Unlocked after first repair"
+  },
+  "ui.json:/journal/partners": {
+    "source": "🧑‍🤝‍🧑 山谷伙伴",
+    "text": "🧑‍🤝‍🧑 Valley Friends"
+  },
+  "ui.json:/journal/notMet": {
+    "source": "尚未相识",
+    "text": "Not Met Yet"
+  },
+  "ui.json:/journal/notExperienced": {
+    "source": "🔒 尚未经历：{{name}}",
+    "text": "🔒 Not Experienced: {{name}}"
+  },
+  "ui.json:/journal/yourChoice": {
+    "source": "{{icon}} 你的布置 · {{name}}",
+    "text": "{{icon}} Your Layout · {{name}}"
+  },
+  "ui.json:/rules/title": {
+    "source": "📘 玩法规则",
+    "text": "📘 Rules of Play"
+  },
+  "ui.json:/rules/generate": {
+    "source": "点材料台",
+    "text": "Tap Material Table"
+  },
+  "ui.json:/rules/merge": {
+    "source": "两两合并",
+    "text": "Merge in Pairs"
+  },
+  "ui.json:/rules/orders": {
+    "source": "完成请求",
+    "text": "Request Complete"
+  },
+  "ui.json:/rules/expand": {
+    "source": "升级扩格",
+    "text": "Upgrade Grid"
+  },
+  "ui.json:/rules/story": {
+    "source": "推进故事",
+    "text": "Advance Story"
+  },
+  "ui.json:/rules/mergeDesc": {
+    "source": "两个同类、同阶物品拖到一起，会变成更高一阶；不同物品可以交换位置。",
+    "text": "Drag two identical items of the same tier together to merge them into a higher tier. Different items can be swapped."
+  },
+  "ui.json:/rules/generateDesc": {
+    "source": "点材料台会消耗体力；连续使用后要短暂休息，体力离线也会恢复。",
+    "text": "Using the Material Table consumes Stamina; it requires a short break after continuous use. Stamina also recovers offline."
+  },
+  "ui.json:/rules/ordersDesc": {
+    "source": "先听村民说明来意，回应“我来帮你”后请求才会开始。备齐材料交付，还会听到角色的后续。",
+    "text": "Listen to the villager's request first. After replying \"I'll help you,\" the quest will begin. Deliver all materials to hear more from the character."
+  },
+  "ui.json:/rules/boardDesc": {
+    "source": "点带雪锁的格子可花金币融化；霜泡可以直接点破，宝箱倒计时结束后即可开启。",
+    "text": "Tap cells with snow locks to melt them using Gold; Frost Bubbles can be tapped directly, and chests open after the countdown ends."
+  },
+  "ui.json:/rules/storyDesc": {
+    "source": "打开任务架里的“主线任务”或进入“山谷”，依次经历 6 章 24 段故事，唤醒霜心、迎回春天。手账会留下世界和伙伴们的回忆。",
+    "text": "Open \"Main Quests\" in the Quest Rack or enter the \"Valley\" to experience 6 chapters and 24 stages. Awaken the Frostheart and welcome spring. Your journal will hold memories of the world and your friends."
+  },
+  "ui.json:/rules/done": {
+    "source": "知道了，开始合并",
+    "text": "Got it, starting merge"
+  },
+  "ui.json:/errors/boardFull": {
+    "source": "棋盘满了，先合并或出售一些物品",
+    "text": "Board is full. Merge or sell some items first."
+  },
+  "ui.json:/errors/workbenchResting": {
+    "source": "材料台正在休息……",
+    "text": "Material Table is resting..."
+  },
+  "ui.json:/errors/noEnergy": {
+    "source": "体力不足，等它恢复或去商店看看",
+    "text": "Not enough Stamina. Wait for it to recover or visit the Shop."
+  },
+  "ui.json:/errors/frozen": {
+    "source": "这片区域还被冰封着",
+    "text": "This area is still frozen."
+  },
+  "ui.json:/errors/sameItems": {
+    "source": "只有两个相同的物品才能合并",
+    "text": "Only two identical items can be merged."
+  },
+  "ui.json:/errors/needLevel": {
+    "source": "需要达到 Lv.{{level}} 才能融化这片冰",
+    "text": "Reach Lv.{{level}} to melt this ice."
+  },
+  "ui.json:/errors/noCoins": {
+    "source": "金币不足",
+    "text": "Not enough Gold"
+  },
+  "ui.json:/errors/noGems": {
+    "source": "钻石不足",
+    "text": "Not enough Diamonds"
+  },
+  "ui.json:/errors/requirements": {
+    "source": "材料还没备齐",
+    "text": "Materials incomplete"
+  },
+  "ui.json:/errors/alreadyOwned": {
+    "source": "已经拥有了",
+    "text": "Already owned"
+  },
+  "ui.json:/errors/energyFull": {
+    "source": "体力已回满",
+    "text": "Stamina full"
+  },
+  "ui.json:/errors/notReady": {
+    "source": "材料或金币还没备齐",
+    "text": "Insufficient materials or Gold"
+  },
+  "ui.json:/errors/notOpen": {
+    "source": "这里还没有开放",
+    "text": "Not unlocked yet"
+  },
+  "ui.json:/loading/config": {
+    "source": "读取故事与数值……",
+    "text": "Loading story and data..."
+  },
+  "ui.json:/loading/chains": {
+    "source": "整理合成路线……",
+    "text": "Organizing synthesis route..."
+  },
+  "ui.json:/loading/waking": {
+    "source": "唤醒霜语谷……",
+    "text": "Awakening Frostwhisper Valley..."
+  },
+  "ui.json:/loading/failed": {
+    "source": "加载失败：{{error}}",
+    "text": "Load failed: {{error}}"
+  },
+  "ui.json:/board/afterglow": {
+    "source": "余温生成 · 0体力",
+    "context": "",
+    "text": "Lingering Warmth · 0 Stamina"
+  },
+  "ui.json:/board/discovery": {
+    "source": "新发现 · {{name}}",
+    "context": "",
+    "text": "New Discovery · {{name}}"
+  },
+  "ui.json:/board/merge": {
+    "source": "合并 +1",
+    "context": "",
+    "text": "Merge +1"
+  },
+  "ui.json:/board/combo": {
+    "source": "暖流 ×{{count}}",
+    "context": "",
+    "text": "Warmth ×{{count}}"
+  },
+  "ui.json:/board/energy": {
+    "source": "+{{count}}体力",
+    "context": "",
+    "text": "+{{count}} Stamina"
+  },
+  "ui.json:/chapter/short": {
+    "source": "第{{number}}章",
+    "context": "",
+    "text": "Chapter {{number}}"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/title": {
+    "source": "让第一封信过桥",
+    "context": "",
+    "text": "Let the first letter cross."
+  },
+  "story.json:/chapters/0/nodes/2/interaction/prompt": {
+    "source": "把桥重新接上，让波波亲手送出十年来的第一封信。",
+    "context": "",
+    "text": "Reconnect the bridge so Bobo can personally deliver the first letter in ten years."
+  },
+  "story.json:/chapters/0/nodes/2/interaction/complete": {
+    "source": "桥索绷紧，风灯亮起。波波抱紧邮袋，踩着你铺出的路跑向村里。",
+    "context": "",
+    "text": "The ropes tighten, and the wind lanterns light up. Clutching his mailbag, Bobo runs toward the village along the path you've laid."
+  },
+  "story.json:/chapters/0/nodes/2/interaction/steps/0/label": {
+    "source": "架稳主梁",
+    "context": "",
+    "text": "Secure the main beam"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/steps/1/label": {
+    "source": "收紧桥索",
+    "context": "",
+    "text": "Tighten the bridge ropes"
+  },
+  "story.json:/chapters/0/nodes/2/interaction/steps/2/label": {
+    "source": "挂上引路灯",
+    "context": "",
+    "text": "Hang the guiding lights"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/title": {
+    "source": "唤醒沉睡的烤箱",
+    "context": "",
+    "text": "Wake the sleeping oven"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/prompt": {
+    "source": "和蜜儿一起把第一炉香气送回街上。",
+    "context": "",
+    "text": "Work with Mier to send the first aroma out to the streets."
+  },
+  "story.json:/chapters/1/nodes/0/interaction/complete": {
+    "source": "炉门透出金光，第一张麦饼鼓了起来。街上有人循着香味推开了窗。",
+    "context": "",
+    "text": "Golden light glows from the oven door as the first flatbread rises. Someone on the street follows the scent and opens their window."
+  },
+  "story.json:/chapters/1/nodes/0/interaction/steps/0/label": {
+    "source": "敲落炉门冰花",
+    "context": "",
+    "text": "Clear the frost from the oven"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/steps/1/label": {
+    "source": "送入霜木",
+    "context": "",
+    "text": "Bring in Frostwood"
+  },
+  "story.json:/chapters/1/nodes/0/interaction/steps/2/label": {
+    "source": "点亮第一炉",
+    "context": "",
+    "text": "Light the first fire"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/title": {
+    "source": "织下第一条归乡围巾",
+    "context": "",
+    "text": "Weave the first Homecoming Scarf"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/prompt": {
+    "source": "选一个会留在裁缝铺招牌上的纹样。你的选择会写进回忆手账。",
+    "context": "",
+    "text": "Choose a pattern for the tailor shop's sign. Your choice will be recorded in your Memory Journal."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/complete": {
+    "source": "艾莎把你选的纹样织进围巾，又在招牌上添了同样的一针。",
+    "context": "",
+    "text": "Elsa weaves your chosen pattern into the scarf and adds the same stitch to the sign."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/0/name": {
+    "source": "归雁纹",
+    "context": "",
+    "text": "Homewing Pattern"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/0/desc": {
+    "source": "给远行的人一条回家的路",
+    "context": "",
+    "text": "Give those far away a path home."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/1/name": {
+    "source": "炉火纹",
+    "context": "",
+    "text": "Hearthfire Pattern"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/1/desc": {
+    "source": "把广场第一堆火织进围巾",
+    "context": "",
+    "text": "Weave the first fire of the plaza into the scarf."
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/2/name": {
+    "source": "霜星纹",
+    "context": "",
+    "text": "Froststar Pattern"
+  },
+  "story.json:/chapters/1/nodes/1/interaction/options/2/desc": {
+    "source": "让雪夜也有可以辨认的星光",
+    "context": "",
+    "text": "Give snowy nights a recognizable starlight."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/title": {
+    "source": "让圣殿重新接纳人声",
+    "context": "",
+    "text": "Let the Sanctuary welcome voices again."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/prompt": {
+    "source": "先挡住风，再安置暖炉。每一步都让这座空殿更像家。",
+    "context": "",
+    "text": "Block the wind first, then set up the heater. Every step makes this empty hall feel more like home."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/complete": {
+    "source": "门缝不再呼啸，暖炉映亮石墙。十年来，圣殿第一次传回了笑声。",
+    "context": "",
+    "text": "The draft stops, and the heater illuminates the stone walls. For the first time in ten years, laughter echoes through the Sanctuary."
+  },
+  "story.json:/chapters/2/nodes/0/interaction/steps/0/label": {
+    "source": "顶住破门",
+    "context": "",
+    "text": "Reinforce the broken door"
+  },
+  "story.json:/chapters/2/nodes/0/interaction/steps/1/label": {
+    "source": "安置暖炉",
+    "context": "",
+    "text": "Set up the heater"
+  },
+  "story.json:/chapters/2/nodes/0/interaction/steps/2/label": {
+    "source": "点起大厅火光",
+    "context": "",
+    "text": "Light the hall's fire"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/title": {
+    "source": "把一片星空留在穹顶",
+    "context": "",
+    "text": "Keep a piece of the starry sky on the dome."
+  },
+  "story.json:/chapters/2/nodes/1/interaction/prompt": {
+    "source": "霜晶会记住你排下的星图。选中的图案会留在回忆手账。",
+    "context": "",
+    "text": "The Frost Crystals will remember your star map. Your chosen pattern will stay in your Memory Journal."
+  },
+  "story.json:/chapters/2/nodes/1/interaction/complete": {
+    "source": "最后一枚霜晶归位，属于你的星图在穹顶缓缓亮起。",
+    "context": "",
+    "text": "As the last Frost Crystal finds its place, your personal star map slowly glows upon the dome."
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/0/name": {
+    "source": "归雁星阵",
+    "context": "",
+    "text": "Homewing Constellation"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/0/desc": {
+    "source": "为离乡的人指向霜语谷",
+    "context": "",
+    "text": "Guide the travelers to Frostwhisper Valley"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/1/name": {
+    "source": "守望猎弓",
+    "context": "",
+    "text": "Guardian's Bow"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/1/desc": {
+    "source": "纪念独自守村十年的冈特",
+    "context": "",
+    "text": "In memory of Gramps, who guarded the village alone for ten years"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/2/name": {
+    "source": "风灯星环",
+    "context": "",
+    "text": "Wind Lantern Ring"
+  },
+  "story.json:/chapters/2/nodes/1/interaction/options/2/desc": {
+    "source": "让守焰人的灯在夜空相逢",
+    "context": "",
+    "text": "Let the keepers' lights meet in the night sky"
+  }
+}

@@ -17,12 +17,81 @@ console.log('— 初始化 —');
 ok(s.cells.length===48,'棋盘 48 格');
 ok(s.boardUnlocked===24,'初始解锁 24 格');
 ok(s.orders.length===3,'3 个订单槽');
-ok(s.emptyCells().length>15,'有足够空格');
+ok(s.emptyCells().length>=12,'开局连锁素材加入后仍有足够空格');
 ok(s.orders[0].npcId==='gunnar'&&s.orders[0].needs[0].fam==='crystal'&&s.orders[0].needs[0].tier===2,'冈特带剧情登场，首个请求与第一次合并形成确定闭环');
 ok(s.orders.every(order=>order.accepted===false),'新委托默认等待玩家回应，不会自动接取');
 ok(new Set(s.orders.map(order=>order.npcId)).size===s.orders.length,'同一批请求不会让同一村民重复登场');
 ok(s.settings.ordersCollapsed===true&&s.settings.questCollapsed===true,'委托与主线默认收进任务架');
 ok(s.settings.voice===true,'剧情语音默认开启');
+ok(s.settings.language==='zh-CN'&&s.settings.voiceLanguage===s.settings.language,'游戏语言与配音语言首次默认一致');
+ok(s.setVoiceLanguage('ja')?.ok===true&&s.settings.language==='zh-CN'&&s.settings.voiceLanguage==='ja','配音语言可独立切换而不改变字幕语言');
+ok(s.setVoiceLanguage('xx')?.ok===false&&s.settings.voiceLanguage==='ja','未支持的配音语言不会污染设置');
+ok(s.profile?.nickname===''&&s.playerName==='提灯人','新玩家以未命名的提灯人身份进入序章');
+
+console.log('— 玩家档案与昵称安全迁移 —');
+{
+  const profile=new GameState().newGame();
+  ok(profile.setNickname('  雪团  ')?.ok===true&&profile.profile.nickname==='雪团','剧情中输入的昵称会规范化并保存');
+  ok(profile.setNickname('')?.ok===false&&profile.profile.nickname==='雪团','空昵称不会覆盖已有档案');
+  ok(profile.setNickname('<img>')?.ok===false&&profile.profile.nickname==='雪团','危险标记不能写入玩家称呼');
+  ok(profile.setNickname('这是一个远远超过十二个字的玩家昵称')?.ok===false,'昵称长度限制按 Unicode 字符执行');
+  const restored=new GameState().hydrate(JSON.parse(JSON.stringify(profile.serialize())));
+  ok(restored.profile.nickname==='雪团'&&restored.playerName==='雪团','昵称随游戏存档往返');
+  const repaired=new GameState().hydrate({profile:{nickname:'<script>'}});
+  ok(repaired.profile.nickname===''&&repaired.playerName==='提灯人','损坏或危险的旧档案会回退为未命名状态');
+}
+
+console.log('— 前三章爽感与材料来源 —');
+{
+  // 成熟 Merge-2 首局会预摆一条可连续合成的短链，让玩家先体验升级与爆点，
+  // 而不是先连续点十几次生成器。开局火种应能直接连锁到首个主线目标。
+  const starter=new GameState().newGame();
+  let cascade=true;
+  for(let tier=1;tier<5;tier++){
+    const pair=starter.cells.map((cell,idx)=>cell?.k==='i'&&cell.fam==='fire'&&cell.tier===tier?idx:-1).filter(idx=>idx>=0).slice(0,2);
+    if(pair.length<2){ cascade=false; break; }
+    if(starter.dropOn(pair[0],pair[1])!=='merge'){ cascade=false; break; }
+  }
+  ok(cascade&&starter.countItem('fire',5)>=1,'开局预摆链可四连合成首个主线材料');
+
+  const source=typeof starter.materialSource==='function'?starter.materialSource('wood',3,2):null;
+  ok(source?.generatorId==='g_wood'&&source.generatorName==='雪松堆'
+    &&source.itemName==='木板'&&source.baseNeeded===8
+    &&source.path.join(' → ')==='松枝 → 木段 → 木板','缺少木板时能给出生成器、合成路径和基础材料量');
+  const guided=new GameState().newGame(),flameSource=guided.materialSource('fire',5,1);
+  ok(flameSource.boardCanCraft&&flameSource.nextPair?.length===2
+    &&flameSource.nextPair.every(idx=>guided.cells[idx]?.fam==='fire'),
+    '棋盘已有材料时给出下一对可合并位置，而不是只把玩家送去生成器');
+
+  // 每种主线需求必须在它第一次出现前已拥有对应生成器；前三章不靠猜商店解死路。
+  const available=new Set(['crystal','fire']); let sourceFlow=true;
+  for(const ch of Config.story.slice(0,3)) for(const node of ch.nodes){
+    if(node.need.some(q=>!available.has(q.fam))) sourceFlow=false;
+    const ids=[node.reward?.generator,...(node.reward?.generators||[])].filter(Boolean);
+    ids.forEach(id=>{ const gen=Config.genById(id); if(gen) available.add(gen.family); });
+  }
+  ok(sourceFlow,'前三章每种材料链在被主线要求前都有剧情解锁的生成器');
+
+  const early=Config.story.slice(0,3).flatMap(ch=>ch.nodes);
+  const effort=node=>node.need.reduce((sum,q)=>sum+q.n*Math.pow(2,q.tier-1),0);
+  ok(early.every(node=>effort(node)<=96),'前三章单节点不超过 96 个一级材料等价量');
+  ok(early.every(node=>(node.reward?.coin||0)>=node.coin
+    &&(node.reward?.energy||0)>=8&&(node.reward?.freeTaps||0)>=6),'前三章每段主线净赚金币并续上体力与余温生成');
+
+  const rush=new GameState().newGame();
+  const firstTwo=Config.story.slice(0,2).flatMap(ch=>ch.nodes);
+  firstTwo.forEach(node=>rush.addXp(node.reward?.xp||0));
+  ok(rush.lv>=10,'前两章主线奖励可形成连续十级冲刺');
+  ok(Config.xpNeed(9)<=100&&Config.xpNeed(10)>=400,'Lv.10 前升级轻快，Lv.10 后切回长期成长曲线');
+
+  const journey=new GameState().newGame(); let naturallyOpen=true;
+  for(const ch of Config.story.slice(0,2)) for(const node of ch.nodes){
+    for(let i=0;i<journey.cells.length;i++) if(journey.cells[i]?.k!=='g') journey.cells[i]=null;
+    for(const q of node.need) for(let n=0;n<q.n;n++) journey._put(journey.emptyCells()[0],{k:'i',fam:q.fam,tier:q.tier});
+    if(journey.nodeState(node,ch)!=='ready'||!journey.buildNode(ch,node)){ naturallyOpen=false; break; }
+  }
+  ok(naturallyOpen&&journey.lv>=10,'正常奖励结算即可逐段解锁前两章并到达 Lv.10，无隐藏等级墙');
+}
 
 console.log('— 生成器产出 —');
 const before=s.emptyCells().length; s.energy=50;
@@ -35,6 +104,13 @@ const cdCell=s.cells[gIdx];
 ok(cdCell.cdUntil>Date.now(),'8 次后进入冷却');
 const empt=s.emptyCells().length; s.tapGenerator(gIdx);
 ok(s.emptyCells().length===empt,'冷却中不再产出');
+{
+  const warm=new GameState().newGame(),idx=warm.cells.findIndex(c=>c?.k==='g'&&c.gid==='g_fire');
+  warm.energy=7; warm.freeTaps=2; warm.cells[idx].cdUntil=Date.now()+10_000;
+  warm.tapGenerator(idx);
+  ok(warm.energy===7&&warm.freeTaps===1&&warm.cells[idx].cdUntil>Date.now(),
+    '余温生成不耗体力且可在充能期间使用，但不会篡改原冷却');
+}
 
 console.log('— 合并 —');
 s.cells.fill(null); s.boardUnlocked=48;
@@ -45,6 +121,26 @@ s._put(0,{k:'i',fam:'fire',tier:1});
 r=s.dropOn(0,1); ok(r==='move'&&s.cells[0].fam==='crystal'&&s.cells[1].fam==='fire','异族物品换位（便于整理棋盘）');
 s._put(0,{k:'i',fam:'crystal',tier:8}); s._put(2,{k:'i',fam:'crystal',tier:8});
 r=s.dropOn(0,2); ok(r==='move'&&s.cells[2].tier===8,'满级不合并但可换位');
+
+console.log('— 合并爽感反馈 —');
+{
+  const flow=new GameState().newGame(); flow.cells.fill(null); flow.boardUnlocked=48;
+  flow.lv=8; flow.energy=10; flow.coin=0; flow.xp=0;
+  const fams=['crystal','fire','wood'];
+  fams.forEach((fam,i)=>{
+    flow._put(i*2,{k:'i',fam,tier:1}); flow._put(i*2+1,{k:'i',fam,tier:1});
+    flow.dropOn(i*2,i*2+1);
+  });
+  ok(flow.stats.discover===3&&flow.coin>=6&&flow.xp>=6,'首次合成新物品立即奖励金币与经验');
+  ok(flow.energy===12&&flow.lastMergeFeedback?.combo===3&&flow.lastMergeFeedback?.energy===2,
+    '三次连续合并触发暖流连击并返还体力');
+
+  const saved=new GameState().newGame(); saved.cells.fill(null); saved.boardUnlocked=48; saved.coin=0;
+  saved._put(0,{k:'i',fam:'wood',tier:1}); saved._put(1,{k:'i',fam:'wood',tier:1}); saved.dropOn(0,1);
+  const restored=new GameState().hydrate(JSON.parse(JSON.stringify(saved.serialize()))),coinAfterDiscovery=restored.coin;
+  restored._put(2,{k:'i',fam:'wood',tier:1}); restored._put(3,{k:'i',fam:'wood',tier:1}); restored.dropOn(2,3);
+  ok(restored.stats.discover===1&&restored.coin===coinAfterDiscovery,'发现奖励随存档去重，重载不能重复刷取');
+}
 
 console.log('— 订单 —');
 s=new GameState().newGame(); s.cells.fill(null); s.boardUnlocked=48;
@@ -85,6 +181,10 @@ const ch=Config.story[0], n=ch.nodes[0];
 n.need.forEach(q=>{for(let k=0;k<q.n;k++){const i=s.emptyCells()[0];s._put(i,{k:'i',fam:q.fam,tier:q.tier});}});
 ok(s.nodeState(n,ch)==='ready','材料金币齐 -> ready');
 ok(s.buildNode(ch,n)===true && s.storyDone.includes(n.id),'重建成功并记录');
+ok(s.ownedGens.includes('g_wood')&&s.cells.some(c=>c?.k==='g'&&c.gid==='g_wood'),
+  '首段主线完成后直接获得下一段所需的雪松堆');
+ok(s.freeTaps>=6&&s.cells.some(c=>c?.k==='i'&&c.fam==='wood'),
+  '主线奖励补充余温生成次数和可立即合并的木料');
 
 console.log('— 存档往返 —');
 const json=JSON.stringify(s.serialize()); const d=JSON.parse(json);
@@ -168,12 +268,19 @@ console.log('— 剧情体系数据驱动约束 —');
   const interactive=flat.filter(({node})=>node.interaction);
   const interactionOk=interactive.every(({node})=>{
     const act=node.interaction;
-    if(act.type==='tap-sequence') return Array.isArray(act.steps)&&act.steps.length>=3&&act.steps.every(step=>
+    const copyOk=[act.title,act.prompt,act.complete].every(value=>typeof value==='string'&&value.length>=4);
+    if(act.type==='tap-sequence') return copyOk&&Array.isArray(act.steps)&&act.steps.length>=3&&act.steps.every(step=>
       typeof step.id==='string'&&typeof step.label==='string'&&step.x>=0&&step.x<=100&&step.y>=0&&step.y<=100);
-    if(act.type==='choice') return Array.isArray(act.options)&&act.options.length===3&&new Set(act.options.map(option=>option.id)).size===3;
+    if(act.type==='choice') return copyOk&&Array.isArray(act.options)&&act.options.length===3&&
+      new Set(act.options.map(option=>option.id)).size===3&&act.options.every(option=>option.name&&option.desc);
     return false;
   });
-  ok(interactive.length>=4&&interactionOk,'前三章关键节点具备合法的亲手复苏/装修选择交互');
+  ok(interactive.length>=9&&interactionOk,'前三章关键节点具备合法的亲手复苏/装修选择交互');
+  const earlyCadence=Config.story.slice(0,3).every(ch=>{
+    const acts=ch.nodes.map(node=>node.interaction?.type||'rest');
+    return acts.filter(type=>type==='tap-sequence').length>=2&&acts.includes('choice')&&acts.includes('rest');
+  });
+  ok(earlyCadence,'前三章均按操作高潮、选择与喘息节点交替编排');
   ok(Config.story.every(ch=>typeof ch.hook==='string'&&ch.hook.length>=10),'每章都有可见的悬念钩子');
   // 主线目标按顺序推进
   const s=new GameState().newGame();
@@ -202,12 +309,41 @@ console.log('— 剧情体系数据驱动约束 —');
   ok(!leaked,'祖父与陪伴向导啾可均为剧情角色，不进入订单池');
   ok(Config.orderNpcs().every(n=>typeof n.request==='string'&&n.request.length>=24&&typeof n.thanks==='string'&&n.thanks.length>=12),
     '每位派单村民都有具体请求缘由和完成回应');
-  const first=Config.story[0].nodes[0];
-  const voiced=[...Config.prologue,...first.pre,...first.dialogue].map(line=>line?.[2]?.voice);
-  const gunnar=Config.npcById('gunnar'); voiced.push(gunnar.voiceRequest,gunnar.voiceThanks);
-  ok(voiced.length===12&&voiced.every(path=>typeof path==='string'&&path.endsWith('.ogg')),'序章、首个村民请求与首个 CG 共声明 12 段离线语音');
-  const voiceResponses=await Promise.all(voiced.map(path=>fetch(path)));
-  ok(voiceResponses.every(response=>response.ok&&Number(response.headers.get('content-length')||1)>0),'12 段关键语音资产均可从游戏包读取');
+  const lineOf=line=>Array.isArray(line)?{who:line[0],say:line[1],...(line[2]||{})}:line;
+  const authored=[...Config.prologue,...(Config.profile?.prompt||[]),...(Config.profile?.confirm||[])];
+  for(const chapter of Config.story){ authored.push(...(chapter.intro||[]));
+    for(const node of chapter.nodes) authored.push(...(node.pre||[]),...(node.dialogue||[])); }
+  authored.push(...Config.epilogue);
+  const storyCards=authored.map(lineOf);
+  ok(storyCards.length>=179&&storyCards.every(line=>typeof line.voiceId==='string'&&line.voiceId),
+    '序章、昵称剧情、章节过场、24 段主线与结局的每句对白均声明稳定语音 ID');
+  ok(storyCards.filter(line=>String(line.say).includes('{{playerName}}')).every(line=>line.spoken&&!line.spoken.includes('{{')),
+    '含玩家动态昵称的可见对白声明不含占位符的录音文本');
+  const orderCards=Config.orderNpcs().flatMap(npc=>[
+    {say:npc.arrival,voiceId:npc.voiceArrivalId},{say:npc.request,voiceId:npc.voiceRequestId},{say:npc.thanks,voiceId:npc.voiceThanksId}
+  ]);
+  ok(orderCards.length===15&&orderCards.every(line=>line.say&&line.voiceId),
+    '五位村民的登场、请求与答谢 15 句全部声明离线语音');
+  const companionCards=Object.values(Config.companion||{}).flatMap(group=>Object.values(group||{}));
+  ok(companionCards.length>=20&&companionCards.every(line=>line.text&&line.voiceId),
+    '剧情教学、即时反馈与材料引导均有啾可语音提示');
+  const voiced=[...storyCards,...orderCards,...companionCards].map(line=>line.voiceId);
+  const uniqueVoices=[...new Set(voiced)];
+  ok(uniqueVoices.length===216,'完整有声脚本包含 216 个独立语音片段');
+  ok(Config.supportedLocales.length===4&&['zh-CN','en','ja','ko'].every(locale=>Config.supportedLocales.includes(locale)),
+    '文本和配音均声明中英日韩四种受支持语言');
+  const voiceJobs=Config.supportedLocales.flatMap(locale=>uniqueVoices.map(voiceId=>({locale,voiceId})));
+  const voiceResponses=[];
+  // Keep the local/CI HTTP server under a realistic connection count while
+  // still checking every shipped voice through the same URL path as the game.
+  for(let start=0;start<voiceJobs.length;start+=24){
+    voiceResponses.push(...await Promise.all(voiceJobs.slice(start,start+24).map(async ({locale,voiceId})=>{
+      const response=await fetch(Config.voiceUrl(voiceId,locale)); if(!response.ok) return false;
+      const bytes=new Uint8Array(await response.arrayBuffer());
+      return bytes.length>1000&&String.fromCharCode(...bytes.slice(0,4))==='OggS';
+    })));
+  }
+  ok(voiceResponses.length===864&&voiceResponses.every(Boolean),'中英日韩 864 条剧情语音均可读取，且为非空 Ogg/Opus 文件');
   // 角色羁绊为纯派生：完成节点后计数增长
   const bd=new GameState().newGame(); bd.setSandbox(true);
   const p=bd.sbPrepareNextStory(); bd.buildNode(p.chapter,p.node);

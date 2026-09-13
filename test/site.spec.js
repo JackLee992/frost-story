@@ -2,13 +2,13 @@ import { test, expect } from '@playwright/test';
 
 const url = 'http://127.0.0.1:8100/';
 const releasePayload = {
-  tag_name: 'v0.2.0',
+  tag_name: 'v0.3.0',
   published_at: '2026-09-11T00:00:00Z',
   body: '剧情互动版\n六章二十四节点完整贯通',
   assets: [{
     name: 'FrostStory-arm64.apk',
     size: 241001702,
-    browser_download_url: 'https://github.com/JackLee992/frost-story/releases/download/v0.2.0/FrostStory-arm64.apk'
+    browser_download_url: 'https://github.com/JackLee992/frost-story/releases/download/v0.3.0/FrostStory-arm64.apk'
   }]
 };
 
@@ -17,7 +17,7 @@ async function stubReleaseData(page) {
     status: 200, contentType: 'application/json', body: JSON.stringify(releasePayload)
   }));
   await page.route('https://raw.githubusercontent.com/JackLee992/frost-story/main/distribution/content-manifest.json', route => route.fulfill({
-    status: 200, contentType: 'application/json', body: JSON.stringify({ version: '0.2.0' })
+    status: 200, contentType: 'application/json', body: JSON.stringify({ version: '0.3.0' })
   }));
 }
 
@@ -33,9 +33,9 @@ for (const viewport of [{ width: 390, height: 844, name: 'mobile' }, { width: 14
 
     const download = page.locator('#downloadLink');
     await expect(download).toBeVisible();
-    await expect(download).toHaveAttribute('href', /releases\/download\/v0\.2\.0\/FrostStory-arm64\.apk$/);
+    await expect(download).toHaveAttribute('href', /releases\/download\/v0\.3\.0\/FrostStory-arm64\.apk$/);
     await expect(page.locator('#downloadMeta')).toContainText('230 MB');
-    await expect(page.locator('#contentVersion')).toHaveText('v0.2.0');
+    await expect(page.locator('#contentVersion')).toHaveText('v0.3.0');
     await expect(page.locator('#contentState')).toContainText('六章 24 节点');
     await expect(page.locator('.chapter-list article')).toHaveCount(6);
     expect(await page.locator('.phone-shot img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);

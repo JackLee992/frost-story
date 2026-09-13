@@ -43,8 +43,8 @@ else
   sha256="$(shasum -a 256 "${archive_path}" | awk '{print $1}')"
 fi
 
-if (( size > 67108864 )); then
-  echo "content archive exceeds the app's 64 MiB download limit" >&2
+if (( size > 134217728 )); then
+  echo "content archive exceeds the app's 128 MiB download limit" >&2
   exit 3
 fi
 

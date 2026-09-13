@@ -2,16 +2,29 @@
 async function loadJSON(f){ const r=await fetch(f); if(!r.ok) throw new Error('config missing '+f); return r.json(); }
 
 export class Config {
-  static async load(onProgress){
+  static supportedLocales=['zh-CN','en','ja','ko'];
+  static normalizeLocale(value){ const raw=String(value||'').toLowerCase();
+    if(raw.startsWith('zh')) return 'zh-CN'; if(raw.startsWith('ja')) return 'ja'; if(raw.startsWith('ko')) return 'ko';
+    if(raw.startsWith('en')) return 'en'; return 'zh-CN'; }
+  static voiceUrl(voiceId,locale='zh-CN'){ if(!voiceId) return null;
+    const lang=this.normalizeLocale(locale)==='zh-CN'?'zh':this.normalizeLocale(locale);
+    return `assets/audio/voice/${lang}/${voiceId}.ogg`; }
+  static t(key,vars={}){ const value=String(key||'').split('.').reduce((obj,part)=>obj?.[part],this.ui);
+    const template=typeof value==='string'?value:key;
+    return Object.entries(vars).reduce((text,[name,replacement])=>text.replaceAll(`{{${name}}}`,String(replacement??'')),template); }
+  static async load(onProgress,requestedLocale='zh-CN'){
     const step=(m)=>onProgress && onProgress(m);
-    step('读取数值表…');
-    const [items,npcs,balance,shop,story] = await Promise.all([
-      loadJSON('config/items.json'), loadJSON('config/npcs.json'),
-      loadJSON('config/balance.json'), loadJSON('config/shop.json'), loadJSON('config/story.json')
+    const locale=this.normalizeLocale(requestedLocale),contentRoot=locale==='zh-CN'?'config':`config/locales/${locale}`;
+    step('config');
+    const [items,npcs,balance,shop,story,ui] = await Promise.all([
+      loadJSON(`${contentRoot}/items.json`), loadJSON(`${contentRoot}/npcs.json`),
+      loadJSON(`${contentRoot}/balance.json`), loadJSON(`${contentRoot}/shop.json`), loadJSON(`${contentRoot}/story.json`),
+      loadJSON(`${contentRoot}/ui.json`)
     ]);
-    this.items=items; this.npcs=npcs.npcs; this.balance=balance; this.shop=shop;
-    this.story=story.chapters; this.prologue=story.prologue||[]; this.epilogue=story.epilogue||[];
-    step('整理合成链…');
+    this.locale=locale; this.ui=ui; this.items=items; this.npcs=npcs.npcs; this.balance=balance; this.shop=shop;
+    this.story=story.chapters; this.prologue=story.prologue||[]; this.profile=story.profile||{prompt:[],confirm:[]};
+    this.companion=story.companion||{}; this.epilogue=story.epilogue||[];
+    step('chains');
     this.families = items.families;
     this.generators = items.generators;
     this.famList = Object.keys(this.families);
@@ -40,7 +53,9 @@ export class Config {
   static unlockedFams(lv){ return this.famList.filter(f=>this.famUnlocked(f,lv)); }
   static itemName(fam,tier){ return this.families[fam].tiers[tier-1]; }
   static sellPrice(tier){ return Math.round(this.items.sellBase*Math.pow(this.items.sellGrowth,tier-1)); }
-  static xpNeed(lv){ return Math.round(this.balance.xp.base*Math.pow(lv,this.balance.xp.pow)); }
+  static xpNeed(lv){ const sprint=this.balance.xp.sprint||[];
+    if(lv>=1&&lv<=sprint.length) return sprint[lv-1];
+    return Math.round(this.balance.xp.base*Math.pow(lv,this.balance.xp.pow)); }
   static energyMax(lv){ const e=this.balance.energy; return Math.min(e.maxCap, e.baseMax + Math.floor((lv-1)/e.perLevels)*5); }
   static genById(genId){ return this.generators[genId]; }
   static npcById(id){ return this.npcs.find(n=>n.id===id); }

@@ -1,14 +1,21 @@
 {
   "name": "frost-story",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
     "test:logic": "node test/logic.test.js",
     "test:packaging": "node test/sync-android.test.js",
     "test:android-config": "node test/android-build-config.test.js",
+    "test:i18n": "node test/i18n.test.js && node test/i18n-quality.test.js",
+    "test:audio": "node test/audio.test.js",
+    "test:voice-tools": "python3 test/voice_generator_test.py",
     "test:e2e": "playwright test test/e2e.spec.js --workers=1",
-    "test": "npm run test:logic && npm run test:packaging && npm run test:android-config && npm run test:e2e"
+    "voice:manifest": "node tools/voice/build_voice_manifest.mjs",
+    "voice:generate": "python3 tools/voice/generate_all.py",
+    "voice:verify": "node tools/voice/verify_voice_assets.mjs",
+    "i18n:generate": "python3 tools/i18n/generate_locales.py",
+    "test": "npm run test:i18n && npm run test:audio && npm run test:voice-tools && npm run test:logic && npm run test:packaging && npm run test:android-config && npm run test:e2e"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",

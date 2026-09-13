@@ -21,23 +21,53 @@ for(const [side,value] of Object.entries(safeInsets)){
   document.documentElement.style.setProperty(`--native-safe-${side[0]}`,`${value}px`);
 }
 window.__frostSafeInsets=safeInsets;
+
+// Android 的软键盘在 edge-to-edge 模式下可能只缩小 visualViewport，而不改变
+// 100vh/layout viewport。把真实可见高度交给 CSS，避免昵称输入框和提交按钮落在键盘下方。
+const syncVisualViewport=()=>{
+  const viewport=window.visualViewport;
+  const height=Math.max(240,Math.min(window.innerHeight,Number(viewport?.height)||window.innerHeight));
+  const top=Math.max(0,Number(viewport?.offsetTop)||0);
+  document.documentElement.style.setProperty('--visual-vh',`${height}px`);
+  document.documentElement.style.setProperty('--visual-top',`${top}px`);
+  document.body.classList.toggle('keyboard-open',height<window.innerHeight-120);
+};
+let viewportFrame=0;
+const queueVisualViewport=()=>{ cancelAnimationFrame(viewportFrame); viewportFrame=requestAnimationFrame(syncVisualViewport); };
+syncVisualViewport();
+window.visualViewport?.addEventListener('resize',queueVisualViewport);
+window.visualViewport?.addEventListener('scroll',queueVisualViewport);
+window.addEventListener('resize',queueVisualViewport);
 const contentVersion=query.get('contentVersion')||'bundled';
 document.documentElement.dataset.contentVersion=/^[0-9A-Za-z._-]{1,64}$/.test(contentVersion)?contentVersion:'bundled';
 
 const fill=document.getElementById('loadFill'), tip=document.getElementById('loadTip');
 const setP=p=>fill.style.width=Math.round(p*100)+'%';
+const bootLocale=Config.normalizeLocale(query.get('lang')||Save.locale());
+const BOOT_TEXT={
+  'zh-CN':{title:'冰霜物语',subtitle:'合并 · 重建 · 温暖山谷',config:'读取故事与数值……',chains:'整理合成路线……',waking:'唤醒霜语谷……',failed:'加载失败'},
+  en:{title:'Frost Story',subtitle:'MERGE · REBUILD · WARM THE VALLEY',config:'Loading stories and balance…',chains:'Mapping merge chains…',waking:'Waking Frostwhisper Valley…',failed:'Failed to load'},
+  ja:{title:'フロスト・ストーリー',subtitle:'マージ · 復興 · 谷に温もりを',config:'物語を読み込み中…',chains:'マージ経路を整理中…',waking:'霜語りの谷を起こしています…',failed:'読み込みに失敗しました'},
+  ko:{title:'프로스트 스토리',subtitle:'합치고 · 다시 세우고 · 골짜기를 따뜻하게',config:'이야기와 밸런스를 불러오는 중…',chains:'합성 경로를 정리하는 중…',waking:'서리말 골짜기를 깨우는 중…',failed:'불러오기에 실패했어요'}
+};
+const boot=BOOT_TEXT[bootLocale];
+document.documentElement.lang=bootLocale;
+document.title=boot.title;
+document.querySelector('#loading .game-title').textContent=boot.title;
+document.querySelector('#loading .game-sub').textContent=boot.subtitle;
+tip.textContent=boot.waking;
 
 (async function main(){
   try{
     setP(.08);
-    await Config.load(m=>{tip.textContent=m;setP(.18);});
+    await Config.load(stage=>{tip.textContent=boot[stage]||boot.waking;setP(.18);},bootLocale);
     setP(.3);
     // 注册并预加载全部纹理
     const aliases=Object.keys(Config.textures);
     aliases.forEach(a=>PIXI.Assets.add({alias:a,src:Config.textures[a]}));
     let n=0;
     await PIXI.Assets.load(aliases,p=>{ n=p*0.5+0.3; setP(n); });
-    setP(.86); tip.textContent='唤醒霜语谷…';
+    setP(.86); tip.textContent=Config.t('loading.waking');
 
     const saved=Save.load();
     const state=new GameState();
@@ -70,6 +100,9 @@ const setP=p=>fill.style.width=Math.round(p*100)+'%';
 
     if(isNew){
       setTimeout(()=>ui.welcome(),700);
+    } else if(!state.profile?.nickname){
+      // v0.1/v0.2 存档升级后，用一小段剧情补建玩家档案，不打断或重置已有进度。
+      setTimeout(()=>ui._profileStory(),900);
     } else {
       // 老玩家：若有已开放却未看过场的章节，补播章节开场，保持故事连续
       setTimeout(()=>ui._maybeChapterIntro(),900);
@@ -78,6 +111,6 @@ const setP=p=>fill.style.width=Math.round(p*100)+'%';
     window.__game={state,scene,ui,Config,AudioMgr};
   }catch(err){
     console.error(err);
-    tip.textContent='加载失败：'+err.message;
+    tip.textContent=(Config.ui?Config.t('loading.failed',{error:err.message}):`${boot.failed}: ${err.message}`);
   }
 })();

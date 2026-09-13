@@ -1,0 +1,83 @@
+{
+  "npcs": [
+    {
+      "id": "gunnar",
+      "name": "Gunnar",
+      "title": "Old Hunter",
+      "img": "npc_gunnar.png",
+      "order": true,
+      "arrival": "The door curtain was whipped open by the wind. The snow on Gunnar's shoulders hadn't melted yet, and he clutched a frozen, cracked fire-whistle wick in his hand.",
+      "request": "The wind and snow have doused the patrol beacons again. I need to relight the markers before dark. Could you gather these supplies for me?",
+      "thanks": "When the beacon glows, everyone traveling at night knows home is just ahead.",
+      "voiceArrivalId": "gunnar_arrival",
+      "voiceRequestId": "gunnar_request",
+      "voiceThanksId": "gunnar_thanks"
+    },
+    {
+      "id": "mier",
+      "name": "Mier",
+      "title": "Baker",
+      "img": "npc_mier.png",
+      "order": true,
+      "arrival": "A faint scent of wheat drifted into the room as Mier held a freshly wiped baking tray, carefully stepping around the snow at the door.",
+      "request": "The bakery's hearth has just woken up, but the racks are still empty. Help me gather these supplies, and I'll share the first batch of bread with everyone in the square.",
+      "thanks": "Can you smell it? This is the first scent of wheat from Frostwhisper Valley since the ovens were relit.",
+      "voiceArrivalId": "mier_arrival",
+      "voiceRequestId": "mier_request",
+      "voiceThanksId": "mier_thanks"
+    },
+    {
+      "id": "bobo",
+      "name": "Bobo",
+      "title": "Penguin Postman",
+      "img": "npc_bobo.png",
+      "order": true,
+      "arrival": "A frantic jingle of bells came from outside. Bobo pulled a crooked sled toward him, several frost-covered letters peeking out of his mailbag.",
+      "request": "There's a pile of undelivered mail at the port. With these supplies, I can fix my bag and sled.",
+      "thanks": "The letters will get through. Those waiting for news shouldn't have to wait another winter.",
+      "voiceArrivalId": "bobo_arrival",
+      "voiceRequestId": "bobo_request",
+      "voiceThanksId": "bobo_thanks"
+    },
+    {
+      "id": "elsa",
+      "name": "Grandma Elsa",
+      "title": "Seamstress",
+      "img": "npc_elsa.png",
+      "order": true,
+      "arrival": "Grandma Elsa placed a stack of old winter clothes on the table; the corners still bore crooked little suns drawn by children.",
+      "request": "These old coats can no longer block the wind. I want to patch them before tonight, but I'm missing these materials.",
+      "thanks": "The stitches hold more than just against the wind; they hold the hearts of those who choose to stay.",
+      "voiceArrivalId": "elsa_arrival",
+      "voiceRequestId": "elsa_request",
+      "voiceThanksId": "elsa_thanks"
+    },
+    {
+      "id": "bar",
+      "name": "Barr",
+      "title": "Blacksmith",
+      "img": "npc_bar.png",
+      "order": true,
+      "arrival": "A heavy toolbox hit the floor. Barr spread out a bridge bolt snapped in two, its edge coated in a layer of white frost.",
+      "request": "The bolts and brackets are frozen brittle. I need these materials to forge them anew before the next wind cuts the path again.",
+      "thanks": "When the iron glows red and the forge roars, the village stays whole.",
+      "voiceArrivalId": "bar_arrival",
+      "voiceRequestId": "bar_request",
+      "voiceThanksId": "bar_thanks"
+    },
+    {
+      "id": "choco",
+      "name": "Choco",
+      "title": "Frost Spirit Guide",
+      "img": "npc_sprite.png",
+      "order": false
+    },
+    {
+      "id": "gramps",
+      "name": "Evan",
+      "title": "Old Frostweaver · Grandfather",
+      "img": "npc_gramps.png",
+      "order": false
+    }
+  ]
+}

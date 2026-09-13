@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">フロスト・ストーリー</string>
+    <string name="exit_prompt">もう一度戻るとゲームを終了します</string>
+    <string name="content_update_ready">コンテンツ %1$s をダウンロードしました。次回起動時に反映されます。</string>
+</resources>

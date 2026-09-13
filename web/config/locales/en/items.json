@@ -1,0 +1,248 @@
+{
+  "sellBase": 4,
+  "sellGrowth": 2,
+  "families": {
+    "crystal": {
+      "name": "Ice Crystal",
+      "color": "#6fc8ff",
+      "generator": "g_crystal",
+      "tiers": [
+        "Ice Shard",
+        "Crystal Chip",
+        "Hexagonal Ice Crystal",
+        "Blue Crystal Cluster",
+        "Ice Prism",
+        "Ice Crystal Crown",
+        "Frost Crystal Gem",
+        "Permafrost Diamond"
+      ]
+    },
+    "fire": {
+      "name": "Embers",
+      "color": "#ff9d4d",
+      "generator": "g_fire",
+      "tiers": [
+        "Spark",
+        "Small Flame",
+        "Torch",
+        "Charcoal Brazier",
+        "Bonfire",
+        "Warm Stove",
+        "Fireplace",
+        "Everwarm Flame"
+      ]
+    },
+    "drink": {
+      "name": "Hot Drink",
+      "color": "#e8b86d",
+      "generator": "g_drink",
+      "tiers": [
+        "Snow Water",
+        "Warm Water",
+        "Hot Tea",
+        "Hot Cocoa",
+        "Caramel Latte",
+        "Honey Brew",
+        "Spiced Mulled Wine",
+        "Sunny Special Blend"
+      ]
+    },
+    "cloth": {
+      "name": "Winter Wear",
+      "color": "#8fd3c9",
+      "generator": "g_cloth",
+      "tiers": [
+        "Ball of Yarn",
+        "Scarf",
+        "Gloves",
+        "Beanie",
+        "Sweater",
+        "Cotton Cloak",
+        "Puffer Coat",
+        "Cloudweave Robe"
+      ]
+    },
+    "wood": {
+      "name": "Lumber",
+      "color": "#c98e5a",
+      "generator": "g_wood",
+      "tiers": [
+        "Pine Branch",
+        "Log",
+        "Wood Plank",
+        "Wooden Beam",
+        "Door & Window Frame",
+        "Furniture Set",
+        "Cabin Parts",
+        "Frostwood Hall"
+      ]
+    },
+    "food": {
+      "name": "Baking",
+      "color": "#f2a6c0",
+      "generator": "g_food",
+      "tiers": [
+        "Frozen Berries",
+        "Flour",
+        "Raw Dough",
+        "Baked Flatbread",
+        "Berry Pie",
+        "Frost Sugar Cake",
+        "Gingerbread House",
+        "Feast Cake"
+      ]
+    }
+  },
+  "generators": {
+    "g_crystal": {
+      "family": "crystal",
+      "name": "Frost Crystal Vein",
+      "img": "token_crystal.png",
+      "energy": 1,
+      "tapsBeforeCd": 8,
+      "cdSec": 18,
+      "unlockLv": 1,
+      "price": 0,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 70
+        },
+        {
+          "tier": 2,
+          "w": 26
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_fire": {
+      "family": "fire",
+      "name": "Flint Spark",
+      "img": "token_fire.png",
+      "energy": 1,
+      "tapsBeforeCd": 8,
+      "cdSec": 18,
+      "unlockLv": 1,
+      "price": 0,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 70
+        },
+        {
+          "tier": 2,
+          "w": 26
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_drink": {
+      "family": "drink",
+      "name": "Old Copper Kettle",
+      "img": "token_drink.png",
+      "energy": 1,
+      "tapsBeforeCd": 9,
+      "cdSec": 20,
+      "unlockLv": 2,
+      "price": 120,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 68
+        },
+        {
+          "tier": 2,
+          "w": 28
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_wood": {
+      "family": "wood",
+      "name": "Cedar Pile",
+      "img": "token_wood.png",
+      "energy": 1,
+      "tapsBeforeCd": 9,
+      "cdSec": 22,
+      "unlockLv": 3,
+      "price": 200,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 68
+        },
+        {
+          "tier": 2,
+          "w": 28
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_cloth": {
+      "family": "cloth",
+      "name": "Yarn Basket",
+      "img": "token_cloth.png",
+      "energy": 2,
+      "tapsBeforeCd": 10,
+      "cdSec": 24,
+      "unlockLv": 4,
+      "price": 320,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 66
+        },
+        {
+          "tier": 2,
+          "w": 30
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    },
+    "g_food": {
+      "family": "food",
+      "name": "Old Oven",
+      "img": "token_food.png",
+      "energy": 2,
+      "tapsBeforeCd": 10,
+      "cdSec": 26,
+      "unlockLv": 6,
+      "price": 480,
+      "outputs": [
+        {
+          "tier": 1,
+          "w": 66
+        },
+        {
+          "tier": 2,
+          "w": 30
+        },
+        {
+          "tier": 3,
+          "w": 4
+        }
+      ],
+      "bubbleChance": 0.15
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "npcs": [
+    {
+      "id": "gunnar",
+      "name": "군나르",
+      "title": "노련한 사냥꾼",
+      "img": "npc_gunnar.png",
+      "order": true,
+      "arrival": "바람에 문 커튼이 거칠게 휘날렸다. 군나르의 어깨 위 눈은 아직 녹지 않았고, 손에는 얼어 터진 화염 신호탄 심지가 들려 있었다.",
+      "request": "산책용 화염 신호가 눈보라에 꺼져버렸군. 해가 지기 전에 이정표를 다시 밝혀야 하네. 이 물자들을 미리 준비해 줄 수 있겠나?",
+      "thanks": "화염 신호가 켜지면, 오늘 밤 길을 나서는 사람들은 모두 집이 앞에 있다는 걸 알게 될 거야.",
+      "voiceArrivalId": "gunnar_arrival",
+      "voiceRequestId": "gunnar_request",
+      "voiceThanksId": "gunnar_thanks"
+    },
+    {
+      "id": "mier",
+      "name": "미엘",
+      "title": "제빵사",
+      "img": "npc_mier.png",
+      "order": true,
+      "arrival": "은은한 밀가루 향기가 방 안으로 스며들었다. 미엘은 막 닦아낸 쟁반을 안고 문 앞의 눈을 조심스럽게 피해 걸어 들어왔다.",
+      "request": "베이커리의 화로가 이제 막 깨어났지만, 선반은 아직 비어 있네요. 이 물자들을 준비해 주시면 첫 번째 빵을 광장의 사람들과 나눌 수 있어요.",
+      "thanks": "맡아보세요? 서리말 골짜기가 다시 문을 연 후 피어오르는 첫 밀가루 향기예요.",
+      "voiceArrivalId": "mier_arrival",
+      "voiceRequestId": "mier_request",
+      "voiceThanksId": "mier_thanks"
+    },
+    {
+      "id": "bobo",
+      "name": "보보",
+      "title": "펭귄 배달부",
+      "img": "npc_bobo.png",
+      "order": true,
+      "arrival": "창밖에서 다급한 종소리가 들려왔다. 보보는 비뚤어진 썰매를 끌고 있었고, 가방 속에는 서리가 내려앉은 편지들이 몇 통 보였다.",
+      "request": "항구에 아직 배달하지 못한 편지가 쌓여 있어. 이 물자들을 주면 가방이랑 썰매를 고칠 수 있을 거야.",
+      "thanks": "편지는 꼭 전달될 거야. 소식을 기다리는 사람들이 또 한 계절을 더 기다리게 해서는 안 되니까.",
+      "voiceArrivalId": "bobo_arrival",
+      "voiceRequestId": "bobo_request",
+      "voiceThanksId": "bobo_thanks"
+    },
+    {
+      "id": "elsa",
+      "name": "엘사 할머니",
+      "title": "재봉사",
+      "img": "npc_elsa.png",
+      "order": true,
+      "arrival": "엘사 할머니는 오래된 겨울옷 더미를 탁자 위에 올려두었다. 옷자락에는 아이들이 그린 서툰 태양 그림이 남아 있었다.",
+      "request": "아이들의 낡은 겨울옷은 이제 바람을 막아주지 못해. 오늘 밤이 되기 전에 수선하고 싶은데, 이 재료들이 더 필요하구나.",
+      "thanks": "바늘땀으로 이어진 것은 단순히 옷감이 아니라, 이곳에 머물고자 하는 모두의 마음이란다.",
+      "voiceArrivalId": "elsa_arrival",
+      "voiceRequestId": "elsa_request",
+      "voiceThanksId": "elsa_thanks"
+    },
+    {
+      "id": "bar",
+      "name": "바르",
+      "title": "대장장이",
+      "img": "npc_bar.png",
+      "order": true,
+      "arrival": "무거운 공구함이 바닥에 떨어졌다. 바르는 두 동강 난 교량 못을 펼쳤고, 그 단면은 하얀 서리가 내려앉은 듯했다.",
+      "request": "교량 못과 화로 받침대가 모두 얼어붙어 부서졌어. 다음 폭풍에 길이 끊기지 않도록 이 재료들을 다시 제련해야 해.",
+      "thanks": "철이 다시 붉게 달궈지면, 화로의 불꽃이 계속 타오르는 한 마을은 무너지지 않아.",
+      "voiceArrivalId": "bar_arrival",
+      "voiceRequestId": "bar_request",
+      "voiceThanksId": "bar_thanks"
+    },
+    {
+      "id": "choco",
+      "name": "초코",
+      "title": "서리 정령 안내자",
+      "img": "npc_sprite.png",
+      "order": false
+    },
+    {
+      "id": "gramps",
+      "name": "에번",
+      "title": "노련한 서리술사 · 할아버지",
+      "img": "npc_gramps.png",
+      "order": false
+    }
+  ]
+}

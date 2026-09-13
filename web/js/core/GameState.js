@@ -6,6 +6,13 @@ import { actionFail, actionOk } from '../engine/src/action-result.js';
 
 let UID = 1;
 const nid = () => (UID++).toString(36) + Date.now().toString(36).slice(-3);
+const normalizeNickname=value=>{
+  if(typeof value!=='string') return null;
+  const nickname=value.normalize('NFKC').replace(/\s+/gu,' ').trim();
+  const length=Array.from(nickname).length;
+  if(length<1||length>12||/[\u0000-\u001f\u007f-\u009f<>{}\[\]\\]/u.test(nickname)) return null;
+  return nickname;
+};
 
 export class GameState {
   constructor(){ this.cells = new Array(Config.balance.board.cols*Config.balance.board.rows).fill(null); }
@@ -14,16 +21,21 @@ export class GameState {
   newGame(){
     const b = Config.balance;
     this.lv=1; this.xp=0;
-    this.coin=80; this.gem=5; this.warmth=0;
+    this.coin=80; this.gem=5; this.warmth=0; this.freeTaps=0;
     this.energy=b.energy.start; this.energyTs=Date.now();
     this.boardUnlocked=b.board.initialUnlocked;
     this.cells=new Array(b.board.cols*b.board.rows).fill(null);
     this.ownedGens=['g_crystal','g_fire'];
     this.boughtGens=[]; this.orders=[]; this.orderSlots=b.order.slots;
-    this.storyDone=[]; this.chaptersSeen=[]; this.storyChoices={}; this.hb={}; this.stats={merge:0,order:0,produce:0};
+    this.storyDone=[]; this.chaptersSeen=[]; this.storyChoices={}; this.hb={};
+    this.profile={nickname:''};
+    this.stats={merge:0,order:0,produce:0,discover:0};
+    this.mergeDiscoveries=[]; this._mergeFlow={count:0,lastAt:0}; this.lastMergeFeedback=null;
     this.tutorial={step:0,produced:false,merged:false,orderAccepted:false,ordered:false,unlocked:false,
       shopped:false,storyOpened:false,done:false,skipped:false};
-    this.settings={bgm:true,sfx:true,voice:true,fabSide:'right',fabY:.56,ordersCollapsed:true,questCollapsed:true};
+    const language=Config.normalizeLocale(Config.locale||'zh-CN');
+    this.settings={bgm:true,sfx:true,voice:true,language,voiceLanguage:language,
+      fabSide:'right',fabY:.56,ordersCollapsed:true,questCollapsed:true};
     this.sandbox=false; // 内测爽玩模式：无限金币/钻石/体力
     this.refreshCost=b.order.refreshCost;
     // 初始布置
@@ -33,6 +45,11 @@ export class GameState {
     this._put(14, {k:'i',fam:'crystal',tier:1});
     this._put(16, {k:'i',fam:'fire',tier:1});
     this._put(17, {k:'i',fam:'fire',tier:1});
+    // 首屏给出一条玩家亲手完成的火种连锁：四次合并就能抵达首个剧情交付。
+    // 这是早期爽点，不直接替玩家完成，也不依赖生成器随机掉落。
+    this._put(18, {k:'i',fam:'fire',tier:2});
+    this._put(19, {k:'i',fam:'fire',tier:3});
+    this._put(20, {k:'i',fam:'fire',tier:4});
     // 固定首单把第一次合并与第一次交付串成可完成闭环，避免随机订单让新手卡住。
     this.orders.push({id:nid(),npcId:'gunnar',needs:[{fam:'crystal',tier:2,n:1}],
       coin:50,xp:12,gem:0,warmth:2,accepted:false});
@@ -56,6 +73,7 @@ export class GameState {
     this.coin=int(d.coin,this.coin,0,1_000_000_000);
     this.gem=int(d.gem,this.gem,0,1_000_000_000);
     this.warmth=int(d.warmth,this.warmth,0,1_000_000_000);
+    this.freeTaps=int(d.freeTaps,this.freeTaps,0,Config.balance.earlyFlow?.freeTapsCap||24);
     this.energy=int(d.energy,this.energy,0,Config.energyMax(this.lv));
     this.energyTs=int(d.energyTs,now,0,now);
     this.boardUnlocked=int(d.boardUnlocked,Config.balance.board.initialUnlocked,Config.balance.board.initialUnlocked,total);
@@ -108,6 +126,12 @@ export class GameState {
       if(!requestedDone.has(node.id)) break outer;
       this.storyDone.push(node.id);
     }
+    // 旧存档升级到新剧情奖励表时，补回已经赢得的材料生成器，避免热更新后出现死路。
+    for(const {node} of Config.flatNodes()){
+      if(!this.storyDone.includes(node.id)) continue;
+      const ids=[node.reward?.generator,...(node.reward?.generators||[])].filter(Boolean);
+      ids.forEach(gid=>this._grantGenerator(gid));
+    }
     const validChapterIds=new Set(Config.story.map(c=>c.id));
     this.chaptersSeen=Array.isArray(d.chaptersSeen)
       ?[...new Set(d.chaptersSeen.map(Number).filter(x=>validChapterIds.has(x)))]:[];
@@ -121,12 +145,17 @@ export class GameState {
         if(value&&options.has(value)) this.storyChoices[nodeId]=value;
       }
     }
+    const nickname=normalizeNickname(d.profile?.nickname);
+    this.profile={nickname:nickname||''};
     const mapNums=(source,allowed)=>{ const out={}; if(source&&typeof source==='object'&&!Array.isArray(source)){
       for(const key of allowed){ if(hasOwn(source,key)) out[key]=int(source[key],0,0,1_000_000_000); }
     } return out; };
     const hbKeys=Config.famList.flatMap(f=>Array.from({length:8},(_,i)=>`${f}_${i+1}`));
     this.hb=mapNums(d.hb,hbKeys);
-    this.stats={...this.stats,...mapNums(d.stats,['merge','order','produce'])};
+    this.stats={...this.stats,...mapNums(d.stats,['merge','order','produce','discover'])};
+    const mergeKeys=new Set(Config.famList.flatMap(f=>Array.from({length:8},(_,i)=>`${f}_${i+1}`)));
+    this.mergeDiscoveries=[...new Set((Array.isArray(d.mergeDiscoveries)?d.mergeDiscoveries:[])
+      .filter(key=>typeof key==='string'&&mergeKeys.has(key)))];
     if(d.tutorial&&typeof d.tutorial==='object'&&!Array.isArray(d.tutorial)){
       for(const key of ['produced','merged','orderAccepted','ordered','unlocked','shopped','storyOpened','done','skipped'])
         this.tutorial[key]=!!d.tutorial[key];
@@ -137,6 +166,12 @@ export class GameState {
     }
     if(d.settings&&typeof d.settings==='object'&&!Array.isArray(d.settings)){
       this.settings.bgm=d.settings.bgm!==false; this.settings.sfx=d.settings.sfx!==false; this.settings.voice=d.settings.voice!==false;
+      // Config.locale is the language actually loaded for this session. Save.locale()
+      // selected it before hydration; an explicit ?lang= override must also be reflected
+      // by the selector instead of showing stale saved state.
+      this.settings.language=Config.normalizeLocale(Config.locale||d.settings.language);
+      this.settings.voiceLanguage=Config.supportedLocales.includes(d.settings.voiceLanguage)
+        ?d.settings.voiceLanguage:this.settings.language;
       this.settings.fabSide=d.settings.fabSide==='left'?'left':'right';
       const fabY=Number(d.settings.fabY);
       this.settings.fabY=Number.isFinite(fabY)?Math.min(1,Math.max(0,fabY)):.56;
@@ -152,7 +187,8 @@ export class GameState {
     return {v:1,lv:this.lv,xp:this.xp,coin:this.coin,gem:this.gem,warmth:this.warmth,
       energy:this.energy,energyTs:this.energyTs,boardUnlocked:this.boardUnlocked,cells:this.cells,
       ownedGens:this.ownedGens,boughtGens:this.boughtGens,orders:this.orders,orderSlots:this.orderSlots,
-      storyDone:this.storyDone,chaptersSeen:this.chaptersSeen,storyChoices:this.storyChoices,hb:this.hb,stats:this.stats,tutorial:this.tutorial,settings:this.settings,
+      storyDone:this.storyDone,chaptersSeen:this.chaptersSeen,storyChoices:this.storyChoices,profile:this.profile,hb:this.hb,stats:this.stats,
+      freeTaps:this.freeTaps,mergeDiscoveries:this.mergeDiscoveries,tutorial:this.tutorial,settings:this.settings,
       sandbox:!!this.sandbox,
       refreshCost:this.refreshCost};
   }
@@ -225,7 +261,55 @@ export class GameState {
   _dist(i,r,c){ const rr=Math.floor(i/this.cols), cc=i%this.cols; return Math.abs(rr-r)+Math.abs(cc-c); }
   countItem(fam,tier){ let n=0; for(const c of this.cells){ if(c&&c.k==='i'&&!c.bubble&&c.fam===fam&&c.tier===tier) n++; } return n; }
   _seenAll(){ for(const c of this.cells) if(c&&c.k==='i') this._seen(c.fam,c.tier); }
-  _seen(fam,tier){ const k=fam+'_'+tier; this.hb[k]=(this.hb[k]||0)+1; }
+  _seen(fam,tier){ const k=fam+'_'+tier, first=!this.hb[k]; this.hb[k]=(this.hb[k]||0)+1; return first; }
+
+  // 将“缺什么”翻译为玩家可执行的来源：哪个生成器、完整合成链、基础材料量，
+  // 并判断当前棋盘是否已经能通过合法的两两合并做出来。
+  materialSource(fam,tier,count=1){
+    const family=Config.families[fam], generatorId=family?.generator, generator=generatorId&&Config.genById(generatorId);
+    if(!family||!generator) return null;
+    tier=Math.max(1,Math.min(8,Math.trunc(Number(tier)||1)));
+    count=Math.max(1,Math.min(99,Math.trunc(Number(count)||1)));
+    const available=Array.from({length:tier},(_,i)=>this.countItem(fam,i+1));
+    for(let i=0;i<tier-1;i++){ available[i+1]+=Math.floor(available[i]/2); }
+    let nextPair=[];
+    for(let t=1;t<tier&&!nextPair.length;t++) nextPair=this.cells
+      .map((cell,idx)=>cell?.k==='i'&&!cell.bubble&&cell.fam===fam&&cell.tier===t?idx:-1)
+      .filter(idx=>idx>=0).slice(0,2);
+    if(nextPair.length<2) nextPair=[];
+    const shop=Config.shop.generators.find(entry=>entry.id===generatorId);
+    const generatorIndex=this.cells.findIndex(cell=>cell?.k==='g'&&cell.gid===generatorId);
+    return {fam,tier,count,itemName:family.tiers[tier-1],familyName:family.name,
+      generatorId,generatorName:generator.name,generatorIndex,
+      owned:this.ownedGens.includes(generatorId),unlockLv:shop?.unlockLv??generator.unlockLv,
+      price:shop?.price??generator.price??0,locked:this.lv<(shop?.unlockLv??generator.unlockLv),
+      path:family.tiers.slice(0,tier),baseNeeded:count*Math.pow(2,tier-1),boardCanCraft:available[tier-1]>=count,nextPair};
+  }
+
+  _grantGenerator(gid,anchor=7){
+    const def=Config.genById(gid); if(!def) return null;
+    if(!this.ownedGens.includes(gid)) this.ownedGens.push(gid);
+    let idx=this.cells.findIndex(cell=>cell?.k==='g'&&cell.gid===gid),placed=false;
+    if(idx<0){ idx=this.nearestEmpty(anchor); if(idx>=0){ this._put(idx,{k:'g',gid,taps:0,cdUntil:0}); placed=true; } }
+    return {gid,idx,placed,name:def.name};
+  }
+  placeOwnedGenerator(gid){
+    if(!this.ownedGens.includes(gid)) return actionFail('generator_not_owned');
+    const granted=this._grantGenerator(gid);
+    if(!granted||granted.idx<0){ bus.emit('toast',{msg:Config.t('errors.boardFull')}); return actionFail('board_full'); }
+    if(granted.placed) this.changed('placeGen',{idx:granted.idx,gid});
+    return actionOk(granted);
+  }
+  _spawnRewardItems(starter,anchor=7){ const spawns=[];
+    for(const entry of (Array.isArray(starter)?starter:[])){
+      if(!Config.families[entry?.fam]) continue;
+      const tier=Math.max(1,Math.min(8,Math.trunc(Number(entry.tier)||1)));
+      const count=Math.max(0,Math.min(12,Math.trunc(Number(entry.n)||0)));
+      for(let i=0;i<count;i++){ const idx=this.nearestEmpty(anchor); if(idx<0) return spawns;
+        const item=this._put(idx,{k:'i',fam:entry.fam,tier}); this._seen(entry.fam,tier); spawns.push({idx,item}); }
+    }
+    return spawns;
+  }
 
   // ---------- 体力 ----------
   energyTick(){
@@ -243,23 +327,25 @@ export class GameState {
   tapGenerator(idx){
     const cell=this.cells[idx]; if(!cell||cell.k!=='g') return;
     const g=Config.genById(cell.gid); const now=Date.now();
-    if(cell.cdUntil>now){ bus.emit('toast',{msg:'生成器充能中…'}); return; }
-    if(!this.sandbox && this.energy<g.energy){ bus.emit('toast',{msg:'体力不足，等它恢复或去商店看看'}); bus.emit('noEnergy'); return; }
+    const boosted=!this.sandbox&&this.freeTaps>0;
+    if(cell.cdUntil>now&&!boosted){ bus.emit('toast',{msg:Config.t('errors.workbenchResting')}); return; }
+    if(!this.sandbox&&!boosted&&this.energy<g.energy){ bus.emit('toast',{msg:Config.t('errors.noEnergy')}); bus.emit('noEnergy'); return; }
     const empt=this.emptyCells(true);
-    if(!empt.length){ bus.emit('toast',{msg:'棋盘满了，合并或出售一些物品吧'}); this.changed('boardFull'); return; }
-    if(!this.sandbox){
+    if(!empt.length){ bus.emit('toast',{msg:Config.t('errors.boardFull')}); this.changed('boardFull'); return; }
+    if(boosted) this.freeTaps--;
+    else if(!this.sandbox){
       this.energy-=g.energy;
       if(this.energy===Config.energyMax(this.lv)-g.energy) this.energyTs=now;
     }
-    cell.taps=(cell.taps||0)+1; this.stats.produce++;
+    if(!boosted) cell.taps=(cell.taps||0)+1; this.stats.produce++;
     const out=RNG.weighted(g.outputs); let tier=out.tier;
     const bubble=RNG.chance(g.bubbleChance);
     const to=this.nearestEmpty(idx);
     const item=this._put(to,{k:'i',fam:g.family,tier,bubble,bubbleAt:bubble?now:0});
     this._seen(g.family,tier);
-    if(!this.sandbox && cell.taps>=g.tapsBeforeCd){ cell.cdUntil=now+g.cdSec*1000; cell.taps=0; }
+    if(!this.sandbox&&!boosted&&cell.taps>=g.tapsBeforeCd){ cell.cdUntil=now+g.cdSec*1000; cell.taps=0; }
     this.tutorial.produced=true;
-    this.changed('produce',{from:idx,to,item});
+    this.changed('produce',{from:idx,to,item,boosted});
   }
   genCdRemain(cell){ return Math.max(0,Math.ceil(((cell.cdUntil||0)-Date.now())/1000)); }
 
@@ -271,18 +357,34 @@ export class GameState {
     if(from===to) return 'invalid';
     const a=this.cells[from], b=this.cells[to];
     if(!a) return 'invalid';
-    if(!this.isUnlocked(to)){ bus.emit('toast',{msg:'这片区域还被冰封着'}); return 'invalid'; }
+    if(!this.isUnlocked(to)){ bus.emit('toast',{msg:Config.t('errors.frozen')}); return 'invalid'; }
     if(!b){ this.cells[to]=a; this.cells[from]=null; this.changed('move',{from,to}); return 'move'; }
     if(a.k==='i'&&b.k==='i'&&!a.bubble&&!b.bubble&&a.fam===b.fam&&a.tier===b.tier&&a.tier<8){
       const merged={k:'i',fam:a.fam,tier:a.tier+1};
       this.cells[from]=null; this.cells[to]=merged; merged.uid=nid();
       this._seen(merged.fam,merged.tier); this.stats.merge++;
+      const flow=Config.balance.earlyFlow||{}, objective=this.currentObjective();
+      const early=(objective?.chapter.id||999)<=(flow.maxChapter||3), now=Date.now();
+      if(!early) this._mergeFlow={count:0,lastAt:0};
+      else if(now-this._mergeFlow.lastAt<=(flow.comboWindowMs||6000)) this._mergeFlow.count++;
+      else this._mergeFlow.count=1;
+      if(early) this._mergeFlow.lastAt=now;
+      const key=`${merged.fam}_${merged.tier}`, discovered=!this.mergeDiscoveries.includes(key);
+      let coin=0,xp=0,energy=0,warmth=0;
+      if(discovered){ this.mergeDiscoveries.push(key); this.stats.discover++;
+        coin=merged.tier*(flow.discoveryCoinPerTier??2); xp=merged.tier*(flow.discoveryXpPerTier??2); this.coin+=coin; }
+      const combo=early?this._mergeFlow.count:0;
+      if(combo===3){ energy=flow.comboEnergyAt3??2; this.energy=Math.min(Config.energyMax(this.lv),this.energy+energy); }
+      if(combo===5){ const bonusCoin=flow.comboCoinAt5??10; coin+=bonusCoin; warmth=flow.comboWarmthAt5??1; this.coin+=bonusCoin; this.warmth+=warmth; }
+      const levelUps=xp?this.addXp(xp,false):[];
+      this.lastMergeFeedback={combo,discovered,itemName:Config.itemName(merged.fam,merged.tier),coin,xp,energy,warmth,levelUps};
+      if(combo>=5) this._mergeFlow={count:0,lastAt:now};
       this.tutorial.merged=true;
-      this.changed('merge',{from,to,item:merged}); return 'merge';
+      this.changed('merge',{from,to,item:merged,feedback:this.lastMergeFeedback,levelUps}); return 'merge';
     }
     // 同类生成器换位 / 无效
     if(a.k===b.k){ this.cells[to]=a; this.cells[from]=b; this.changed('swap',{from,to}); return 'move'; }
-    bus.emit('toast',{msg:'只有两个相同的物品才能合并'}); return 'invalid';
+    bus.emit('toast',{msg:Config.t('errors.sameItems')}); return 'invalid';
   }
   sellAt(idx){ const c=this.cells[idx]; if(!c||c.k!=='i') return 0;
     const price=Config.sellPrice(c.tier); this.coin+=price; this.cells[idx]=null;
@@ -297,8 +399,8 @@ export class GameState {
   }
   unlockNext(){
     const info=this.unlockInfo(); if(!info) return actionFail('fully_unlocked');
-    if(this.lv<info.needLv){ bus.emit('toast',{msg:`需要等级 Lv.${info.needLv} 才能融化这片冰`}); return actionFail('level_locked'); }
-    if(!this.canPayCoin(info.cost)){ bus.emit('toast',{msg:'金币不足'}); return actionFail('insufficient_coin'); }
+    if(this.lv<info.needLv){ bus.emit('toast',{msg:Config.t('errors.needLevel',{level:info.needLv})}); return actionFail('level_locked'); }
+    if(!this.canPayCoin(info.cost)){ bus.emit('toast',{msg:Config.t('errors.noCoins')}); return actionFail('insufficient_coin'); }
     this.payCoin(info.cost); this.boardUnlocked++; this.tutorial.unlocked=true;
     const idx=this.boardUnlocked-1;
     this.changed('unlock',{idx});
@@ -343,7 +445,7 @@ export class GameState {
     const ord=this.orders[slot];
     if(!ord) return actionFail('invalid_order');
     if(!ord.accepted) return actionFail('order_not_accepted');
-    if(!this.orderReady(ord)){ bus.emit('toast',{msg:'材料还没凑齐'}); return actionFail('requirements_not_met'); }
+    if(!this.orderReady(ord)){ bus.emit('toast',{msg:Config.t('errors.requirements')}); return actionFail('requirements_not_met'); }
     // 扣材料
     for(const q of ord.needs){ let left=q.n;
       for(let i=0;i<this.cells.length&&left>0;i++){ const c=this.cells[i];
@@ -362,7 +464,7 @@ export class GameState {
     if(!this.orders[slot]) return actionFail('invalid_order');
     if(this.orders[slot].accepted) return actionFail('order_already_accepted');
     const cost=this.refreshCost;
-    if(!this.canPayCoin(cost)){ bus.emit('toast',{msg:'金币不足'}); return actionFail('insufficient_coin'); }
+    if(!this.canPayCoin(cost)){ bus.emit('toast',{msg:Config.t('errors.noCoins')}); return actionFail('insufficient_coin'); }
     this.payCoin(cost);
     this.orders[slot]=this._genOrder(this.orders.filter((_,i)=>i!==slot).map(o=>o.npcId));
     this.refreshCost=Math.round(this.refreshCost*Config.balance.order.refreshGrowth);
@@ -371,7 +473,8 @@ export class GameState {
   }
 
   // ---------- 经验 / 等级 ----------
-  addXp(n){
+  addXp(n,announce=true){
+    n=Math.max(0,Math.min(1_000_000,Math.trunc(Number(n)||0)));
     this.xp+=n; const ups=[];
     while(this.xp>=Config.xpNeed(this.lv)){ this.xp-=Config.xpNeed(this.lv); this.lv++;
       const r=Config.balance.levelRewards;
@@ -379,16 +482,17 @@ export class GameState {
       this.coin+=reward.coin; this.gem+=reward.gem; this.energy=Config.energyMax(this.lv); this.energyTs=Date.now();
       ups.push({lv:this.lv,reward,text:this._unlockText(this.lv)});
     }
-    if(ups.length){ this.changed('levelup',{ups}); bus.emit('sfx','unlock'); }
+    if(ups.length&&announce){ this.changed('levelup',{ups}); bus.emit('sfx','unlock'); }
+    return ups;
   }
   _unlockText(lv){ const u=Config.balance.unlocks.find(x=>x.lv===lv); return u?u.text:''; }
 
   // ---------- 商店 ----------
   buyChest(cid){
     const c=Config.shop.chests.find(x=>x.id===cid); if(!c) return actionFail('unknown_product');
-    if(this.lv<c.unlockLv){ bus.emit('toast',{msg:`Lv.${c.unlockLv} 解锁`}); return actionFail('level_locked'); }
-    if(!this.canPayCoin(c.price)){ bus.emit('toast',{msg:'金币不足'}); return actionFail('insufficient_coin'); }
-    const to=this.nearestEmpty(Math.floor(this.cells.length/2)); if(to<0){ bus.emit('toast',{msg:'棋盘满了'}); return actionFail('board_full'); }
+    if(this.lv<c.unlockLv){ bus.emit('toast',{msg:Config.t('source.lockedUntil',{level:c.unlockLv})}); return actionFail('level_locked'); }
+    if(!this.canPayCoin(c.price)){ bus.emit('toast',{msg:Config.t('errors.noCoins')}); return actionFail('insufficient_coin'); }
+    const to=this.nearestEmpty(Math.floor(this.cells.length/2)); if(to<0){ bus.emit('toast',{msg:Config.t('errors.boardFull')}); return actionFail('board_full'); }
     this.payCoin(c.price);
     this._put(to,{k:'c',cid,openAt:this.sandbox?Date.now():Date.now()+c.openSec*1000});
     this.changed('buyChest',{idx:to}); bus.emit('sfx','click');
@@ -399,7 +503,7 @@ export class GameState {
   skipChest(idx,free=false){
     const c=this.cells[idx]; if(!c||c.k!=='c') return actionFail('invalid_chest');
     const def=this.chestInfo(c); if(!def) return actionFail('unknown_product');
-    if(!free){ if(!this.canPayGem(def.skipGem)){ bus.emit('toast',{msg:'钻石不足'}); return actionFail('insufficient_gem'); } this.payGem(def.skipGem); }
+    if(!free){ if(!this.canPayGem(def.skipGem)){ bus.emit('toast',{msg:Config.t('errors.noGems')}); return actionFail('insufficient_gem'); } this.payGem(def.skipGem); }
     return this._openChest(idx,def);
   }
   _openChest(idx,def){
@@ -416,19 +520,19 @@ export class GameState {
   }
   buyGenerator(gid){
     const entry=Config.shop.generators.find(x=>x.id===gid); if(!entry) return actionFail('unknown_product');
-    if(this.lv<entry.unlockLv){ bus.emit('toast',{msg:`Lv.${entry.unlockLv} 解锁`}); return actionFail('level_locked'); }
-    if(this.boughtGens.includes(gid)||this.ownedGens.includes(gid)){ bus.emit('toast',{msg:'已经拥有了'}); return actionFail('already_owned'); }
-    if(!this.canPayCoin(entry.price)){ bus.emit('toast',{msg:'金币不足'}); return actionFail('insufficient_coin'); }
-    const to=this.nearestEmpty(7); if(to<0){ bus.emit('toast',{msg:'棋盘满了'}); return actionFail('board_full'); }
+    if(this.lv<entry.unlockLv){ bus.emit('toast',{msg:Config.t('source.lockedUntil',{level:entry.unlockLv})}); return actionFail('level_locked'); }
+    if(this.boughtGens.includes(gid)||this.ownedGens.includes(gid)){ bus.emit('toast',{msg:Config.t('errors.alreadyOwned')}); return actionFail('already_owned'); }
+    if(!this.canPayCoin(entry.price)){ bus.emit('toast',{msg:Config.t('errors.noCoins')}); return actionFail('insufficient_coin'); }
+    const to=this.nearestEmpty(7); if(to<0){ bus.emit('toast',{msg:Config.t('errors.boardFull')}); return actionFail('board_full'); }
     this.payCoin(entry.price); this.ownedGens.push(gid); this.boughtGens.push(gid);
     this._put(to,{k:'g',gid,taps:0,cdUntil:0});
     this.changed('buyGen',{idx:to}); bus.emit('sfx','unlock');
     return actionOk({idx:to,gid,price:entry.price});
   }
   buyEnergyPotion(){ const p=Config.shop.energyPotion;
-    if(!this.canPayGem(p.gem)){ bus.emit('toast',{msg:'钻石不足'}); return actionFail('insufficient_gem'); }
+    if(!this.canPayGem(p.gem)){ bus.emit('toast',{msg:Config.t('errors.noGems')}); return actionFail('insufficient_gem'); }
     this.payGem(p.gem); this.energy=Config.energyMax(this.lv); this.energyTs=Date.now();
-    this.changed('energy'); bus.emit('sfx','reward'); bus.emit('toast',{msg:'体力已回满'});
+    this.changed('energy'); bus.emit('sfx','reward'); bus.emit('toast',{msg:Config.t('errors.energyFull')});
     return actionOk({energy:this.energy,cost:p.gem});
   }
 
@@ -444,19 +548,36 @@ export class GameState {
     return (hasCoin&&hasItems)?'ready':'lack';
   }
   buildNode(chapter,node){
-    const st=this.nodeState(node,chapter); if(st!=='ready'){ bus.emit('toast',{msg: st==='lack'?'材料或金币不足':'还未解锁'}); return false; }
+    const st=this.nodeState(node,chapter); if(st!=='ready'){ bus.emit('toast',{msg:st==='lack'?Config.t('errors.notReady'):Config.t('errors.notOpen')}); return false; }
     this.payCoin(node.coin);
     for(const q of node.need){ let left=q.n; for(let i=0;i<this.cells.length&&left>0;i++){ const c=this.cells[i];
       if(c&&c.k==='i'&&c.fam===q.fam&&c.tier===q.tier){ this.cells[i]=null; left--; } } }
     this.storyDone.push(node.id);
     const rw=node.reward||{}; this.coin+=rw.coin||0; this.gem+=rw.gem||0;
-    if(rw.generator && !this.ownedGens.includes(rw.generator)){ this.ownedGens.push(rw.generator);
-      const to=this.nearestEmpty(7); if(to>=0) this._put(to,{k:'g',gid:rw.generator,taps:0,cdUntil:0}); }
-    this.changed('storyBuilt',{chapter,node}); bus.emit('sfx','unlock');
+    if(rw.energy){ this.energy=Math.min(Config.energyMax(this.lv),this.energy+rw.energy); this.energyTs=Date.now(); }
+    if(rw.freeTaps){ const cap=Config.balance.earlyFlow?.freeTapsCap||24;
+      this.freeTaps=Math.min(cap,this.freeTaps+rw.freeTaps); }
+    const levelUps=rw.xp?this.addXp(rw.xp,false):[];
+    const generatorIds=[rw.generator,...(rw.generators||[])].filter(Boolean);
+    const granted=generatorIds.map(gid=>this._grantGenerator(gid)).filter(Boolean);
+    const starterSpawns=this._spawnRewardItems(rw.starter,7);
+    this.changed('storyBuilt',{chapter,node,reward:rw,levelUps,granted,starterSpawns}); bus.emit('sfx','unlock');
     return true;
   }
 
   // ---------- 剧情推进（故事线 <-> 游戏 双向驱动） ----------
+  get playerName(){ return this.profile?.nickname||Config.t('profile.fallback'); }
+  setNickname(value){
+    const nickname=normalizeNickname(value);
+    if(!nickname) return actionFail('invalid_nickname');
+    this.profile={nickname};
+    this.changed('profile',{nickname});
+    return actionOk({nickname});
+  }
+  setVoiceLanguage(locale){
+    if(!Config.supportedLocales.includes(locale)) return actionFail('unsupported_locale');
+    this.settings.voiceLanguage=locale; this.changed('voiceLanguage',{locale}); return actionOk({locale});
+  }
   // 当前主线目标（第一个未完成节点）
   currentObjective(){ return Config.currentObjective(this.storyDone); }
   // 章节是否已对玩家开放：第 1 章常开；其余需上一章全部完成

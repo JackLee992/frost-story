@@ -246,7 +246,36 @@ class ContentUpdateManager(context: Context) {
 
     private fun isValidContentRoot(directory: File): Boolean {
         if (!directory.isDirectory) return false
-        return REQUIRED_FILES.all { relative -> File(directory, relative).isFile }
+        if (!REQUIRED_FILES.all { relative -> File(directory, relative).isFile }) return false
+        return hasCompleteVoicePack(directory)
+    }
+
+    private fun hasCompleteVoicePack(directory: File): Boolean {
+        return runCatching {
+            val manifestFile = File(directory, VOICE_MANIFEST)
+            if (!manifestFile.isFile || manifestFile.length() !in 1..MAX_VOICE_MANIFEST_BYTES) return@runCatching false
+            val json = JSONObject(manifestFile.readText(Charsets.UTF_8))
+            if (json.optInt("schema") != 1 || json.optInt("total") != EXPECTED_VOICE_FILES) return@runCatching false
+            val paths = json.optJSONArray("paths") ?: return@runCatching false
+            if (paths.length() != EXPECTED_VOICE_FILES) return@runCatching false
+            val seen = HashSet<String>(EXPECTED_VOICE_FILES)
+            val localeCounts = mutableMapOf("zh" to 0, "en" to 0, "ja" to 0, "ko" to 0)
+            for (index in 0 until paths.length()) {
+                val relative = paths.optString(index)
+                val match = VOICE_PATH_PATTERN.matchEntire(relative) ?: return@runCatching false
+                if (!seen.add(relative)) return@runCatching false
+                val locale = match.groupValues[1]
+                localeCounts[locale] = (localeCounts[locale] ?: 0) + 1
+                val clip = File(directory, relative)
+                if (!clip.isFile || clip.length() !in MIN_VOICE_BYTES..MAX_VOICE_BYTES) return@runCatching false
+                val header = clip.inputStream().buffered().use { input ->
+                    val bytes = ByteArray(4)
+                    if (input.read(bytes) == bytes.size) bytes else null
+                } ?: return@runCatching false
+                if (!header.contentEquals("OggS".toByteArray(Charsets.US_ASCII))) return@runCatching false
+            }
+            localeCounts.values.all { it == EXPECTED_VOICE_FILES_PER_LOCALE }
+        }.getOrDefault(false)
     }
 
     private fun versionDirectory(version: String) = File(versions, version)
@@ -292,17 +321,27 @@ class ContentUpdateManager(context: Context) {
         private const val PREFS = "verified_content"
         private const val KEY_ACTIVE_VERSION = "active_version"
         private const val MAX_MANIFEST_BYTES = 64L * 1024L
-        private const val MAX_ARCHIVE_BYTES = 64L * 1024L * 1024L
-        private const val MAX_UNPACKED_BYTES = 96L * 1024L * 1024L
+        private const val MAX_VOICE_MANIFEST_BYTES = 512L * 1024L
+        private const val MIN_VOICE_BYTES = 1_001L
+        private const val MAX_VOICE_BYTES = 1_000_000L
+        private const val EXPECTED_VOICE_FILES = 864
+        private const val EXPECTED_VOICE_FILES_PER_LOCALE = 216
+        private const val VOICE_MANIFEST = "assets/audio/voice/manifest.json"
+        // Four complete offline voice packs add many small, already-compressed
+        // files. Keep strict finite limits, sized for the shipped pack plus
+        // normal content growth rather than rejecting a valid signed update.
+        private const val MAX_ARCHIVE_BYTES = 128L * 1024L * 1024L
+        private const val MAX_UNPACKED_BYTES = 160L * 1024L * 1024L
         private const val MAX_ENTRY_BYTES = 16L * 1024L * 1024L
         private const val MAX_ENTRY_NAME = 240
-        private const val MAX_FILES = 512
+        private const val MAX_FILES = 2048
         private const val MAX_REDIRECTS = 5
         private const val CONNECT_TIMEOUT_MS = 5_000
         private const val READ_TIMEOUT_MS = 15_000
         private val REDIRECT_CODES = setOf(301, 302, 303, 307, 308)
         private val VERSION_PATTERN = Regex("[0-9A-Za-z][0-9A-Za-z._-]{0,63}")
         private val SHA_PATTERN = Regex("[0-9a-f]{64}")
+        private val VOICE_PATH_PATTERN = Regex("assets/audio/voice/(zh|en|ja|ko)/[a-z0-9_]+\\.ogg")
         private val ALLOWED_HOSTS = setOf(
             "raw.githubusercontent.com",
             "github.com",
@@ -314,6 +353,30 @@ class ContentUpdateManager(context: Context) {
             "css/style.css",
             "js/main.js",
             "config/story.json",
+            "config/npcs.json",
+            "config/items.json",
+            "config/shop.json",
+            "config/balance.json",
+            "config/ui.json",
+            "config/locales/en/story.json",
+            "config/locales/en/npcs.json",
+            "config/locales/en/items.json",
+            "config/locales/en/shop.json",
+            "config/locales/en/balance.json",
+            "config/locales/en/ui.json",
+            "config/locales/ja/story.json",
+            "config/locales/ja/npcs.json",
+            "config/locales/ja/items.json",
+            "config/locales/ja/shop.json",
+            "config/locales/ja/balance.json",
+            "config/locales/ja/ui.json",
+            "config/locales/ko/story.json",
+            "config/locales/ko/npcs.json",
+            "config/locales/ko/items.json",
+            "config/locales/ko/shop.json",
+            "config/locales/ko/balance.json",
+            "config/locales/ko/ui.json",
+            VOICE_MANIFEST,
             "vendor/pixi.min.js",
             "vendor/pixi-unsafe-eval.min.js"
         )

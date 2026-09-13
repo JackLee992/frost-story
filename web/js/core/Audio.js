@@ -16,7 +16,7 @@ const BGM_TRACKS = {
 const BGM_BASE_VOL=.4, BGM_DUCK_VOL=.14, WIND_URL='assets/audio/amb_wind.ogg';
 class AudioManager {
   constructor(){ this.bgmOn=true; this.sfxOn=true; this.voiceOn=true; this.bufs={}; this.ctx=null; this.ready=false;
-    this.bgmKey=null; this.bgmEl=null; this.windEl=null; this.voiceEl=null; this.pendingVoice=null;
+    this.bgmKey=null; this.bgmEl=null; this.windEl=null; this.voiceEl=null; this.pendingVoice=null; this.voiceQueue=[];
     this._windTarget=0; this._fadeTimer=0; this._unlocking=null; }
   async unlock(){
     if(this.ready){ try{await this.ctx?.resume();}catch{} this._bgPlay(); this._windPlay();
@@ -77,7 +77,11 @@ class AudioManager {
     s.connect(g).connect(this.ctx.destination); s.start(t);
   }
   playVoice(url){
-    this.stopVoice(false); this.pendingVoice=typeof url==='string'?url:null;
+    this.playVoiceSequence(typeof url==='string'?[url]:[]);
+  }
+  playVoiceSequence(urls){
+    this.stopVoice(false); this.voiceQueue=(Array.isArray(urls)?urls:[]).filter(url=>typeof url==='string'&&url);
+    this.pendingVoice=this.voiceQueue.shift()||null;
     if(!this.voiceOn||!this.pendingVoice){ this.pendingVoice=null; this._restoreBgm(); return; }
     // HTMLAudio 与 WebAudio/SFX 解码彼此独立。这里必须在玩家点击的同一调用栈
     // 直接 play，GeckoView 才会把它识别为用户授权的媒体播放；若失败，
@@ -86,17 +90,32 @@ class AudioManager {
   }
   _startVoice(url){
     if(!this.voiceOn||!url) return;
-    this.stopVoice(false); this.pendingVoice=url;
+    const previous=this.voiceEl; this.voiceEl=null;
+    if(previous){ previous.onended=null; previous.onerror=null; previous.pause(); previous.removeAttribute('src'); }
+    this.pendingVoice=url;
     const voice=new Audio(url); voice.preload='auto'; voice.volume=.96; this.voiceEl=voice;
     if(this.bgmEl) this.bgmEl.volume=BGM_DUCK_VOL;
-    const finish=()=>{ if(this.voiceEl!==voice) return; this.voiceEl=null; this.pendingVoice=null; this._restoreBgm(); };
+    const finish=()=>{ if(this.voiceEl!==voice) return; this.voiceEl=null;
+      const next=this.voiceQueue.shift();
+      if(next){ this.pendingVoice=next; this._startVoice(next); return; }
+      this.pendingVoice=null; this._restoreBgm(); };
     voice.onended=finish; voice.onerror=finish;
-    voice.play().catch(()=>{ if(this.voiceEl===voice){ this.voiceEl=null; this._restoreBgm(); } });
+    voice.play().catch(error=>{
+      if(this.voiceEl!==voice) return;
+      // The first story line can be queued before Android/WebView grants media
+      // playback. Keep that exact line pending so unlock() retries it on the
+      // player's first gesture; missing/corrupt files still advance the queue.
+      if(error?.name==='NotAllowedError'){
+        voice.onended=null; voice.onerror=null; this.voiceEl=null; voice.removeAttribute('src');
+        this.pendingVoice=url; this._restoreBgm(); return;
+      }
+      finish();
+    });
   }
   stopVoice(restore=true){
     const voice=this.voiceEl; this.voiceEl=null;
     if(voice){ voice.onended=null; voice.onerror=null; voice.pause(); voice.removeAttribute('src'); }
-    this.pendingVoice=null; if(restore) this._restoreBgm();
+    this.pendingVoice=null; this.voiceQueue=[]; if(restore) this._restoreBgm();
   }
   _restoreBgm(){ if(this.bgmEl) this.bgmEl.volume=BGM_BASE_VOL; }
   setBgm(on){ this.bgmOn=on;

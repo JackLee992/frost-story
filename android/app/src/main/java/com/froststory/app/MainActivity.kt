@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (System.currentTimeMillis() - lastBack < 2000) finish()
-                else { lastBack = System.currentTimeMillis(); Toast.makeText(this@MainActivity, "再按一次退出冰霜物语", Toast.LENGTH_SHORT).show() }
+                else { lastBack = System.currentTimeMillis(); Toast.makeText(this@MainActivity, R.string.exit_prompt, Toast.LENGTH_SHORT).show() }
             }
         })
     }
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 if (!isFinishing && !isDestroyed) {
                     Toast.makeText(
                         this,
-                        "新内容 $updatedVersion 已下载，将在下次启动时生效",
+                        getString(R.string.content_update_ready, updatedVersion),
                         Toast.LENGTH_LONG
                     ).show()
                 }

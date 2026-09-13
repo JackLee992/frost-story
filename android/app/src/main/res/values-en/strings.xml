@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Frost Story</string>
+    <string name="exit_prompt">Press back again to exit Frost Story</string>
+    <string name="content_update_ready">Content %1$s downloaded. It will be ready next time you open the game.</string>
+</resources>

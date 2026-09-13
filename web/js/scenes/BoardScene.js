@@ -332,9 +332,14 @@ export class BoardScene {
   _onChanged(p){
     this._drawGrid(); this.sync();
     if(!p||!p.type) return;
-    if(p.type==='produce' && p.to!=null){ const n=this.nodes.get(p.item.uid),m=n&&this.nodeMeta.get(n); if(m) m.born=performance.now(); this.burst(this.center(p.to),'#bfe9ff',6); }
-    if(p.type==='merge'){ this.fly(this.center(p.to),'合成 +1','#ffe08a'); }
-    if(p.type==='sell'){ this.fly(this.center(p.from),`+${p.price}`,'#ffd76a'); }
+    if(p.type==='produce' && p.to!=null){ const n=this.nodes.get(p.item.uid),m=n&&this.nodeMeta.get(n); if(m) m.born=performance.now();
+      this.burst(this.center(p.to),p.boosted?'#ffd76a':'#bfe9ff',p.boosted?10:6);
+      if(p.boosted) this.fly(this.center(p.to),Config.t('board.afterglow'),'#ffd76a'); }
+    if(p.type==='merge'){ const f=p.feedback||{},parts=[f.discovered?Config.t('board.discovery',{name:f.itemName}):Config.t('board.merge')];
+      if(f.combo>=2) parts.push(Config.t('board.combo',{count:f.combo})); if(f.energy) parts.push(Config.t('board.energy',{count:f.energy}));
+      this.fly(this.center(p.to),parts.join('  '),f.discovered?'#ffe08a':'#bfe9ff');
+      if(f.combo>=3){ this.burst(this.center(p.to),'#ffd76a',f.combo>=5?20:13); this.flash(0xffd76a,f.combo>=5?.28:.14); } }
+    if(p.type==='sell'){ this.fly(this.center(p.idx),`+${p.price}`,'#ffd76a'); }
     if(p.type==='unlock'){ this.burst(this.center(p.idx),'#bfe9ff',12); this.crack(this.center(p.idx)); this.shake(6,260); Haptics.unlock(); }
     if(p.type==='openChest'){ (p.spawns||[]).forEach(s=>this.burst(this.center(s.idx),'#ffe6a8',8)); this.flash(0xffe6a8,.35); this.shake(8,320); Haptics.chest(); }
     if(p.type==='move'||p.type==='swap'){ this.burst(this.center(p.to),'#dff1ff',5); }
@@ -362,7 +367,7 @@ export class BoardScene {
   _tickTweens(now){ const rest=[]; for(const tw of this._tweens){ let t=(now-tw.t0)/tw.dur; try{
     if(t>=1){t=1;tw.onUpdate?.(1);tw.onDone?.();} else {tw.onUpdate?.(t);rest.push(tw);}
   }catch(e){ /* 过期补间（目标已销毁）直接丢弃，绝不能中断渲染循环 */ console.warn('tween skipped',e?.message); } } this._tweens=rest; }
-  fly(pos,text,color){ const t=new PIXI.Text({text,style:{fontFamily:'PingFang SC',fontSize:15,fontWeight:'800',fill:color,stroke:{color:'#0b2138',width:3}}});
+  fly(pos,text,color){ const t=new PIXI.Text({text,style:{fontFamily:['PingFang SC','Noto Sans CJK SC','sans-serif'],fontSize:15,fontWeight:'800',fill:color,stroke:{color:'#0b2138',width:3}}});
     t.anchor.set(.5); t.position.set(pos.x,pos.y-10); this.fxLayer.addChild(t);
     this.tween(800,o=>{t.position.y=pos.y-10-34*o;t.alpha=1-o;},()=>t.destroy()); }
   burst(pos,color,n=10){ for(let i=0;i<n;i++){ const s=new PIXI.Graphics(); s.circle(0,0,3+Math.random()*3).fill(PIXI.Color.shared.setValue(color).toNumber());

@@ -1,0 +1,72 @@
+{
+  "meta": {"title": "冰霜物语", "subtitle": "合并 · 重建 · 温暖山谷"},
+  "shell": {"shop": "商店", "book": "图鉴", "valley": "山谷", "settings": "设置", "orders": "村民请求", "mainQuest": "主线任务", "sandbox": "爽玩"},
+  "common": {"close": "关闭", "continue": "继续", "cancel": "取消", "later": "稍后", "view": "查看", "locked": "尚未开放", "free": "免费", "owned": "已拥有", "coin": "金", "gem": "钻", "level": "Lv.{{level}}"},
+  "hud": {"full": "已满", "afterglow": "余温×{{count}}"},
+  "board": {"afterglow": "余温生成 · 0体力", "discovery": "新发现 · {{name}}", "merge": "合并 +1", "combo": "暖流 ×{{count}}", "energy": "+{{count}}体力"},
+  "orders": {
+    "requests": "{{count}} 个请求", "ready": "{{count}} 可交付", "active": "{{count}} 进行中", "none": "暂无",
+    "waiting": "正在等你的消息", "visiting": "{{title}}来访", "give": "交给 {{name}}", "prepare": "继续准备",
+    "listen": "听听请求", "refresh": "换一封 · {{cost}}金", "stillNeeds": "{{name}}还在等材料",
+    "arrived": "{{title}} · 来到风灯小屋", "needs": "需要这些", "saveForLater": "先放进请求箱", "accept": "我来帮你",
+    "responseTitle": "{{name}}的回应", "responsePlace": "篝火广场 · 风雪中的回音", "responseHook": "每一份委托，都是一个人留下来的理由。", "backToBoard": "回到合成盘"
+  },
+  "items": {"chainLevel": "{{family}} · {{level}}阶", "sell": "出售", "price": "{{price}} 金", "how": "查看{{name}}怎么获得"},
+  "shop": {
+    "title": "商店", "playMode": "爽玩模式", "energy": "体力", "energyBottle": "体力瓶", "energyDesc": "立即回满体力（上限 {{max}}）",
+    "chests": "宝箱", "workbenches": "材料台（永久拥有）", "chestDesc": "{{count}}件 {{min}}—{{max}}阶材料 · {{seconds}}秒开启{{lock}}",
+    "unlockAt": " · Lv.{{level}}开放", "makeFamily": "可获得“{{family}}”材料{{lock}}"
+  },
+  "valley": {"title": "霜语谷", "mainQuest": "🏮 主线任务", "journal": "📓 山谷手账", "tutorialDone": "接下来跟着主线任务，让霜语谷一点点暖起来吧。"},
+  "quest": {
+    "lookBack": "回看 ✓", "repair": "开始修复", "findMaterials": "找材料", "levelUp": "去升级", "completePrevious": "完成上一段故事后开放",
+    "openAt": "Lv.{{level}} 开放 · {{done}}/{{total}}", "previousFirst": "先完成前面的故事，这里的路才会出现",
+    "viewList": "查看所需物品", "handoverTitle": "准备修复 · {{name}}", "handoverDesc": "会消耗下面的材料和金币。确认后，故事将继续。", "prepareMore": "再准备一下", "confirm": "开始修复"
+  },
+  "source": {
+    "title": "🧭 {{item}}怎么获得", "lead": "啾可把材料的来路画在风灯里了。跟着亮起的路线走，不用猜。", "next": "🏮 下一步 · {{name}}",
+    "from": "从这里获得", "path": "合成路线", "missing": "还差 {{count}}", "fromScratch": "从头合成要 {{count}} 个基础材料",
+    "startPair": "从亮起的这对开始合", "findWorkbench": "找材料台", "findOnBoard": "在棋盘上找它", "placeWorkbench": "把材料台放上棋盘", "shopWorkbench": "去商店找它",
+    "readyChain": "棋盘上已经有一条可合成路线", "materialsReady": "材料已经齐了", "tapAndMerge": "点“{{name}}”取得材料，再把相同物品两两合并",
+    "ownedOffBoard": "已经拥有，但还没放到棋盘上", "lockedUntil": "继续玩到 Lv.{{level}} 就会开放", "availableInShop": "“{{name}}”已经在商店开放",
+    "noSource": "这件材料还没有找到获得方法", "noWorkbench": "还没有“{{name}}”，先去商店或继续主线任务", "needLevel": "先升到 Lv.{{level}}；材料可以提前准备。", "needCoins": "还差 {{count}} 金币", "hearRequests": "去听村民请求"
+  },
+  "settings": {
+    "title": "设置", "player": "🏮 提灯人", "gameLanguage": "🌐 游戏语言", "gameLanguageHelp": "界面与剧情字幕", "voiceLanguage": "🎙️ 配音语言", "voiceLanguageHelp": "可以和字幕不同",
+    "bgm": "背景音乐", "sfx": "游戏音效", "voice": "剧情语音", "playMode": "🥽 爽玩模式（内测）", "playModeHelp": "无限金币、钻石和体力，自由体验全部内容",
+    "rules": "📘 玩法规则与新手说明", "reset": "重置进度（重新开始）", "about": "冰霜物语 Frost Story v0.3<br>支持离线游玩 · 原创剧情、美术与音乐 · 全对白配音",
+    "resetTitle": "确定重新开始？", "resetDesc": "游戏进度将被清空，且无法恢复。", "resetConfirm": "清空并重新开始", "playOn": "爽玩模式已开启：资源无限", "playOff": "已关闭爽玩模式"
+  },
+  "sandbox": {
+    "title": "🥽 爽玩控制台", "status": "资源无限 · 金币、钻石、体力 ∞ · 材料台不用休息 · 宝箱立即开启",
+    "level": "直升 5 级", "levelHelp": "开放高阶材料和章节", "board": "融化全部棋盘", "boardHelp": "48 格全部开放", "benches": "全部材料台", "benchesHelp": "6 种材料一次拥有",
+    "fill": "铺满材料", "fillHelp": "每种补充 1—3阶材料", "story": "下一段剧情", "storyHelp": "备齐下一段故事所需", "chests": "宝箱立即开启", "chestsHelp": "跳过所有开箱等待", "clear": "整理棋盘", "clearHelp": "只保留材料台",
+    "close": "关闭爽玩模式", "levelDone": "已升到 Lv.{{level}} ⭐", "boardDone": "棋盘上的冰都融化了 ❄️", "benchesDone": "全部材料台已放上棋盘 🏭", "fillDone": "材料准备好了，尽情合成 ✨",
+    "storyDone": "六章故事已经全部完成 🎉", "storyPrepared": "“{{name}}”需要的材料已备齐 📜", "chestsDone": "所有宝箱都可以打开了 🎁", "clearDone": "棋盘整理好了 🧹"
+  },
+  "popups": {
+    "levelMany": "连续提升 {{count}} 级！", "levelOne": "等级提升", "levelStory": "风灯越来越亮，新的材料和故事正在醒来。", "energyFull": "体力回满", "ok": "好的",
+    "chestReady": "✨ 宝箱可以打开了", "chestReward": "打开可获得 {{count}} 件材料和金币", "openNow": "立即开启", "opening": "{{name}}开启中", "secondsLeft": "还要 {{seconds}} 秒，也可以花 {{gems}} 钻立即开启", "wait": "等待", "skipGems": "花 {{gems}} 钻跳过",
+    "boardOpen": "棋盘已经全部融化", "meltTitle": "融化冰封格", "meltDesc": "花 {{cost}} 金币融化一格冰雪，获得更多空间。", "meltLevel": "达到 Lv.{{level}} 后才能融化这里。", "melt": "融化 · {{cost}}金",
+    "noEnergyTitle": "体力不足", "noEnergyDesc": "体力会随时间恢复，也可以去商店用钻石购买体力瓶。", "gotIt": "知道了", "goShop": "去商店"
+  },
+  "profile": {
+    "role": "霜灵 · 啾可", "newPrompt": "风灯亮了。现在，把你的名字写进这段故事吧。", "editPrompt": "风灯里的名字也可以重写。以后，我该怎么称呼你？",
+    "label": "希望大家怎么称呼你？", "placeholder": "输入 1—12 个字", "help": "昵称只保存在你的游戏进度中，之后可在设置里修改。", "save": "🏮 写进风灯", "saveEdit": "保存称呼",
+    "error": "请使用 1—12 个字，不要包含括号或网页符号。", "fallback": "提灯人"
+  },
+  "dialogue": {"prologue": "序章", "request": "村民请求", "main": "主线故事", "journal": "霜语谷手记", "everyone": "众人", "review": "回顾", "skip": "跳过", "reviewTitle": "本段回顾", "back": "返回画面", "showAll": "点击显示全文"},
+  "welcome": {"chapter": "序章 · 风灯归乡", "title": "雪里，有人在等这盏灯", "tip": "戴上耳机，点亮祖父留下的风灯。", "start": "🏮 点亮风灯", "answer": "回应啾可", "tell": "告诉啾可", "enter": "跟啾可进谷"},
+  "chapter": {"short": "第{{number}}章", "mystery": "本章悬念 · {{hook}}", "enter": "进入本章 ▸"},
+  "interaction": {"restore": "亲手复苏 · {{chapter}}", "skip": "跳过动作", "step": "第 {{number}} 步：{{label}}", "progress": "完成 {{done}} / {{total}}", "continueStory": "继续故事 ▸", "myValley": "我的山谷 · {{chapter}}", "chooseLater": "暂不选择", "chooseHint": "选择一种布置，看看它会怎样改变这里", "defaultChoice": "选好的主灯", "preview": "预览 · {{name}}：{{desc}}", "adopted": "已采用 {{name}}", "useChoice": "采用这个方案 ▸", "saved": "已保存 ✓"},
+  "rewards": {"finished": "“{{name}}”完成", "finale": "霜心苏醒！", "defaultStory": "山谷里又有一处亮起了灯。", "rush": "⭐ 连升 {{count}} 级 · 已到 Lv.{{level}}", "experience": "{{count}}经验", "newWorkbench": "新材料台", "ending": "看结局", "great": "太棒了"},
+  "journal": {"origin": "📖 故事缘起", "originLocked": "完成第一处修复后开放", "partners": "🧑‍🤝‍🧑 山谷伙伴", "notMet": "尚未相识", "notExperienced": "🔒 尚未经历：{{name}}", "yourChoice": "{{icon}} 你的布置 · {{name}}"},
+  "rules": {
+    "title": "📘 玩法规则", "generate": "点材料台", "merge": "两两合并", "orders": "完成请求", "expand": "升级扩格", "story": "推进故事",
+    "mergeDesc": "两个同类、同阶物品拖到一起，会变成更高一阶；不同物品可以交换位置。", "generateDesc": "点材料台会消耗体力；连续使用后要短暂休息，体力离线也会恢复。",
+    "ordersDesc": "先听村民说明来意，回应“我来帮你”后请求才会开始。备齐材料交付，还会听到角色的后续。", "boardDesc": "点带雪锁的格子可花金币融化；霜泡可以直接点破，宝箱倒计时结束后即可开启。",
+    "storyDesc": "打开任务架里的“主线任务”或进入“山谷”，依次经历 6 章 24 段故事，唤醒霜心、迎回春天。手账会留下世界和伙伴们的回忆。", "done": "知道了，开始合并"
+  },
+  "errors": {"boardFull": "棋盘满了，先合并或出售一些物品", "workbenchResting": "材料台正在休息……", "noEnergy": "体力不足，等它恢复或去商店看看", "frozen": "这片区域还被冰封着", "sameItems": "只有两个相同的物品才能合并", "needLevel": "需要达到 Lv.{{level}} 才能融化这片冰", "noCoins": "金币不足", "noGems": "钻石不足", "requirements": "材料还没备齐", "alreadyOwned": "已经拥有了", "energyFull": "体力已回满", "notReady": "材料或金币还没备齐", "notOpen": "这里还没有开放"},
+  "loading": {"config": "读取故事与数值……", "chains": "整理合成路线……", "waking": "唤醒霜语谷……", "failed": "加载失败：{{error}}"}
+}

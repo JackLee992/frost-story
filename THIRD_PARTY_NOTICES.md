@@ -22,3 +22,15 @@ Frost Story includes the following third-party components:
 - Project: <https://mozilla.github.io/geckoview/>
 - License information: <https://www.mozilla.org/MPL/2.0/>
 - GeckoView is supplied to the Android application through Mozilla's Maven artifacts.
+
+## Kokoro-82M
+
+- Project/model: <https://huggingface.co/hexgrad/Kokoro-82M>
+- Used to synthesize the original Simplified Chinese, English and Japanese dialogue scripts; no real-person voice clone is used.
+- License: Apache License 2.0. The upstream model card also lists attribution for CC BY training sources.
+
+## MeloTTS-Korean
+
+- Project/model: <https://huggingface.co/myshell-ai/MeloTTS-Korean>
+- Used to synthesize the original Korean dialogue script; no real-person voice clone is used.
+- License: MIT.
